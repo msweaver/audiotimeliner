@@ -271,6 +271,16 @@ public class UIUtilities {
     }
     
     /**
+     * Given a pixel amount, converts it to look right in different screen resolutions
+     */
+    static public int scalePixels(int size) {
+    	
+	    double ppi = Toolkit.getDefaultToolkit().getScreenResolution();
+	    int newsize = (int)Math.round( size / (110 / ppi));
+	    return newsize;
+    }
+    
+    /**
      * Given a string of the form hh:mm:ss or mm:ss, returns the total
      * milliseconds
      *

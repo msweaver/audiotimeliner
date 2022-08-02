@@ -460,11 +460,11 @@ public class TimelineControlPanel extends JPanel {
     setEnterAction(btnAddTimepoint);
     btnAddTimepoint.setToolTipText("Create a bubble by adding a timepoint at the current location");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnAddTimepoint.setMinimumSize(new Dimension(85, 23));
-      btnAddTimepoint.setPreferredSize(new Dimension(85, 23));
+      btnAddTimepoint.setMinimumSize(new Dimension(UIUtilities.scalePixels(85), UIUtilities.scalePixels(23)));
+      btnAddTimepoint.setPreferredSize(new Dimension(UIUtilities.scalePixels(85), UIUtilities.scalePixels(23)));
     } else {
-      btnAddTimepoint.setMinimumSize(new Dimension(80, 23));//(133, 23));
-      btnAddTimepoint.setPreferredSize(new Dimension(80, 23));//(133, 23));
+      btnAddTimepoint.setMinimumSize(new Dimension(UIUtilities.scalePixels(80), UIUtilities.scalePixels(23)));//(133, 23));
+      btnAddTimepoint.setPreferredSize(new Dimension(UIUtilities.scalePixels(80), UIUtilities.scalePixels(23)));//(133, 23));
     }
     btnAddTimepoint.setMargin(new Insets(0, 0, 0, 0));
     btnAddTimepoint.addActionListener(new ActionListener() {
@@ -482,11 +482,11 @@ public class TimelineControlPanel extends JPanel {
     setEnterAction(btnAddMarker);
     btnAddMarker.setToolTipText("Mark an event at the current location");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnAddMarker.setMinimumSize(new Dimension(85, 23));
-      btnAddMarker.setPreferredSize(new Dimension(85, 23));
+      btnAddMarker.setMinimumSize(new Dimension(UIUtilities.scalePixels(85), UIUtilities.scalePixels(23)));
+      btnAddMarker.setPreferredSize(new Dimension(UIUtilities.scalePixels(85), UIUtilities.scalePixels(23)));
     } else {
-      btnAddMarker.setMinimumSize(new Dimension(80, 23));//(133, 23));
-      btnAddMarker.setPreferredSize(new Dimension(80, 23));//(133, 23));
+      btnAddMarker.setMinimumSize(new Dimension(UIUtilities.scalePixels(80), UIUtilities.scalePixels(23)));//(133, 23));
+      btnAddMarker.setPreferredSize(new Dimension(UIUtilities.scalePixels(80), UIUtilities.scalePixels(23)));//(133, 23));
     }
     btnAddMarker.setMargin(new Insets(0, 0, 0, 0));
     btnAddMarker.addActionListener(new ActionListener() {
@@ -502,11 +502,11 @@ public class TimelineControlPanel extends JPanel {
     btnChangeColor.setFont(timelineFont);
     btnChangeColor.setToolTipText("Change the color of the selected bubble(s)");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnChangeColor.setMinimumSize(new Dimension(85, 23));
-      btnChangeColor.setPreferredSize(new Dimension(85, 23));
+      btnChangeColor.setMinimumSize(new Dimension(UIUtilities.scalePixels(85), UIUtilities.scalePixels(23)));
+      btnChangeColor.setPreferredSize(new Dimension(UIUtilities.scalePixels(85), UIUtilities.scalePixels(23)));
     } else {
-      btnChangeColor.setMinimumSize(new Dimension(80, 23));
-      btnChangeColor.setPreferredSize(new Dimension(80, 23));
+      btnChangeColor.setMinimumSize(new Dimension(UIUtilities.scalePixels(80), UIUtilities.scalePixels(23)));
+      btnChangeColor.setPreferredSize(new Dimension(UIUtilities.scalePixels(80), UIUtilities.scalePixels(23)));
     }
     btnChangeColor.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnChangeColor);
@@ -523,11 +523,11 @@ public class TimelineControlPanel extends JPanel {
     btnDeleteBubble.setFont(timelineFont);
     btnDeleteBubble.setToolTipText("Delete the selected bubble(s)");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnDeleteBubble.setMinimumSize(new Dimension(65, 23));
-      btnDeleteBubble.setPreferredSize(new Dimension(65, 23));
+      btnDeleteBubble.setMinimumSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
+      btnDeleteBubble.setPreferredSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
     } else {
-      btnDeleteBubble.setMinimumSize(new Dimension(55, 23));
-      btnDeleteBubble.setPreferredSize(new Dimension(55, 23));
+      btnDeleteBubble.setMinimumSize(new Dimension(UIUtilities.scalePixels(55), UIUtilities.scalePixels(23)));
+      btnDeleteBubble.setPreferredSize(new Dimension(UIUtilities.scalePixels(55), UIUtilities.scalePixels(23)));
     }
     btnDeleteBubble.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnDeleteBubble);
@@ -544,11 +544,11 @@ public class TimelineControlPanel extends JPanel {
     btnDeleteTimepointOrMarker.setFont(timelineFont);
     btnDeleteTimepointOrMarker.setToolTipText("Delete the selected timepoint or marker");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnDeleteTimepointOrMarker.setMinimumSize(new Dimension(65, 23));
-      btnDeleteTimepointOrMarker.setPreferredSize(new Dimension(65, 23));
+      btnDeleteTimepointOrMarker.setMinimumSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
+      btnDeleteTimepointOrMarker.setPreferredSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
     } else {
-      btnDeleteTimepointOrMarker.setMinimumSize(new Dimension(55, 23));
-      btnDeleteTimepointOrMarker.setPreferredSize(new Dimension(55, 23));
+      btnDeleteTimepointOrMarker.setMinimumSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
+      btnDeleteTimepointOrMarker.setPreferredSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
     }
     btnDeleteTimepointOrMarker.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnDeleteTimepointOrMarker);
@@ -572,11 +572,11 @@ public class TimelineControlPanel extends JPanel {
     btnEditProperties.setFont(timelineFont);
     btnEditProperties.setToolTipText("Edit the timeline properties");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnEditProperties.setMinimumSize(new Dimension(120, 23));
-      btnEditProperties.setPreferredSize(new Dimension(120, 23));
+      btnEditProperties.setMinimumSize(new Dimension(UIUtilities.scalePixels(120), UIUtilities.scalePixels(23)));
+      btnEditProperties.setPreferredSize(new Dimension(UIUtilities.scalePixels(120), UIUtilities.scalePixels(23)));
     } else {
-      btnEditProperties.setMinimumSize(new Dimension(100, 23));
-      btnEditProperties.setPreferredSize(new Dimension(100, 23));
+      btnEditProperties.setMinimumSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
+      btnEditProperties.setPreferredSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
     }
     btnEditProperties.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnEditProperties);
@@ -592,11 +592,11 @@ public class TimelineControlPanel extends JPanel {
     btnFitToWindow.setFont(timelineFont);
     btnFitToWindow.setToolTipText("Fit the timeline to the current window size");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnFitToWindow.setMinimumSize(new Dimension(95, 23));
-      btnFitToWindow.setPreferredSize(new Dimension(95, 23));
+      btnFitToWindow.setMinimumSize(new Dimension(UIUtilities.scalePixels(95), UIUtilities.scalePixels(23)));
+      btnFitToWindow.setPreferredSize(new Dimension(UIUtilities.scalePixels(95), UIUtilities.scalePixels(23)));
     } else {
-      btnFitToWindow.setMinimumSize(new Dimension(82, 23));
-      btnFitToWindow.setPreferredSize(new Dimension(82, 23));
+      btnFitToWindow.setMinimumSize(new Dimension(UIUtilities.scalePixels(82), UIUtilities.scalePixels(23)));
+      btnFitToWindow.setPreferredSize(new Dimension(UIUtilities.scalePixels(82), UIUtilities.scalePixels(23)));
     }
     btnFitToWindow.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnFitToWindow);
@@ -612,11 +612,11 @@ public class TimelineControlPanel extends JPanel {
     btnGroupBubbles.setFont(timelineFont);
     btnGroupBubbles.setToolTipText("Group the selected bubbles");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnGroupBubbles.setMinimumSize(new Dimension(65, 23));
-      btnGroupBubbles.setPreferredSize(new Dimension(65, 23));
+      btnGroupBubbles.setMinimumSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
+      btnGroupBubbles.setPreferredSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
     } else {
-      btnGroupBubbles.setMinimumSize(new Dimension(55, 23));
-      btnGroupBubbles.setPreferredSize(new Dimension(55, 23));
+      btnGroupBubbles.setMinimumSize(new Dimension(UIUtilities.scalePixels(55), UIUtilities.scalePixels(23)));
+      btnGroupBubbles.setPreferredSize(new Dimension(UIUtilities.scalePixels(55), UIUtilities.scalePixels(23)));
     }
     btnGroupBubbles.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnGroupBubbles);
@@ -634,11 +634,11 @@ public class TimelineControlPanel extends JPanel {
     btnClearAll.setToolTipText("Clear all timepoints, markers, and timeline settings");
 
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnClearAll.setMinimumSize(new Dimension(95, 23));
-      btnClearAll.setPreferredSize(new Dimension(95, 23));
+      btnClearAll.setMinimumSize(new Dimension(UIUtilities.scalePixels(95), UIUtilities.scalePixels(23)));
+      btnClearAll.setPreferredSize(new Dimension(UIUtilities.scalePixels(95), UIUtilities.scalePixels(23)));
     } else {
-      btnClearAll.setMinimumSize(new Dimension(82, 23));
-      btnClearAll.setPreferredSize(new Dimension(82, 23));
+      btnClearAll.setMinimumSize(new Dimension(UIUtilities.scalePixels(82), UIUtilities.scalePixels(23)));
+      btnClearAll.setPreferredSize(new Dimension(UIUtilities.scalePixels(82), UIUtilities.scalePixels(23)));
     }
     btnClearAll.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnClearAll);
@@ -655,11 +655,11 @@ public class TimelineControlPanel extends JPanel {
     btnEditBubble.setFont(timelineFont);
     btnEditBubble.setToolTipText("Edit the label and annotation of the selected bubble");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnEditBubble.setMinimumSize(new Dimension(85, 23));
-      btnEditBubble.setPreferredSize(new Dimension(85, 23));
+      btnEditBubble.setMinimumSize(new Dimension(UIUtilities.scalePixels(85), UIUtilities.scalePixels(23)));
+      btnEditBubble.setPreferredSize(new Dimension(UIUtilities.scalePixels(85), UIUtilities.scalePixels(23)));
     } else {
-      btnEditBubble.setMinimumSize(new Dimension(80, 23)); //(80, 23));
-      btnEditBubble.setPreferredSize(new Dimension(80, 23)); //(80, 23));
+      btnEditBubble.setMinimumSize(new Dimension(UIUtilities.scalePixels(80), UIUtilities.scalePixels(23))); //(80, 23));
+      btnEditBubble.setPreferredSize(new Dimension(UIUtilities.scalePixels(80), UIUtilities.scalePixels(23))); //(80, 23));
     }
     btnEditBubble.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnEditBubble);
@@ -679,11 +679,11 @@ public class TimelineControlPanel extends JPanel {
     btnEditTimepointOrMarker.setFont(timelineFont);
     btnEditTimepointOrMarker.setToolTipText("Edit the selected timepoint or marker");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnEditTimepointOrMarker.setMinimumSize(new Dimension(65, 23));
-      btnEditTimepointOrMarker.setPreferredSize(new Dimension(65, 23));
+      btnEditTimepointOrMarker.setMinimumSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
+      btnEditTimepointOrMarker.setPreferredSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
     } else {
-      btnEditTimepointOrMarker.setMinimumSize(new Dimension(55, 23));
-      btnEditTimepointOrMarker.setPreferredSize(new Dimension(55, 23));
+      btnEditTimepointOrMarker.setMinimumSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
+      btnEditTimepointOrMarker.setPreferredSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
     }
     btnEditTimepointOrMarker.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnEditTimepointOrMarker);
@@ -707,11 +707,11 @@ public class TimelineControlPanel extends JPanel {
     btnUngroupBubbles.setFont(timelineFont);
     btnUngroupBubbles.setToolTipText("Ungroup the selected grouped bubbles");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnUngroupBubbles.setMinimumSize(new Dimension(80, 23));
-      btnUngroupBubbles.setPreferredSize(new Dimension(80, 23));
+      btnUngroupBubbles.setMinimumSize(new Dimension(UIUtilities.scalePixels(80), UIUtilities.scalePixels(23)));
+      btnUngroupBubbles.setPreferredSize(new Dimension(UIUtilities.scalePixels(80), UIUtilities.scalePixels(23)));
     } else {
-      btnUngroupBubbles.setMinimumSize(new Dimension(55, 23));
-      btnUngroupBubbles.setPreferredSize(new Dimension(55, 23));
+      btnUngroupBubbles.setMinimumSize(new Dimension(UIUtilities.scalePixels(55), UIUtilities.scalePixels(23)));
+      btnUngroupBubbles.setPreferredSize(new Dimension(UIUtilities.scalePixels(55), UIUtilities.scalePixels(23)));
     }
     btnUngroupBubbles.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnUngroupBubbles);
@@ -727,11 +727,11 @@ public class TimelineControlPanel extends JPanel {
     btnZoomTo.setFont(timelineFont);
     btnZoomTo.setToolTipText("Zoom in to the selected bubble(s)");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnZoomTo.setMinimumSize(new Dimension(120, 23));
-      btnZoomTo.setPreferredSize(new Dimension(120, 23));
+      btnZoomTo.setMinimumSize(new Dimension(UIUtilities.scalePixels(120), UIUtilities.scalePixels(23)));
+      btnZoomTo.setPreferredSize(new Dimension(UIUtilities.scalePixels(120), UIUtilities.scalePixels(23)));
     } else {
-      btnZoomTo.setMinimumSize(new Dimension(100, 23));
-      btnZoomTo.setPreferredSize(new Dimension(100, 23));
+      btnZoomTo.setMinimumSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
+      btnZoomTo.setPreferredSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
     }
     btnZoomTo.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnZoomTo);
@@ -750,11 +750,11 @@ public class TimelineControlPanel extends JPanel {
     btnFontLarger.setFont(timelineFont);
     btnFontLarger.setToolTipText("Make the annotation text larger");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnFontLarger.setMinimumSize(new Dimension(45, 23));
-      btnFontLarger.setPreferredSize(new Dimension(45, 23));
+      btnFontLarger.setMinimumSize(new Dimension(UIUtilities.scalePixels(45), UIUtilities.scalePixels(23)));
+      btnFontLarger.setPreferredSize(new Dimension(UIUtilities.scalePixels(45), UIUtilities.scalePixels(23)));
     } else {
-      btnFontLarger.setMinimumSize(new Dimension(40, 23));
-      btnFontLarger.setPreferredSize(new Dimension(40, 23));
+      btnFontLarger.setMinimumSize(new Dimension(UIUtilities.scalePixels(40), UIUtilities.scalePixels(23)));
+      btnFontLarger.setPreferredSize(new Dimension(UIUtilities.scalePixels(40), UIUtilities.scalePixels(23)));
     }
     btnFontLarger.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnFontLarger);
@@ -790,11 +790,11 @@ public class TimelineControlPanel extends JPanel {
     btnFontSmaller.setFont(timelineFont);
     btnFontSmaller.setToolTipText("Make the annotation text smaller");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      btnFontSmaller.setMinimumSize(new Dimension(45, 23));
-      btnFontSmaller.setPreferredSize(new Dimension(45, 23));
+      btnFontSmaller.setMinimumSize(new Dimension(UIUtilities.scalePixels(45), UIUtilities.scalePixels(23)));
+      btnFontSmaller.setPreferredSize(new Dimension(UIUtilities.scalePixels(45), UIUtilities.scalePixels(23)));
     } else {
-      btnFontSmaller.setMinimumSize(new Dimension(40, 23));
-      btnFontSmaller.setPreferredSize(new Dimension(40, 23));
+      btnFontSmaller.setMinimumSize(new Dimension(UIUtilities.scalePixels(40), UIUtilities.scalePixels(23)));
+      btnFontSmaller.setPreferredSize(new Dimension(UIUtilities.scalePixels(40), UIUtilities.scalePixels(23)));
     }
     btnFontSmaller.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnFontSmaller);
@@ -832,11 +832,11 @@ public class TimelineControlPanel extends JPanel {
     radAllLevels.setToolTipText("Show the annotations for all bubble levels");
     radAllLevels.setSelected(true);
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      radAllLevels.setMinimumSize(new Dimension(72, 23));
-      radAllLevels.setPreferredSize(new Dimension(72, 23));
+      radAllLevels.setMinimumSize(new Dimension(UIUtilities.scalePixels(72), UIUtilities.scalePixels(23)));
+      radAllLevels.setPreferredSize(new Dimension(UIUtilities.scalePixels(72), UIUtilities.scalePixels(23)));
     } else {
-      radAllLevels.setMinimumSize(new Dimension(100, 23));
-      radAllLevels.setPreferredSize(new Dimension(100, 23));
+      radAllLevels.setMinimumSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
+      radAllLevels.setPreferredSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
     }
     radAllLevels.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(radAllLevels);
@@ -855,11 +855,11 @@ public class TimelineControlPanel extends JPanel {
     radSelectedLevels.setFont(timelineFont);
     radSelectedLevels.setToolTipText("Show the annotations for the selected bubble level(s)");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      radSelectedLevels.setMinimumSize(new Dimension(72, 23));
-      radSelectedLevels.setPreferredSize(new Dimension(72, 23));
+      radSelectedLevels.setMinimumSize(new Dimension(UIUtilities.scalePixels(72), UIUtilities.scalePixels(23)));
+      radSelectedLevels.setPreferredSize(new Dimension(UIUtilities.scalePixels(72), UIUtilities.scalePixels(23)));
     } else {
-      radSelectedLevels.setMinimumSize(new Dimension(70, 23));
-      radSelectedLevels.setPreferredSize(new Dimension(70, 23));
+      radSelectedLevels.setMinimumSize(new Dimension(UIUtilities.scalePixels(70), UIUtilities.scalePixels(23)));
+      radSelectedLevels.setPreferredSize(new Dimension(UIUtilities.scalePixels(70), UIUtilities.scalePixels(23)));
     }
     radSelectedLevels.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(radSelectedLevels);
@@ -881,11 +881,11 @@ public class TimelineControlPanel extends JPanel {
     chkShowMarkers.setSelected(true);
     chkShowMarkers.setToolTipText("Show the current marker annotations");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      chkShowMarkers.setMinimumSize(new Dimension(100, 23));
-      chkShowMarkers.setPreferredSize(new Dimension(100, 23));
+      chkShowMarkers.setMinimumSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
+      chkShowMarkers.setPreferredSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
     } else {
-      chkShowMarkers.setMinimumSize(new Dimension(90, 23));
-      chkShowMarkers.setPreferredSize(new Dimension(90, 23));
+      chkShowMarkers.setMinimumSize(new Dimension(UIUtilities.scalePixels(90), UIUtilities.scalePixels(23)));
+      chkShowMarkers.setPreferredSize(new Dimension(UIUtilities.scalePixels(90), UIUtilities.scalePixels(23)));
     }
     chkShowMarkers.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(chkShowMarkers);

@@ -1,0 +1,525 @@
+Aug 02 2022 02:10:39.172 [INFO ] .Session#90                    Begin
+Aug 02 2022 02:10:39.173 [INFO ] .Session#90                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:10:39.205 [INFO ] .Session#90                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:10:40.756 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:700
+Aug 02 2022 02:11:51.563 [DEBUG] timeliner.TimelineUtilities    C:\Users\Brent Yorgason\Downloads\06 When I Was Your Man.mp3
+Aug 02 2022 02:11:51.564 [DEBUG] timeliner.TimelineUtilities    06 When I Was Your Man.mp3
+Aug 02 2022 02:11:51.564 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects\timeline1.tim
+Aug 02 2022 02:11:51.564 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects
+Aug 02 2022 02:11:51.564 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects\06 When I Was Your Man.mp3
+Aug 02 2022 02:11:56.559 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#1 button clicked - continue without audio
+Aug 02 2022 02:11:56.927 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 213481, duration: 1950248
+Aug 02 2022 02:11:56.928 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 213481
+Aug 02 2022 02:11:57.398 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 02 2022 02:11:57.398 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 02 2022 02:12:00.605 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#1 button clicked - play
+Aug 02 2022 02:12:00.685 [DEBUG] timeliner.TimelineControlPanel important offset = 10
+Aug 02 2022 02:12:04.195 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#1 button clicked - stop
+Aug 02 2022 02:12:47.475 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 198037
+Aug 02 2022 02:12:47.476 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 198037
+Aug 02 2022 02:12:47.596 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:700
+Aug 02 2022 02:12:47.603 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:700
+Aug 02 2022 02:12:54.138 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 button clicked - play
+Aug 02 2022 02:12:54.176 [DEBUG] timeliner.TimelineControlPanel important offset = 10
+Aug 02 2022 02:12:58.615 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:702
+Aug 02 2022 02:12:58.996 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:58.998 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:58.999 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.000 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.001 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.002 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.003 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.004 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.005 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.006 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.007 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.008 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.008 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.010 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.011 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.011 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.013 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.014 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.015 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.015 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.016 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.017 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.018 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.019 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.019 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.020 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.021 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.022 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.023 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.024 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.025 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.027 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.031 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:12:59.064 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:825
+Aug 02 2022 02:13:06.468 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 button clicked - stop
+Aug 02 2022 02:13:59.771 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window closed - timeline: ID= C:\Users\byorg\Dropbox\Current Projects\FINAL How Can I Keep from Singing SATB.wav
+Aug 02 2022 02:13:59.772 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#2 window closed - remaining open window count - 1
+Aug 02 2022 02:14:00.961 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#1 window closed - timeline: ID= C:\Users\byorg\Documents\GitHub\AudioTimeliner\resources\audio\null.mp3
+Aug 02 2022 02:14:00.961 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 02 2022 02:14:00.987 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 02 2022 02:14:00.987 [DEBUG] common.WindowManager           closing 0 windows
+Aug 02 2022 02:15:12.262 [INFO ] .Session#44                    Begin
+Aug 02 2022 02:15:12.263 [INFO ] .Session#44                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:15:12.293 [INFO ] .Session#44                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:15:13.789 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:700
+Aug 02 2022 02:15:33.767 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 200829
+Aug 02 2022 02:15:33.768 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 200829
+Aug 02 2022 02:15:33.795 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 button clicked - create a new timeline
+Aug 02 2022 02:15:36.013 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 button clicked - play
+Aug 02 2022 02:15:36.087 [DEBUG] timeliner.TimelineControlPanel important offset = 10
+Aug 02 2022 02:15:39.302 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 button clicked - stop
+Aug 02 2022 02:20:59.414 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:691
+Aug 02 2022 02:20:59.648 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:652
+Aug 02 2022 02:20:59.650 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:652
+Aug 02 2022 02:20:59.651 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:652
+Aug 02 2022 02:20:59.653 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:652
+Aug 02 2022 02:20:59.654 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:652
+Aug 02 2022 02:20:59.655 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:652
+Aug 02 2022 02:20:59.657 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:652
+Aug 02 2022 02:20:59.658 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:652
+Aug 02 2022 02:20:59.658 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:652
+Aug 02 2022 02:20:59.659 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:652
+Aug 02 2022 02:20:59.660 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:652
+Aug 02 2022 02:20:59.662 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:652
+Aug 02 2022 02:20:59.669 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:651
+Aug 02 2022 02:20:59.671 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:651
+Aug 02 2022 02:20:59.672 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:651
+Aug 02 2022 02:20:59.673 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:651
+Aug 02 2022 02:20:59.674 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:651
+Aug 02 2022 02:20:59.730 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:648
+Aug 02 2022 02:20:59.732 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:648
+Aug 02 2022 02:20:59.733 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:648
+Aug 02 2022 02:20:59.734 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:648
+Aug 02 2022 02:20:59.782 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:646
+Aug 02 2022 02:20:59.783 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:646
+Aug 02 2022 02:20:59.784 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:646
+Aug 02 2022 02:21:00.006 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:526
+Aug 02 2022 02:21:00.007 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:526
+Aug 02 2022 02:21:00.064 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:523
+Aug 02 2022 02:21:00.065 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:523
+Aug 02 2022 02:21:00.066 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:523
+Aug 02 2022 02:21:00.067 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:523
+Aug 02 2022 02:21:00.069 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:523
+Aug 02 2022 02:21:00.075 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:522
+Aug 02 2022 02:21:00.077 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:522
+Aug 02 2022 02:21:00.078 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:522
+Aug 02 2022 02:21:00.078 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:522
+Aug 02 2022 02:21:00.079 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:522
+Aug 02 2022 02:21:00.080 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:522
+Aug 02 2022 02:21:00.081 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:522
+Aug 02 2022 02:21:00.082 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:522
+Aug 02 2022 02:21:00.088 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.090 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.091 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.092 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.093 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.093 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.094 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.094 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.095 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.096 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.097 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.097 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.098 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.126 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.127 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.128 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.128 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:00.129 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:521
+Aug 02 2022 02:21:01.800 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:522
+Aug 02 2022 02:21:02.235 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:845
+Aug 02 2022 02:21:02.246 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:846
+Aug 02 2022 02:21:02.250 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:846
+Aug 02 2022 02:21:02.252 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:846
+Aug 02 2022 02:21:02.254 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:846
+Aug 02 2022 02:21:02.256 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:846
+Aug 02 2022 02:21:02.266 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:847
+Aug 02 2022 02:21:02.339 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:855
+Aug 02 2022 02:21:02.341 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:855
+Aug 02 2022 02:21:02.359 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:858
+Aug 02 2022 02:21:02.808 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.810 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.811 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.812 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.813 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.816 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.818 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.819 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.820 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.821 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.822 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.823 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.824 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.825 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.826 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.827 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.828 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.829 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.830 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.832 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.833 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.834 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.835 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.836 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.836 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.838 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.838 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.840 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.841 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.842 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.843 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.843 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.844 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.856 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.858 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.859 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.860 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.861 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.863 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.864 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.865 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.866 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.867 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.868 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.869 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.870 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.871 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.872 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.873 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.874 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.875 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.876 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.877 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.879 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.880 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.881 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.882 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.883 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.884 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.885 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.886 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.887 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.888 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.889 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.890 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.891 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.893 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.893 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.895 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.896 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.897 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.898 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.899 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.900 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.901 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.902 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.903 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.904 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.905 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.906 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.907 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.907 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.908 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.909 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.911 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.911 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.913 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.913 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.914 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.915 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.917 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.917 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.918 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.919 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:02.920 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:994
+Aug 02 2022 02:21:05.028 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:987
+Aug 02 2022 02:21:05.207 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:962
+Aug 02 2022 02:21:05.209 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:962
+Aug 02 2022 02:21:05.210 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:962
+Aug 02 2022 02:21:05.213 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:962
+Aug 02 2022 02:21:05.214 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:962
+Aug 02 2022 02:21:05.215 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:962
+Aug 02 2022 02:21:05.216 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:962
+Aug 02 2022 02:21:05.218 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:962
+Aug 02 2022 02:21:05.218 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:962
+Aug 02 2022 02:21:05.220 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:962
+Aug 02 2022 02:21:05.241 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:960
+Aug 02 2022 02:21:05.401 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:926
+Aug 02 2022 02:21:05.403 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:926
+Aug 02 2022 02:21:05.405 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:926
+Aug 02 2022 02:21:05.407 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:926
+Aug 02 2022 02:21:05.687 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:886
+Aug 02 2022 02:21:05.688 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:886
+Aug 02 2022 02:21:05.689 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:886
+Aug 02 2022 02:21:05.698 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:884
+Aug 02 2022 02:21:05.700 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:884
+Aug 02 2022 02:21:05.702 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:884
+Aug 02 2022 02:21:05.704 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:884
+Aug 02 2022 02:21:05.705 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:884
+Aug 02 2022 02:21:05.707 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:884
+Aug 02 2022 02:21:05.708 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:884
+Aug 02 2022 02:21:05.710 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:884
+Aug 02 2022 02:21:05.711 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:884
+Aug 02 2022 02:21:05.718 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:883
+Aug 02 2022 02:21:05.727 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:882
+Aug 02 2022 02:21:05.728 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:882
+Aug 02 2022 02:21:05.729 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:882
+Aug 02 2022 02:21:05.730 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:882
+Aug 02 2022 02:21:05.731 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:882
+Aug 02 2022 02:21:05.739 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:881
+Aug 02 2022 02:21:05.742 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:881
+Aug 02 2022 02:21:05.742 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:881
+Aug 02 2022 02:21:05.743 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:881
+Aug 02 2022 02:21:05.744 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:881
+Aug 02 2022 02:21:05.762 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.763 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.764 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.765 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.766 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.769 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.770 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.772 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.773 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.774 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.775 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.776 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.777 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.777 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.778 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.779 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.780 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.781 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.782 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.783 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.784 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.785 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.788 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.790 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.791 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.792 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.793 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.794 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:05.804 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:880
+Aug 02 2022 02:21:14.671 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window closed - timeline: ID= C:\Users\byorg\Dropbox\Current Projects\04 - Sorry.mp3
+Aug 02 2022 02:21:14.672 [INFO ] on#44.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 02 2022 02:21:14.680 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 02 2022 02:21:14.680 [DEBUG] common.WindowManager           closing 0 windows
+Aug 02 2022 02:21:28.120 [INFO ] .Session#36                    Begin
+Aug 02 2022 02:21:28.121 [INFO ] .Session#36                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:21:28.150 [INFO ] .Session#36                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:21:29.632 [INFO ] on#36.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:700
+Aug 02 2022 02:21:45.698 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 200829
+Aug 02 2022 02:21:45.699 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 200829
+Aug 02 2022 02:21:45.727 [INFO ] on#36.WINTYPE_LOCAL_TIMELINE#1 button clicked - create a new timeline
+Aug 02 2022 02:25:50.023 [INFO ] .Session#9                     Begin
+Aug 02 2022 02:25:50.024 [INFO ] .Session#9                     System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:25:50.065 [INFO ] .Session#9                     Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:25:51.586 [INFO ] ion#9.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:700
+Aug 02 2022 02:26:06.727 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 200829
+Aug 02 2022 02:26:06.729 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 200829
+Aug 02 2022 02:26:06.758 [INFO ] ion#9.WINTYPE_LOCAL_TIMELINE#1 button clicked - create a new timeline
+Aug 02 2022 02:27:16.161 [INFO ] .Session#19                    Begin
+Aug 02 2022 02:27:16.162 [INFO ] .Session#19                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:27:16.190 [INFO ] .Session#19                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:27:17.568 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:1050
+Aug 02 2022 02:27:38.965 [DEBUG] timeliner.TimelineUtilities    D:\firstnoel.mp3
+Aug 02 2022 02:27:38.966 [DEBUG] timeliner.TimelineUtilities    firstnoel.mp3
+Aug 02 2022 02:27:38.966 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects\firstnoel.v2t
+Aug 02 2022 02:27:38.966 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects
+Aug 02 2022 02:27:38.966 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects\firstnoel.mp3
+Aug 02 2022 02:27:41.516 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 178944, duration: 178968
+Aug 02 2022 02:27:41.517 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 178944
+Aug 02 2022 02:27:41.585 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 02 2022 02:27:41.585 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 02 2022 02:27:47.121 [DEBUG] timeliner.TimelineControlPanel 42153
+Aug 02 2022 02:27:47.134 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 5
+Aug 02 2022 02:27:48.918 [DEBUG] timeliner.TimelineControlPanel 40099
+Aug 02 2022 02:27:48.929 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 4
+Aug 02 2022 02:27:50.094 [DEBUG] timeliner.TimelineControlPanel 36486
+Aug 02 2022 02:27:50.107 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 3
+Aug 02 2022 02:27:51.170 [DEBUG] timeliner.TimelineControlPanel 33506
+Aug 02 2022 02:27:51.182 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 02 2022 02:27:53.066 [DEBUG] timeliner.TimelineControlPanel 0
+Aug 02 2022 02:27:53.079 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 1
+Aug 02 2022 02:27:54.047 [DEBUG] timeliner.TimelineControlPanel 40099
+Aug 02 2022 02:27:54.059 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 4
+Aug 02 2022 02:27:55.131 [DEBUG] timeliner.TimelineControlPanel 42153
+Aug 02 2022 02:27:55.141 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 5
+Aug 02 2022 02:27:56.354 [DEBUG] timeliner.TimelineControlPanel 36486
+Aug 02 2022 02:27:56.366 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 3
+Aug 02 2022 02:27:57.213 [DEBUG] timeliner.TimelineControlPanel 33506
+Aug 02 2022 02:27:57.221 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 02 2022 02:27:58.032 [DEBUG] timeliner.TimelineControlPanel 0
+Aug 02 2022 02:27:58.040 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 1
+Aug 02 2022 02:27:59.210 [DEBUG] timeliner.TimelineControlPanel 42153
+Aug 02 2022 02:27:59.218 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 5
+Aug 02 2022 02:28:02.345 [DEBUG] timeliner.TimelineControlPanel 40099
+Aug 02 2022 02:28:02.355 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 4
+Aug 02 2022 02:28:05.147 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 button clicked - play
+Aug 02 2022 02:28:05.192 [DEBUG] timeliner.TimelineControlPanel important offset = 40108
+Aug 02 2022 02:28:07.266 [DEBUG] timeliner.TimelineControlPanel important offset = 42158
+Aug 02 2022 02:28:47.998 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 button clicked - stop
+Aug 02 2022 02:31:09.801 [DEBUG] timeliner.TimelineUtilities    C:\Users\Brent Yorgason\Downloads\06 When I Was Your Man.mp3
+Aug 02 2022 02:31:09.802 [DEBUG] timeliner.TimelineUtilities    06 When I Was Your Man.mp3
+Aug 02 2022 02:31:09.802 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects\timeline1.tim
+Aug 02 2022 02:31:09.802 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects
+Aug 02 2022 02:31:09.802 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects\06 When I Was Your Man.mp3
+Aug 02 2022 02:31:09.885 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:1050
+Aug 02 2022 02:31:09.888 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:1050
+Aug 02 2022 02:31:15.412 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#2 button clicked - continue without audio
+Aug 02 2022 02:31:15.452 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 213481, duration: 1950248
+Aug 02 2022 02:31:15.453 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 213481
+Aug 02 2022 02:31:15.473 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 02 2022 02:32:06.141 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1942 y:1030
+Aug 02 2022 02:32:11.535 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:1050
+Aug 02 2022 02:32:13.055 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1942 y:1030
+Aug 02 2022 02:32:22.867 [INFO ] on#19.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:1050
+Aug 02 2022 02:36:12.902 [INFO ] .Session#11                    Begin
+Aug 02 2022 02:36:12.903 [INFO ] .Session#11                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:36:12.934 [INFO ] .Session#11                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:36:14.267 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:1106
+Aug 02 2022 02:36:31.999 [DEBUG] timeliner.TimelineUtilities    D:\firstnoel.mp3
+Aug 02 2022 02:36:31.999 [DEBUG] timeliner.TimelineUtilities    firstnoel.mp3
+Aug 02 2022 02:36:31.999 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects\firstnoel.v2t
+Aug 02 2022 02:36:32.000 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects
+Aug 02 2022 02:36:32.000 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects\firstnoel.mp3
+Aug 02 2022 02:36:32.110 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 178944, duration: 178968
+Aug 02 2022 02:36:32.111 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 178944
+Aug 02 2022 02:36:32.177 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 02 2022 02:36:32.177 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 02 2022 02:37:01.087 [DEBUG] timeliner.TimelineUtilities    C:\Users\Brent Yorgason\Downloads\06 When I Was Your Man.mp3
+Aug 02 2022 02:37:01.088 [DEBUG] timeliner.TimelineUtilities    06 When I Was Your Man.mp3
+Aug 02 2022 02:37:01.088 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects\timeline1.tim
+Aug 02 2022 02:37:01.088 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects
+Aug 02 2022 02:37:01.088 [DEBUG] timeliner.TimelineUtilities    C:\Users\byorg\Dropbox\Current Projects\06 When I Was Your Man.mp3
+Aug 02 2022 02:37:01.177 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:1106
+Aug 02 2022 02:37:01.181 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:1106
+Aug 02 2022 02:37:05.706 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#2 button clicked - continue without audio
+Aug 02 2022 02:37:05.731 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 213481, duration: 1950248
+Aug 02 2022 02:37:05.734 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 213481
+Aug 02 2022 02:37:05.764 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 02 2022 02:37:10.044 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1942 y:1030
+Aug 02 2022 02:37:12.536 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1920 y:1106
+Aug 02 2022 02:37:14.684 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1942 y:1030
+Aug 02 2022 02:37:15.992 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#2 window closed - timeline: ID= C:\Users\byorg\Documents\GitHub\AudioTimeliner\resources\audio\null.mp3
+Aug 02 2022 02:37:15.993 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#2 window closed - remaining open window count - 1
+Aug 02 2022 02:37:22.906 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#1 window closed - timeline: ID= C:\Users\byorg\Dropbox\Current Projects\firstnoel.mp3
+Aug 02 2022 02:37:22.906 [INFO ] on#11.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 02 2022 02:37:22.916 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 02 2022 02:37:22.916 [DEBUG] common.WindowManager           closing 0 windows
+Aug 02 2022 02:37:43.812 [INFO ] .Session#53                    Begin
+Aug 02 2022 02:37:43.813 [INFO ] .Session#53                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:37:43.846 [INFO ] .Session#53                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:37:45.269 [INFO ] on#53.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:672
+Aug 02 2022 02:37:49.868 [INFO ] on#53.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 02 2022 02:37:49.879 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 02 2022 02:37:49.879 [DEBUG] common.WindowManager           closing 0 windows
+Aug 02 2022 02:37:58.914 [INFO ] .Session#2                     Begin
+Aug 02 2022 02:37:58.915 [INFO ] .Session#2                     System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:37:58.948 [INFO ] .Session#2                     Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:38:00.290 [INFO ] ion#2.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:764
+Aug 02 2022 02:38:06.483 [INFO ] ion#2.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 02 2022 02:38:06.493 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 02 2022 02:38:06.493 [DEBUG] common.WindowManager           closing 0 windows
+Aug 02 2022 02:38:16.300 [INFO ] .Session#79                    Begin
+Aug 02 2022 02:38:16.301 [INFO ] .Session#79                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:38:16.331 [INFO ] .Session#79                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:38:17.661 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:840
+Aug 02 2022 02:41:37.928 [INFO ] .Session#13                    Begin
+Aug 02 2022 02:41:37.929 [INFO ] .Session#13                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:41:37.962 [INFO ] .Session#13                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:41:39.426 [INFO ] on#13.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:840
+Aug 02 2022 02:42:01.180 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 47936
+Aug 02 2022 02:42:01.181 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 47936
+Aug 02 2022 02:42:01.205 [INFO ] on#13.WINTYPE_LOCAL_TIMELINE#1 button clicked - create a new timeline
+Aug 02 2022 02:44:22.490 [INFO ] .Session#78                    Begin
+Aug 02 2022 02:44:22.491 [INFO ] .Session#78                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:44:22.529 [INFO ] .Session#78                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:44:24.008 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:840
+Aug 02 2022 02:49:17.999 [INFO ] .Session#16                    Begin
+Aug 02 2022 02:49:18.000 [INFO ] .Session#16                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:49:18.036 [INFO ] .Session#16                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:49:19.392 [INFO ] on#16.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:840
+Aug 02 2022 02:50:01.687 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 116009
+Aug 02 2022 02:50:01.690 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 116009
+Aug 02 2022 02:50:01.719 [INFO ] on#16.WINTYPE_LOCAL_TIMELINE#1 button clicked - create a new timeline
+Aug 02 2022 02:50:11.216 [INFO ] on#16.WINTYPE_LOCAL_TIMELINE#1 button clicked - play
+Aug 02 2022 02:50:11.298 [DEBUG] timeliner.TimelineControlPanel important offset = 10
+Aug 02 2022 02:50:12.607 [DEBUG] timeliner.TimelineSlider       range = 116009
+Aug 02 2022 02:50:12.607 [DEBUG] timeliner.TimelineSlider       value per pixel = 64.59298440979956
+Aug 02 2022 02:50:12.607 [DEBUG] timeliner.TimelineSlider       value = 23899
+Aug 02 2022 02:50:12.607 [DEBUG] timeliner.TimelineSlider       milliseconds = 23899
+Aug 02 2022 02:50:12.607 [DEBUG] timeliner.TimelineSlider       jump to 377
+Aug 02 2022 02:50:12.639 [DEBUG] timeliner.TimelineControlPanel important offset = 23892
+Aug 02 2022 02:50:12.671 [INFO ] on#16.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 02 2022 02:50:12.672 [DEBUG] timeliner.TimelinePanel        23892
+Aug 02 2022 02:50:14.028 [DEBUG] timeliner.TimelineSlider       range = 116009
+Aug 02 2022 02:50:14.028 [DEBUG] timeliner.TimelineSlider       value per pixel = 64.59298440979956
+Aug 02 2022 02:50:14.028 [DEBUG] timeliner.TimelineSlider       value = 44246
+Aug 02 2022 02:50:14.028 [DEBUG] timeliner.TimelineSlider       milliseconds = 44246
+Aug 02 2022 02:50:14.028 [DEBUG] timeliner.TimelineSlider       jump to 692
+Aug 02 2022 02:50:14.068 [DEBUG] timeliner.TimelineControlPanel important offset = 44244
+Aug 02 2022 02:50:14.106 [INFO ] on#16.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 02 2022 02:50:14.106 [DEBUG] timeliner.TimelinePanel        44254
+Aug 02 2022 02:50:15.610 [DEBUG] timeliner.TimelineSlider       range = 116009
+Aug 02 2022 02:50:15.611 [DEBUG] timeliner.TimelineSlider       value per pixel = 64.59298440979956
+Aug 02 2022 02:50:15.611 [DEBUG] timeliner.TimelineSlider       value = 69308
+Aug 02 2022 02:50:15.611 [DEBUG] timeliner.TimelineSlider       milliseconds = 69308
+Aug 02 2022 02:50:15.611 [DEBUG] timeliner.TimelineSlider       jump to 1080
+Aug 02 2022 02:50:15.639 [DEBUG] timeliner.TimelineControlPanel important offset = 69302
+Aug 02 2022 02:50:15.695 [INFO ] on#16.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 02 2022 02:50:15.696 [DEBUG] timeliner.TimelinePanel        69322
+Aug 02 2022 02:50:17.901 [INFO ] on#16.WINTYPE_LOCAL_TIMELINE#1 button clicked - pause
+Aug 02 2022 02:51:24.307 [INFO ] .Session#99                    Begin
+Aug 02 2022 02:51:24.308 [INFO ] .Session#99                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:51:24.340 [INFO ] .Session#99                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:51:25.786 [INFO ] on#99.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:840
+Aug 02 2022 02:51:59.809 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 178968
+Aug 02 2022 02:51:59.811 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 178968
+Aug 02 2022 02:51:59.837 [INFO ] on#99.WINTYPE_LOCAL_TIMELINE#1 button clicked - create a new timeline
+Aug 02 2022 02:52:05.145 [INFO ] on#99.WINTYPE_LOCAL_TIMELINE#1 button clicked - play
+Aug 02 2022 02:52:05.211 [DEBUG] timeliner.TimelineControlPanel important offset = 10
+Aug 02 2022 02:52:16.891 [INFO ] on#99.WINTYPE_LOCAL_TIMELINE#1 button clicked - stop
+Aug 02 2022 02:53:30.809 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 178968
+Aug 02 2022 02:53:30.810 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 178968
+Aug 02 2022 02:53:33.506 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 button clicked - play
+Aug 02 2022 02:53:33.570 [DEBUG] timeliner.TimelineControlPanel important offset = 10
+Aug 02 2022 02:53:40.914 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 button clicked - stop
+Aug 02 2022 02:54:25.795 [INFO ] .Session#23                    Begin
+Aug 02 2022 02:54:25.796 [INFO ] .Session#23                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:54:25.825 [INFO ] .Session#23                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:54:27.302 [INFO ] on#23.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:916
+Aug 02 2022 02:54:42.969 [DEBUG] timeliner.TimelineLocalPlayer  Trouble initiating audio. Start/stop times are incorrect values.
+Aug 02 2022 02:54:42.969 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 226377, duration: 225943
+Aug 02 2022 02:54:42.971 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 226377
+Aug 02 2022 02:54:43.039 [INFO ] on#23.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 02 2022 02:54:43.039 [INFO ] on#23.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 02 2022 02:54:46.097 [INFO ] on#23.WINTYPE_LOCAL_TIMELINE#1 button clicked - play
+Aug 02 2022 02:54:58.047 [INFO ] on#23.WINTYPE_LOCAL_TIMELINE#1 button clicked - stop
+Aug 02 2022 02:59:40.436 [INFO ] .Session#89                    Begin
+Aug 02 2022 02:59:40.436 [INFO ] .Session#89                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 02:59:40.468 [INFO ] .Session#89                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 02:59:41.812 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:916
+Aug 02 2022 03:01:44.493 [INFO ] on#23.WINTYPE_LOCAL_TIMELINE#1 window closed - timeline: ID= C:\Users\byorg\Dropbox\Teaching\Form & Analysis\Sonata form\Beethoven_op2no1.mp3
+Aug 02 2022 03:01:44.494 [INFO ] on#23.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 02 2022 03:01:44.507 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 02 2022 03:01:44.507 [DEBUG] common.WindowManager           closing 0 windows
+Aug 02 2022 03:01:50.433 [DEBUG] timeliner.TimelineLocalPlayer  Trouble initiating audio. Start/stop times are incorrect values.
+Aug 02 2022 03:01:50.433 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 226377, duration: 225943
+Aug 02 2022 03:01:50.434 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 226377
+Aug 02 2022 03:01:50.516 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 02 2022 03:01:50.516 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 02 2022 03:05:07.906 [INFO ] .Session#79                    Begin
+Aug 02 2022 03:05:07.907 [INFO ] .Session#79                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 03:05:07.940 [INFO ] .Session#79                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 03:05:09.298 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:916
+Aug 02 2022 03:05:13.314 [DEBUG] timeliner.TimelineLocalPlayer  Trouble initiating audio. Start/stop times are incorrect values.
+Aug 02 2022 03:05:13.314 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 226377, duration: 225943
+Aug 02 2022 03:05:13.315 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 226377
+Aug 02 2022 03:05:13.391 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 02 2022 03:05:13.391 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline

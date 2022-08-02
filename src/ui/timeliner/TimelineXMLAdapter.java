@@ -3,7 +3,7 @@ package ui.timeliner;
 import org.apache.log4j.Logger;
 import org.w3c.dom.*;
 
-import com.sun.tools.javac.util.Log;
+//import com.sun.tools.javac.util.Log;
 
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
