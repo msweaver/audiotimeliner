@@ -6,6 +6,7 @@ import java.awt.event.*;
 import ui.common.*;
 import com.borland.jbcl.layout.*;
 import util.logging.*;
+import javax.swing.border.EmptyBorder;
 //import org.apache.log4j.Logger;
 
 /**
@@ -54,6 +55,9 @@ public class TimelinePrintDialog extends JDialog {
     this.setLocationRelativeTo(frmTimeline);
     this.setModal(true);
     this.setSize(new Dimension(dialogWidth, dialogHeight));
+    EmptyBorder border = new EmptyBorder(0, 5, 0, 5 );
+    JPanel panel = new JPanel();
+    panel.setBorder(border);
 
     // prints in black and white by default
     final boolean oldMode = timeline.getBlackAndWhite();
@@ -126,11 +130,14 @@ public class TimelinePrintDialog extends JDialog {
     // layout
     Container pane = this.getContentPane();
     pane.setLayout(new VerticalFlowLayout());
-    pane.add(printLabel);
-    pane.add(radBW);
-    pane.add(radColor);
+    panel.setLayout(new VerticalFlowLayout());
+    panel.setBorder(border);
+    panel.add(printLabel);
+    panel.add(radBW);
+    panel.add(radColor);
     buttonPanel.add(btnOk);
     buttonPanel.add(btnCancel);
+    pane.add(panel);
     pane.add(buttonPanel);
 
     // show dialog
