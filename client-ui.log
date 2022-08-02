@@ -523,3 +523,25 @@ Aug 02 2022 03:05:13.314 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 
 Aug 02 2022 03:05:13.315 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 226377
 Aug 02 2022 03:05:13.391 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
 Aug 02 2022 03:05:13.391 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 02 2022 03:13:36.993 [INFO ] .Session#87                    Begin
+Aug 02 2022 03:13:36.994 [INFO ] .Session#87                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 03:13:37.024 [INFO ] .Session#87                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 03:13:38.412 [INFO ] on#87.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:1106
+Aug 02 2022 03:13:43.370 [DEBUG] timeliner.TimelineLocalPlayer  Trouble initiating audio. Start/stop times are incorrect values.
+Aug 02 2022 03:13:43.370 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 226377, duration: 225943
+Aug 02 2022 03:13:43.371 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 226377
+Aug 02 2022 03:13:43.448 [INFO ] on#87.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 02 2022 03:13:43.448 [INFO ] on#87.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 02 2022 03:13:55.656 [INFO ] on#87.WINTYPE_LOCAL_TIMELINE#1 window closed - timeline: ID= C:\Users\byorg\Dropbox\Teaching\Form & Analysis\Sonata form\Beethoven_op2no1.mp3
+Aug 02 2022 03:13:55.656 [INFO ] on#87.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 02 2022 03:13:55.671 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 02 2022 03:13:55.671 [DEBUG] common.WindowManager           closing 0 windows
+Aug 02 2022 03:14:03.806 [INFO ] .Session#35                    Begin
+Aug 02 2022 03:14:03.807 [INFO ] .Session#35                    System Properties: java 1.8.0_91, Oracle Corporation, Windows 10, x86, os version 10.0
+Aug 02 2022 03:14:03.837 [INFO ] .Session#35                    Initial display resolution is x:1920.0 y:1080.0
+Aug 02 2022 03:14:05.226 [INFO ] on#35.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1920 y:1050
+Aug 02 2022 03:14:09.301 [DEBUG] timeliner.TimelineLocalPlayer  Trouble initiating audio. Start/stop times are incorrect values.
+Aug 02 2022 03:14:09.301 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 226377, duration: 225943
+Aug 02 2022 03:14:09.302 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 226377
+Aug 02 2022 03:14:09.378 [INFO ] on#35.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 02 2022 03:14:09.378 [INFO ] on#35.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline

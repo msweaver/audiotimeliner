@@ -276,7 +276,7 @@ public class UIUtilities {
     static public int scalePixels(int size) {
     	
 	    double ppi = Toolkit.getDefaultToolkit().getScreenResolution();
-	    int newsize = (int)Math.round( size / (110 / ppi));
+	    int newsize = (int)Math.round( size / (96 / ppi));
 	    return newsize;
     }
     
