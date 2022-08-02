@@ -44,8 +44,8 @@ public class TimelineWizard extends JDialog {
       dialogHeight = 120;
     } else {
       timelineFont = UIUtilities.fontDialogWin;
-      dialogWidth = (int)(tf.getWidth() * .3); // 300;
-      dialogHeight = 130;
+      dialogWidth = (int)(tf.getWidth() * .25); // 300;
+      dialogHeight = (int)(tf.getHeight() * .25); // 130;
       this.setModal(true);
     }
     this.setTitle("Timeline Wizard");

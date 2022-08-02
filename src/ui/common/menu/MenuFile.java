@@ -1,6 +1,8 @@
 package ui.common.menu;
 
 import javax.swing.*;
+
+import java.awt.Font;
 import java.awt.event.*;
 import ui.common.*;
 import ui.timeliner.*;
@@ -61,7 +63,7 @@ public class MenuFile extends JMenu {
             menuiFileClose.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, InputEvent.META_DOWN_MASK));
         } else {
             //Windows specific stuff
-            fileFont = UIUtilities.fontMenusWin;
+            fileFont = new Font("Dialog", 0, UIUtilities.convertFontSize(12)); // UIUtilities.fontMenusWin;
             menuiFileNewTimeline.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
             menuiFileOpenTimeline.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_DOWN_MASK));
             menuiFilePrint.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.CTRL_DOWN_MASK));
@@ -73,6 +75,7 @@ public class MenuFile extends JMenu {
             menuiFilePrint.setMnemonic('p');
             menuiFileClose.setMnemonic('c');
             menuiFileExit.setMnemonic('x');
+            
             menuiFileClose.setFont(fileFont);
             menuiFileNewTimeline.setFont(fileFont);
             menuiFileOpenTimeline.setFont(fileFont);
