@@ -1,0 +1,90 @@
+STANDALONE TIMELINER FILES
+--------------------------
+
+Files that can be pulled directly from the latest version of the project
+------------------------------------------------------------------------
+
+Config files:
+
+- conf.client.timeliner_console.lcf
+
+Data files:
+
+- data.timeline.xml2html.xsl
+
+Library files:
+
+- QTJava.zip
+- log4j-x.jar
+- MRJClasses.zip
+- jbcl.jar
+
+Resource files:
+
+- from resources.common: 
+logo-large.gif, openPage.js, v2generic.gif, v2timeliner.gif
+
+- from resources.media:
+addmarker.gif, addtimepoint.gif, bigger.gif, divider.gif, editbubble.gif, fastforward.gif, handclosed.gif, handopen.gif, handpoint.gif, info.gif, info_hover.gif, info_outline.gif, movedownSmall.gif, moveleftSmall.gif, movepoint.gif, moverightSmall.gif, moveupSmall.gif, next.gif, pause.gif, play.gif, prev.gif, resizer.gif, rewind.gif, smaller.gif, speaker.gif, speaker-mute, gif, stop.gif 
+
+Source files:
+
+- all of the files in ui.timeliner except NewTimelineDialog.java, NewTimelineWizard.java, and TimelinePlayer.java
+
+(AudioFilter.java, Bubble.java, BubbleTreeNode.java, GIFEncoder.java, Marker.java, MarkerEditor.java, PrintUtilities.java, Quantize.java, Timeline.java, TimelineBubbleEditor.java, TimelineControlPanel.java, TimelineFilter.java, TimelineFrame.java, TimelineLocalPlayer.java, TimelineLookAndFeel.java, TimelineMenuBar.java, TimelinePanel.java, TimelinePopups.java, TimelinePrintDialog.java, TimelineResizer.java, TimelineSlider.java, TimelineSliderUI.java, TimelineUndo.java, TimelineUtilities.java, TimelineWizard.java, TimelineXMLAdapter.java, Timepoint.java, TimepointEditor.java)
+
+- from client:	
+V2XProcessingException
+
+- from media: 
+ContentLoadingException, HandlerInitException.java, PlayableContentHandler.java, PlayableContentHandlerEvent.java, PlayableContentHandlerListener.java, QTContentHandler.java
+
+- from ui.common: 
+HTMLFilter.java, MacMenuHandler.java, MacOpenHandler.java, WindowTracker.java
+
+- from ui.common.menu:
+MenuEdit.java, MenuWindow.java, WindowMenuItem.java
+
+- from ui.media:
+AudioControlPanel.java,VariationsMacLookAndFeel.java, VariationsMacSliderUI.java, VarationsWindowsLookAndFeel.java, VariationsWindowsSliderUI.java, VolumePanel.java
+
+- from util:
+AppEnv.java, BrowserLauncher.java, ChainableException.java
+
+- from util.logging:
+LoggingServer.java, UIEventType.java, UILogger.java
+
+
+Files that have been adapted from Variations2 for standalone purposes
+--do not update these with newer files from the project:
+-----------------------------------------
+
+Sources:
+
+- (in client)
+Client.java, CommandProcessor.java
+
+- (in ui.common)
+BasicWindow.java, UIUtilities.java, WindowManager.java
+
+- (in ui.common.menu)
+basicMenuBar.java, MenuFile.java, MenuHelp.java 
+
+- (in ui.timeliner)
+TimelinePlayer.java
+
+- (in util)
+StringTools.java
+
+- (in util.logging)
+LogUtil.java
+
+Files that are specific to the standalone timeliner application:
+----------------------------------------------------------------
+
+Resources:
+null.mp3 (goes in resources)
+
+Sources:
+Timeliner.java (goes in src.timeliner)
+
