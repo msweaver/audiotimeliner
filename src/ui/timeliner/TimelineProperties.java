@@ -124,7 +124,7 @@ public class TimelineProperties extends JDialog {
     // display variables
     int titleWidth;
     int descriptionWidth;
-    int descriptionHeight = 120;
+    int descriptionHeight = 150; // 120
     int dialogHeight;
     int dialogWidth;
     int levelButtonWidth;
@@ -138,24 +138,24 @@ public class TimelineProperties extends JDialog {
       dialogWidth = 570;
       dialogHeight = 570;
       levelButtonWidth = 39;
-      levelButtonHeight = 20;
+      levelButtonHeight = UIUtilities.scalePixels(20);;
       menubTimeline.disableMenuKeyboardShortcuts();
     } else {
       timelineFont = UIUtilities.fontDialogWin;
       unicodeFont = UIUtilities.fontUnicode;
       titleWidth = 42;
-      descriptionWidth = 395;
+      descriptionWidth = UIUtilities.scalePixels(395);
       dialogWidth = 430;
       dialogHeight = 610;
       levelButtonWidth = 20;
-      levelButtonHeight = 20;
+      levelButtonHeight = UIUtilities.scalePixels(20);
     }
 
     this.setTitle("Timeline Properties: " + pnlTimeline.getFrame().getTitle().substring(10));
     this.setLocationRelativeTo(frmOwner);
     this.setModal(modal);
     this.setSize(new Dimension(dialogWidth, dialogHeight)); // 435, 390
-    this.setLocation(frmOwner.getWidth() - (this.getWidth() + 5), 30);
+    this.setLocation(0, 30); // frmOwner.getWidth() - (this.getWidth() + 5), 30);
     this.setResizable(false);
 
     // panel layout
