@@ -43,12 +43,12 @@ public class TimelinePrintDialog extends JDialog {
     int dialogHeight;
     if (System.getProperty("os.name").startsWith("Mac OS")) {
       timelineFont = UIUtilities.fontDialogMacSmallest;
-      dialogWidth = 200;
-      dialogHeight = 150;
+      dialogWidth = UIUtilities.scalePixels(200);
+      dialogHeight = UIUtilities.scalePixels(150);
     } else {
       timelineFont = UIUtilities.fontDialogWin;
-      dialogWidth = 150;
-      dialogHeight = 170;
+      dialogWidth = UIUtilities.scalePixels(250);
+      dialogHeight = UIUtilities.scalePixels(200);
     }
     this.setTitle("Print Options");
     this.setLocationRelativeTo(frmTimeline);
