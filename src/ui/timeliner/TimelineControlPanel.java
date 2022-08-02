@@ -43,7 +43,7 @@ public class TimelineControlPanel extends JPanel {
   protected java.awt.Font timelineFont;
   private java.awt.Font annotationFont;
   protected String unicodeFont = "Arial Unicode MS";
-  private int annotationFontSize = 13;
+  private int annotationFontSize = 18;
 
   // control panel buttons
   protected JButton btnAddTimepoint;
@@ -184,6 +184,7 @@ public class TimelineControlPanel extends JPanel {
     GridBagLayout gridBagTimepoints = new GridBagLayout();
     GridBagLayout gridBagTimeline = new GridBagLayout();
     GridBagLayout gridBagAnnotations = new GridBagLayout();
+    GridBagLayout gridBagAnnotationTools = new GridBagLayout();
     GridBagLayout gridBagElapsed = new GridBagLayout();
     this.setLayout(gridbagMain);
     pnlStatus.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
@@ -198,11 +199,11 @@ public class TimelineControlPanel extends JPanel {
     pnlTimepointButtons.setLayout(gridBagTimepoints);
     pnlTimelineButtons.setLayout(gridBagTimeline);
     pnlAnnotations.setLayout(gridBagAnnotations);
-    pnlAnnotationTools.setLayout(new FlowLayout());
+    pnlAnnotationTools.setLayout(gridBagAnnotationTools);
     pnlLevels.setLayout(new BorderLayout());
     pnlMarkers.setLayout(new BorderLayout());
     pnlShow.setLayout(new GridLayout());
-    pnlFontButtons.setLayout(new FlowLayout(FlowLayout.CENTER));
+    pnlFontButtons.setLayout(new VerticalFlowLayout(FlowLayout.RIGHT));
 
     // set up annotation pane
     tpAnnotations.setEditable(false);
@@ -246,19 +247,19 @@ public class TimelineControlPanel extends JPanel {
     pnlPlayback.add(pnlAudioControl);
     pnlPlayback.add(pnlElapsedVolume, null);
     
-//    pnlAnnotationTools.add(pnlFontButtons);
-  //  pnlAnnotationTools.add(pnlShow);
+    //pnlAnnotationTools.add(pnlShow);
     //pnlAnnotationTools.add(pnlMarkers);
+    //pnlAnnotationTools.add(pnlFontButtons);
     
     // set up grid bag layout constraints and add inner panels to the main panel
-    TimelineUtilities.createConstraints(this, pnlPlayback, 0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(this, pnlPlayback, 0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
     TimelineUtilities.createConstraints(this, pnlTimelineButtons, 0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(this, pnlAnnotationTools, 0, 2, 2, 2, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
     TimelineUtilities.createConstraints(this, pnlTimepointButtons, 1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(this, pnlBubbleButtons, 1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(this, pnlAnnotations, 2, 0, 1, 3, 1.0, 0.8, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(this, pnlAnnotationTools, 0, 2, 2, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(this, pnlStatus, 0, 3, 2, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(this, pnlDuration, 2, 3, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(this, pnlBubbleButtons, 1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
+    TimelineUtilities.createConstraints(this, pnlAnnotations, 2, 0, 1, 5, 1.0, 0.8, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
+    TimelineUtilities.createConstraints(this, pnlStatus, 0, 4, 2, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
+//    TimelineUtilities.createConstraints(this, pnlDuration, 2, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
 
     // create controls
     createPlaybackControls();
@@ -778,7 +779,7 @@ public class TimelineControlPanel extends JPanel {
           else {
             updateAnnotationPane();
           }
-          uilogger.log(UIEventType.BUTTON_CLICKED, "Annotation text larger");
+          uilogger.log(UIEventType.BUTTON_CLICKED, "Annotation text larger: " + annotationFontSize);
         }
       }
     });
@@ -820,7 +821,7 @@ public class TimelineControlPanel extends JPanel {
           else {
             updateAnnotationPane();
           }
-          uilogger.log(UIEventType.BUTTON_CLICKED, "Annotation text larger");
+          uilogger.log(UIEventType.BUTTON_CLICKED, "Annotation text smaller: " + annotationFontSize);
         }
       }
     });
@@ -834,8 +835,8 @@ public class TimelineControlPanel extends JPanel {
       radAllLevels.setMinimumSize(new Dimension(72, 23));
       radAllLevels.setPreferredSize(new Dimension(72, 23));
     } else {
-      radAllLevels.setMinimumSize(new Dimension(70, 23));
-      radAllLevels.setPreferredSize(new Dimension(70, 23));
+      radAllLevels.setMinimumSize(new Dimension(100, 23));
+      radAllLevels.setPreferredSize(new Dimension(100, 23));
     }
     radAllLevels.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(radAllLevels);
@@ -924,9 +925,9 @@ public class TimelineControlPanel extends JPanel {
     TimelineUtilities.createConstraints(pnlTimelineButtons, btnZoomTo, 0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
     TimelineUtilities.createConstraints(pnlTimelineButtons, btnFitToWindow, 1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
     TimelineUtilities.createConstraints(pnlAnnotations, scrpAnnotations, 0, 0, 1, 3, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(pnlAnnotations, pnlFontButtons, 1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(pnlAnnotations, pnlShow, 1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.NORTH, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(pnlAnnotations, pnlMarkers, 1, 2, 1, 1, 0.0, 0.0, GridBagConstraints.NORTH, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(pnlAnnotationTools, pnlShow, 0, 0, 1, 1, 1.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(pnlAnnotationTools, pnlMarkers, 1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(pnlAnnotationTools, pnlFontButtons, 2, 0, 1, 1, 0.0, 0.0, GridBagConstraints.EAST, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
   }
 
   /**

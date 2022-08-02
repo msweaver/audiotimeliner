@@ -1,7 +1,10 @@
 package ui.timeliner;
 
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.w3c.dom.*;
+
+import com.sun.tools.javac.util.Log;
+
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.*;
@@ -26,7 +29,8 @@ public class TimelineXMLAdapter {
   java.io.File tempFile;
   java.io.File newPath;
   String selectedPath;
-  //private static Logger log = Logger.getLogger(TimelineUtilities.class);
+  String currOpenPath;
+  private static Logger log = Logger.getLogger(TimelineUtilities.class);
 
   // external
   TimelinePanel pnlTimeline;
@@ -65,6 +69,7 @@ public class TimelineXMLAdapter {
     pnlTimeline = tp;
     g2d = g;
     Document doc = builder.parse(new File(filename));
+    this.currOpenPath = filename;
     Timeline t = importTimeline(doc.getDocumentElement(), filename);
     if (t!= null && !filename.endsWith(".~~~")) {
       t.currFilename = filename;
@@ -84,6 +89,7 @@ public class TimelineXMLAdapter {
     parent = wind;
 
     Document doc = builder.parse(new File(filename));
+    this.currOpenPath = filename;
     Timeline t = importTimeline(doc.getDocumentElement(), filename);
     if (t != null && !isExcerpt && !filename.endsWith(".~~~")) {
       t.currFilename = filename;
@@ -506,13 +512,28 @@ public class TimelineXMLAdapter {
       }
         mediaFile = new File(mediaContent);
         if (!mediaFile.exists()) { // there is no media file at the path specified
-          MissingAudioDialog dlgMissing = new MissingAudioDialog(mediaContent, this, newTimelineWindow);
-          if (newPath != null) {
-            mediaFile = newPath;
-          }
-          else {
-            mediaFile = new File(bogusMedia);
-          }
+        	// look for the audio file in the same folder as the timeline first
+        	//String relativePath = TimelineUtilities.getRelativePath(new File(mediacontent), new File (mediaContent));
+        	//log.debug("relative path: " + relativePath);
+        	log.debug(mediaFile);
+        	log.debug(mediaFile.getName());
+        	File currFile = new File(currOpenPath);
+        	log.debug(currOpenPath);
+        	log.debug(currFile.getParent());
+        	String altPath = currFile.getParent() + "\\" + mediaFile.getName();
+        	File alternatePath = new File(altPath);
+        	log.debug(altPath); 
+        	if (alternatePath.exists()) {
+        		mediaFile = alternatePath;
+        	} else {
+        		MissingAudioDialog dlgMissing = new MissingAudioDialog(mediaContent, this, newTimelineWindow);
+        		if (newPath != null) {
+        			mediaFile = newPath;
+        		}
+        		else {
+        			mediaFile = new File(bogusMedia);
+        		}
+        	}
         }
         newTimelineWindow.setContent(mediaFile, mediaStart, mediaEnd);
         pnlTimeline = newTimelineWindow.getTimelinePanel();

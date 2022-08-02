@@ -48,7 +48,7 @@ public class TimelineWizard extends JDialog {
       dialogHeight = (int)(tf.getHeight() * .25); // 130;
       this.setModal(true);
     }
-    this.setTitle("Timeline Wizard");
+    this.setTitle("How would you like to begin?");
     this.setLocationRelativeTo(frmTimeline);
     this.setLocation((frmTimeline.getWidth()/2) - (dialogWidth/2), 150);
     this.setSize(new Dimension(dialogWidth, dialogHeight));
@@ -58,6 +58,7 @@ public class TimelineWizard extends JDialog {
     btnNewTimeline.setFont(timelineFont);
     btnOpenTimeline = new JButton("Open an Existing Timeline...");
     btnOpenTimeline.setFont(timelineFont);
+//    btnNewTimeline.setMaximumSize(new Dimension(200, 150));
 
     btnNewTimeline.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -76,11 +77,11 @@ public class TimelineWizard extends JDialog {
     });
 
     // labels
-    JLabel optionLabel = new JLabel("What would you like to do?");
+    JLabel optionLabel = new JLabel("    How would you like to start?");
     optionLabel.setFont(timelineFont);
 
     // panel
-    JPanel buttonPanel = new JPanel(new FlowLayout());
+   // JPanel buttonPanel = new JPanel(new FlowLayout());
 
     // window close handler
     this.addWindowListener(new WindowAdapter() {
@@ -90,8 +91,8 @@ public class TimelineWizard extends JDialog {
 
     // layout
     Container pane = this.getContentPane();
-    pane.setLayout(new VerticalFlowLayout());
-    pane.add(optionLabel);
+    pane.setLayout(new GridLayout(2,1, 3, 3));
+    //pane.add(optionLabel);
     pane.add(btnNewTimeline);
     pane.add(btnOpenTimeline);
 
