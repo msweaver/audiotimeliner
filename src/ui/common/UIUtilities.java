@@ -22,21 +22,22 @@ public class UIUtilities {
     static public final Color colorAdminTab = new Color(214, 192, 214);
 
     //------------------------- FONTS -----------------------------//
-    static public final Font fontUnicode = new Font("Arial Unicode MS", 0, 11);
-    static public final Font fontUnicodeBigger = new Font("Arial Unicode MS", 0, 12);
-    static public final Font fontUnicodeBiggest = new Font("Arial Unicode MS", 0, 12);
-    static public final Font fontUnicodeSmaller = new Font("Arial Unicode MS", 0, 10);
-    static public final Font fontMenusWin = new Font("Dialog", 0, 12);            //windows font for menus
-    static public final Font fontMenusMac = new Font("Dialog", 0, 14);            //mac font for menus
-    static public final Font fontDialogWin = new Font("Dialog", 0, 11);           //windows font for regular text
-    static public final Font fontDialogMac = new Font("Dialog", 0, 12);           //mac font for regular text
-    static public final Font fontDialogMacSmaller = new Font("Dialog", 0, 11);    // timeline uses smaller mac fonts
-    static public final Font fontDialogMacSmallest = new Font("Dialog", 0, 10);
-    static public final Font fontDialogWinBold = new Font("Dialog", Font.BOLD, 11);
-    static public final Font fontDialogMacBold = new Font("Dialog", Font.BOLD, 12);
-    static public final Font fontTitleBold = new Font("SansSerif", Font.BOLD, 14);
-    static public final Font fontSansSerifWin = new Font("SansSerif", 0, 11);     //windows generic sans serif text
-    static public final Font fontSansSerifMac = new Font("SansSerif", 0, 12);     //mac generic sans serif text
+    
+    static public final Font fontUnicode = new Font("Arial Unicode MS", 0, convertFontSize(11));
+    static public final Font fontUnicodeBigger = new Font("Arial Unicode MS", 0, convertFontSize(12));
+    static public final Font fontUnicodeBiggest = new Font("Arial Unicode MS", 0, convertFontSize(12));
+    static public final Font fontUnicodeSmaller = new Font("Arial Unicode MS", 0, convertFontSize(10));
+    static public final Font fontMenusWin = new Font("Dialog", 0, convertFontSize(12));  //windows font for menus
+    static public final Font fontMenusMac = new Font("Dialog", 0, convertFontSize(14));            //mac font for menus
+    static public final Font fontDialogWin = new Font("Dialog", 0, convertFontSize(11));           //windows font for regular text
+    static public final Font fontDialogMac = new Font("Dialog", 0, convertFontSize(12));           //mac font for regular text
+    static public final Font fontDialogMacSmaller = new Font("Dialog", 0, convertFontSize(11));    // timeline uses smaller mac fonts
+    static public final Font fontDialogMacSmallest = new Font("Dialog", 0, convertFontSize(10));
+    static public final Font fontDialogWinBold = new Font("Dialog", Font.BOLD, convertFontSize(11));
+    static public final Font fontDialogMacBold = new Font("Dialog", Font.BOLD, convertFontSize(12));
+    static public final Font fontTitleBold = new Font("SansSerif", Font.BOLD, convertFontSize(14));
+    static public final Font fontSansSerifWin = new Font("SansSerif", 0, convertFontSize(11));     //windows generic sans serif text
+    static public final Font fontSansSerifMac = new Font("SansSerif", 0, convertFontSize(12));     //mac generic sans serif text
 
     //------------------------- ICONS -----------------------------//
     final public static ImageIcon icoPlay = new ImageIcon(AppEnv.getAppDir()+ "resources/media/playPL.gif");
@@ -258,6 +259,17 @@ public class UIUtilities {
         return((minutes * 60000) + (seconds * 1000) + milliseconds);
     }
 
+    
+    /**
+     * Given a font size, converts it to look right in different screen resolutions
+     */
+    static public int convertFontSize(int size) {
+    	
+	    double ppi = Toolkit.getDefaultToolkit().getScreenResolution();
+	    int newsize = (int)Math.round( size / (72 / ppi));
+	    return newsize;
+    }
+    
     /**
      * Given a string of the form hh:mm:ss or mm:ss, returns the total
      * milliseconds

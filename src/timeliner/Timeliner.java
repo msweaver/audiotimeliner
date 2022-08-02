@@ -1,5 +1,7 @@
 package timeliner;
 
+import java.awt.Toolkit;
+
 import org.apache.log4j.PropertyConfigurator;
 
 //import javafx.embed.swing.JFXPanel;
@@ -15,6 +17,7 @@ import util.AppEnv;
 import util.logging.LogUtil;
 
 
+
 /**
  * Title:        Timeliner
  * Copyright:    Copyright (c) 2004
@@ -26,7 +29,7 @@ import util.logging.LogUtil;
 public class Timeliner extends Application {
 
   public static final String DEFAULT_LOG4J_CONF = AppEnv.getAppDir() + "conf/client/timeliner_console.lcf";
-  
+   
   public Timeliner() {
 
   }
@@ -40,7 +43,8 @@ public class Timeliner extends Application {
 		        System.exit(1);
 		    }
 		    // make sure UIUtilities is initialized
-		    int x = UIUtilities.fontSizeHTML; x = x + 1; 
+		    
+		    int x = UIUtilities.fontSizeHTML; x = x + 1;
 
 		    // make sure log4j is initialized
 		    if (System.getProperty("log4j.configuration")==null) {
@@ -82,7 +86,7 @@ public class Timeliner extends Application {
 	        PropertyConfigurator.configure(DEFAULT_LOG4J_CONF);
 	    }
 	    LogUtil.beginSession(Integer.valueOf((int)(Math.random()*100))); // pick a random session number
-
+	    
 	    WindowManager.doStartUp();
 	    BasicWindow newWindow = WindowManager.openWindow(WindowManager.WINTYPE_LOCAL_TIMELINE, WindowManager.WINLOCATION_CASCADE_DOWN);
 	    TimelineFrame newTimelineWindow = (TimelineFrame)newWindow;
