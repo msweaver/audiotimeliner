@@ -1,2 +1,5 @@
 /ui/
 /timeliner/
+client-ui.log*
+launch4j.log
+
