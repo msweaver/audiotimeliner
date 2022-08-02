@@ -31,7 +31,7 @@ public class Timepoint {
   private int labelHeight = 0;
   private int labelStart = 0;
   private int labelFontSize = 12;
-  private Graphics g;
+  //private Graphics g;
   private Graphics2D g2d;
 
   // timepoint rect

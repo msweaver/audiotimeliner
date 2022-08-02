@@ -11,7 +11,7 @@ import java.io.BufferedOutputStream;
 import client.*;
 import ui.common.*;
 import util.logging.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * TimelineUtilities
@@ -24,7 +24,7 @@ public class TimelineUtilities {
   private static JFileChooser fileChooserOpen = new JFileChooser();
   private static JFileChooser fileChooserOpenAudio = new JFileChooser();
    private static HTMLFilter HTMLfilt = new HTMLFilter();
-  private static Logger log = Logger.getLogger(TimelineUtilities.class);
+  //private static Logger log = Logger.getLogger(TimelineUtilities.class);
   protected static UILogger uilogger;
   private static TimelineMenuBar menubTimeline;
   private static String[] timelineString = {"v2t", "tim"};

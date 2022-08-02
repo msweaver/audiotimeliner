@@ -8,7 +8,7 @@ import javax.swing.event.*;
 import java.util.*;
 import util.logging.*;
 import ui.common.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * TimepointEditor.java
@@ -30,7 +30,7 @@ public class TimepointEditor extends JDialog {
   private  JLabel lblLabel = new JLabel("Label: ");
 
   // variables
-  private  String oldText;
+  //private  String oldText;
   protected Vector<Integer> editedTimepoints = new Vector<Integer>();
   protected Vector<String> potentialLabels = new Vector<String>();
   protected Vector<String> oldLabels = new Vector<String>();
@@ -244,13 +244,13 @@ public class TimepointEditor extends JDialog {
    */
   private void saveTimepointLabel() {
     // get label for currently selected timepoint
-    int prevSave = editedTimepoints.indexOf(new Integer(currTimepoint));
+    int prevSave = editedTimepoints.indexOf(Integer.valueOf(currTimepoint));
     if (prevSave == -1) { // this bubble has not been saved before
-      editedTimepoints.addElement(new Integer(currTimepoint));
+      editedTimepoints.addElement(Integer.valueOf(currTimepoint));
       potentialLabels.addElement(fldTimepointLabel.getText());
     }
     else {
-      editedTimepoints.setElementAt(new Integer(currTimepoint), prevSave);
+      editedTimepoints.setElementAt(Integer.valueOf(currTimepoint), prevSave);
       potentialLabels.setElementAt(fldTimepointLabel.getText(), prevSave);
     }
   }
@@ -260,7 +260,7 @@ public class TimepointEditor extends JDialog {
    */
   private void updateTimepointLabel() {
     Timepoint currentTimepoint = timeline.getTimepoint(currTimepoint);
-    int prevPos = editedTimepoints.indexOf(new Integer(currTimepoint));
+    int prevPos = editedTimepoints.indexOf(Integer.valueOf(currTimepoint));
     if (prevPos != -1) { // this timepoint has already been edited
       fldTimepointLabel.setText((String)potentialLabels.elementAt(prevPos));
     }

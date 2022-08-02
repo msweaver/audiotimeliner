@@ -1,6 +1,6 @@
 package ui.timeliner;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
@@ -26,7 +26,7 @@ public class TimelineXMLAdapter {
   java.io.File tempFile;
   java.io.File newPath;
   String selectedPath;
-  private static Logger log = Logger.getLogger(TimelineUtilities.class);
+  //private static Logger log = Logger.getLogger(TimelineUtilities.class);
 
   // external
   TimelinePanel pnlTimeline;
@@ -314,8 +314,8 @@ public class TimelineXMLAdapter {
     int markerList[] = new int[1000];
     int numBubs = 1;
     int numMarkers = 0;
-    Vector Timepoints = new Vector(2);
-    Vector Markers = new Vector(0);
+    Vector<Timepoint> Timepoints = new Vector<Timepoint>(2);
+    Vector<Marker> Markers = new Vector<Marker>(0);
     BubbleTreeNode topBubbleNode = null;
     Bubble rootBubble = new Bubble();
     int mediaStart;
@@ -521,7 +521,8 @@ public class TimelineXMLAdapter {
     }
 
     g2d = (Graphics2D)pnlTimeline.getGraphics();
-    lineLength = pnlTimeline.getFrame().getWidth() - pnlTimeline.getFrame().SIDE_SPACE;
+    pnlTimeline.getFrame();
+	lineLength = pnlTimeline.getFrame().getWidth() - TimelineFrame.SIDE_SPACE;
 
     // create the new timeline
     timeline = new Timeline(g2d, lineLength, bubbleHeight, bubbleType, blackAndWhite, numBubs, numMarkers, pointList, markerList, Timepoints, Markers, topBubbleNode, pnlTimeline);

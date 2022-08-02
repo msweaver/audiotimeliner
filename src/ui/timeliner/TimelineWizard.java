@@ -7,7 +7,7 @@ import java.awt.event.*;
 import ui.common.*;
 import com.borland.jbcl.layout.*;
 import util.logging.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * TimelineWizard: helps users create or open a timeline
@@ -15,11 +15,12 @@ import org.apache.log4j.Logger;
 
 public class TimelineWizard extends JDialog {
 
-  // external components
+	private static final long serialVersionUID = 1L;
+// external components
   private static TimelinePanel pnlTimeline;
   private static TimelineFrame frmTimeline;
   private static Timeline timeline;
-  private static Logger log = Logger.getLogger(TimelinePrintDialog.class);
+  //private static Logger log = Logger.getLogger(TimelinePrintDialog.class);
   protected static UILogger uilogger;
 
   // visual components
@@ -95,6 +96,6 @@ public class TimelineWizard extends JDialog {
     pane.add(btnOpenTimeline);
 
     // show dialog
-    this.show();
+    this.setVisible(true);
   }
 }

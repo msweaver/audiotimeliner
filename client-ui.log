@@ -6831,3 +6831,21 @@ Aug 01 2022 18:33:57.722 [INFO ] .Session#36                    Initial display 
 Aug 01 2022 18:33:57.832 [INFO ] .Session#74                    Begin
 Aug 01 2022 18:33:57.833 [INFO ] .Session#74                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
 Aug 01 2022 18:33:57.933 [INFO ] .Session#74                    Initial display resolution is x:1600.0 y:900.0
+Aug 01 2022 18:34:23.625 [INFO ] on#74.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600
+Aug 01 2022 18:34:23.632 [INFO ] on#36.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600
+Aug 01 2022 18:34:29.294 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 261746
+Aug 01 2022 18:34:29.299 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 261746
+Aug 01 2022 18:34:29.360 [INFO ] on#36.WINTYPE_LOCAL_TIMELINE#1 button clicked - create a new timeline
+Aug 01 2022 18:34:30.825 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 18:34:30.825 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 18:34:30.826 [DEBUG] timeliner.TimelineSlider       value = 68519
+Aug 01 2022 18:34:30.826 [DEBUG] timeliner.TimelineSlider       milliseconds = 68519
+Aug 01 2022 18:34:30.826 [DEBUG] timeliner.TimelineSlider       jump to 396
+Aug 01 2022 18:34:30.890 [INFO ] on#36.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 18:34:30.891 [DEBUG] timeliner.TimelinePanel        68518
+Aug 01 2022 18:34:32.383 [INFO ] on#36.WINTYPE_LOCAL_TIMELINE#1 item single click - timepoint select: 1
+Aug 01 2022 18:34:32.388 [DEBUG] timeliner.TimelineControlPanel 68518
+Aug 01 2022 18:34:35.491 [INFO ] on#36.WINTYPE_LOCAL_TIMELINE#1 item double click - timepoint (edit label): 1
+Aug 01 2022 18:46:51.138 [INFO ] on#74.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 01 2022 18:46:51.159 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 01 2022 18:46:51.159 [DEBUG] common.WindowManager           closing 0 windows
