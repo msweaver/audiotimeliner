@@ -15,7 +15,7 @@ import ui.timeliner.TimelinePanel;
 import ui.timeliner.TimelineXMLAdapter;
 import util.AppEnv;
 import util.logging.LogUtil;
-
+import util.SwingDPI;
 
 
 /**
@@ -52,6 +52,8 @@ public class Timeliner extends Application {
 		    }
 		    LogUtil.beginSession(Integer.valueOf((int)(Math.random()*100))); // pick a random session number
 		  
+		    SwingDPI.applyScalingAutomatically();
+		    
 		    WindowManager.doStartUp();
 		    BasicWindow newWindow = WindowManager.openWindow(WindowManager.WINTYPE_LOCAL_TIMELINE, WindowManager.WINLOCATION_CASCADE_DOWN);
 		    TimelineFrame newTimelineWindow = (TimelineFrame)newWindow;
@@ -86,6 +88,8 @@ public class Timeliner extends Application {
 	        PropertyConfigurator.configure(DEFAULT_LOG4J_CONF);
 	    }
 	    LogUtil.beginSession(Integer.valueOf((int)(Math.random()*100))); // pick a random session number
+	    
+	    SwingDPI.applyScalingAutomatically();
 	    
 	    WindowManager.doStartUp();
 	    BasicWindow newWindow = WindowManager.openWindow(WindowManager.WINTYPE_LOCAL_TIMELINE, WindowManager.WINLOCATION_CASCADE_DOWN);

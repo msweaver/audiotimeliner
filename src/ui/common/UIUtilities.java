@@ -267,7 +267,8 @@ public class UIUtilities {
     	
 	    double ppi = Toolkit.getDefaultToolkit().getScreenResolution();
 	    int newsize = (int)Math.round( size / (96 / ppi));
-	    return newsize;
+	    //return newsize;
+	    return size;
     }
     
     /**
@@ -277,9 +278,18 @@ public class UIUtilities {
     	
 	    double ppi = Toolkit.getDefaultToolkit().getScreenResolution();
 	    int newsize = (int)Math.round( size / (96 / ppi));
-	    return newsize;
+	    //return newsize;
+	    return size;
     }
     
+    static public int scaleHeight(int size) {
+    	
+	    double ppi = Toolkit.getDefaultToolkit().getScreenResolution();
+	    int newsize = (int)Math.round( size / (104 / ppi));
+	    //return newsize;
+	    return size;
+    }
+ 
     /**
      * Given a string of the form hh:mm:ss or mm:ss, returns the total
      * milliseconds

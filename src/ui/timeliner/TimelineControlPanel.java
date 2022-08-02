@@ -526,8 +526,8 @@ public class TimelineControlPanel extends JPanel {
       btnDeleteBubble.setMinimumSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
       btnDeleteBubble.setPreferredSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
     } else {
-      btnDeleteBubble.setMinimumSize(new Dimension(UIUtilities.scalePixels(55), UIUtilities.scalePixels(23)));
-      btnDeleteBubble.setPreferredSize(new Dimension(UIUtilities.scalePixels(55), UIUtilities.scalePixels(23)));
+      btnDeleteBubble.setMinimumSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
+      btnDeleteBubble.setPreferredSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
     }
     btnDeleteBubble.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnDeleteBubble);
@@ -615,8 +615,8 @@ public class TimelineControlPanel extends JPanel {
       btnGroupBubbles.setMinimumSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
       btnGroupBubbles.setPreferredSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
     } else {
-      btnGroupBubbles.setMinimumSize(new Dimension(UIUtilities.scalePixels(55), UIUtilities.scalePixels(23)));
-      btnGroupBubbles.setPreferredSize(new Dimension(UIUtilities.scalePixels(55), UIUtilities.scalePixels(23)));
+      btnGroupBubbles.setMinimumSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
+      btnGroupBubbles.setPreferredSize(new Dimension(UIUtilities.scalePixels(65), UIUtilities.scalePixels(23)));
     }
     btnGroupBubbles.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(btnGroupBubbles);

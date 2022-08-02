@@ -545,3 +545,85 @@ Aug 02 2022 03:14:09.301 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 
 Aug 02 2022 03:14:09.302 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 226377
 Aug 02 2022 03:14:09.378 [INFO ] on#35.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
 Aug 02 2022 03:14:09.378 [INFO ] on#35.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 02 2022 03:17:44.044 [INFO ] .Session#8                     Begin
+Aug 02 2022 03:17:44.045 [INFO ] .Session#8                     System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 02 2022 03:17:44.119 [INFO ] .Session#8                     Initial display resolution is x:1600.0 y:900.0
+Aug 02 2022 03:17:46.922 [INFO ] ion#8.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:700
+Aug 02 2022 03:18:00.729 [DEBUG] timeliner.TimelineUtilities    F:\Documents\My Timelines\Chopin_nocturne.mp3
+Aug 02 2022 03:18:00.729 [DEBUG] timeliner.TimelineUtilities    Chopin_nocturne.mp3
+Aug 02 2022 03:18:00.729 [DEBUG] timeliner.TimelineUtilities    C:\Users\Brent Yorgason\Dropbox\Documents\My Timelines\Chopin_Nocturne_op27no2.v2t
+Aug 02 2022 03:18:00.729 [DEBUG] timeliner.TimelineUtilities    C:\Users\Brent Yorgason\Dropbox\Documents\My Timelines
+Aug 02 2022 03:18:00.730 [DEBUG] timeliner.TimelineUtilities    C:\Users\Brent Yorgason\Dropbox\Documents\My Timelines\Chopin_nocturne.mp3
+Aug 02 2022 03:18:01.008 [DEBUG] timeliner.TimelineLocalPlayer  Trouble initiating audio. Start/stop times are incorrect values.
+Aug 02 2022 03:18:01.008 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 331023, duration: 330178
+Aug 02 2022 03:18:01.016 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 331023
+Aug 02 2022 03:18:01.227 [INFO ] ion#8.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 02 2022 03:18:01.227 [INFO ] ion#8.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 02 2022 03:20:57.144 [INFO ] .Session#70                    Begin
+Aug 02 2022 03:20:57.145 [INFO ] .Session#70                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 02 2022 03:20:57.223 [INFO ] .Session#70                    Initial display resolution is x:1600.0 y:900.0
+Aug 02 2022 03:21:00.224 [INFO ] on#70.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:650
+Aug 02 2022 03:21:10.239 [INFO ] on#70.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 02 2022 03:21:10.251 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 02 2022 03:21:10.252 [DEBUG] common.WindowManager           closing 0 windows
+Aug 02 2022 03:23:13.313 [INFO ] .Session#42                    Begin
+Aug 02 2022 03:23:13.314 [INFO ] .Session#42                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 02 2022 03:23:13.438 [INFO ] .Session#42                    Initial display resolution is x:1600.0 y:900.0
+Aug 02 2022 03:23:16.219 [INFO ] on#42.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:840
+Aug 02 2022 03:23:27.565 [INFO ] on#42.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 02 2022 03:23:27.576 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 02 2022 03:23:27.577 [DEBUG] common.WindowManager           closing 0 windows
+Aug 02 2022 03:23:39.280 [INFO ] .Session#87                    Begin
+Aug 02 2022 03:23:39.281 [INFO ] .Session#87                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 02 2022 03:23:39.355 [INFO ] .Session#87                    Initial display resolution is x:1600.0 y:900.0
+Aug 02 2022 03:23:42.186 [INFO ] on#87.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:611
+Aug 02 2022 03:23:47.852 [INFO ] on#87.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 02 2022 03:23:47.864 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 02 2022 03:23:47.865 [DEBUG] common.WindowManager           closing 0 windows
+Aug 02 2022 03:23:54.396 [INFO ] .Session#40                    Begin
+Aug 02 2022 03:23:54.396 [INFO ] .Session#40                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 02 2022 03:23:54.482 [INFO ] .Session#40                    Initial display resolution is x:1600.0 y:900.0
+Aug 02 2022 03:23:57.333 [INFO ] on#40.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:646
+Aug 02 2022 03:24:01.988 [INFO ] on#40.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 02 2022 03:24:02.063 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 02 2022 03:24:02.064 [DEBUG] common.WindowManager           closing 0 windows
+Aug 02 2022 03:32:14.056 [INFO ] .Session#3                     Begin
+Aug 02 2022 03:32:14.057 [INFO ] .Session#3                     System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 02 2022 03:32:14.183 [INFO ] .Session#3                     Initial display resolution is x:1600.0 y:900.0
+Aug 02 2022 03:32:17.302 [INFO ] ion#3.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:646
+Aug 02 2022 03:32:23.738 [DEBUG] timeliner.TimelineUtilities    F:\Documents\My Timelines\Chopin_nocturne.mp3
+Aug 02 2022 03:32:23.739 [DEBUG] timeliner.TimelineUtilities    Chopin_nocturne.mp3
+Aug 02 2022 03:32:23.739 [DEBUG] timeliner.TimelineUtilities    C:\Users\Brent Yorgason\Dropbox\Documents\My Timelines\Chopin_Nocturne_op27no2.v2t
+Aug 02 2022 03:32:23.739 [DEBUG] timeliner.TimelineUtilities    C:\Users\Brent Yorgason\Dropbox\Documents\My Timelines
+Aug 02 2022 03:32:23.739 [DEBUG] timeliner.TimelineUtilities    C:\Users\Brent Yorgason\Dropbox\Documents\My Timelines\Chopin_nocturne.mp3
+Aug 02 2022 03:32:24.018 [DEBUG] timeliner.TimelineLocalPlayer  Trouble initiating audio. Start/stop times are incorrect values.
+Aug 02 2022 03:32:24.018 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 331023, duration: 330129
+Aug 02 2022 03:32:24.025 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 331023
+Aug 02 2022 03:32:24.150 [INFO ] ion#3.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 02 2022 03:32:24.150 [INFO ] ion#3.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 02 2022 11:14:52.693 [INFO ] ion#3.WINTYPE_LOCAL_TIMELINE#1 window closed - timeline: ID= C:\Users\Brent Yorgason\Dropbox\Documents\My Timelines\Chopin_nocturne.mp3
+Aug 02 2022 11:14:52.698 [INFO ] ion#3.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 02 2022 11:14:52.714 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 02 2022 11:14:52.715 [DEBUG] common.WindowManager           closing 0 windows
+Aug 02 2022 11:14:55.287 [INFO ] ion#8.WINTYPE_LOCAL_TIMELINE#1 window closed - timeline: ID= C:\Users\Brent Yorgason\Dropbox\Documents\My Timelines\Chopin_nocturne.mp3
+Aug 02 2022 11:14:55.294 [INFO ] ion#8.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 02 2022 11:14:55.305 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 02 2022 11:14:55.306 [DEBUG] common.WindowManager           closing 0 windows
+Aug 02 2022 11:57:17.425 [INFO ] .Session#6                     Begin
+Aug 02 2022 11:57:17.427 [INFO ] .Session#6                     System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 02 2022 11:57:17.497 [INFO ] .Session#6                     Initial display resolution is x:1600.0 y:900.0
+Aug 02 2022 12:42:24.692 [INFO ] .Session#33                    Begin
+Aug 02 2022 12:42:24.693 [INFO ] .Session#33                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 02 2022 12:42:24.759 [INFO ] .Session#33                    Initial display resolution is x:1600.0 y:900.0
+Aug 02 2022 12:42:27.729 [INFO ] on#33.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:700
+Aug 02 2022 12:42:43.136 [INFO ] on#33.WINTYPE_LOCAL_TIMELINE#1 button clicked - cancel open timeline
+Aug 02 2022 12:42:43.136 [INFO ] on#33.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 02 2022 12:42:53.124 [DEBUG] timeliner.TimelineUtilities    F:\Documents\My Timelines\Chopin_nocturne.mp3
+Aug 02 2022 12:42:53.124 [DEBUG] timeliner.TimelineUtilities    Chopin_nocturne.mp3
+Aug 02 2022 12:42:53.125 [DEBUG] timeliner.TimelineUtilities    C:\Users\Brent Yorgason\Dropbox\Documents\My Timelines\Chopin_Nocturne_op27no2.v2t
+Aug 02 2022 12:42:53.125 [DEBUG] timeliner.TimelineUtilities    C:\Users\Brent Yorgason\Dropbox\Documents\My Timelines
+Aug 02 2022 12:42:53.125 [DEBUG] timeliner.TimelineUtilities    C:\Users\Brent Yorgason\Dropbox\Documents\My Timelines\Chopin_nocturne.mp3
+Aug 02 2022 12:42:53.623 [DEBUG] timeliner.TimelineLocalPlayer  Trouble initiating audio. Start/stop times are incorrect values.
+Aug 02 2022 12:42:53.624 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 331023, duration: 330178
+Aug 02 2022 12:42:53.630 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 331023
+Aug 02 2022 12:42:53.889 [INFO ] on#33.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
