@@ -124,7 +124,7 @@ public class TimelineProperties extends JDialog {
     // display variables
     int titleWidth;
     int descriptionWidth;
-    int descriptionHeight = 150; // 120
+    int descriptionHeight = UIUtilities.scalePixels(150); // 120
     int dialogHeight;
     int dialogWidth;
     int levelButtonWidth;
@@ -134,9 +134,9 @@ public class TimelineProperties extends JDialog {
       timelineFont = UIUtilities.fontDialogMacSmallest;
       unicodeFont = UIUtilities.fontUnicodeSmaller;
       titleWidth = 45;
-      descriptionWidth = 530;
-      dialogWidth = 570;
-      dialogHeight = 570;
+      descriptionWidth = UIUtilities.scalePixels(530);
+      dialogWidth = UIUtilities.scalePixels(570);
+      dialogHeight = UIUtilities.scalePixels(570);
       levelButtonWidth = 39;
       levelButtonHeight = UIUtilities.scalePixels(20);;
       menubTimeline.disableMenuKeyboardShortcuts();
@@ -145,17 +145,17 @@ public class TimelineProperties extends JDialog {
       unicodeFont = UIUtilities.fontUnicode;
       titleWidth = 42;
       descriptionWidth = UIUtilities.scalePixels(395);
-      dialogWidth = 430;
-      dialogHeight = 610;
+      dialogWidth = UIUtilities.scalePixels(430);
+      dialogHeight = UIUtilities.scalePixels(610);
       levelButtonWidth = 20;
       levelButtonHeight = UIUtilities.scalePixels(20);
     }
 
-    this.setTitle("Timeline Properties: " + pnlTimeline.getFrame().getTitle().substring(10));
+    this.setTitle("Timeline Properties: " + pnlTimeline.getFrame().getTitle()); //.substring(10));
     this.setLocationRelativeTo(frmOwner);
     this.setModal(modal);
     this.setSize(new Dimension(dialogWidth, dialogHeight)); // 435, 390
-    this.setLocation(0, 30); // frmOwner.getWidth() - (this.getWidth() + 5), 30);
+    this.setLocation(30, 30); // frmOwner.getWidth() - (this.getWidth() + 5), 30);
     this.setResizable(false);
 
     // panel layout
@@ -197,7 +197,7 @@ public class TimelineProperties extends JDialog {
     fldTimelineTitle.setFont(unicodeFont);
     fldTimelineTitle.setToolTipText("Edit the timeline title");
     fldTimelineTitle.setColumns(titleWidth);
-    oldTimelineTitle = pnlTimeline.getFrame().getTitle().substring(10);
+    oldTimelineTitle = pnlTimeline.getFrame().getTitle(); //.substring(10);
     fldTimelineTitle.setText(oldTimelineTitle);
     fldTimelineDescription.setFont(unicodeFont);
     fldTimelineDescription.setToolTipText("Edit the timeline description");
@@ -552,27 +552,27 @@ public class TimelineProperties extends JDialog {
     // button properties
     int buttonWidth;
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      buttonWidth = 65;
+      buttonWidth = UIUtilities.scalePixels(65);
     } else {
-      buttonWidth = 60;
+      buttonWidth = UIUtilities.scalePixels(60);
     }
 
     // buttons
     btnApply.setFont(timelineFont);
-    btnApply.setPreferredSize(new Dimension(buttonWidth, 23));
+    btnApply.setPreferredSize(new Dimension(buttonWidth, UIUtilities.scalePixels(23)));
     btnApply.setMargin(new Insets(2, 2, 2, 2));
     btnApply.setToolTipText("Apply property changes");
     btnOk.setFont(timelineFont);
-    btnOk.setPreferredSize(new Dimension(buttonWidth, 23));
+    btnOk.setPreferredSize(new Dimension(buttonWidth, UIUtilities.scalePixels(23)));
     btnOk.setMargin(new Insets(2, 2, 2, 2));
     btnOk.setToolTipText("Accept property changes");
     btnCancel.setFont(timelineFont);
     btnCancel.setMargin(new Insets(2, 2, 2, 2));
-    btnCancel.setPreferredSize(new Dimension(buttonWidth, 23));
+    btnCancel.setPreferredSize(new Dimension(buttonWidth, UIUtilities.scalePixels(23)));
     btnRestore.setFont(timelineFont);
     btnCancel.setToolTipText("Discard any property changes");
     btnRestore.setMargin(new Insets(2, 2, 2, 2));
-    btnRestore.setPreferredSize(new Dimension(110, 23));
+    btnRestore.setPreferredSize(new Dimension(UIUtilities.scalePixels(110), UIUtilities.scalePixels(23)));
     btnRestore.setToolTipText("Restore default property settings");
 
     // buttons panel

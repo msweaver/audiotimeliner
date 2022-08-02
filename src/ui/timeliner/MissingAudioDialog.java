@@ -8,6 +8,8 @@ import java.awt.event.*;
 import ui.common.*;
 import com.borland.jbcl.layout.*;
 import util.logging.*;
+import javax.swing.border.EmptyBorder;
+
 //import org.apache.log4j.Logger;
 
 /**
@@ -41,16 +43,17 @@ public class MissingAudioDialog extends JDialog {
     int dialogHeight;
     if (System.getProperty("os.name").startsWith("Mac OS")) {
       timelineFont = UIUtilities.fontDialogMacSmallest;
-      dialogWidth = 700;
+      dialogWidth = 600;
       dialogHeight = 100;
     } else {
       timelineFont = UIUtilities.fontDialogWin;
-      dialogWidth = 700;
+      dialogWidth = 600;
       dialogHeight = 100;
     }
-    this.setTitle("Missing Audio");
+    String filename= new String(new File(mediaContent).getName());
+    this.setTitle("Missing Audio: " + filename);
     this.setLocationRelativeTo(parentWindow);
-    this.setLocation((parentWindow.getWidth()/2) - (dialogWidth/2), 150);
+    this.setLocation((parentWindow.getWidth()/2) - (dialogWidth/2), 100); // (parentWindow.getWidth()/2) - (dialogWidth/2), 150);
     this.setModal(true);
     this.setSize(new Dimension(dialogWidth, dialogHeight));
 
@@ -70,7 +73,7 @@ public class MissingAudioDialog extends JDialog {
     });
     btnBrowse.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        File missingFile = TimelineUtilities.findMissingAudio(parentWindow);
+        File missingFile = TimelineUtilities.findMissingAudio(parentWindow, filename);
         time.newPath = missingFile;
         setVisible(false);
         uilogger.log(UIEventType.BUTTON_CLICKED, "browse for missing audio");
@@ -84,11 +87,14 @@ public class MissingAudioDialog extends JDialog {
     });
 
     // labels
-    JLabel lblMissing = new JLabel("The audio for this timeline could not be found at: " + mediaContent);
+    JLabel lblMissing = new JLabel("<html>Oops! The audio for this timeline could not be found at: <br/><br/>" + mediaContent + "<br/><br/>What would you like to do?");
     lblMissing.setFont(timelineFont);
 
     // panel
+    JPanel textPanel = new JPanel(new FlowLayout());
     JPanel buttonPanel = new JPanel(new FlowLayout());
+    EmptyBorder border = new EmptyBorder(5, 5, 5, 5);
+    textPanel.setBorder(border);
 
     // window close handler
     this.addWindowListener(new WindowAdapter() {
@@ -99,13 +105,15 @@ public class MissingAudioDialog extends JDialog {
     // layout
     Container pane = this.getContentPane();
     pane.setLayout(new VerticalFlowLayout());
-    pane.add(lblMissing);
-    buttonPanel.add(btnContinue);
+    textPanel.add(lblMissing);
     buttonPanel.add(btnBrowse);
+    buttonPanel.add(btnContinue);
     //    buttonPanel.add(btnCancel);     // I'm not sure if this option is a good idea here
+    pane.add(textPanel);
     pane.add(buttonPanel);
 
     // show dialog
+    this.pack();
     this.setVisible(true);
   }
 }

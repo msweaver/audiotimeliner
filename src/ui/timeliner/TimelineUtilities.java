@@ -370,10 +370,10 @@ public class TimelineUtilities {
   /**
    * findMissingAudio: finds a missing audio file for an opened timeline
    */
-  public static File findMissingAudio(BasicWindow parent) {
+  public static File findMissingAudio(BasicWindow parent, String filename) {
     TimelineFrame frmTimeline;
     try {
-      fileChooserOpenAudio.setDialogTitle("Browse for Missing Audio");
+      fileChooserOpenAudio.setDialogTitle("Browse for Missing Audio: " + filename);
       fileChooserOpenAudio.setAcceptAllFileFilterUsed(false);
       fileChooserOpenAudio.addChoosableFileFilter(audioFilt);
       fileChooserOpenAudio.setMultiSelectionEnabled(false);

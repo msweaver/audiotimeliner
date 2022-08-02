@@ -170,11 +170,11 @@ public class TimelineControlPanel extends JPanel {
     // set font
     if (System.getProperty("os.name").startsWith("Mac OS")) {
       timelineFont = UIUtilities.fontDialogMacSmallest;
-      timelineFontSize = 10;
+      timelineFontSize = UIUtilities.convertFontSize(10);
       annotationFont = new Font(unicodeFont, 0, annotationFontSize - 2);
     } else {
       timelineFont = UIUtilities.fontDialogWin;
-      timelineFontSize = 11;
+      timelineFontSize = UIUtilities.convertFontSize(11);
       annotationFont = new Font(unicodeFont, 0, annotationFontSize);
     }
 

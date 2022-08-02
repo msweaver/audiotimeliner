@@ -50,7 +50,7 @@ public class TimelineWizard extends JDialog {
     }
     this.setTitle("How would you like to begin?");
     this.setLocationRelativeTo(frmTimeline);
-    this.setLocation((frmTimeline.getWidth()/2) - (dialogWidth/2), 150);
+    this.setLocation((frmTimeline.getWidth()/2) - (dialogWidth/2), 100);
     this.setSize(new Dimension(dialogWidth, dialogHeight));
 
     //  buttons

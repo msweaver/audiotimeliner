@@ -409,7 +409,7 @@ public class Timeline extends JPanel {
   protected void drawTitle() {
     g2d.setFont(UIUtilities.fontTitleBold);
     int offset = (this.description.length() > 0)? 24 : 0;
-    g2d.drawString(pnlTimeline.getFrame().getTitle().substring(10), start + offset, yLoc - this.getHighestBubbleHeight() - 10);
+    g2d.drawString(pnlTimeline.getFrame().getTitle(), start + offset, yLoc - this.getHighestBubbleHeight() - 10);
   }
 
   /**
