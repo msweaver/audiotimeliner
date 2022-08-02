@@ -208,6 +208,7 @@ public class TimelineControlPanel extends JPanel {
     // set up annotation pane
     tpAnnotations.setEditable(false);
     tpAnnotations.setFont(annotationFont);
+    //tpAnnotations.setContentType("text/html");
     scrpAnnotations.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
     // create panel borders
@@ -1264,6 +1265,7 @@ public class TimelineControlPanel extends JPanel {
   protected void updateAnnotationPane() {
     tpAnnotations = new JTextPane();
     tpAnnotations.setEditable(false);
+    //tpAnnotations.setContentType("text/html");
     tpAnnotations.setFont(annotationFont);
     if (scrpAnnotations != null && tpAnnotations != null && scrpAnnotations.getViewport() !=null) {
     scrpAnnotations.setViewportView(tpAnnotations);
@@ -1376,6 +1378,7 @@ public class TimelineControlPanel extends JPanel {
           }
         }
       }
+
       tpAnnotations.setVisible(true);
     } catch (BadLocationException ble) {
       System.err.println("Error displaying annotation");

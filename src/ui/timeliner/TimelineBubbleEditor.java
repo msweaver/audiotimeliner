@@ -124,7 +124,7 @@ public class TimelineBubbleEditor extends JDialog {
     this.setLocationRelativeTo(frmTimeline);
     this.setModal(true);
     this.setSize(new Dimension(430, 450));
-    this.setLocation(frmTimeline.getWidth() - (this.getWidth() + 5), 30);
+    this.setLocation(30, 30); // frmTimeline.getWidth() - (this.getWidth() + 5), 30);
 
     // text fields and panes
     fldBubbleLabel.setBounds(new Rectangle(250, 20));
@@ -135,6 +135,7 @@ public class TimelineBubbleEditor extends JDialog {
     tpAnnotation.setPreferredSize(new Dimension(430, 375));
     tpAnnotation.setFont(unicodeFont);
     tpAnnotation.setToolTipText("Edit the bubble annotation");
+    //tpAnnotation.setContentType("text/html");
 
     // media buttons
     if (timeline.playerIsPlaying()) {
@@ -404,6 +405,7 @@ public class TimelineBubbleEditor extends JDialog {
     updateNavigationButtons();
 
     // show dialog
+    this.pack();
     this.setVisible(true);
   }
 

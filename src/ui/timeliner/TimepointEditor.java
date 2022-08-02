@@ -225,6 +225,7 @@ public class TimepointEditor extends JDialog {
     updateNavigationButtons();
 
     // show dialog
+    this.pack();
     this.setVisible(true); // show();
   }
 

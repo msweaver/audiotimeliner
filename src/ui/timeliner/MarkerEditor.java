@@ -265,6 +265,7 @@ public class MarkerEditor extends JDialog {
     updateNavigationButtons();
 
     // show dialog
+    this.pack();
     this.setVisible(true);
   }
 

@@ -53,7 +53,7 @@ public class MissingAudioDialog extends JDialog {
     String filename= new String(new File(mediaContent).getName());
     this.setTitle("Missing Audio: " + filename);
     this.setLocationRelativeTo(parentWindow);
-    this.setLocation((parentWindow.getWidth()/2) - (dialogWidth/2), 100); // (parentWindow.getWidth()/2) - (dialogWidth/2), 150);
+    this.setLocation(50, 100); // (parentWindow.getWidth()/2) - (dialogWidth/2), 150);
     this.setModal(true);
     this.setSize(new Dimension(dialogWidth, dialogHeight));
 
