@@ -7287,3 +7287,22 @@ Aug 01 2022 22:17:07.796 [DEBUG] common.WindowManager           closing 0 window
 Aug 01 2022 22:17:09.631 [INFO ] on#75.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
 Aug 01 2022 22:17:09.642 [DEBUG] common.WindowManager           Starting the shutdown process
 Aug 01 2022 22:17:09.642 [DEBUG] common.WindowManager           closing 0 windows
+Aug 01 2022 22:24:08.455 [INFO ] .Session#65                    Begin
+Aug 01 2022 22:24:08.456 [INFO ] .Session#65                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 01 2022 22:24:08.531 [INFO ] .Session#65                    Initial display resolution is x:1600.0 y:900.0
+Aug 01 2022 22:24:11.537 [INFO ] on#65.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600
+Aug 01 2022 22:34:39.049 [INFO ] .Session#86                    Begin
+Aug 01 2022 22:34:39.050 [INFO ] .Session#86                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 01 2022 22:34:39.132 [INFO ] .Session#86                    Initial display resolution is x:1600.0 y:900.0
+Aug 01 2022 22:34:42.626 [INFO ] on#86.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600
+Aug 01 2022 22:34:47.236 [INFO ] on#86.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 01 2022 22:34:47.258 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 01 2022 22:34:47.260 [DEBUG] common.WindowManager           closing 0 windows
+Aug 01 2022 22:34:54.340 [INFO ] .Session#13                    Begin
+Aug 01 2022 22:34:54.341 [INFO ] .Session#13                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 01 2022 22:34:54.474 [INFO ] .Session#13                    Initial display resolution is x:1600.0 y:900.0
+Aug 01 2022 22:34:57.974 [INFO ] on#13.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600
+Aug 01 2022 22:35:35.484 [INFO ] .Session#50                    Begin
+Aug 01 2022 22:35:35.485 [INFO ] .Session#50                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 01 2022 22:35:35.566 [INFO ] .Session#50                    Initial display resolution is x:1600.0 y:900.0
+Aug 01 2022 22:35:38.826 [INFO ] on#50.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600

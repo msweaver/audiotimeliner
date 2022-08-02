@@ -266,7 +266,7 @@ public class UIUtilities {
     static public int convertFontSize(int size) {
     	
 	    double ppi = Toolkit.getDefaultToolkit().getScreenResolution();
-	    int newsize = (int)Math.round( size / (72 / ppi));
+	    int newsize = (int)Math.round( size / (96 / ppi));
 	    return newsize;
     }
     
