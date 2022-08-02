@@ -25,7 +25,8 @@ import org.apache.log4j.Logger;
 public class TimelinePanel extends JPanel
     implements MouseListener, MouseMotionListener {
 
-  // associated objects
+  private static final long serialVersionUID = 1L;
+// associated objects
   private Timeline timeline;
   private TimelineFrame frmTimeline;
   private TimelineControlPanel pnlControl;
@@ -267,7 +268,7 @@ public class TimelinePanel extends JPanel
       // open the color chooser and get the new color
       colorChooser.setColor(currColor);
       colorDialog.setTitle("Set Bubble Color");
-      colorDialog.show();
+      colorDialog.setVisible(true);
 
       // set the bubble color to the new color
       if (newColor != null) {
@@ -624,14 +625,14 @@ public class TimelinePanel extends JPanel
     timeline.timelineZoomed = false;
     int frameWidth = frmTimeline.getWidth();
     oldTimelineLength = timelineLength;
-    timelineLength = (frameWidth - frmTimeline.SIDE_SPACE);
+    timelineLength = (frameWidth - TimelineFrame.SIDE_SPACE);
     Rectangle oldScrollRect = this.getVisibleRect();
     oldScrollRect.setBounds((int)oldScrollRect.getX(), this.getHeight()*2, (int)oldScrollRect.getWidth(), 20);
     Graphics2D g2 = (Graphics2D)this.getGraphics();
     timeline.doLastResize(timelineLength, g2);
     timeline.refresh(g2);
     Dimension oldPanelSize = this.getSize();
-    Dimension newPanelSize = new Dimension(frameWidth - frmTimeline.FRAME_SIDE_SPACE, this.getHeight());
+    Dimension newPanelSize = new Dimension(frameWidth - TimelineFrame.FRAME_SIDE_SPACE, this.getHeight());
     this.setSize(newPanelSize);
     this.setPreferredSize(newPanelSize);
     this.setMinimumSize(newPanelSize);
@@ -776,8 +777,8 @@ public class TimelinePanel extends JPanel
    * initTimelineProperties: sets the timeline properties to default values
    */
   private void initTimelineProperties() {
-    defaultLineY = this.getHeight() - frmTimeline.BOTTOM_SPACE;
-    defaultLineLength = frmTimeline.getWidth() - frmTimeline.SIDE_SPACE;
+    defaultLineY = this.getHeight() - TimelineFrame.BOTTOM_SPACE;
+    defaultLineLength = frmTimeline.getWidth() - TimelineFrame.SIDE_SPACE;
     timelineY = defaultLineY;
     timelineStart = defaultLineStart;
     timelineLength = defaultLineLength;
@@ -872,7 +873,7 @@ public class TimelinePanel extends JPanel
    * repositionTimeline: repositions the timeline in the panel based on the current window size
    */
   protected void repositionTimeline() {
-    defaultLineY = this.getHeight() - frmTimeline.BOTTOM_SPACE;
+    defaultLineY = this.getHeight() - TimelineFrame.BOTTOM_SPACE;
     defaultLineLength = this.getWidth() - 100;
     timeline.moveTo(timeline.getLineStart(), defaultLineY);
   }
@@ -1015,7 +1016,7 @@ public class TimelinePanel extends JPanel
       // open the color chooser and get the new color
       colorChooser.setColor(currColor);
       colorDialog.setTitle("Set Background Color");
-      colorDialog.show();
+      colorDialog.setVisible(true);
 
       // set the background color to the new color
       if (newColor != null) {
@@ -1152,9 +1153,9 @@ public class TimelinePanel extends JPanel
     int currLevel = currBubble.getLevel();
 
     // find out all of the levels involved, store old colors
-    Vector levels = new Vector();
+    Vector<Integer> levels = new Vector<Integer>();
     for (int i = 0; i < timeline.getSelectedBubbles().size(); i++) {
-      Integer lev = new Integer(timeline.getBubble(((Integer)timeline.getSelectedBubbles().elementAt(i)).intValue()).getLevel());
+      Integer lev = Integer.valueOf(timeline.getBubble(((Integer)timeline.getSelectedBubbles().elementAt(i)).intValue()).getLevel());
       if (!levels.contains(lev)) {
         levels.addElement(lev);
       }
@@ -1167,7 +1168,7 @@ public class TimelinePanel extends JPanel
     // open the color chooser and get the new color
     colorChooser.setColor(currColor);
     colorDialog.setTitle("Set Level Color");
-    colorDialog.show();
+    colorDialog.setVisible(true);
 
     // set the new level color
     if (newColor != null) {
@@ -1755,15 +1756,15 @@ public class TimelinePanel extends JPanel
             timeline.timelineZoomed = false;
             int frameWidth = frmTimeline.getWidth();
             oldTimelineLength = timelineLength;
-            timelineLength = frameWidth - frmTimeline.SIDE_SPACE;
+            timelineLength = frameWidth - TimelineFrame.SIDE_SPACE;
             timeline.freshZoom = true;
-            timeline.doLastResize(frameWidth - frmTimeline.SIDE_SPACE, g2d);
+            timeline.doLastResize(frameWidth - TimelineFrame.SIDE_SPACE, g2d);
             oldPanelSize = this.getSize();
-            newPanelSize = new Dimension(frameWidth - frmTimeline.FRAME_SIDE_SPACE, this.getHeight());
+            newPanelSize = new Dimension(frameWidth - TimelineFrame.FRAME_SIDE_SPACE, this.getHeight());
             this.setSize(newPanelSize);
             this.setPreferredSize(newPanelSize);
             this.setMinimumSize(newPanelSize);
-            scrollRect = new Rectangle(0, 0, frameWidth - frmTimeline.FRAME_SIDE_SPACE, 0);
+            scrollRect = new Rectangle(0, 0, frameWidth - TimelineFrame.FRAME_SIDE_SPACE, 0);
             scrollRectToVisible(scrollRect);
             timeline.refresh(g2d);
           }

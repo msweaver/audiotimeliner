@@ -678,7 +678,7 @@ import org.apache.log4j.Logger;
                     lowestValue = Math.min( value, lowestValue );
                 }
 
-                label = (Component)dictionary.get( new Integer( lowestValue ) );
+                label = (Component)dictionary.get(Integer.valueOf( lowestValue ) );
             }
         }
 
@@ -703,7 +703,7 @@ import org.apache.log4j.Logger;
                     highestValue = Math.max( value, highestValue );
                 }
 
-                label = (Component)dictionary.get( new Integer( highestValue ) );
+                label = (Component)dictionary.get(Integer.valueOf( highestValue ) );
             }
         }
 
@@ -1420,7 +1420,8 @@ import org.apache.log4j.Logger;
      * Instantiate it only within subclasses of <Foo>.
      */
     public class ActionScroller extends AbstractAction {
-        int dir;
+ 		private static final long serialVersionUID = 1L;
+		int dir;
         boolean block;
         JSlider slider;
 
@@ -1447,7 +1448,8 @@ import org.apache.log4j.Logger;
      * A static version of the above.
      */
     static class SharedActionScroller extends AbstractAction {
-        int dir;
+		private static final long serialVersionUID = 1L;
+		int dir;
         boolean block;
 
         public SharedActionScroller(int dir, boolean block) {

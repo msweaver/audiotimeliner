@@ -34,7 +34,7 @@ import java.awt.*;
   private int labelStart = 0;
   private int labelFontSize = 12;
   private String unicodeFont = "Arial Unicode MS";
-  private Graphics g;
+  //private Graphics g;
   private Graphics2D g2d;
   private Polygon markerPolygon;
 

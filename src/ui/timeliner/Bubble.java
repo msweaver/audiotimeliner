@@ -15,7 +15,8 @@ import java.awt.geom.*;
 
 public class Bubble extends JComponent {
 
-  // private variables
+  private static final long serialVersionUID = 1L;
+// private variables
   private Color color = new Color(166, 202, 240); // default color is light blue
   private Color bwColor = new Color (255, 255, 255); // white
   private Color shadeColor;

@@ -12,7 +12,7 @@ import java.util.*;
 import util.logging.*;
 import ui.common.*;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * MarkerEditor
@@ -20,12 +20,13 @@ import org.apache.log4j.Logger;
 
 public class MarkerEditor extends JDialog {
 
-  // external components
+  private static final long serialVersionUID = 1L;
+// external components
   private  TimelinePanel pnlTimeline;
   private  TimelineFrame frmTimeline;
   private  Timeline timeline;
   private  TimelineMenuBar menubTimeline;
-  private  Logger log = Logger.getLogger(MarkerEditor.class);
+  //private  Logger log = Logger.getLogger(MarkerEditor.class);
   protected  UILogger uilogger;
 
   // visual components
@@ -64,11 +65,11 @@ public class MarkerEditor extends JDialog {
   final  ImageIcon icoRight = UIUtilities.icoRightSmall;
 
   // vectors for temporary storage
-  protected Vector editedMarkers = new Vector();
-  protected Vector potentialLabels = new Vector();
-  protected Vector potentialAnnotations = new Vector();
-  protected Vector oldLabels = new Vector();
-  protected Vector oldAnnotations = new Vector();
+  protected Vector<Integer> editedMarkers = new Vector<Integer>();
+  protected Vector<String> potentialLabels = new Vector<String>();
+  protected Vector<String> potentialAnnotations = new Vector<String>();
+  protected Vector<String> oldLabels = new Vector<String>();
+  protected Vector<String> oldAnnotations = new Vector<String>();
 
   /**
    * MarkerEditor: constructor
@@ -264,7 +265,7 @@ public class MarkerEditor extends JDialog {
     updateNavigationButtons();
 
     // show dialog
-    this.show();
+    this.setVisible(true);
   }
 
   /**
@@ -275,7 +276,7 @@ public class MarkerEditor extends JDialog {
       menubTimeline.enableMenuKeyboardShortcuts();
     }
     timeline.deselectAllTimepointsAndMarkers();
-    this.hide();
+    this.setVisible(false);
   }
 
   /**
@@ -283,14 +284,14 @@ public class MarkerEditor extends JDialog {
    */
   private void saveLabelAndAnnotation() {
     // get annotation and label for currently selected bubble
-    int prevSave = editedMarkers.indexOf(new Integer(currMarker));
+    int prevSave = editedMarkers.indexOf(Integer.valueOf(currMarker));
     if (prevSave == -1) { // this bubble has not been saved before
-      editedMarkers.addElement(new Integer(currMarker));
+      editedMarkers.addElement(Integer.valueOf(currMarker));
       potentialLabels.addElement(fldMarkerLabel.getText());
       potentialAnnotations.addElement(tpAnnotation.getText());
     }
     else {
-      editedMarkers.setElementAt(new Integer(currMarker), prevSave);
+      editedMarkers.setElementAt(Integer.valueOf(currMarker), prevSave);
       potentialLabels.setElementAt(fldMarkerLabel.getText(), prevSave);
       potentialAnnotations.setElementAt(tpAnnotation.getText(), prevSave);
     }
@@ -301,7 +302,7 @@ public class MarkerEditor extends JDialog {
    */
   private void updateLabelAndAnnotation() {
     Marker currentMarker = timeline.getMarker(currMarker);
-    int prevPos = editedMarkers.indexOf(new Integer(currMarker));
+    int prevPos = editedMarkers.indexOf(Integer.valueOf(currMarker));
     if (prevPos != -1) { // this marker has already been edited
       fldMarkerLabel.setText((String)potentialLabels.elementAt(prevPos));
       tpAnnotation.setText((String)potentialAnnotations.elementAt(prevPos));

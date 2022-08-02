@@ -11,7 +11,7 @@ import com.borland.jbcl.layout.*;
 import ui.media.*;
 import ui.common.*;
 import util.logging.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import javax.swing.text.html.*;
 
 /**
@@ -23,7 +23,8 @@ import javax.swing.text.html.*;
  */
 
 public class TimelineControlPanel extends JPanel {
-  // external components
+  private static final long serialVersionUID = 1L;
+// external components
   private TimelinePanel pnlTimeline;
   private Timeline timeline;
   private TimelineFrame frmTimeline;
@@ -35,7 +36,7 @@ public class TimelineControlPanel extends JPanel {
   protected TimepointEditor dlgTimepointEditor;
   protected AudioControlPanel pnlAudioControl = new AudioControlPanel();
   VolumePanel pnlVolumeControl = new VolumePanel();
-  private static Logger log = Logger.getLogger(TimelineControlPanel.class);
+  //private static Logger log = Logger.getLogger(TimelineControlPanel.class);
   protected UILogger uilogger;
 
   // fonts
@@ -402,7 +403,7 @@ public class TimelineControlPanel extends JPanel {
     WindowManager.stopAllPlayers();
     pnlTimeline.getTimeline().startPlayer();
     pnlTimeline.getTimeline().showTime(false);
-    lblStatus.setText(this.STATUS_BUFFERING);
+    lblStatus.setText(TimelineControlPanel.STATUS_BUFFERING);
     buffering = false;
     playing = true;
     pnlAudioControl.btnPlay.setIcon(UIUtilities.icoPause);
@@ -1129,12 +1130,12 @@ public class TimelineControlPanel extends JPanel {
    */
   protected void doStopTracking() {
     timeline = pnlTimeline.getTimeline();
-    trackingState = this.TRACKING_NONE;
-    timeline.setPlayerShift(this.INITIAL_TRACKING_AMOUNT);
+    trackingState = TimelineControlPanel.TRACKING_NONE;
+    timeline.setPlayerShift(TimelineControlPanel.INITIAL_TRACKING_AMOUNT);
     if (playing || buffering) {     //start playing again if we were before
       timeline.startPlayer();
     } else {
-      lblStatus.setText(this.STATUS_IDLE);
+      lblStatus.setText(TimelineControlPanel.STATUS_IDLE);
     }
   }
 
@@ -1146,8 +1147,8 @@ public class TimelineControlPanel extends JPanel {
     if (playing || buffering) {     //stop playing for now
       timeline.pausePlayer();
     }
-    trackingState = this.TRACKING_RW;
-    lblStatus.setText(this.STATUS_TRACKING);
+    trackingState = TimelineControlPanel.TRACKING_RW;
+    lblStatus.setText(TimelineControlPanel.STATUS_TRACKING);
   }
 
   /**
@@ -1158,8 +1159,8 @@ public class TimelineControlPanel extends JPanel {
     if (playing || buffering) {     //stop playing for now
       timeline.pausePlayer();
     }
-    trackingState = this.TRACKING_FF;
-    lblStatus.setText(this.STATUS_TRACKING);
+    trackingState = TimelineControlPanel.TRACKING_FF;
+    lblStatus.setText(TimelineControlPanel.STATUS_TRACKING);
   }
 
   /**
@@ -1193,13 +1194,17 @@ public class TimelineControlPanel extends JPanel {
   protected void setEnterAction(JComponent comp) {
     comp.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "EnterAction");
     comp.getActionMap().put("EnterAction", new AbstractAction() {
-      public void actionPerformed(ActionEvent ae) {
+ 		private static final long serialVersionUID = 1L;
+
+	public void actionPerformed(ActionEvent ae) {
         pnlTimeline.addTimepoint();
       }
     });
-    comp.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, KeyEvent.CTRL_MASK), "ControlEnterAction");
+    comp.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, KeyEvent.CTRL_DOWN_MASK), "ControlEnterAction");
     comp.getActionMap().put("ControlEnterAction", new AbstractAction() {
-      public void actionPerformed(ActionEvent ae) {
+ 		private static final long serialVersionUID = 1L;
+
+	public void actionPerformed(ActionEvent ae) {
         pnlTimeline.addMarker();
       }
     });
@@ -1285,14 +1290,14 @@ public class TimelineControlPanel extends JPanel {
       timeline.clearSelectedBubbles();
 
       int level = 1;
-      if (selectedLevels.contains(new Integer(level))) { // base level selected?
+      if (selectedLevels.contains(Integer.valueOf(level))) { // base level selected?
         currentBubbles.add(currNode);
         timeline.selectBubble(timeline.topBubbleNode.getPreOrderIndex(currNode), 5);
       }
       while (!((BubbleTreeNode)currNode.getParent()).isRoot()) {
         level++;
         currNode = (BubbleTreeNode)currNode.getParent();
-        if (selectedLevels.contains(new Integer(level))) {
+        if (selectedLevels.contains(Integer.valueOf(level))) {
           currentBubbles.add(currNode);
           timeline.selectBubble(timeline.topBubbleNode.getPreOrderIndex(currNode), 5);
         }

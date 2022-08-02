@@ -2,10 +2,10 @@ package ui.timeliner;
 
 import javax.swing.*;
 import javax.swing.undo.*;
-import java.awt.*;
+//import java.awt.*;
 import java.awt.event.*;
 import util.logging.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import ui.common.*;
 
 /**
@@ -18,12 +18,13 @@ import ui.common.*;
 
 public class TimelineMenuBar extends JMenuBar {
 
-  // references to external objects
+  private static final long serialVersionUID = 1L;
+// references to external objects
   private TimelineFrame frmTimeline;
   private TimelinePanel pnlTimeline;
   private TimelineControlPanel pnlControl;
   private UndoManager undoManager;
-  private static Logger log = Logger.getLogger(TimelineMenuBar.class);
+ // private static Logger log = Logger.getLogger(TimelineMenuBar.class);
   protected UILogger uilogger;
   protected TimepointEditor dlgTimepointEditor;
   protected MarkerEditor dlgMarkerEditor;
@@ -125,14 +126,14 @@ public class TimelineMenuBar extends JMenuBar {
     // set up accelerators and mnemonics
     if (System.getProperty("os.name").startsWith("Mac OS")) {
         //Mac specific stuff
-        menuiSaveTimeline.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.META_MASK));
-        menuiSaveTimelineAs.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, Event.META_MASK));
-        menuiSaveAsWebPage.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, Event.META_MASK));
+        menuiSaveTimeline.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.META_DOWN_MASK));
+        menuiSaveTimelineAs.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.META_DOWN_MASK));
+        menuiSaveAsWebPage.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, InputEvent.META_DOWN_MASK));
     } else {
         //Windows specific stuff
-        menuiSaveTimeline.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK));
-        menuiSaveTimelineAs.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, Event.CTRL_MASK));
-        menuiSaveAsWebPage.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, Event.CTRL_MASK));
+        menuiSaveTimeline.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_DOWN_MASK));
+        menuiSaveTimelineAs.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_DOWN_MASK));
+        menuiSaveAsWebPage.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, InputEvent.CTRL_DOWN_MASK));
         menuiSaveTimeline.setMnemonic('s');
         menuiSaveTimelineAs.setMnemonic('a');
         menuiSaveAsWebPage.setMnemonic('g');
@@ -367,19 +368,19 @@ public class TimelineMenuBar extends JMenuBar {
     // set up accelerations and mnemonics
     if (System.getProperty("os.name").startsWith("Mac OS")) {
       menuiAdd.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
-      menuiAddMarker.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, Event.META_MASK));
+      menuiAddMarker.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, InputEvent.META_DOWN_MASK));
       menuiDeleteTimepointOrMarker.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0));
       menuiDeleteBubble.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0));
-      menuiMoveBubbleUp.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_UP, Event.META_MASK));
-      menuiMoveBubbleDown.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, Event.META_MASK));
+      menuiMoveBubbleUp.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_UP, InputEvent.META_DOWN_MASK));
+      menuiMoveBubbleDown.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, InputEvent.META_DOWN_MASK));
     }
     else {
       menuiAdd.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0));
-      menuiAddMarker.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, Event.CTRL_MASK));
+      menuiAddMarker.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, InputEvent.CTRL_DOWN_MASK));
       menuiDeleteTimepointOrMarker.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0));
       menuiDeleteBubble.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0));
-      menuiMoveBubbleUp.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_UP, Event.CTRL_MASK));
-      menuiMoveBubbleDown.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, Event.CTRL_MASK));
+      menuiMoveBubbleUp.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_UP, InputEvent.CTRL_DOWN_MASK));
+      menuiMoveBubbleDown.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, InputEvent.CTRL_DOWN_MASK));
       menuiAdd.setMnemonic('a');
       menuiAddMarker.setMnemonic('m');
       menuiEditTimepointOrMarker.setMnemonic('e');
@@ -749,17 +750,17 @@ public class TimelineMenuBar extends JMenuBar {
     this.menuiDeleteBubble.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0));
     this.menuiDeleteTimepointOrMarker.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0));
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-        frmTimeline.basicMenuBar.menuEdit.menuiEditCut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, Event.META_MASK));
-        frmTimeline.basicMenuBar.menuEdit.menuiEditCopy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, Event.META_MASK));
-        frmTimeline.basicMenuBar.menuEdit.menuiEditPaste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.META_MASK));
-        frmTimeline.basicMenuBar.menuEdit.menuiEditUndo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, Event.META_MASK));
-        frmTimeline.basicMenuBar.menuEdit.menuiEditRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, Event.META_MASK+Event.SHIFT_MASK));
+        frmTimeline.basicMenuBar.menuEdit.menuiEditCut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.META_DOWN_MASK));
+        frmTimeline.basicMenuBar.menuEdit.menuiEditCopy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.META_DOWN_MASK));
+        frmTimeline.basicMenuBar.menuEdit.menuiEditPaste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, InputEvent.META_DOWN_MASK));
+        frmTimeline.basicMenuBar.menuEdit.menuiEditUndo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.META_DOWN_MASK));
+        frmTimeline.basicMenuBar.menuEdit.menuiEditRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.META_DOWN_MASK+InputEvent.SHIFT_DOWN_MASK));
     } else {
-        frmTimeline.basicMenuBar.menuEdit.menuiEditCut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, Event.CTRL_MASK));
-        frmTimeline.basicMenuBar.menuEdit.menuiEditCopy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, Event.CTRL_MASK));
-        frmTimeline.basicMenuBar.menuEdit.menuiEditPaste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK));
-        frmTimeline.basicMenuBar.menuEdit.menuiEditUndo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, Event.CTRL_MASK));
-        frmTimeline.basicMenuBar.menuEdit.menuiEditRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, Event.CTRL_MASK+Event.SHIFT_MASK));
+        frmTimeline.basicMenuBar.menuEdit.menuiEditCut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.CTRL_DOWN_MASK));
+        frmTimeline.basicMenuBar.menuEdit.menuiEditCopy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_DOWN_MASK));
+        frmTimeline.basicMenuBar.menuEdit.menuiEditPaste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, InputEvent.CTRL_DOWN_MASK));
+        frmTimeline.basicMenuBar.menuEdit.menuiEditUndo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_DOWN_MASK));
+        frmTimeline.basicMenuBar.menuEdit.menuiEditRedo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_DOWN_MASK+InputEvent.SHIFT_DOWN_MASK));
     }
   }
 

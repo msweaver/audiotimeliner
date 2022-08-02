@@ -11,7 +11,7 @@ import javax.swing.event.*;
 import java.util.*;
 import util.logging.*;
 import ui.common.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * TimelineProperties.java
@@ -19,11 +19,12 @@ import org.apache.log4j.Logger;
 
 public class TimelineProperties extends JDialog {
 
-  // external components
+  private static final long serialVersionUID = 1L;
+// external components
   private TimelinePanel pnlTimeline;
   private Timeline timeline;
   private TimelineMenuBar menubTimeline;
-  private static Logger log = Logger.getLogger(TimelineProperties.class);
+  //private static Logger log = Logger.getLogger(TimelineProperties.class);
   protected UILogger uilogger;
 
   // fonts
@@ -78,7 +79,7 @@ public class TimelineProperties extends JDialog {
   protected boolean firstApplyMade = false;
 
   // combo box
-  protected JComboBox combColorSchemes = new JComboBox();
+  protected JComboBox<String> combColorSchemes = new JComboBox<String>();
 
   // check boxes
   protected JCheckBox chkEditable = new JCheckBox("Editable");
@@ -271,14 +272,14 @@ public class TimelineProperties extends JDialog {
     sldBubbleHeight.setMajorTickSpacing(5);
     sldBubbleHeight.setSnapToTicks(true);
     sldBubbleHeight.setToolTipText("Adjust the bubble height");
-    Hashtable tickLabels = new Hashtable();
+    Hashtable<Integer, JLabel> tickLabels = new Hashtable<Integer, JLabel>();
     tickLabels.clear();
     JLabel lblSmall = new JLabel("small");
     lblSmall.setFont(timelineFont);
     JLabel lblLarge = new JLabel("large");
     lblLarge.setFont(timelineFont);
-    tickLabels.put(new Integer(1), lblSmall);
-    tickLabels.put(new Integer(9), lblLarge);
+    tickLabels.put(Integer.valueOf(1), lblSmall);
+    tickLabels.put(Integer.valueOf(9), lblLarge);
     sldBubbleHeight.setLabelTable(tickLabels);
     sldBubbleHeight.setPaintLabels(true);
     sldBubbleHeight.validate();
@@ -317,7 +318,7 @@ public class TimelineProperties extends JDialog {
           }
           pnlTimeline.colorChooser.setColor(levelButton[j].getBackground());
           pnlTimeline.colorDialog.setTitle("Set Bubble Level Color");
-          pnlTimeline.colorDialog.show();
+          pnlTimeline.colorDialog.setVisible(true);
 
           Color newColor = pnlTimeline.newColor;
           if (newColor != null) {
@@ -490,7 +491,7 @@ public class TimelineProperties extends JDialog {
         // open the color chooser and get the new color
         pnlTimeline.colorChooser.setColor(currColor);
         pnlTimeline.colorDialog.setTitle("Set Background Color");
-        pnlTimeline.colorDialog.show();
+        pnlTimeline.colorDialog.setVisible(true);
 
         // set the background color to the new color
         Color newColor = pnlTimeline.newColor;
@@ -585,7 +586,7 @@ public class TimelineProperties extends JDialog {
     addActions();
 
     // show dialog
-    this.show();
+    this.setVisible(true);
   }
 
   /**
@@ -625,7 +626,7 @@ public class TimelineProperties extends JDialog {
         radSquareBubbles.setSelected(false);
         sldBubbleHeight.setValue(5);
         chkAutoScale.setSelected(true);
-        btnBackgroundColor.setBackground(pnlTimeline.defaultPanelColor);
+        btnBackgroundColor.setBackground(TimelinePanel.defaultPanelColor);
         for (int i = 1; i < 10; i++) {
           if (!levelButton[i].getBackground().equals(timeline.defaultBubbleLevelColors[i])) {
             levelButton[i].setBackground(timeline.defaultBubbleLevelColors[i]);
@@ -660,7 +661,7 @@ public class TimelineProperties extends JDialog {
     if (System.getProperty("os.name").startsWith("Mac OS")) { // needed to fix a 1.3 key bug
       menubTimeline.enableMenuKeyboardShortcuts();
     }
-    this.hide();
+    this.setVisible(false);
   }
 
   /**

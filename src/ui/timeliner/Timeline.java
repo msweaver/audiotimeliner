@@ -27,7 +27,8 @@ import ui.common.*;
 
 public class Timeline extends JPanel {
 
-  // timeline properties
+ private static final long serialVersionUID = 1L;
+// timeline properties
   private int start;
   private int end;
   private int yLoc;
@@ -70,15 +71,15 @@ public class Timeline extends JPanel {
   private int markerPixelList[] = new int[1000];
 
   /* this Vector allows access to individual timepoint objects */
-  private Vector Timepoints = new Vector(2);
+  private Vector<Timepoint> Timepoints = new Vector<Timepoint>(2);
 
   /* this Vector allows access to individual timepoint objects */
-  private Vector Markers = new Vector(0);
+  private Vector<Marker> Markers = new Vector<Marker>(0);
 
   /* these vectors keep track of which bubbles are selected */
   private Vector selectedBubbles = new Vector();
-  private Vector selectedBaseBubbles = new Vector();
-  private Vector selectedBoxBubbles = new Vector();
+  private Vector<Integer> selectedBaseBubbles = new Vector<Integer>();
+  private Vector<Integer> selectedBoxBubbles = new Vector<Integer>();
 
   // other components of the timeline
   private TimelineResizer tResizer;
@@ -92,7 +93,7 @@ public class Timeline extends JPanel {
   private TimelineControlPanel pnlControl;
   private TimelinePlayer tPlayer;
   private TimelineLocalPlayer tLocalPlayer;
-  private Graphics g;
+  //private Graphics g;
   private Graphics2D g2d;
   final private int offset = 5; // this has to do with the layout of the slider component
 
@@ -527,7 +528,8 @@ public class Timeline extends JPanel {
     } else {
       widthBuffer = 50;
     }
-    bottomSpace = pnlTimeline.getFrame().BOTTOM_SPACE;
+    pnlTimeline.getFrame();
+	bottomSpace = TimelineFrame.BOTTOM_SPACE;
   }
 
   /**
@@ -603,7 +605,7 @@ public class Timeline extends JPanel {
     int screenWidth = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     int frameWidth = frmTimeline.getWidth();
     int frameHeight = frmTimeline.getHeight();
-    int panelHeight = frameHeight - pnlControl.height - frmTimeline.SPACER;
+    int panelHeight = frameHeight - pnlControl.height - TimelineFrame.SPACER;
     int tallestBubble = (int)((double)totalBubbleHeight * ((double)len / (double)oldLength));
     boolean isTooTall = false;
     boolean isTooWide = false;
@@ -781,19 +783,20 @@ public class Timeline extends JPanel {
    * repositionHead: reposition the playback head to the beginning of the bubble clicked
    */
   protected void repositionHead(int bubClicked) {
-    Bubble currBubble = getBubble(bubClicked);
+    //Bubble currBubble = getBubble(bubClicked);
     BubbleTreeNode currNode = getBubbleNode(bubClicked);
     int currPoint = topBubbleNode.getLeafIndex(currNode.getFirstLeaf());
     int buffer = 10;
     int currOff = sortedPointList[currPoint];
 
     // handle playback
-    if (pnlTimeline.getFrame().isUsingLocalAudio) {
+    /**    if (pnlTimeline.getFrame().isUsingLocalAudio) {
       TimelineLocalPlayer tLocalPlayer = pnlTimeline.getLocalPlayer();
     }
     else {
       TimelinePlayer tPlayer = pnlTimeline.getPlayer();
     }
+    */
     if (playerIsPlaying() || playWhenBubbleClicked) {
       pausePlayer();
       slide.setValue(currOff);
@@ -1366,7 +1369,7 @@ public class Timeline extends JPanel {
             deletingBaseBubble = true;
             startPointDeleted = currBubble.getStart();
             currBaseBubbleNum = topBubbleNode.getLeafIndex(currNode);
-            pnlTimeline.undoOffsets.addElement(new Integer(sortedPointList[currBaseBubbleNum]));
+            pnlTimeline.undoOffsets.addElement(Integer.valueOf(sortedPointList[currBaseBubbleNum]));
             pnlTimeline.undoTimepointLabels.addElement(getTimepoint(currBaseBubbleNum).getLabel());
             pnlTimeline.undoBaseColors.addElement(currNode.getBubble().getColor());
             pnlTimeline.undoBaseLabels.addElement(currNode.getBubble().getLabel());
@@ -1408,8 +1411,8 @@ public class Timeline extends JPanel {
           // set up undo of group bubble deletion
           Bubble currBub = currNode.getBubble();
           if (currBub.getLevel() > 1 && !currNode.isLeaf()) {
-            pnlTimeline.undoGroupStarts.addElement(new Integer(currBub.getStart()));
-            pnlTimeline.undoGroupEnds.addElement(new Integer(currBub.getEnd()));
+            pnlTimeline.undoGroupStarts.addElement(Integer.valueOf(currBub.getStart()));
+            pnlTimeline.undoGroupEnds.addElement(Integer.valueOf(currBub.getEnd()));
             pnlTimeline.undoGroupColors.addElement(currBub.getColor());
             pnlTimeline.undoGroupLabels.addElement(currBub.getLabel());
             pnlTimeline.undoGroupAnnotations.addElement(currBub.getAnnotation());
@@ -1426,8 +1429,8 @@ public class Timeline extends JPanel {
             backupBubble.setLabel(parentBubble.getLabel());
             backupBubble.setAnnotation(parentBubble.getAnnotation());
             parents.addElement(backupBubble);
-            parentStarts.addElement(new Integer(parentBubble.start));
-            parentEnds.addElement(new Integer(parentBubble.end));
+            parentStarts.addElement(Integer.valueOf(parentBubble.start));
+            parentEnds.addElement(Integer.valueOf(parentBubble.end));
             parentNode = parentNode.getParentNode();
           }
 
@@ -1650,12 +1653,12 @@ public class Timeline extends JPanel {
   /**
    * getSelectedLevels: returns a vector of the selected levels
    */
-  protected Vector getSelectedLevels() {
-    Vector selectedLevels = new Vector();
+  protected Vector<Integer> getSelectedLevels() {
+    Vector<Integer> selectedLevels = new Vector<Integer>();
 
     // determine the selected levels
     for (int i = 0; i < selectedBubbles.size(); i++) {
-      Integer lev = new Integer(getBubble(((Integer)selectedBubbles.elementAt(i)).intValue()).getLevel());
+      Integer lev = Integer.valueOf(getBubble(((Integer)selectedBubbles.elementAt(i)).intValue()).getLevel());
       if (!selectedLevels.contains(lev)) {
         selectedLevels.addElement(lev);
       }
@@ -1876,7 +1879,7 @@ public class Timeline extends JPanel {
    * selectBubble: mark the bubble passed as selected
    */
   protected void selectBubble(int bubbleClicked, int selectType) {
-    Integer bClicked = new Integer(bubbleClicked);
+    Integer bClicked = Integer.valueOf(bubbleClicked);
     Bubble checkBubble = getBubble(bubbleClicked);
     BubbleTreeNode currNode = getBubbleNode(bubbleClicked);
 
@@ -1895,7 +1898,7 @@ public class Timeline extends JPanel {
           selectedBubbles.add(bClicked);
 
           if (currNode.isLeaf()) {
-            selectedBaseBubbles.add(new Integer(topBubbleNode.getLeafIndex(currNode)));
+            selectedBaseBubbles.add(Integer.valueOf(topBubbleNode.getLeafIndex(currNode)));
           }
 
           anchorBubble = bubbleClicked;
@@ -1910,7 +1913,7 @@ public class Timeline extends JPanel {
           anchorBubble = bubbleClicked;
           selectedBubbles.add(bClicked);
           if (currNode.isLeaf()) {
-            selectedBaseBubbles.add(new Integer(topBubbleNode.getLeafIndex(currNode)));
+            selectedBaseBubbles.add(Integer.valueOf(topBubbleNode.getLeafIndex(currNode)));
           }
         }
         else {
@@ -1936,9 +1939,9 @@ public class Timeline extends JPanel {
             node = (BubbleTreeNode)enumer.nextElement();
             Bubble bub = node.getBubble();
             if (bub.getLevel() >= lowLevel && bub.getLevel() <= highLevel && bub.getStart() >= startPoint && bub.getEnd() <= endPoint) {
-              selectedBubbles.add(new Integer(i));
+              selectedBubbles.add(Integer.valueOf(i));
               if (node.isLeaf()) {
-                selectedBaseBubbles.add(new Integer(topBubbleNode.getLeafIndex(node)));
+                selectedBaseBubbles.add(Integer.valueOf(topBubbleNode.getLeafIndex(node)));
               }
             }
           }
@@ -1951,14 +1954,14 @@ public class Timeline extends JPanel {
           selectedBubbles.removeElement(bClicked);
 
           if (currNode.isLeaf()) {
-            selectedBaseBubbles.removeElement(new Integer(topBubbleNode.getLeafIndex(currNode)));
+            selectedBaseBubbles.removeElement(Integer.valueOf(topBubbleNode.getLeafIndex(currNode)));
           }
         }
         else {
           selectedBubbles.add(bClicked);
 
           if (currNode.isLeaf()) {
-            selectedBaseBubbles.add(new Integer(topBubbleNode.getLeafIndex(currNode)));
+            selectedBaseBubbles.add(Integer.valueOf(topBubbleNode.getLeafIndex(currNode)));
           }
         }
         if (selectedBubbles.size() == 1) {
@@ -2149,8 +2152,8 @@ public class Timeline extends JPanel {
    */
   protected void setItemSelected(Integer i) {
     int indexedItem = topBubbleNode.getPreOrderIndex(getBaseBubbleNode(i.intValue()));
-    selectedBubbles.addElement(new Integer(indexedItem));
-    selectedBaseBubbles.addElement(new Integer(i.intValue()));
+    selectedBubbles.addElement(Integer.valueOf(indexedItem));
+    selectedBaseBubbles.addElement(Integer.valueOf(i.intValue()));
   }
 
   /**
@@ -2227,11 +2230,11 @@ public class Timeline extends JPanel {
    */
   protected void setSelectedLevelColor(Color newColor) {
     makeDirty();
-    Vector selectedLevels = new Vector();
+    Vector<Integer> selectedLevels = new Vector<Integer>();
 
     // determine the selected levels
     for (int i = 0; i < selectedBubbles.size(); i++) {
-      Integer lev = new Integer(getBubble(((Integer)selectedBubbles.elementAt(i)).intValue()).getLevel());
+      Integer lev = Integer.valueOf(getBubble(((Integer)selectedBubbles.elementAt(i)).intValue()).getLevel());
       if (!selectedLevels.contains(lev)) {
         selectedLevels.addElement(lev);
         // change the default color for the selected levels
@@ -2246,7 +2249,7 @@ public class Timeline extends JPanel {
     for (int i = 0; i < numTotalBubbles; i++) {
       currNode = (BubbleTreeNode)enumer.nextElement();
       Bubble currBubble = currNode.getBubble();
-      if (selectedLevels.contains(new Integer(currBubble.getLevel()))) {
+      if (selectedLevels.contains(Integer.valueOf(currBubble.getLevel()))) {
         currBubble.setColor(newColor);
       }
     }
@@ -2267,7 +2270,7 @@ public class Timeline extends JPanel {
     clearSelectedBaseBubbles();
 
     for (int i = 0; i < loopNum; i++) {
-      selectedBaseBubbles.add(new Integer(items[i]));
+      selectedBaseBubbles.add(Integer.valueOf(items[i]));
     }
   }
 
@@ -2286,7 +2289,7 @@ public class Timeline extends JPanel {
     clearSelectedBubbles();
 
     for (int i = 0; i < loopNum; i++) {
-      selectedBubbles.add(new Integer(items[i]));
+      selectedBubbles.add(Integer.valueOf(items[i]));
     }
   }
 
@@ -2354,8 +2357,9 @@ public class Timeline extends JPanel {
       // get top zoom level
       topZoomLevel = getHighestLevelNodeWithin(zoomStartPoint, zoomEndPoint).getBubble().getLevel();
 
-      // determine the zoom factor and return the new length
-      float zoomWidth = pnlTimeline.getFrame().getWidth() - pnlTimeline.getFrame().SIDE_SPACE;
+      pnlTimeline.getFrame();
+	// determine the zoom factor and return the new length
+      float zoomWidth = pnlTimeline.getFrame().getWidth() - TimelineFrame.SIDE_SPACE;
       zoomFactor = (float)zoomWidth / (float)zoomRange;
     }
     return ((int)(length * zoomFactor));

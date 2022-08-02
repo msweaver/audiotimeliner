@@ -10,7 +10,7 @@ import java.util.*;
 import util.logging.*;
 import ui.media.*;
 import ui.common.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * TimelineBubbleEditor.java
@@ -18,7 +18,8 @@ import org.apache.log4j.Logger;
 
 public class TimelineBubbleEditor extends JDialog {
 
-  // external components
+  private static final long serialVersionUID = 1L;
+// external components
   private TimelinePanel pnlTimeline;
   private TimelineFrame frmTimeline;
   private TimelinePlayer tPlayer;
@@ -26,15 +27,15 @@ public class TimelineBubbleEditor extends JDialog {
   private Timeline timeline;
   private TimelineMenuBar menubTimeline;
   AudioControlPanel pnlAudioControl = new AudioControlPanel();
-  private Logger log = Logger.getLogger(TimelineBubbleEditor.class);
+  //private Logger log = Logger.getLogger(TimelineBubbleEditor.class);
   protected UILogger uilogger;
 
   // vectors for storing temporary values
-  protected Vector editedBubbles = new Vector();
-  protected Vector potentialLabels = new Vector();
-  protected Vector potentialAnnotations = new Vector();
-  protected Vector oldLabels = new Vector();
-  protected Vector oldAnnotations = new Vector();
+  protected Vector<Integer> editedBubbles = new Vector<Integer>();
+  protected Vector<String> potentialLabels = new Vector<String>();
+  protected Vector<String> potentialAnnotations = new Vector<String>();
+  protected Vector<String> oldLabels = new Vector<String>();
+  protected Vector<String> oldAnnotations = new Vector<String>();
 
   // titled borders
   protected TitledBorder bordAnnotation = new TitledBorder(" Annotation ");
@@ -403,7 +404,7 @@ public class TimelineBubbleEditor extends JDialog {
     updateNavigationButtons();
 
     // show dialog
-    this.show();
+    this.setVisible(true);
   }
 
   /**
@@ -414,7 +415,7 @@ public class TimelineBubbleEditor extends JDialog {
       menubTimeline.enableMenuKeyboardShortcuts();
     }
     timeline.editingBubbles = false;
-    this.hide();
+    this.setVisible(false);
   }
 
   /**
@@ -422,14 +423,14 @@ public class TimelineBubbleEditor extends JDialog {
    */
   private void saveLabelAndAnnotation() {
     // get annotation and label for currently selected bubble
-    int prevSave = editedBubbles.indexOf(new Integer(currentBubbleNum));
+    int prevSave = editedBubbles.indexOf(Integer.valueOf(currentBubbleNum));
     if (prevSave == -1) { // this bubble has not been saved before
-      editedBubbles.addElement(new Integer(currentBubbleNum));
+      editedBubbles.addElement(Integer.valueOf(currentBubbleNum));
       potentialLabels.addElement(fldBubbleLabel.getText());
       potentialAnnotations.addElement(tpAnnotation.getText());
     }
     else {
-      editedBubbles.setElementAt(new Integer(currentBubbleNum), prevSave);
+      editedBubbles.setElementAt(Integer.valueOf(currentBubbleNum), prevSave);
       potentialLabels.setElementAt(fldBubbleLabel.getText(), prevSave);
       potentialAnnotations.setElementAt(tpAnnotation.getText(), prevSave);
     }
@@ -442,7 +443,7 @@ public class TimelineBubbleEditor extends JDialog {
     currentBubbleNum = timeline.topBubbleNode.getPreOrderIndex(currNode);
     Bubble currBubble = timeline.getBubble(currentBubbleNum);
     timeline.repositionHead(currentBubbleNum);
-    int prevPos = editedBubbles.indexOf(new Integer(currentBubbleNum));
+    int prevPos = editedBubbles.indexOf(Integer.valueOf(currentBubbleNum));
     if (prevPos != -1) { // this bubble has already been edited
       fldBubbleLabel.setText((String)potentialLabels.elementAt(prevPos));
       tpAnnotation.setText((String)potentialAnnotations.elementAt(prevPos));

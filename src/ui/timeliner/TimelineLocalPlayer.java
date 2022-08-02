@@ -7,7 +7,7 @@ import ui.common.UIUtilities;
 
 import java.util.concurrent.*;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
 
@@ -101,11 +101,11 @@ private static final PlayableContentHandlerEvent playerEvent = null;
 		      // if playing
 		     	if (player.isPlaying()) { 
 		     		isPlaying=true; 
-				      pnlControl.lblStatus.setText(pnlControl.STATUS_PLAYING);
+				      pnlControl.lblStatus.setText(TimelineControlPanel.STATUS_PLAYING);
 		     	}
 		     	else {
 		     		isPlaying=false;
-				      pnlControl.lblStatus.setText(pnlControl.STATUS_IDLE);
+				      pnlControl.lblStatus.setText(TimelineControlPanel.STATUS_IDLE);
 		     	}
 		      if (timeline != null && isPlaying) {
 		        // send message when next important offset is reached
@@ -212,7 +212,7 @@ private static final PlayableContentHandlerEvent playerEvent = null;
     pnlTimeline.setLocalPlayer(this, parentWindow.isNewTimeline, parentWindow.isNewAudio);
     pnlControl.setLocalPlayer(this);
     pnlControl.doPlayerEnable();
-    pnlControl.lblStatus.setText(pnlControl.STATUS_IDLE);
+    pnlControl.lblStatus.setText(TimelineControlPanel.STATUS_IDLE);
 
   }
 
@@ -235,11 +235,11 @@ private static final PlayableContentHandlerEvent playerEvent = null;
 			      // if playing
 			     	if (player.isPlaying()) { 
 			     		isPlaying=true; 
-					      pnlControl.lblStatus.setText(pnlControl.STATUS_PLAYING);
+					      pnlControl.lblStatus.setText(TimelineControlPanel.STATUS_PLAYING);
 			     	}
 			     	else {
 			     		isPlaying=false;
-					      pnlControl.lblStatus.setText(pnlControl.STATUS_IDLE);
+					      pnlControl.lblStatus.setText(TimelineControlPanel.STATUS_IDLE);
 			     	}
 			      if (timeline != null && isPlaying) {
 			        // send message when next important offset is reached
@@ -420,10 +420,10 @@ private static final PlayableContentHandlerEvent playerEvent = null;
     logger.debug("event = " + event.getMessage());
     switch (event.getType()) {
       case PlayableContentHandlerEvent.CONTENT_NOT_FOUND:
-        pnlControl.lblStatus.setText(pnlControl.STATUS_STREAM_NOT_FOUND);
+        pnlControl.lblStatus.setText(TimelineControlPanel.STATUS_STREAM_NOT_FOUND);
         break;
       case PlayableContentHandlerEvent.CONTENT_PROBLEM:
-        pnlControl.lblStatus.setText(pnlControl.STATUS_STREAM_ERROR);
+        pnlControl.lblStatus.setText(TimelineControlPanel.STATUS_STREAM_ERROR);
         break;
       case PlayableContentHandlerEvent.END_OF_CONTENT:
         //usually, this won't happen, unless excerpt goes all the way to end of container

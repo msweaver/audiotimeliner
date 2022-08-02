@@ -16,7 +16,9 @@ public class BubbleTreeNode extends Object implements Cloneable,
        MutableTreeNode, Serializable
 {
 
-    /**
+   private static final long serialVersionUID = 1L;
+
+	/**
      * An enumeration that is always empty. This is used when an enumeration
      * of a leaf node's children is requested.
      */
@@ -32,7 +34,7 @@ public class BubbleTreeNode extends Object implements Cloneable,
     protected MutableTreeNode   parent;
 
     /** array of children, may be null if this node has no children */
-    protected Vector		children;
+    protected Vector<MutableTreeNode>		children;
 
     /** optional user object */
     transient protected Object	userObject;
@@ -117,7 +119,7 @@ public class BubbleTreeNode extends Object implements Cloneable,
             }
             newChild.setParent(this);
             if (children == null) {
-                children = new Vector();
+                children = new Vector<MutableTreeNode>();
             }
             children.insertElementAt(newChild, childIndex);
     }
@@ -219,7 +221,7 @@ public class BubbleTreeNode extends Object implements Cloneable,
      *
      * @return	an Enumeration of this node's children
      */
-    public Enumeration children() {
+    public Enumeration<MutableTreeNode> children() {
         if (children == null) {
             return EMPTY_ENUMERATION;
         } else {
@@ -1229,13 +1231,13 @@ public class BubbleTreeNode extends Object implements Cloneable,
     }
 
     final class PreorderEnumeration implements Enumeration {
-        protected Stack	stack;
+        protected Stack<Enumeration<?>>	stack;
 
         public PreorderEnumeration(TreeNode rootNode) {
             super();
             Vector v = new Vector(1);
             v.addElement(rootNode);	// PENDING: don't really need a vector
-            stack = new Stack();
+            stack = new Stack<Enumeration<?>>();
             stack.push(v.elements());
         }
 
@@ -1304,7 +1306,7 @@ public class BubbleTreeNode extends Object implements Cloneable,
 
         public BreadthFirstEnumeration(TreeNode rootNode) {
             super();
-            Vector v = new Vector(1);
+            Vector<TreeNode> v = new Vector<TreeNode>(1);
             v.addElement(rootNode);	// PENDING: don't really need a vector
             queue = new Queue();
             queue.enqueue(v.elements());
@@ -1387,8 +1389,8 @@ public class BubbleTreeNode extends Object implements Cloneable,
 
 
 
-    final class PathBetweenNodesEnumeration implements Enumeration {
-        protected Stack stack;
+    final class PathBetweenNodesEnumeration implements Enumeration<Object> {
+        protected Stack<TreeNode> stack;
 
         public PathBetweenNodesEnumeration(TreeNode ancestor,
                                            TreeNode descendant)
@@ -1401,7 +1403,7 @@ public class BubbleTreeNode extends Object implements Cloneable,
 
             TreeNode current;
 
-            stack = new Stack();
+            stack = new Stack<TreeNode>();
             stack.push(descendant);
 
             current = descendant;

@@ -8,15 +8,17 @@ import java.awt.event.*;
 import ui.common.*;
 import com.borland.jbcl.layout.*;
 import util.logging.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * MissingAudioDialog: comes up when the audio is missing
  */
 
 public class MissingAudioDialog extends JDialog {
-  // external components
-  private static Logger log = Logger.getLogger(TimelinePrintDialog.class);
+
+  private static final long serialVersionUID = 1L;
+// external components
+  //private static Logger log = Logger.getLogger(TimelinePrintDialog.class);
   protected static UILogger uilogger;
   private static BasicWindow parentWindow;
   private static TimelineXMLAdapter time;
@@ -104,6 +106,6 @@ public class MissingAudioDialog extends JDialog {
     pane.add(buttonPanel);
 
     // show dialog
-    this.show();
+    this.setVisible(true);
   }
 }

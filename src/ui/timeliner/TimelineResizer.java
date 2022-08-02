@@ -21,7 +21,7 @@ public class TimelineResizer {
   private int height = 13;
   private int xLoc;
   private int yLoc;
-  private Graphics2D g2d;
+  //private Graphics2D g2d;
   private Rectangle resizerRect = new Rectangle();
   private TimelinePanel pnlTimeline;
   private boolean enabled = true;

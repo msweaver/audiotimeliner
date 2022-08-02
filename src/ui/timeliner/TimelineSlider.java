@@ -20,7 +20,8 @@ import ui.common.*;
 
 public class TimelineSlider extends JSlider {
 
-  // external components
+  private static final long serialVersionUID = 1L;
+// external components
   private TimelineSliderUI sliderUI;
   private Timeline timeline;
   private TimelineResizer tResizer;

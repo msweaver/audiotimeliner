@@ -23,6 +23,7 @@ public class TimelineUndo {
 
 class UndoableSetBackgroundColor extends AbstractUndoableEdit
 {
+  private static final long serialVersionUID = 1L;
   Color oldColor;
   Color newColor;
   boolean wasBlackAndWhite;
@@ -61,6 +62,7 @@ class UndoableSetBackgroundColor extends AbstractUndoableEdit
 
 class UndoableChangeBubbleColor extends AbstractUndoableEdit
 {
+  private static final long serialVersionUID = 1L;
   Vector oldColors;
   Color newColor;
   Vector selectedBubbles;
@@ -106,6 +108,8 @@ class UndoableChangeBubbleColor extends AbstractUndoableEdit
 
 class UndoableSetLevelColor extends AbstractUndoableEdit
 {
+
+  private static final long serialVersionUID = 1L;
   Vector levels;
   Vector oldColors;
   Color newColor;
@@ -128,7 +132,7 @@ class UndoableSetLevelColor extends AbstractUndoableEdit
     super.undo();
     for (int i = 0; i < timeline.getNumTotalBubbles(); i++) {
       Bubble currBubble = timeline.getBubble(i);
-      if (levels.contains(new Integer(currBubble.getLevel()))) {
+      if (levels.contains(Integer.valueOf(currBubble.getLevel()))) {
         currBubble.setColor((Color)oldColors.elementAt(i));
       }
     }
@@ -151,6 +155,7 @@ class UndoableSetLevelColor extends AbstractUndoableEdit
 
 class UndoableAddTimepoint extends AbstractUndoableEdit
 {
+  private static final long serialVersionUID = 1L;
   int offset;
   int timepointIndex;
   TimelinePanel pnlTimeline;
@@ -179,6 +184,7 @@ class UndoableAddTimepoint extends AbstractUndoableEdit
 
 class UndoableAddMarker extends AbstractUndoableEdit
 {
+  private static final long serialVersionUID = 1L;
   int offset;
   int markerIndex;
   TimelinePanel pnlTimeline;
@@ -207,6 +213,7 @@ class UndoableAddMarker extends AbstractUndoableEdit
 
 class UndoableResetTimeline extends AbstractUndoableEdit
 {
+  private static final long serialVersionUID = 1L;
   String savedTimeline;
   TimelinePanel pnlTimeline;
   Timeline tLine;
@@ -241,6 +248,7 @@ class UndoableResetTimeline extends AbstractUndoableEdit
 
 class UndoableRevertTimeline extends AbstractUndoableEdit
 {
+  private static final long serialVersionUID = 1L;
   String savedTimeline;
   String previousSave;
   TimelinePanel pnlTimeline;
@@ -287,6 +295,7 @@ class UndoableRevertTimeline extends AbstractUndoableEdit
 
 class UndoableShowTimes extends AbstractUndoableEdit
 {
+  private static final long serialVersionUID = 1L;
   boolean show;
   TimelinePanel pnlTimeline;
 
@@ -327,6 +336,7 @@ class UndoableShowTimes extends AbstractUndoableEdit
 
 class UndoableSetBlackAndWhite extends AbstractUndoableEdit
 {
+  private static final long serialVersionUID = 1L;
   boolean blackAndWhite;
   TimelinePanel pnlTimeline;
 
@@ -365,6 +375,7 @@ class UndoableSetBlackAndWhite extends AbstractUndoableEdit
 
 class UndoableRoundBubbles extends AbstractUndoableEdit
 {
+  private static final long serialVersionUID = 1L;
   TimelinePanel pnlTimeline;
 
   public UndoableRoundBubbles(TimelinePanel tp) {
@@ -403,6 +414,7 @@ class UndoableRoundBubbles extends AbstractUndoableEdit
 
 class UndoableSquareBubbles extends AbstractUndoableEdit
 {
+  private static final long serialVersionUID = 1L;
   TimelinePanel pnlTimeline;
 
   public UndoableSquareBubbles(TimelinePanel tp) {
@@ -586,8 +598,8 @@ class UndoableGroupBubbles extends AbstractUndoableEdit
     int startBub = ((Integer)alteredBubbles.elementAt(0)).intValue();
     int lastBub = (((Integer)alteredBubbles.elementAt(alteredBubbles.size()-1)).intValue());
     // add one to each bubble to offset the added group bubble
-    alteredBubbles.setElementAt(new Integer(startBub + 1), 0);
-    alteredBubbles.setElementAt(new Integer(lastBub + 1), alteredBubbles.size()-1);
+    alteredBubbles.setElementAt(Integer.valueOf(startBub + 1), 0);
+    alteredBubbles.setElementAt(Integer.valueOf(lastBub + 1), alteredBubbles.size()-1);
     timeline.setSelectedBubbles(alteredBubbles);
     timeline.ungroupSelectedBubbles();
     pnlTimeline.refreshTimeline();
@@ -626,8 +638,8 @@ class UndoableUngroupBubbles extends AbstractUndoableEdit
     int startBub = ((Integer)alteredBubbles.elementAt(0)).intValue();
     int lastBub = (((Integer)alteredBubbles.elementAt(alteredBubbles.size()-1)).intValue());
     // delete one from each bubble to offset the removed group bubble
-    alteredBubbles.setElementAt(new Integer(startBub - 1), 0);
-    alteredBubbles.setElementAt(new Integer(lastBub - 1), alteredBubbles.size()-1);
+    alteredBubbles.setElementAt(Integer.valueOf(startBub - 1), 0);
+    alteredBubbles.setElementAt(Integer.valueOf(lastBub - 1), alteredBubbles.size()-1);
     timeline.setSelectedBubbles(alteredBubbles);
     timeline.groupSelectedBubbles();
     Bubble newBub = timeline.getBubble(bubbleNum);
@@ -715,8 +727,8 @@ class UndoableDeleteBubble extends AbstractUndoableEdit
       BubbleTreeNode endNode = timeline.getBaseBubbleNode(endPoint - 1);
       int startPos = timeline.topBubbleNode.getPreOrderIndex(startNode);
       int endPos = timeline.topBubbleNode.getPreOrderIndex(endNode);
-      currSelected.addElement(new Integer(startPos));
-      currSelected.addElement(new Integer(endPos));
+      currSelected.addElement(Integer.valueOf(startPos));
+      currSelected.addElement(Integer.valueOf(endPos));
       timeline.setSelectedBubbles(currSelected);
       timeline.groupSelectedBubbles();
       timeline.blowBubbles();
@@ -799,8 +811,8 @@ class UndoableDeleteTimepoint extends AbstractUndoableEdit
       BubbleTreeNode endNode = timeline.getBaseBubbleNode(endPoint - 1);
       int startPos = timeline.topBubbleNode.getPreOrderIndex(startNode);
       int endPos = timeline.topBubbleNode.getPreOrderIndex(endNode);
-      currSelected.addElement(new Integer(startPos));
-      currSelected.addElement(new Integer(endPos));
+      currSelected.addElement(Integer.valueOf(startPos));
+      currSelected.addElement(Integer.valueOf(endPos));
       timeline.setSelectedBubbles(currSelected);
       timeline.groupSelectedBubbles();
       timeline.blowBubbles();

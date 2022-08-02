@@ -22,7 +22,8 @@ import ui.common.*;
 
 public class TimelineFrame extends BasicWindow  {
 
-  // external components
+  private static final long serialVersionUID = 1L;
+// external components
   private TimelinePanel pnlTimeline;
   private TimelineControlPanel pnlControl;
   private Container contentPane;
@@ -85,7 +86,7 @@ public class TimelineFrame extends BasicWindow  {
 
     // display frame
     addPanes();
-    show();
+    this.setVisible(true);
   }
 
   /**
@@ -112,7 +113,7 @@ public class TimelineFrame extends BasicWindow  {
    */
   private void jbInit() {
     //initial title only - may be overwritten
-    this.setTitle("Audio Timeline Window " + this.windowNumber);
+    this.setTitle("Audio Timeline Window " + TimelineFrame.windowNumber);
 
     windowNumber = windowNumber + 1;
     contentPane = getContentPane();
@@ -221,7 +222,7 @@ public class TimelineFrame extends BasicWindow  {
     pnlTimeline.setPlayer(tPlayer, isNewTimeline);
     pnlControl.setPlayer(tPlayer);
     pnlControl.doPlayerEnable();
-    pnlControl.lblStatus.setText(pnlControl.STATUS_IDLE);
+    pnlControl.lblStatus.setText(TimelineControlPanel.STATUS_IDLE);
 
     // enable some menu options
     menubTimeline.setPrintEnabled(true);
@@ -354,8 +355,8 @@ public class TimelineFrame extends BasicWindow  {
   protected void doWindowResize() {
     int x = this.getWidth();
     int y = this.getHeight();
-    int mx = this.X_MINIMUM;
-    int my = this.Y_MINIMUM;
+    int mx = TimelineFrame.X_MINIMUM;
+    int my = TimelineFrame.Y_MINIMUM;
 
     if (x < mx) {
       x = mx;

@@ -3,7 +3,7 @@ package ui.timeliner;
 import javax.swing.*;
 import java.awt.event.*;
 import util.logging.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * TimelinePopups: code for the popup menus in the timeline window
@@ -29,7 +29,7 @@ public class TimelinePopups {
   public JMenuItem menuiMoveBubbleDown3;
 
   // external components
-  private Logger log = Logger.getLogger(TimelinePopups.class);
+  //private Logger log = Logger.getLogger(TimelinePopups.class);
   protected UILogger uilogger;
   protected TimelineControlPanel pnlControl;
   protected TimelinePanel pnlTimeline;

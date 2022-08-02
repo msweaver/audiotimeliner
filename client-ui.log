@@ -6849,3 +6849,295 @@ Aug 01 2022 18:34:35.491 [INFO ] on#36.WINTYPE_LOCAL_TIMELINE#1 item double clic
 Aug 01 2022 18:46:51.138 [INFO ] on#74.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
 Aug 01 2022 18:46:51.159 [DEBUG] common.WindowManager           Starting the shutdown process
 Aug 01 2022 18:46:51.159 [DEBUG] common.WindowManager           closing 0 windows
+Aug 01 2022 18:49:39.368 [INFO ] .Session#56                    Begin
+Aug 01 2022 18:49:39.369 [INFO ] .Session#56                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 01 2022 18:49:39.454 [INFO ] .Session#56                    Initial display resolution is x:1600.0 y:900.0
+Aug 01 2022 18:49:39.504 [INFO ] on#36.WINTYPE_LOCAL_TIMELINE#1 window closed - timeline: ID= C:\Users\Brent Yorgason\Dropbox\Documents\mozart_K309.mp3
+Aug 01 2022 18:49:39.505 [INFO ] on#36.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 01 2022 18:49:39.515 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 01 2022 18:49:39.515 [DEBUG] common.WindowManager           closing 0 windows
+Aug 01 2022 18:49:43.035 [INFO ] on#56.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600
+Aug 01 2022 18:50:14.606 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 261746
+Aug 01 2022 18:50:14.613 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 261746
+Aug 01 2022 18:50:14.656 [INFO ] on#56.WINTYPE_LOCAL_TIMELINE#1 button clicked - create a new timeline
+Aug 01 2022 18:50:16.007 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 18:50:16.007 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 18:50:16.007 [DEBUG] timeliner.TimelineSlider       value = 42274
+Aug 01 2022 18:50:16.008 [DEBUG] timeliner.TimelineSlider       milliseconds = 42274
+Aug 01 2022 18:50:16.008 [DEBUG] timeliner.TimelineSlider       jump to 247
+Aug 01 2022 18:50:16.088 [INFO ] on#56.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 18:50:16.089 [DEBUG] timeliner.TimelinePanel        42270
+Aug 01 2022 18:50:16.742 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 18:50:16.743 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 18:50:16.743 [DEBUG] timeliner.TimelineSlider       value = 80849
+Aug 01 2022 18:50:16.743 [DEBUG] timeliner.TimelineSlider       milliseconds = 80849
+Aug 01 2022 18:50:16.743 [DEBUG] timeliner.TimelineSlider       jump to 466
+Aug 01 2022 18:50:16.831 [INFO ] on#56.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 18:50:16.832 [DEBUG] timeliner.TimelinePanel        80848
+Aug 01 2022 18:50:17.455 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 18:50:17.455 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 18:50:17.455 [DEBUG] timeliner.TimelineSlider       value = 108327
+Aug 01 2022 18:50:17.456 [DEBUG] timeliner.TimelineSlider       milliseconds = 108327
+Aug 01 2022 18:50:17.456 [DEBUG] timeliner.TimelineSlider       jump to 622
+Aug 01 2022 18:50:17.543 [INFO ] on#56.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 18:50:17.544 [DEBUG] timeliner.TimelinePanel        108326
+Aug 01 2022 18:50:18.382 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 18:50:18.383 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 18:50:18.383 [DEBUG] timeliner.TimelineSlider       value = 135805
+Aug 01 2022 18:50:18.383 [DEBUG] timeliner.TimelineSlider       milliseconds = 135805
+Aug 01 2022 18:50:18.383 [DEBUG] timeliner.TimelineSlider       jump to 778
+Aug 01 2022 18:50:18.471 [INFO ] on#56.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 18:50:18.472 [DEBUG] timeliner.TimelinePanel        135798
+Aug 01 2022 18:50:18.519 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 18:50:18.520 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 18:50:18.520 [DEBUG] timeliner.TimelineSlider       value = 135805
+Aug 01 2022 18:50:18.525 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 18:50:18.525 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 18:50:18.525 [DEBUG] timeliner.TimelineSlider       value = 135805
+Aug 01 2022 18:50:19.278 [DEBUG] timeliner.TimelineControlPanel 108326
+Aug 01 2022 18:50:19.296 [INFO ] on#56.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 4
+Aug 01 2022 18:50:20.065 [DEBUG] timeliner.TimelineControlPanel 80848
+Aug 01 2022 18:50:20.072 [INFO ] on#56.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble shift-click select: 3
+Aug 01 2022 18:50:20.585 [INFO ] on#56.WINTYPE_LOCAL_TIMELINE#1 item right click - bubble: 3
+Aug 01 2022 18:50:21.249 [INFO ] on#56.WINTYPE_LOCAL_TIMELINE#1 popup menu item selected - group selected bubbles: [3, 4]
+Aug 01 2022 18:56:54.772 [INFO ] .Session#24                    Begin
+Aug 01 2022 18:56:54.773 [INFO ] .Session#24                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 01 2022 18:56:54.850 [INFO ] .Session#24                    Initial display resolution is x:1600.0 y:900.0
+Aug 01 2022 18:56:58.372 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600
+Aug 01 2022 18:57:03.102 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 261746
+Aug 01 2022 18:57:03.109 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 261746
+Aug 01 2022 18:57:03.175 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 button clicked - create a new timeline
+Aug 01 2022 18:57:04.299 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 18:57:04.299 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 18:57:04.299 [DEBUG] timeliner.TimelineSlider       value = 76093
+Aug 01 2022 18:57:04.299 [DEBUG] timeliner.TimelineSlider       milliseconds = 76093
+Aug 01 2022 18:57:04.299 [DEBUG] timeliner.TimelineSlider       jump to 439
+Aug 01 2022 18:57:04.395 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 18:57:04.396 [DEBUG] timeliner.TimelinePanel        76092
+Aug 01 2022 18:57:05.026 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 18:57:05.026 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 18:57:05.026 [DEBUG] timeliner.TimelineSlider       value = 130873
+Aug 01 2022 18:57:05.027 [DEBUG] timeliner.TimelineSlider       milliseconds = 130873
+Aug 01 2022 18:57:05.027 [DEBUG] timeliner.TimelineSlider       jump to 750
+Aug 01 2022 18:57:05.131 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 18:57:05.136 [DEBUG] timeliner.TimelinePanel        130872
+Aug 01 2022 18:57:05.770 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 18:57:05.771 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 18:57:05.771 [DEBUG] timeliner.TimelineSlider       value = 178783
+Aug 01 2022 18:57:05.771 [DEBUG] timeliner.TimelineSlider       milliseconds = 178783
+Aug 01 2022 18:57:05.771 [DEBUG] timeliner.TimelineSlider       jump to 1022
+Aug 01 2022 18:57:05.859 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 18:57:05.860 [DEBUG] timeliner.TimelinePanel        178782
+Aug 01 2022 18:57:10.916 [DEBUG] timeliner.TimelineControlPanel 0
+Aug 01 2022 18:57:10.939 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 1
+Aug 01 2022 18:57:11.297 [DEBUG] timeliner.TimelineControlPanel 0
+Aug 01 2022 18:57:11.305 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble shift-click select: 2
+Aug 01 2022 18:57:11.681 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item right click - bubble: 2
+Aug 01 2022 18:57:12.285 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 popup menu item selected - group selected bubbles: [1, 2]
+Aug 01 2022 18:57:12.805 [DEBUG] timeliner.TimelineControlPanel 0
+Aug 01 2022 18:57:12.814 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 1
+Aug 01 2022 18:57:13.524 [DEBUG] timeliner.TimelineControlPanel 0
+Aug 01 2022 18:57:13.533 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble shift-click select: 4
+Aug 01 2022 18:57:13.898 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item right click - bubble: 4
+Aug 01 2022 18:57:14.627 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 popup menu item selected - group selected bubbles: [1, 2, 3, 4]
+Aug 01 2022 18:57:16.234 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 18:57:16.234 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 18:57:16.234 [DEBUG] timeliner.TimelineSlider       value = 153419
+Aug 01 2022 18:57:16.234 [DEBUG] timeliner.TimelineSlider       milliseconds = 153419
+Aug 01 2022 18:57:16.234 [DEBUG] timeliner.TimelineSlider       jump to 878
+Aug 01 2022 18:57:16.298 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 18:57:16.299 [DEBUG] timeliner.TimelinePanel        153402
+Aug 01 2022 18:57:16.997 [DEBUG] timeliner.TimelineControlPanel 130872
+Aug 01 2022 18:57:17.006 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 5
+Aug 01 2022 18:57:17.549 [DEBUG] timeliner.TimelineControlPanel 130872
+Aug 01 2022 18:57:17.556 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble shift-click select: 6
+Aug 01 2022 18:57:19.978 [DEBUG] timeliner.TimelineControlPanel 130872
+Aug 01 2022 18:57:19.995 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble control-click select: 6
+Aug 01 2022 18:57:21.125 [DEBUG] timeliner.TimelineControlPanel 153402
+Aug 01 2022 18:57:21.135 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble shift-click select: 6
+Aug 01 2022 18:57:22.038 [DEBUG] timeliner.TimelineControlPanel 130872
+Aug 01 2022 18:57:22.049 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble shift-click select: 5
+Aug 01 2022 18:57:22.654 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 item right click - bubble: 5
+Aug 01 2022 18:57:23.275 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 popup menu item selected - group selected bubbles: [5, 6]
+Aug 01 2022 18:57:26.781 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 window closed - timeline: ID= C:\Users\Brent Yorgason\Dropbox\Documents\mozart_K309.mp3
+Aug 01 2022 18:57:26.782 [INFO ] on#24.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 01 2022 18:57:26.804 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 01 2022 18:57:26.804 [DEBUG] common.WindowManager           closing 0 windows
+Aug 01 2022 19:10:19.707 [INFO ] .Session#12                    Begin
+Aug 01 2022 19:10:19.708 [INFO ] .Session#12                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 01 2022 19:10:19.784 [INFO ] .Session#12                    Initial display resolution is x:1600.0 y:900.0
+Aug 01 2022 19:10:23.180 [INFO ] on#12.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600
+Aug 01 2022 19:10:26.281 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 261746
+Aug 01 2022 19:10:26.287 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 261746
+Aug 01 2022 19:10:26.364 [INFO ] on#12.WINTYPE_LOCAL_TIMELINE#1 button clicked - create a new timeline
+Aug 01 2022 19:10:28.164 [INFO ] on#12.WINTYPE_LOCAL_TIMELINE#1 button clicked - play
+Aug 01 2022 19:10:28.512 [DEBUG] timeliner.TimelineControlPanel important offset = 10
+Aug 01 2022 19:10:29.010 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 19:10:29.011 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 19:10:29.011 [DEBUG] timeliner.TimelineSlider       value = 84372
+Aug 01 2022 19:10:29.011 [DEBUG] timeliner.TimelineSlider       milliseconds = 84372
+Aug 01 2022 19:10:29.011 [DEBUG] timeliner.TimelineSlider       jump to 486
+Aug 01 2022 19:10:29.257 [INFO ] on#12.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 19:10:29.258 [DEBUG] timeliner.TimelinePanel        84365
+Aug 01 2022 19:10:29.812 [DEBUG] timeliner.TimelineControlPanel important offset = 84365
+Aug 01 2022 19:10:30.235 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 19:10:30.235 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 19:10:30.235 [DEBUG] timeliner.TimelineSlider       value = 134572
+Aug 01 2022 19:10:30.235 [DEBUG] timeliner.TimelineSlider       milliseconds = 134572
+Aug 01 2022 19:10:30.235 [DEBUG] timeliner.TimelineSlider       jump to 771
+Aug 01 2022 19:10:30.301 [INFO ] on#12.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 19:10:30.302 [DEBUG] timeliner.TimelinePanel        134561
+Aug 01 2022 19:10:30.702 [DEBUG] timeliner.TimelineControlPanel important offset = 134561
+Aug 01 2022 19:10:30.969 [DEBUG] timeliner.TimelineSlider       range = 261746
+Aug 01 2022 19:10:30.970 [DEBUG] timeliner.TimelineSlider       value per pixel = 176.1413189771198
+Aug 01 2022 19:10:30.970 [DEBUG] timeliner.TimelineSlider       value = 173323
+Aug 01 2022 19:10:30.970 [DEBUG] timeliner.TimelineSlider       milliseconds = 173323
+Aug 01 2022 19:10:30.970 [DEBUG] timeliner.TimelineSlider       jump to 991
+Aug 01 2022 19:10:31.042 [INFO ] on#12.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 19:10:31.043 [DEBUG] timeliner.TimelinePanel        173322
+Aug 01 2022 19:10:31.453 [DEBUG] timeliner.TimelineControlPanel important offset = 173322
+Aug 01 2022 19:10:31.999 [DEBUG] timeliner.TimelineControlPanel 84365
+Aug 01 2022 19:10:32.006 [INFO ] on#12.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 01 2022 19:10:32.022 [DEBUG] timeliner.TimelineControlPanel important offset = 84358
+Aug 01 2022 19:10:32.062 [DEBUG] timeliner.TimelineControlPanel important offset = 84368
+Aug 01 2022 19:10:32.970 [DEBUG] timeliner.TimelineControlPanel 84365
+Aug 01 2022 19:10:32.982 [DEBUG] timeliner.TimelineControlPanel important offset = 85288
+Aug 01 2022 19:10:32.984 [INFO ] on#12.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble shift-click select: 3
+Aug 01 2022 19:10:33.461 [INFO ] on#12.WINTYPE_LOCAL_TIMELINE#1 item right click - bubble: 3
+Aug 01 2022 19:10:34.131 [INFO ] on#12.WINTYPE_LOCAL_TIMELINE#1 popup menu item selected - group selected bubbles: [2, 3]
+Aug 01 2022 19:10:37.364 [INFO ] on#12.WINTYPE_LOCAL_TIMELINE#1 window closed - timeline: ID= C:\Users\Brent Yorgason\Dropbox\Documents\mozart_K309.mp3
+Aug 01 2022 19:10:37.366 [INFO ] on#12.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 01 2022 19:10:37.383 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 01 2022 19:10:37.383 [DEBUG] common.WindowManager           closing 0 windows
+Aug 01 2022 19:23:31.432 [INFO ] .Session#1                     Begin
+Aug 01 2022 19:23:31.432 [INFO ] .Session#1                     System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 01 2022 19:23:31.510 [INFO ] .Session#1                     Initial display resolution is x:1600.0 y:900.0
+Aug 01 2022 19:23:34.770 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600
+Aug 01 2022 19:23:38.413 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 178944
+Aug 01 2022 19:23:38.419 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 178944
+Aug 01 2022 19:23:38.476 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 button clicked - create a new timeline
+Aug 01 2022 19:23:39.121 [DEBUG] timeliner.TimelineSlider       range = 178944
+Aug 01 2022 19:23:39.121 [DEBUG] timeliner.TimelineSlider       value per pixel = 120.41991924629879
+Aug 01 2022 19:23:39.121 [DEBUG] timeliner.TimelineSlider       value = 53707
+Aug 01 2022 19:23:39.121 [DEBUG] timeliner.TimelineSlider       milliseconds = 53707
+Aug 01 2022 19:23:39.121 [DEBUG] timeliner.TimelineSlider       jump to 453
+Aug 01 2022 19:23:39.225 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 19:23:39.227 [DEBUG] timeliner.TimelinePanel        53706
+Aug 01 2022 19:23:39.761 [DEBUG] timeliner.TimelineSlider       range = 178944
+Aug 01 2022 19:23:39.761 [DEBUG] timeliner.TimelineSlider       value per pixel = 120.41991924629879
+Aug 01 2022 19:23:39.761 [DEBUG] timeliner.TimelineSlider       value = 89954
+Aug 01 2022 19:23:39.762 [DEBUG] timeliner.TimelineSlider       milliseconds = 89954
+Aug 01 2022 19:23:39.762 [DEBUG] timeliner.TimelineSlider       jump to 754
+Aug 01 2022 19:23:39.850 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 19:23:39.851 [DEBUG] timeliner.TimelinePanel        89953
+Aug 01 2022 19:23:40.432 [DEBUG] timeliner.TimelineSlider       range = 178944
+Aug 01 2022 19:23:40.433 [DEBUG] timeliner.TimelineSlider       value per pixel = 120.41991924629879
+Aug 01 2022 19:23:40.433 [DEBUG] timeliner.TimelineSlider       value = 124755
+Aug 01 2022 19:23:40.433 [DEBUG] timeliner.TimelineSlider       milliseconds = 124755
+Aug 01 2022 19:23:40.433 [DEBUG] timeliner.TimelineSlider       jump to 1043
+Aug 01 2022 19:23:40.529 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 19:23:40.530 [DEBUG] timeliner.TimelinePanel        124754
+Aug 01 2022 19:23:41.089 [DEBUG] timeliner.TimelineSlider       range = 178944
+Aug 01 2022 19:23:41.089 [DEBUG] timeliner.TimelineSlider       value per pixel = 120.41991924629879
+Aug 01 2022 19:23:41.090 [DEBUG] timeliner.TimelineSlider       value = 146551
+Aug 01 2022 19:23:41.090 [DEBUG] timeliner.TimelineSlider       milliseconds = 146551
+Aug 01 2022 19:23:41.090 [DEBUG] timeliner.TimelineSlider       jump to 1224
+Aug 01 2022 19:23:41.186 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 19:23:41.187 [DEBUG] timeliner.TimelinePanel        146547
+Aug 01 2022 19:23:41.671 [DEBUG] timeliner.TimelineControlPanel 124754
+Aug 01 2022 19:23:41.685 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 4
+Aug 01 2022 19:23:42.692 [DEBUG] timeliner.TimelineControlPanel 89953
+Aug 01 2022 19:23:42.700 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble shift-click select: 3
+Aug 01 2022 19:23:43.125 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item right click - bubble: 3
+Aug 01 2022 19:23:43.739 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 popup menu item selected - group selected bubbles: [3, 4]
+Aug 01 2022 19:23:44.580 [DEBUG] timeliner.TimelineControlPanel 89953
+Aug 01 2022 19:23:44.589 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 3
+Aug 01 2022 19:23:44.864 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item right click - bubble: 3
+Aug 01 2022 19:23:47.377 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept color
+Aug 01 2022 19:23:47.386 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 popup menu item selected - change color of selected bubbles: [3]
+Aug 01 2022 19:23:48.235 [DEBUG] timeliner.TimelineControlPanel 53706
+Aug 01 2022 19:23:48.247 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 01 2022 19:23:50.331 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 01 2022 19:23:50.498 [DEBUG] timeliner.TimelineControlPanel 53706
+Aug 01 2022 19:23:52.841 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept bubble edits
+Aug 01 2022 19:23:52.841 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 2
+Aug 01 2022 19:23:54.133 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 01 2022 19:23:55.007 [DEBUG] timeliner.TimelineControlPanel 53706
+Aug 01 2022 19:23:55.024 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 01 2022 19:23:55.578 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 01 2022 19:23:55.731 [DEBUG] timeliner.TimelineControlPanel 53706
+Aug 01 2022 19:23:58.489 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept bubble edits
+Aug 01 2022 19:23:58.490 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 2
+Aug 01 2022 19:23:59.494 [INFO ] ion#1.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 01 2022 19:26:38.641 [INFO ] .Session#78                    Begin
+Aug 01 2022 19:26:38.641 [INFO ] .Session#78                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 01 2022 19:26:38.719 [INFO ] .Session#78                    Initial display resolution is x:1600.0 y:900.0
+Aug 01 2022 19:26:41.934 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600
+Aug 01 2022 19:26:45.318 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 178944
+Aug 01 2022 19:26:45.337 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 178944
+Aug 01 2022 19:26:45.404 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 button clicked - create a new timeline
+Aug 01 2022 19:26:46.295 [DEBUG] timeliner.TimelineSlider       range = 178944
+Aug 01 2022 19:26:46.295 [DEBUG] timeliner.TimelineSlider       value per pixel = 120.41991924629879
+Aug 01 2022 19:26:46.295 [DEBUG] timeliner.TimelineSlider       value = 54911
+Aug 01 2022 19:26:46.296 [DEBUG] timeliner.TimelineSlider       milliseconds = 54911
+Aug 01 2022 19:26:46.296 [DEBUG] timeliner.TimelineSlider       jump to 463
+Aug 01 2022 19:26:46.377 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 19:26:46.378 [DEBUG] timeliner.TimelinePanel        54910
+Aug 01 2022 19:26:47.031 [DEBUG] timeliner.TimelineSlider       range = 178944
+Aug 01 2022 19:26:47.032 [DEBUG] timeliner.TimelineSlider       value per pixel = 120.41991924629879
+Aug 01 2022 19:26:47.032 [DEBUG] timeliner.TimelineSlider       value = 80320
+Aug 01 2022 19:26:47.032 [DEBUG] timeliner.TimelineSlider       milliseconds = 80320
+Aug 01 2022 19:26:47.032 [DEBUG] timeliner.TimelineSlider       jump to 674
+Aug 01 2022 19:26:47.111 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 19:26:47.113 [DEBUG] timeliner.TimelinePanel        80319
+Aug 01 2022 19:26:47.704 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 19:26:47.704 [DEBUG] timeliner.TimelinePanel        80319
+Aug 01 2022 19:26:48.319 [DEBUG] timeliner.TimelineSlider       range = 178944
+Aug 01 2022 19:26:48.319 [DEBUG] timeliner.TimelineSlider       value per pixel = 120.41991924629879
+Aug 01 2022 19:26:48.319 [DEBUG] timeliner.TimelineSlider       value = 118493
+Aug 01 2022 19:26:48.319 [DEBUG] timeliner.TimelineSlider       milliseconds = 118493
+Aug 01 2022 19:26:48.319 [DEBUG] timeliner.TimelineSlider       jump to 991
+Aug 01 2022 19:26:48.408 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 19:26:48.408 [DEBUG] timeliner.TimelinePanel        118492
+Aug 01 2022 19:26:48.894 [DEBUG] timeliner.TimelineSlider       range = 178944
+Aug 01 2022 19:26:48.895 [DEBUG] timeliner.TimelineSlider       value per pixel = 120.41991924629879
+Aug 01 2022 19:26:48.895 [DEBUG] timeliner.TimelineSlider       value = 135954
+Aug 01 2022 19:26:48.895 [DEBUG] timeliner.TimelineSlider       milliseconds = 135954
+Aug 01 2022 19:26:48.895 [DEBUG] timeliner.TimelineSlider       jump to 1136
+Aug 01 2022 19:26:48.967 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 item double click - timeline (add timepoint)
+Aug 01 2022 19:26:48.967 [DEBUG] timeliner.TimelinePanel        135953
+Aug 01 2022 19:26:49.578 [DEBUG] timeliner.TimelineControlPanel 80319
+Aug 01 2022 19:26:49.586 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 3
+Aug 01 2022 19:26:50.380 [DEBUG] timeliner.TimelineControlPanel 80319
+Aug 01 2022 19:26:50.390 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble shift-click select: 4
+Aug 01 2022 19:26:51.398 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 item right click - bubble: 4
+Aug 01 2022 19:26:52.137 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 popup menu item selected - group selected bubbles: [3, 4]
+Aug 01 2022 19:26:54.363 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 window closed - timeline: ID= C:\Users\Brent Yorgason\Dropbox\Documents\First Noel (Duet).mp3
+Aug 01 2022 19:26:54.364 [INFO ] on#78.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 01 2022 19:26:54.394 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 01 2022 19:26:54.395 [DEBUG] common.WindowManager           closing 0 windows
+Aug 01 2022 19:48:06.846 [INFO ] .Session#66                    Begin
+Aug 01 2022 19:48:06.847 [INFO ] .Session#66                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 01 2022 19:48:06.930 [INFO ] .Session#66                    Initial display resolution is x:1600.0 y:900.0
+Aug 01 2022 19:48:10.300 [INFO ] on#66.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600
+Aug 01 2022 19:48:20.604 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 178944
+Aug 01 2022 19:48:20.618 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 178944
+Aug 01 2022 19:48:20.686 [INFO ] on#66.WINTYPE_LOCAL_TIMELINE#1 button clicked - create a new timeline
+Aug 01 2022 19:49:06.467 [INFO ] on#66.WINTYPE_LOCAL_TIMELINE#1 window closed - timeline: ID= C:\Users\Brent Yorgason\Dropbox\Documents\First Noel (Duet).mp3
+Aug 01 2022 19:49:06.468 [INFO ] on#66.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 01 2022 19:49:06.497 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 01 2022 19:49:06.501 [DEBUG] common.WindowManager           closing 0 windows
+Aug 01 2022 19:52:51.408 [INFO ] .Session#97                    Begin
+Aug 01 2022 19:52:51.410 [INFO ] .Session#97                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 01 2022 19:52:51.498 [INFO ] .Session#97                    Initial display resolution is x:1600.0 y:900.0
+Aug 01 2022 19:52:55.669 [INFO ] on#97.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600
+Aug 01 2022 19:53:17.756 [INFO ] .Session#90                    Begin
+Aug 01 2022 19:53:17.757 [INFO ] .Session#90                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 01 2022 19:53:17.853 [INFO ] .Session#90                    Initial display resolution is x:1600.0 y:900.0
+Aug 01 2022 19:53:21.346 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:600
+Aug 01 2022 19:54:35.941 [INFO ] on#90.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 01 2022 19:54:35.953 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 01 2022 19:54:35.954 [DEBUG] common.WindowManager           closing 0 windows
+Aug 01 2022 19:54:39.116 [INFO ] on#97.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 01 2022 19:54:39.134 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 01 2022 19:54:39.136 [DEBUG] common.WindowManager           closing 0 windows

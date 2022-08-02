@@ -6,7 +6,7 @@ import java.awt.event.*;
 import ui.common.*;
 import com.borland.jbcl.layout.*;
 import util.logging.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * TimelinePrintDialog.java
@@ -14,12 +14,13 @@ import org.apache.log4j.Logger;
 
 public class TimelinePrintDialog extends JDialog {
 
-  // external components
+  private static final long serialVersionUID = 1L;
+// external components
   private static TimelinePanel pnlTimeline;
   private static TimelineFrame frmTimeline;
   private static Timeline timeline;
   private static TimelineMenuBar menubTimeline;
-  private static Logger log = Logger.getLogger(TimelinePrintDialog.class);
+  //private static Logger log = Logger.getLogger(TimelinePrintDialog.class);
   protected static UILogger uilogger;
 
   // visual components
@@ -133,6 +134,6 @@ public class TimelinePrintDialog extends JDialog {
     pane.add(buttonPanel);
 
     // show dialog
-    this.show();
+    this.setVisible(true);
   }
 }
