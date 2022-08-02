@@ -45,7 +45,7 @@ public class TimelinePrintDialog extends JDialog {
     if (System.getProperty("os.name").startsWith("Mac OS")) {
       timelineFont = UIUtilities.fontDialogMacSmallest;
       dialogWidth = UIUtilities.scalePixels(200);
-      dialogHeight = UIUtilities.scalePixels(150);
+      dialogHeight = UIUtilities.scalePixels(200);
     } else {
       timelineFont = UIUtilities.fontDialogWin;
       dialogWidth = UIUtilities.scalePixels(250);
@@ -54,7 +54,7 @@ public class TimelinePrintDialog extends JDialog {
     this.setTitle("Print Options");
     this.setLocationRelativeTo(frmTimeline);
     this.setModal(true);
-    this.setSize(new Dimension(dialogWidth, dialogHeight));
+//    this.setSize(new Dimension(dialogWidth, dialogHeight));
     EmptyBorder border = new EmptyBorder(0, 5, 0, 5 );
     JPanel panel = new JPanel();
     panel.setBorder(border);
@@ -139,8 +139,11 @@ public class TimelinePrintDialog extends JDialog {
     buttonPanel.add(btnCancel);
     pane.add(panel);
     pane.add(buttonPanel);
+   
 
     // show dialog
+    this.pack();
     this.setVisible(true);
+
   }
 }

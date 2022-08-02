@@ -586,6 +586,7 @@ public class TimelineProperties extends JDialog {
     addActions();
 
     // show dialog
+    this.pack();
     this.setVisible(true);
   }
 
