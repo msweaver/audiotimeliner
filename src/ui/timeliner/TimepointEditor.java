@@ -103,7 +103,7 @@ public class TimepointEditor extends JDialog {
     fldTimepointLabel.setPreferredSize(new Dimension(dialogWidth - 100, 25));
 
     // buttons
-    btnLeft.setPreferredSize(new Dimension(buttonWidth + 10, 30));
+ //   btnLeft.setPreferredSize(new Dimension(buttonWidth + 10, 30));
     btnLeft.setToolTipText("Go to the previous timepoint");
     btnLeft.setIcon(icoLeft);
     btnLeft.setText("Previous");
@@ -120,7 +120,7 @@ public class TimepointEditor extends JDialog {
       }
     });
 
-    btnRight.setPreferredSize(new Dimension(buttonWidth + 10, 30));
+//    btnRight.setPreferredSize(new Dimension(buttonWidth + 10, 30));
     btnRight.setToolTipText("Go to the next timepoint");
     btnRight.setText("Next");
     btnRight.setIcon(icoRight);

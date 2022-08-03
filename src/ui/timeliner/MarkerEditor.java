@@ -115,11 +115,11 @@ public class MarkerEditor extends JDialog {
     fldMarkerLabel.setPreferredSize(new Dimension(250, 25));
     fldMarkerLabel.setToolTipText("Edit the marker label");
     tpAnnotation.setFont(unicodeFont);
-    tpAnnotation.setPreferredSize(new Dimension(430, 375));
+    tpAnnotation.setPreferredSize(new Dimension(430, 250));//375));
     tpAnnotation.setToolTipText("Edit the marker annotation");
 
     // buttons
-    btnLeft.setPreferredSize(new Dimension(buttonWidth + 10, 30));
+//    btnLeft.setPreferredSize(new Dimension(buttonWidth + 10, 30));
     btnLeft.setToolTipText("Go to the previous marker");
     btnLeft.setIcon(icoLeft);
     btnLeft.setText("Previous");
@@ -137,7 +137,7 @@ public class MarkerEditor extends JDialog {
       }
     });
 
-    btnRight.setPreferredSize(new Dimension(buttonWidth + 10, 30));
+//    btnRight.setPreferredSize(new Dimension(buttonWidth + 10, 30));
     btnRight.setToolTipText("Go to the next marker");
     btnRight.setText("Next");
     btnRight.setIcon(icoRight);

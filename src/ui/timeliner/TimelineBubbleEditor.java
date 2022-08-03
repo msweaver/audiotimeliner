@@ -202,7 +202,7 @@ public class TimelineBubbleEditor extends JDialog {
     });
 
     // navigation buttons
-    btnUp.setPreferredSize(new Dimension(buttonWidth+5, 18));
+ //   btnUp.setPreferredSize(new Dimension(buttonWidth+5, 18));
     btnUp.setToolTipText("Go to the upper bubble");
     btnUp.setIcon(icoUp);
     btnUp.setText("Up    ");
@@ -218,7 +218,7 @@ public class TimelineBubbleEditor extends JDialog {
       }
     });
 
-    btnDown.setPreferredSize(new Dimension(buttonWidth+5, 18));
+  //  btnDown.setPreferredSize(new Dimension(buttonWidth+5, 18));
     btnDown.setToolTipText("Go to the first lower bubble");
     btnDown.setIcon(icoDown);
     btnDown.setText("Down");
@@ -233,7 +233,7 @@ public class TimelineBubbleEditor extends JDialog {
       }
     });
 
-    btnLeft.setPreferredSize(new Dimension(buttonWidth-10, 30));
+  //  btnLeft.setPreferredSize(new Dimension(buttonWidth-10, 30));
     btnLeft.setToolTipText("Go to the previous bubble");
     btnLeft.setIcon(icoLeft);
     btnLeft.setText("Left");
@@ -248,7 +248,7 @@ public class TimelineBubbleEditor extends JDialog {
       }
     });
 
-    btnRight.setPreferredSize(new Dimension(buttonWidth-10, 30));
+//    btnRight.setPreferredSize(new Dimension(buttonWidth-10, 30));
     btnRight.setToolTipText("Go to the next bubble");
     btnRight.setText("Right");
     btnRight.setIcon(icoRight);
