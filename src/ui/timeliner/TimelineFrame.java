@@ -53,7 +53,7 @@ public class TimelineFrame extends BasicWindow  {
 
   // window sizes
   static private int INITIAL_X_SIZE = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-  static private int INITIAL_Y_SIZE = UIUtilities.scaleHeight(750); // 600; // was 450
+  static private int INITIAL_Y_SIZE = UIUtilities.scaleHeight(700); // 600; // was 450
   final static int X_MINIMUM = 800;
   final static int Y_MINIMUM = 450; // was 400
 
@@ -62,7 +62,7 @@ public class TimelineFrame extends BasicWindow  {
   public static int windowNumber = 1;
 
   // the height of the control panel
-  static int CONTROL_PANEL_HEIGHT = UIUtilities.scaleHeight(330); // 240; // 210
+  static int CONTROL_PANEL_HEIGHT = UIUtilities.scaleHeight(300); // 240; // 210
 
   // amount of space between bottom of timeline panel and timeline
   final static int BOTTOM_SPACE = UIUtilities.scalePixels(56);

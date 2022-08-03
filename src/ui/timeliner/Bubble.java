@@ -1,6 +1,9 @@
 package ui.timeliner;
 
 import javax.swing.*;
+
+import ui.common.UIUtilities;
+
 import java.awt.*;
 import java.awt.geom.*;
 
@@ -143,14 +146,14 @@ public class Bubble extends JComponent {
     int sideAdjust = 2; // tweak value
 
     // set up the bubble label font size, using a formula dependent on the bubble height
-    labelFontSize = 12 - ((30 - bubHeight) / 4);
+    labelFontSize = UIUtilities.convertFontSize(12 - ((30 - bubHeight) / 4));
 
     // impose a limit of font size 14 in level 1 and 18 in level 2
     if (level == 1 && labelFontSize > 14) {
-      labelFontSize = 14;
+      labelFontSize = UIUtilities.convertFontSize(14);
     }
     else if (level == 2 && labelFontSize > 18) {
-      labelFontSize = 18;
+      labelFontSize = UIUtilities.convertFontSize(18);
     }
 
     // set up label font and calculate label size and position

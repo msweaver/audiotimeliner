@@ -286,8 +286,8 @@ public class UIUtilities {
     	
 	    double ppi = Toolkit.getDefaultToolkit().getScreenResolution();
 	    int newsize = (int)Math.round( size / (110 / ppi));
-	    return newsize;
-	    //return size;
+	    //return newsize;
+	    return size;
     }
  
     /**
