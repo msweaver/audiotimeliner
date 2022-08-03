@@ -756,7 +756,7 @@ public class TimelineProperties extends JDialog {
 
     // now apply new settings
     TimelineMenuBar tmb = pnlTimeline.getMenuBar();
-    pnlTimeline.getFrame().setTitle("Timeline: " + fldTimelineTitle.getText());
+    pnlTimeline.getFrame().setTitle(fldTimelineTitle.getText());
     timeline.setDescription(fldTimelineDescription.getText());
     pnlTimeline.setEditableTimeline(editable);
     pnlTimeline.setResizableTimeline(resizable);
