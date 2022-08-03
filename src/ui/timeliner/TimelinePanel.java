@@ -1572,7 +1572,7 @@ public class TimelinePanel extends JPanel
       case ADD_TIMEPOINT:
         if (timeline != null) {
           int off = timeline.getPlayerOffset();
-          log.debug(off);
+          //log.debug(off);
           int timepointNum = timeline.addTimepoint(off);
           timeline.refresh(g2d);
           undoManager.undoableEditHappened(new UndoableEditEvent(this,
@@ -2103,7 +2103,7 @@ public class TimelinePanel extends JPanel
       else if (timeline.isTimepointDragging()) {
         timeline.setTimepointDragging(false);
         // reposition the playback head
-        log.debug(timeline.getLastTimepointClicked());
+        //log.debug(timeline.getLastTimepointClicked());
         timeline.getSlider().setValue(timeline.getSortedPointList()[timeline.getLastTimepointClicked()]);
         refreshTimeline();
 

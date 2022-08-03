@@ -753,7 +753,7 @@ public class Timeline extends JPanel {
     }
     // case: end of bubble otherwise, update annotation
     else {
-        log.debug("important offset = " + offset);
+        //log.debug("important offset = " + offset);
       pnlControl.updateAnnotationPane();
       if (nextMarkerOffset < numMarkers && markerList[nextMarkerOffset] < sortedPointList[nextOffset]) {
         setNextImportantOffset(markerList[nextMarkerOffset]);
@@ -1611,7 +1611,8 @@ public class Timeline extends JPanel {
    * with the current offset on the slider (also sets the nextOffset and nextMarkerOffset variable)
    */
   protected int getBaseBubbleNumAtCurrentOffset() {
-    int offset = getPlayerOffset();
+    int offset = getPlayerOffset() + 500; // add one-half second to account for imprecision in media tool
+
     for (int i = 0; i < numBaseBubbles + 1; i++) {
       if (sortedPointList[i] > offset) {
         nextOffset = i;
@@ -2025,7 +2026,7 @@ public class Timeline extends JPanel {
       int endOffset = sortedPointList[getTimepointNumberAtPixel(currParent.getLastLeafBubble().end)];
       int totalDuration = endOffset-startOffset;
       sortSelectedBubbles();
-      log.debug(startOffset);
+      //log.debug(startOffset);
 
       for (int i = 0; i < selectedBubbles.size(); i ++) {
         currBubble = ((Integer)selectedBubbles.elementAt(i)).intValue();
@@ -3142,7 +3143,7 @@ public class Timeline extends JPanel {
     }
     setNextImportantOffset(sortedPointList[tSelected]);
     setPlayerOffset(sortedPointList[tSelected]);
-    log.debug(sortedPointList[tSelected]);
+    //log.debug(sortedPointList[tSelected]);
     pnlControl.updateAnnotationPane();
   }
 

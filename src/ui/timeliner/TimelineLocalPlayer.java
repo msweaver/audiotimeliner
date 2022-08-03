@@ -18,7 +18,7 @@ import org.apache.log4j.Logger;
 public class TimelineLocalPlayer implements PlayableContentHandlerListener {
 
   // local audio variables
-	  File filename;
+	  public File filename;
 	  AudioHandler player;
 	  int currstart = 0;
 	  int currstop = 0;
@@ -182,6 +182,10 @@ private static final PlayableContentHandlerEvent playerEvent = null;
       //make sure offsets are within valid range for this container
       if ((currstop-currstart) > player.getDuration())  {
           logger.debug("Trouble initiating audio. Start/stop times are incorrect values.");
+          
+          if ((currstop > player.getDuration())) {
+        	  currstop = player.getDuration();
+          }
         } 
       logger.debug("start: " + currstart + ", stop: " + currstop + ", duration: " + player.getDuration());
 

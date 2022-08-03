@@ -14,7 +14,9 @@ import javafx.scene.media.MediaPlayer.Status;
 import javafx.util.Duration;
 import ui.timeliner.TimelineLocalPlayer;
 import util.AppEnv;
-
+import org.jaudiotagger.audio.AudioFileIO;
+import org.jaudiotagger.audio.AudioFile;
+import org.jaudiotagger.audio.mp3.*;
 import org.apache.log4j.Logger;
 
 /**
@@ -58,6 +60,7 @@ public class AudioHandler implements PlayableContentHandler {
     
     public Media audioFile;
     public MediaPlayer audioPlayer;
+    public File audioFileName;
 
     /**
      */
@@ -82,7 +85,30 @@ public class AudioHandler implements PlayableContentHandler {
      * @throws UnsupportedAudioFileException 
      */
     public int getDuration()  {
-      return (int)audioFile.getDuration().toMillis(); // return milliseconds?
+    	
+    	if (audioFileName.toString().endsWith(".mp3")) {
+	         
+    		try {
+    			
+	           AudioFile tempfile = AudioFileIO.read(audioFileName);
+	           MP3AudioHeader mp3head = (MP3AudioHeader)tempfile.getAudioHeader();
+	           int mp3duration = (int)Math.round(mp3head.getPreciseTrackLength() * 1000);
+	           logger.debug("Precise Duration = " + mp3duration);
+	           
+	           return mp3duration; 
+	           
+	         } catch (Exception e) {
+	        	 
+	        	e.printStackTrace();
+	           
+	    		return (int)audioFile.getDuration().toMillis(); // return milliseconds? 
+
+	         } 
+	         
+    	} else {
+	        	 
+    		return (int)audioFile.getDuration().toMillis(); // return milliseconds? 
+	    }
     }
     
     public void setContentRef(String ref) {
@@ -91,23 +117,18 @@ public class AudioHandler implements PlayableContentHandler {
     public void setContentRef(String ref, TimelineLocalPlayer tplayer) {
         logger.debug("Open url " + ref);
         
+        audioFileName = tplayer.filename;
+        
         String mp3FilePath=null;
 
-                mp3FilePath = ref.replaceAll("\\\\", "/");
-                mp3FilePath = mp3FilePath.replaceAll(" ", "%20");
-                logger.debug("mp3 path " + mp3FilePath);
-
-                //is file local?
-        //if (mp3FilePath.startsWith("file://")) {
-        //    local = true;
-        //} else {
-        //    local = false;
-        //}
-       
-            audioFile = new Media(mp3FilePath);
-            logger.debug("audio file " + audioFile.getSource());
+        mp3FilePath = ref.replaceAll("\\\\", "/");
+        mp3FilePath = mp3FilePath.replaceAll(" ", "%20");
+        logger.debug("mp3 path " + mp3FilePath);
+      
+        audioFile = new Media(mp3FilePath);
+        logger.debug("audio file " + audioFile.getSource());
             
-        	audioPlayer = new MediaPlayer(audioFile);
+        audioPlayer = new MediaPlayer(audioFile);
         
  /**        audioPlayer.setOnReady(new Runnable() {
 
@@ -146,6 +167,39 @@ public class AudioHandler implements PlayableContentHandler {
          for (Map.Entry<String, Object> entry : audioFile.getMetadata().entrySet()){
              //System.out.println(entry.getKey() + ": " + entry.getValue());
              logger.debug(entry.getKey() + ": " + entry.getValue());
+             //logger.debug(audioFile.durationProperty());
+             //logger.debug(audioFile.getDuration());
+             //logger.debug(audioFile.getTracks());
+         }
+         
+         if (tplayer.filename.toString().endsWith(".mp3")) { // double-check mp3 length
+	         try {
+	           AudioFile testfile = AudioFileIO.read(audioFileName);
+	           int testdur = testfile.getAudioHeader().getTrackLength();
+	           MP3AudioHeader mp3head = (MP3AudioHeader)testfile.getAudioHeader();
+	           int mp3duration = (int)Math.round(mp3head.getPreciseTrackLength() * 1000);
+	           logger.debug("JAudioTagger Duration = " + testdur);
+	           logger.debug("JAudioTagger Precise = " + mp3duration);
+	           logger.debug("bitrate = " + mp3head.getBitRate());
+	           logger.debug("bits per sample = " + mp3head.getBitsPerSample());;
+	           logger.debug("encoding type = " + mp3head.getEncodingType());	
+	           logger.debug("variable = " + mp3head.isVariableBitRate());
+	           logger.debug("lossless = " + mp3head.isLossless());
+	           logger.debug("byte rate = " + mp3head.getByteRate());
+	           logger.debug("audio data length = " + mp3head.getAudioDataLength());
+	           logger.debug("audio date end position = " + mp3head.getAudioDataEndPosition());
+	           logger.debug("audio track length = " + mp3head.getTrackLength());
+	           logger.debug("audio sample rate = " + mp3head.getSampleRate());           
+	           logger.debug("number of frames = " + mp3head.getNumberOfFrames());
+	           logger.debug("mpeg version = " + mp3head.getMpegVersion());
+	           logger.debug("mpeg layer = " + mp3head.getMpegLayer());
+	           logger.debug("format = " + mp3head.getFormat());
+	           logger.debug("channels = " + mp3head.getChannels());
+
+	           
+	         } catch (Exception e) {
+	           e.printStackTrace();
+	         }
          }
          tplayer.startUp();
         
@@ -220,21 +274,22 @@ public class AudioHandler implements PlayableContentHandler {
         	//audioPlayer.setStartTime(Duration.millis(offset));
         	Duration off = new Duration(offset);
         	double seekSeconds = off.toMillis() / 1000.0;
-        	logger.debug("seekSeconds = " + seekSeconds);
+        	//logger.debug("seekSeconds = " + seekSeconds);
         	audioPlayer.seek(Duration.millis(offset)); 
             logger.debug("setting offset to " + offset);
             if (playflag) {                     //start playback again if playing before
             	audioPlayer.play();
             }
-            logger.debug("current offset in player is = " + audioPlayer.getCurrentTime());
+            //logger.debug("current offset in player is = " + audioPlayer.getCurrentTime());
         } catch (Exception e) {
         }
     }
 
     public int getOffset() {
     	double x = audioPlayer.getCurrentTime().toMillis();
-    	//logger.debug(audioPlayer.getCurrentTime().toMillis());
-    	return (int)x;
+    	int off = (int)Math.round(x);
+    	//logger.debug("offset = " + off);
+    	return off;
     }
 
     public void setVolume(float vol) {

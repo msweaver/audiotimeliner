@@ -62,7 +62,7 @@ public class TimelineSlider extends JSlider {
     this.setSize(width, height);
     this.setPaintTicks(true);
     this.setVisible(true);
-    this.setOpaque(false);
+    this.setOpaque(false); 
 
     // get external references
     timeline = t;

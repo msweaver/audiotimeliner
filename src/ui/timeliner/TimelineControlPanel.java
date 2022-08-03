@@ -11,7 +11,7 @@ import com.borland.jbcl.layout.*;
 import ui.media.*;
 import ui.common.*;
 import util.logging.*;
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 import javax.swing.text.html.*;
 
 /**
@@ -36,7 +36,7 @@ public class TimelineControlPanel extends JPanel {
   protected TimepointEditor dlgTimepointEditor;
   protected AudioControlPanel pnlAudioControl = new AudioControlPanel();
   VolumePanel pnlVolumeControl = new VolumePanel();
-  //private static Logger log = Logger.getLogger(TimelineControlPanel.class);
+  private static Logger log = Logger.getLogger(TimelineControlPanel.class);
   protected UILogger uilogger;
 
   // fonts
@@ -88,6 +88,7 @@ public class TimelineControlPanel extends JPanel {
   private JPanel pnlTimelineButtons = new JPanel();
   private JPanel pnlAnnotations = new JPanel();
   private JPanel pnlAnnotationTools = new JPanel(); 
+  private JPanel pnlAnnotationTools2 = new JPanel(); 
   private JPanel pnlLevels = new JPanel();
   private JPanel pnlMarkers = new JPanel();
   private JPanel pnlShow = new JPanel();
@@ -199,7 +200,8 @@ public class TimelineControlPanel extends JPanel {
     pnlTimepointButtons.setLayout(gridBagTimepoints);
     pnlTimelineButtons.setLayout(gridBagTimeline);
     pnlAnnotations.setLayout(gridBagAnnotations);
-    pnlAnnotationTools.setLayout(gridBagAnnotationTools);
+    pnlAnnotationTools.setLayout(new GridLayout());
+    pnlAnnotationTools2.setLayout(gridBagAnnotationTools);
     pnlLevels.setLayout(new BorderLayout());
     pnlMarkers.setLayout(new BorderLayout());
     pnlShow.setLayout(new GridLayout());
@@ -231,7 +233,7 @@ public class TimelineControlPanel extends JPanel {
     pnlTimelineButtons.setBorder(titledBorderTimeline);
     pnlBubbleButtons.setBorder(titledBorderBubbles);
     pnlAnnotations.setBorder(titledBorderAnnotations);
-    pnlShow.setBorder(titledBorderShow);
+    pnlAnnotationTools.setBorder(titledBorderShow);
 
     // set up status bar
     lblStatus.setFont(timelineFont);
@@ -255,7 +257,8 @@ public class TimelineControlPanel extends JPanel {
     // set up grid bag layout constraints and add inner panels to the main panel
     TimelineUtilities.createConstraints(this, pnlPlayback, 0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
     TimelineUtilities.createConstraints(this, pnlTimelineButtons, 0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(this, pnlAnnotationTools, 0, 2, 2, 2, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(this, pnlAnnotationTools, 0, 2, 1, 2, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(this, pnlAnnotationTools2, 1, 2, 1, 2, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
     TimelineUtilities.createConstraints(this, pnlTimepointButtons, 1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
     TimelineUtilities.createConstraints(this, pnlBubbleButtons, 1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
     TimelineUtilities.createConstraints(this, pnlAnnotations, 2, 0, 1, 5, 1.0, 0.8, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
@@ -882,11 +885,11 @@ public class TimelineControlPanel extends JPanel {
     chkShowMarkers.setSelected(true);
     chkShowMarkers.setToolTipText("Show the current marker annotations");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      chkShowMarkers.setMinimumSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
-      chkShowMarkers.setPreferredSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
+    //  chkShowMarkers.setMinimumSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
+    //  chkShowMarkers.setPreferredSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
     } else {
-      chkShowMarkers.setMinimumSize(new Dimension(UIUtilities.scalePixels(90), UIUtilities.scalePixels(23)));
-      chkShowMarkers.setPreferredSize(new Dimension(UIUtilities.scalePixels(90), UIUtilities.scalePixels(23)));
+    //  chkShowMarkers.setMinimumSize(new Dimension(UIUtilities.scalePixels(90), UIUtilities.scalePixels(23)));
+    //  chkShowMarkers.setPreferredSize(new Dimension(UIUtilities.scalePixels(90), UIUtilities.scalePixels(23)));
     }
     chkShowMarkers.setMargin(new Insets(0, 0, 0, 0));
     setEnterAction(chkShowMarkers);
@@ -905,7 +908,7 @@ public class TimelineControlPanel extends JPanel {
     pnlLevels.add(radAllLevels, BorderLayout.NORTH);
     pnlLevels.add(radSelectedLevels, BorderLayout.CENTER);
     pnlMarkers.add(chkShowMarkers, BorderLayout.NORTH);
-    pnlShow.add(pnlLevels, null);
+  //  pnlAnnotationTools.add(pnlLevels, null);
     pnlFontButtons.add(btnFontLarger);
     pnlFontButtons.add(btnFontSmaller);
 
@@ -926,9 +929,9 @@ public class TimelineControlPanel extends JPanel {
     TimelineUtilities.createConstraints(pnlTimelineButtons, btnZoomTo, 0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
     TimelineUtilities.createConstraints(pnlTimelineButtons, btnFitToWindow, 1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
     TimelineUtilities.createConstraints(pnlAnnotations, scrpAnnotations, 0, 0, 1, 3, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(pnlAnnotationTools, pnlShow, 0, 0, 1, 1, 1.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(pnlAnnotationTools, pnlMarkers, 1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(pnlAnnotationTools, pnlFontButtons, 2, 0, 1, 1, 0.0, 0.0, GridBagConstraints.EAST, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(pnlAnnotationTools, pnlLevels, 0, 0, 1, 1, 1.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(pnlAnnotationTools2, pnlMarkers, 1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(pnlAnnotationTools2, pnlFontButtons, 2, 0, 1, 1, 0.0, 0.0, GridBagConstraints.EAST, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
   }
 
   /**
@@ -1276,6 +1279,7 @@ public class TimelineControlPanel extends JPanel {
     isDescriptionShowing = false;
     boolean markerPrecedesOffset = timeline.lastImportantOffsetIsMarker();
     BubbleTreeNode currNode = timeline.getBaseBubbleNode(timeline.getBaseBubbleNumAtCurrentOffset()-1);
+    //log.debug("annotations: " + timeline.getBaseBubbleNumAtCurrentOffset());
 
     if (showAllAnnotations) { // add base bubble and all parent bubbles to currentbubbles
       currentBubbles.add(currNode);

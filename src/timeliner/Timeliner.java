@@ -16,7 +16,7 @@ import ui.timeliner.TimelineXMLAdapter;
 import util.AppEnv;
 import util.logging.LogUtil;
 import util.SwingDPI;
-
+import util.URLDownload;
 
 /**
  * Title:        Timeliner
@@ -66,6 +66,7 @@ public class Timeliner extends Application {
 	            TimelinePanel tp = newTimelineWindow.getTimelinePanel();
 	            tp.setSavePath(timelineFile.getPath());
 	            time.openTimelineXML(timelineFile.getPath(), tp, newWindow, false);
+	            
 			  }
 			  catch (Exception e) {
 			  }
@@ -91,11 +92,14 @@ public class Timeliner extends Application {
 	    
 	    SwingDPI.applyScalingAutomatically();
 	    
+        //URLDownload.fileUrl("https://maxsteinerinstitute.org/audio/Winters-24-SA.mp3", "test", "C:\\Users\\Brent Yorgason\\Videos\\To Watch");
+
 	    WindowManager.doStartUp();
 	    BasicWindow newWindow = WindowManager.openWindow(WindowManager.WINTYPE_LOCAL_TIMELINE, WindowManager.WINLOCATION_CASCADE_DOWN);
 	    TimelineFrame newTimelineWindow = (TimelineFrame)newWindow;
 	    newTimelineWindow.setTitle("New Timeline");
 	    newTimelineWindow.launchWizard();
+	    
 	    }
 
 }
