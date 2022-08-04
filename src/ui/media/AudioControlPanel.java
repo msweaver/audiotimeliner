@@ -24,9 +24,9 @@ public class AudioControlPanel extends JPanel {
 
     public AudioControlPanel() {
         setBorder(BorderFactory.createEtchedBorder());
-        setMinimumSize(new Dimension(171, 35));
-        setPreferredSize(new Dimension(171, 35));
-        this.setMaximumSize(new Dimension(171, 35));
+        setMinimumSize(new Dimension(UIUtilities.scalePixels(171), UIUtilities.scalePixels(35)));
+        setPreferredSize(new Dimension(UIUtilities.scalePixels(171), UIUtilities.scalePixels(35)));
+        this.setMaximumSize(new Dimension(UIUtilities.scalePixels(171), UIUtilities.scalePixels(35)));
         flowLay.setVgap(3);
         setLayout(flowLay);
         add(btnPlay, null);
@@ -35,20 +35,20 @@ public class AudioControlPanel extends JPanel {
         add(btnRW, null);
         add(btnFF, null);
         add(btnNext, null);
-        btnPrev.setMinimumSize(new Dimension(22, 23));
-        btnPrev.setPreferredSize(new Dimension(22, 23));
-        btnNext.setMinimumSize(new Dimension(22, 23));
-        btnNext.setPreferredSize(new Dimension(22, 23));
-        btnPlay.setMinimumSize(new Dimension(22, 23));
-        btnPlay.setPreferredSize(new Dimension(22, 23));
+        btnPrev.setMinimumSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
+        btnPrev.setPreferredSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
+        btnNext.setMinimumSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
+        btnNext.setPreferredSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
+        btnPlay.setMinimumSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
+        btnPlay.setPreferredSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
         btnPlay.setIcon(UIUtilities.icoPlay);
-        btnStop.setMinimumSize(new Dimension(22, 23));
-        btnStop.setPreferredSize(new Dimension(22, 23));
+        btnStop.setMinimumSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
+        btnStop.setPreferredSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
         btnStop.setIcon(UIUtilities.icoStop);
-        btnRW.setMinimumSize(new Dimension(22, 23));
-        btnRW.setPreferredSize(new Dimension(22, 23));
-        btnFF.setMinimumSize(new Dimension(22, 23));
-        btnFF.setPreferredSize(new Dimension(22, 23));
+        btnRW.setMinimumSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
+        btnRW.setPreferredSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
+        btnFF.setMinimumSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
+        btnFF.setPreferredSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
         btnPrev.setMargin(new Insets(0, 0, 0, 0));
         btnPrev.setIcon(UIUtilities.icoPrev);
         btnNext.setMargin(new Insets(0, 0, 0, 0));
@@ -62,22 +62,22 @@ public class AudioControlPanel extends JPanel {
         if (!(System.getProperty("os.name").startsWith("Mac OS"))) {
             btnNext.setBorder(null);
             btnNext.setFocusPainted(false);
-            btnNext.setBounds(new Rectangle(60, 79, 21, 21));
+            btnNext.setBounds(new Rectangle(UIUtilities.scalePixels(60), UIUtilities.scalePixels(79), UIUtilities.scalePixels(21), UIUtilities.scalePixels(21)));
             btnFF.setBorder(null);
             btnFF.setFocusPainted(false);
-            btnFF.setBounds(new Rectangle(60, 79, 21, 21));
+            btnFF.setBounds(new Rectangle(UIUtilities.scalePixels(60), UIUtilities.scalePixels(79), UIUtilities.scalePixels(21), UIUtilities.scalePixels(21)));
             btnRW.setBorder(null);
             btnRW.setFocusPainted(false);
-            btnRW.setBounds(new Rectangle(60, 79, 21, 21));
+            btnRW.setBounds(new Rectangle(UIUtilities.scalePixels(60), UIUtilities.scalePixels(79), UIUtilities.scalePixels(21), UIUtilities.scalePixels(21)));
             btnStop.setBorder(null);
             btnStop.setFocusPainted(false);
-            btnStop.setBounds(new Rectangle(60, 79, 21, 21));
+            btnStop.setBounds(new Rectangle(UIUtilities.scalePixels(60), UIUtilities.scalePixels(79), UIUtilities.scalePixels(21), UIUtilities.scalePixels(21)));
             btnPlay.setBorder(null);
             btnPlay.setFocusPainted(false);
-            btnPlay.setBounds(new Rectangle(60, 79, 21, 21));
+            btnPlay.setBounds(new Rectangle(UIUtilities.scalePixels(60), UIUtilities.scalePixels(79), UIUtilities.scalePixels(21), UIUtilities.scalePixels(21)));
             btnPrev.setBorder(null);
             btnPrev.setFocusPainted(false);
-            btnPrev.setBounds(new Rectangle(60, 79, 21, 21));
+            btnPrev.setBounds(new Rectangle(UIUtilities.scalePixels(60), UIUtilities.scalePixels(79), UIUtilities.scalePixels(21), UIUtilities.scalePixels(21)));
             btnPrev.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseEntered(MouseEvent e) {
                     UIUtilities.doButtonBorderSwitch(e, btnPrev);

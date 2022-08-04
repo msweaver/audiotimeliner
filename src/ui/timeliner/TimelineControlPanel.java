@@ -72,6 +72,8 @@ public class TimelineControlPanel extends JPanel {
   protected JCheckBox chkShowMarkers;
   protected ButtonGroup grpShowLevels = new ButtonGroup();
   protected final JSlider slideVolume = pnlVolumeControl.slideVolume;
+  protected ImageIcon sPlay; 
+  protected ImageIcon sStop;
 
   // icons
   final static ImageIcon icoEdit = UIUtilities.icoEdit;
@@ -183,6 +185,15 @@ public class TimelineControlPanel extends JPanel {
       annotationFont = new Font(unicodeFont, 0, annotationFontSize);
     }
 
+    // button scaling
+	  Image playBtn = UIUtilities.icoPlay.getImage(); 
+	  Image scaledPlay = playBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoPlay.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoPlay.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  sPlay = new ImageIcon(scaledPlay);
+	  Image stopBtn = UIUtilities.icoStop.getImage(); 
+	  Image scaledStop = stopBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoStop.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoStop.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  sStop = new ImageIcon(scaledStop);
+
+	  
     // set panel layout models
     GridBagLayout gridbagMain = new GridBagLayout();
     GridBagLayout gridBagBubbles = new GridBagLayout();
@@ -267,7 +278,7 @@ public class TimelineControlPanel extends JPanel {
     TimelineUtilities.createConstraints(this, pnlTimepointButtons, 1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
     TimelineUtilities.createConstraints(this, pnlBubbleButtons, 1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
     TimelineUtilities.createConstraints(this, pnlAnnotations, 2, 0, 1, 5, 1.0, 0.8, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
-    TimelineUtilities.createConstraints(this, pnlStatus, 0, 4, 2, 1, 0.0, 0.0, GridBagConstraints.SOUTH, GridBagConstraints.BOTH, 2, 2, 6, 2, 0, 0);
+    TimelineUtilities.createConstraints(this, pnlStatus, 0, 4, 2, 1, 0.0, 0.0, GridBagConstraints.SOUTH, GridBagConstraints.BOTH, 2, 2, 8, 2, 0, 0);
 //    TimelineUtilities.createConstraints(this, pnlDuration, 2, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
 
     // create controls
@@ -294,9 +305,8 @@ public class TimelineControlPanel extends JPanel {
   private void createPlaybackControls() {
 
     // play button
-	  Image playBtn = UIUtilities.icoPlay.getImage(); 
-	  Image scaledPlay = playBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoPlay.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoPlay.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
-	  pnlAudioControl.btnPlay.setIcon(new ImageIcon(scaledPlay));
+
+	pnlAudioControl.btnPlay.setIcon(sPlay);
     setEnterAction(pnlAudioControl.btnPlay);
     pnlAudioControl.btnPlay.setToolTipText("Play");
     pnlAudioControl.btnPlay.addActionListener(new ActionListener() {
@@ -313,7 +323,7 @@ public class TimelineControlPanel extends JPanel {
     });
 
     // "stop" button
-    pnlAudioControl.btnStop.setIcon(UIUtilities.icoStop);
+    pnlAudioControl.btnStop.setIcon(sStop);
     pnlAudioControl.btnStop.setToolTipText("Stop");
     setEnterAction(pnlAudioControl.btnStop);
     pnlAudioControl.btnStop.addActionListener(new ActionListener() {
