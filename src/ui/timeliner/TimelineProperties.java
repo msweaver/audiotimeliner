@@ -7,11 +7,16 @@ import java.awt.*;
 import javax.swing.border.*;
 import com.borland.jbcl.layout.*;
 import java.awt.event.*;
+import java.io.StringWriter;
+
 import javax.swing.event.*;
 import java.util.*;
 import util.logging.*;
 import ui.common.*;
-//import org.apache.log4j.Logger;
+import javax.swing.text.*;
+import javax.swing.text.html.HTMLEditorKit;
+
+import org.apache.log4j.Logger;
 
 /**
  * TimelineProperties.java
@@ -24,7 +29,7 @@ public class TimelineProperties extends JDialog {
   private TimelinePanel pnlTimeline;
   private Timeline timeline;
   private TimelineMenuBar menubTimeline;
-  //private static Logger log = Logger.getLogger(TimelineProperties.class);
+  private static Logger log = Logger.getLogger(TimelineProperties.class);
   protected UILogger uilogger;
 
   // fonts
@@ -46,6 +51,7 @@ public class TimelineProperties extends JDialog {
   // panels
   private JPanel pnlMain = new JPanel();
   private JPanel pnlSettings = new JPanel();
+  private JPanel pnlBottomSettings = new JPanel();
   private JPanel pnlButtons = new JPanel();
   private JPanel pnlTitle = new JPanel();
   private JPanel pnlDescription = new JPanel();
@@ -72,6 +78,12 @@ public class TimelineProperties extends JDialog {
   protected JTextField fldTimelineTitle = new JTextField();
   protected JTextPane fldTimelineDescription = new JTextPane();
   protected JScrollPane scrpDescription = new JScrollPane(fldTimelineDescription);
+  
+  // text editing 
+  protected AbstractDocument doc; 
+  EditorKit kit = fldTimelineDescription.getEditorKit();
+  HTMLEditorKit htmlKit = new HTMLEditorKit();
+  StringWriter output = new StringWriter();
 
   // variables
   protected String oldTimelineTitle;
@@ -124,7 +136,7 @@ public class TimelineProperties extends JDialog {
     // display variables
     int titleWidth;
     int descriptionWidth;
-    int descriptionHeight = UIUtilities.scalePixels(150); // 120
+    int descriptionHeight = UIUtilities.scalePixels(180); // 150 // 120
     int dialogHeight;
     int dialogWidth;
     int levelButtonWidth;
@@ -134,7 +146,7 @@ public class TimelineProperties extends JDialog {
       timelineFont = UIUtilities.fontDialogMacSmallest;
       unicodeFont = UIUtilities.fontUnicodeSmaller;
       titleWidth = 45;
-      descriptionWidth = UIUtilities.scalePixels(530);
+      descriptionWidth = UIUtilities.scalePixels(600); //530
       dialogWidth = UIUtilities.scalePixels(570);
       dialogHeight = UIUtilities.scalePixels(570);
       levelButtonWidth = 39;
@@ -144,7 +156,7 @@ public class TimelineProperties extends JDialog {
       timelineFont = UIUtilities.fontDialogWin;
       unicodeFont = UIUtilities.fontUnicode;
       titleWidth = 42;
-      descriptionWidth = UIUtilities.scalePixels(395);
+      descriptionWidth = UIUtilities.scalePixels(450); //395
       dialogWidth = UIUtilities.scalePixels(430);
       dialogHeight = UIUtilities.scalePixels(610);
       levelButtonWidth = 20;
@@ -164,14 +176,18 @@ public class TimelineProperties extends JDialog {
     contentPane.add(pnlMain);
     contentPane.add(pnlButtons);
     pnlMain.add(pnlSettings);
+    pnlMain.add(pnlBottomSettings);
     pnlMain.setLayout(new VerticalFlowLayout());
     pnlMain.setBorder(BorderFactory.createEtchedBorder());
     pnlButtons.setLayout(new FlowLayout(FlowLayout.RIGHT));
     pnlButtons.setBorder(BorderFactory.createEtchedBorder());
     pnlSettings.setLayout(new BorderLayout());
+    pnlBottomSettings.setLayout(new GridLayout(1, 2));
     pnlSettings.add(pnlTextFields, BorderLayout.NORTH);
-    pnlSettings.add(pnlLeft, BorderLayout.WEST);
-    pnlSettings.add(pnlRight, BorderLayout.EAST);
+    pnlBottomSettings.add(pnlLeft);
+    pnlBottomSettings.add(pnlRight);
+    //pnlSettings.add(pnlLeft, BorderLayout.WEST);
+    //pnlSettings.add(pnlRight, BorderLayout.EAST);
     pnlTextFields.add(pnlTitle);
     pnlTextFields.add(pnlDescription);
     pnlTextFields.setLayout(new VerticalFlowLayout(VerticalFlowLayout.TOP));
@@ -185,7 +201,7 @@ public class TimelineProperties extends JDialog {
     pnlRight.add(pnlLevelColors);
     pnlRight.add(pnlAudioSettings);
 
-    // Timeline title and description fields
+    // Timeline title field
     lblTimelineTitle.setFont(timelineFont);
     pnlTitle.add(lblTimelineTitle);
     pnlTitle.add(fldTimelineTitle);
@@ -199,6 +215,8 @@ public class TimelineProperties extends JDialog {
     fldTimelineTitle.setColumns(titleWidth);
     oldTimelineTitle = pnlTimeline.getFrame().getTitle(); //.substring(10);
     fldTimelineTitle.setText(oldTimelineTitle);
+    
+    // description pane
     fldTimelineDescription.setFont(unicodeFont);
     fldTimelineDescription.setToolTipText("Edit the timeline description");
     pnlDescription.setPreferredSize(new Dimension(descriptionWidth, descriptionHeight));
@@ -207,11 +225,30 @@ public class TimelineProperties extends JDialog {
     scrpDescription.setMinimumSize(new Dimension(descriptionWidth - 65, descriptionHeight-45));
     fldTimelineDescription.setPreferredSize(new Dimension(descriptionWidth - 65, descriptionHeight-45));
     fldTimelineDescription.setMinimumSize(new Dimension(descriptionWidth - 65, descriptionHeight-45));
+    fldTimelineDescription.setContentType("text/html");
     oldTimelineDescription = timeline.getDescription();
     fldTimelineDescription.setText(oldTimelineDescription);
     bordDescription.setTitleFont(timelineFont);
     pnlDescription.setBorder(bordDescription);
-
+    fldTimelineDescription.setMargin(new Insets(5,5,5,5));
+    fldTimelineDescription.setSelectionStart(0);
+    fldTimelineDescription.setSelectionEnd(0);
+    StyledDocument styledDoc = fldTimelineDescription.getStyledDocument();
+    if (styledDoc instanceof AbstractDocument) {
+        doc = (AbstractDocument)styledDoc;
+    } else {
+    }
+    
+    // menu bar
+    JMenu styleMenu = createStyleMenu();
+    JMenu colorMenu = createColorMenu();
+    //JMenu sizeMenu = createSizeMenu();
+    JMenuBar mb = new JMenuBar();
+    mb.add(styleMenu);
+    mb.add(colorMenu);
+    // mb.add(sizeMenu);
+    setJMenuBar(mb);
+    
     // Timeline is panel
     pnlTimelineIs.setLayout(new VerticalFlowLayout());
     bordTimelineIs.setTitleFont(timelineFont);
@@ -757,10 +794,23 @@ public class TimelineProperties extends JDialog {
     // now apply new settings
     TimelineMenuBar tmb = pnlTimeline.getMenuBar();
     pnlTimeline.getFrame().setTitle(fldTimelineTitle.getText());
-    timeline.setDescription(fldTimelineDescription.getText());
+    //timeline.setDescription(fldTimelineDescription.getText());
     pnlTimeline.setEditableTimeline(editable);
     pnlTimeline.setResizableTimeline(resizable);
 
+    // get formatted text
+    try {     
+  	  output.getBuffer().setLength(0);
+     	  htmlKit.write( output, doc, 0, doc.getLength());
+     	  String html = output.toString();
+  	  html = UIUtilities.htmlCleanup(html);
+      timeline.setDescription(html);
+  	  log.debug("html = " + html);
+
+    } catch (Exception e) {
+        System.err.println("Error saving description");
+    }
+    
     pnlTimeline.setPanelColor(newBackgroundColor);
     timeline.lblThumb.setBackground(newBackgroundColor);
 
@@ -848,6 +898,73 @@ public class TimelineProperties extends JDialog {
         oldBackgroundColor, newBackgroundColor, this)));
     pnlTimeline.updateUndoMenu();
 
+  }
+
+  // text editing functions
+  
+  protected JMenu createSizeMenu() {
+      JMenu menu = new JMenu("Size");
+
+      menu.add(new StyledEditorKit.FontSizeAction("12", 12));
+      menu.add(new StyledEditorKit.FontSizeAction("14", 14));
+      menu.add(new StyledEditorKit.FontSizeAction("18", 18));
+      menu.add(new StyledEditorKit.FontSizeAction("24", 24));
+
+      return menu;
+  }
+  
+  protected JMenu createStyleMenu() {
+      JMenu menu = new JMenu("Style");
+
+      Action action = new StyledEditorKit.BoldAction();
+      action.putValue(Action.NAME, "Bold");
+      menu.add(action);
+
+      action = new StyledEditorKit.ItalicAction();
+      action.putValue(Action.NAME, "Italic");
+      menu.add(action);
+
+      action = new StyledEditorKit.UnderlineAction();
+      action.putValue(Action.NAME, "Underline");
+      menu.add(action);
+
+     // menu.addSeparator();
+
+      //menu.add(new StyledEditorKit.FontFamilyAction("Serif",
+      //                                              "Serif"));
+      //menu.add(new StyledEditorKit.FontFamilyAction("SansSerif",
+      //                                              "SansSerif"));
+
+      return menu;
+  }
+
+  protected JMenu createColorMenu() {
+      JMenu menu = new JMenu("Color");
+
+      menu.add(new StyledEditorKit.ForegroundAction("Red",
+                                                    Color.red));
+      menu.add(new StyledEditorKit.ForegroundAction("Green",
+                                                    Color.green));
+      menu.add(new StyledEditorKit.ForegroundAction("Blue",
+                                                    Color.blue));
+      menu.add(new StyledEditorKit.ForegroundAction("Black",
+                                                    Color.black));
+      
+      menu.addSeparator();
+
+      menu.add(new StyledEditorKit.ForegroundAction("Yellow",
+              Color.yellow));
+      menu.add(new StyledEditorKit.ForegroundAction("Magenta",
+              Color.magenta));
+      menu.add(new StyledEditorKit.ForegroundAction("Pink",
+              Color.pink));
+      menu.add(new StyledEditorKit.ForegroundAction("Orange",
+              Color.orange));
+      menu.add(new StyledEditorKit.ForegroundAction("Cyan",
+              Color.cyan));
+
+
+      return menu;
   }
 
 }

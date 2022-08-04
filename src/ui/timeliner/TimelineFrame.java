@@ -9,7 +9,10 @@ import java.awt.event.*;
 import util.*;
 import util.logging.*;
 import ui.common.*;
+import java.beans.*;
+import org.apache.log4j.Logger;
 
+import javafx.scene.control.SplitPane;
 
 /**
  * Timeline Frame
@@ -26,10 +29,12 @@ public class TimelineFrame extends BasicWindow  {
 // external components
   private TimelinePanel pnlTimeline;
   private TimelineControlPanel pnlControl;
+  private JSplitPane pnlSplit;
   private Container contentPane;
   private TimelineMenuBar menubTimeline;
   JMenuItem menuiTimelineHelp = new JMenuItem();
   protected TimelineWizard wizard;
+  private static Logger log = Logger.getLogger(TimelineControlPanel.class);
 
   // variables
   private int height;
@@ -53,7 +58,7 @@ public class TimelineFrame extends BasicWindow  {
 
   // window sizes
   static private int INITIAL_X_SIZE = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-  static private int INITIAL_Y_SIZE = UIUtilities.scaleHeight(700); // 600; // was 450
+  static private int INITIAL_Y_SIZE = UIUtilities.scaleHeight(750); // 600; // was 450
   final static int X_MINIMUM = 800;
   final static int Y_MINIMUM = 450; // was 400
 
@@ -62,7 +67,7 @@ public class TimelineFrame extends BasicWindow  {
   public static int windowNumber = 1;
 
   // the height of the control panel
-  static int CONTROL_PANEL_HEIGHT = UIUtilities.scaleHeight(300); // 240; // 210
+  static int CONTROL_PANEL_HEIGHT = UIUtilities.scaleHeight(350); // 240; // 210
 
   // amount of space between bottom of timeline panel and timeline
   final static int BOTTOM_SPACE = UIUtilities.scalePixels(56);
@@ -367,26 +372,44 @@ public class TimelineFrame extends BasicWindow  {
 
     this.setSize(x, y);
 
-    // update scroll panes
-    Dimension d2 = new Dimension(scrollPane.getWidth(), y - CONTROL_PANEL_HEIGHT - SPACER + 20);
-    scrollPane.setPreferredSize(d2);
-    scrollPane.setSize(d2);
-
-    // update timeline panel size
+    // update control panel size
     int pnlHeight;
+    int controlHeight;
+    
+    this.repaint();
+    log.debug("scroll height before calculation = " + scrollPane.getHeight());
+    controlHeight = y - scrollPane.getHeight() - SPACER;
+    log.debug("new control height = " + controlHeight);
+    Dimension d3 = new Dimension(pnlTimeline.getWidth(), controlHeight);
+    pnlControl.setMinimumSize(new Dimension(pnlTimeline.getWidth(), pnlControl.minHeight));
+    pnlControl.setPreferredSize(d3);
+    pnlControl.setSize(d3);
+    pnlControl.height = controlHeight;
+   // pnlControl.scrpAnnotations.setPreferredSize(d3);
+    pnlControl.revalidate();
+
     if (pnlTimeline.getTimeline() != null) {
 	    if (pnlTimeline.getTimeline().getHighestBubbleHeight() + BOTTOM_SPACE > (y - CONTROL_PANEL_HEIGHT - SPACER)) {
 	      pnlTimeline.doResize(pnlTimeline.getTimeline().getLineLength());
 	    }
 	    else {
-	      pnlHeight = y - CONTROL_PANEL_HEIGHT - SPACER;
-	      Dimension d = new Dimension(pnlTimeline.getWidth(), pnlHeight);
-	      pnlTimeline.setMinimumSize(d);
-	      pnlTimeline.setPreferredSize(d);
-	      pnlTimeline.setSize(d);
-	      pnlTimeline.repositionTimeline();
-	      pnlTimeline.scheduleRefresh();
-	      this.repaint();
+	    	
+	        pnlTimeline.repositionTimeline();
+	        pnlTimeline.scheduleRefresh();
+	        scrollPane.getVerticalScrollBar().setValue( scrollPane.getVerticalScrollBar().getMaximum() );
+	     //   pnlHeight = 300;
+	   //   Dimension d = new Dimension(pnlTimeline.getWidth(), pnlHeight);
+	     // pnlTimeline.setMinimumSize(d);
+	//      pnlTimeline.setPreferredSize(d);
+	//      pnlTimeline.setSize(d);
+	      
+	      // update scroll panes
+	   //   Dimension d2 = new Dimension(scrollPane.getWidth(), y - pnlControl.height - SPACER + 20);
+	      //scrollPane.setPreferredSize(d2);
+	      //scrollPane.setSize(d2);
+	      //scrollPane.setMinimumSize(new Dimension(scrollPane.getWidth(), 300));
+
+	      log.debug("actual control height = " + pnlControl.getHeight());
 	    }
     }
   }
@@ -408,10 +431,12 @@ public class TimelineFrame extends BasicWindow  {
    * addPanes: adds the timeline scroll pane and control panel
    */
   private void addPanes() {
-    contentPane.setLayout(new BorderLayout());
+	  
+    contentPane.setLayout(new GridLayout(1,1));
 
     // scrollpanes and scrollbars
     scrollPane = new JScrollPane(pnlTimeline);
+    scrollPane.setMinimumSize(new Dimension(this.X_MINIMUM, 200));
     hscrollBar = scrollPane.getHorizontalScrollBar();
     hscrollBar.addMouseListener(new MouseAdapter () {
       public void mouseEntered (MouseEvent e) {
@@ -422,6 +447,7 @@ public class TimelineFrame extends BasicWindow  {
       public void adjustmentValueChanged(AdjustmentEvent e) {
         if (pnlTimeline.getTimeline() != null) {
           pnlTimeline.refreshTimeline();
+          doWindowResize();
         }
       }
     });
@@ -436,14 +462,40 @@ public class TimelineFrame extends BasicWindow  {
       public void adjustmentValueChanged(AdjustmentEvent e) {
         if (pnlTimeline.getTimeline() != null) {
           pnlTimeline.refreshTimeline();
+          doWindowResize();
         }
       }
     });
     vscrollBar.setUnitIncrement(50);
 
     // add timeline panel and control panel
-    contentPane.add(scrollPane, BorderLayout.NORTH);
-    contentPane.add(pnlControl, BorderLayout.SOUTH);
+    pnlSplit = new JSplitPane(SwingConstants.HORIZONTAL, scrollPane, pnlControl);
+    contentPane.add(pnlSplit); 
+    
+//    contentPane.add(scrollPane, BorderLayout.NORTH);
+//    contentPane.add(pnlControl, BorderLayout.SOUTH);
+    
+    pnlSplit.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY, 
+    new PropertyChangeListener() {
+        public void propertyChange(PropertyChangeEvent pce) {
+        	
+         	//log.debug("timeline panel height = " + scrollPane.getHeight());
+         	//log.debug("control panel height = " + pnlControl.getHeight());
+	        //scrollPane.revalidate();
+
+         	//doWindowResize();
+         	if (pnlTimeline.getTimeline() != null) {
+         		scrollPane.getVerticalScrollBar().setValue( scrollPane.getVerticalScrollBar().getMaximum() );
+         		//log.debug("scrolling panel to " + scrollPane.getVerticalScrollBar().getMaximum());
+//         		pnlTimeline.refreshTimeline();
+         		//doWindowResize();
+         		//pnlTimeline.fitToWindow();
+         		//pnlTimeline.repositionTimeline();
+         	}
+        }
+});
+    
+
   }
 
   /**

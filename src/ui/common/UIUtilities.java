@@ -83,7 +83,7 @@ public class UIUtilities {
 
     //the following string gets passed to panes that are rendering HTML
     static public final String fontHTML = "body { font-family : Arial Unicode MS, Lucida Sans Unicode, Lucida Grande; }";
-    static public final int fontSizeHTML = 12; // font size for HTML rendered text
+    static public final int fontSizeHTML = convertFontSize(12); // font size for HTML rendered text
 
     static public Border bordButton = BorderFactory.createEtchedBorder(Color.white, new Color(148, 145, 140));
     static JFileChooser fc = new JFileChooser();
@@ -327,5 +327,32 @@ public class UIUtilities {
         } else {
             return((first * 3600000) + (second * 60000) + (third * 1000));
         }
+    }
+    
+    static public String htmlCleanup(String html) {
+    	
+  	  html = html.replaceAll("<html>", "");
+  	  html = html.replaceAll("<head>", "");
+  	  html = html.replaceAll("<body>", "");
+  	  html = html.replaceAll("</body>", "");
+  	  html = html.replaceAll("</html>", "");
+  	  html = html.replaceAll("</head>", "");
+  	  html = html.replaceAll("<style>(.|\\n)*?</style>", "");
+  	  html = html.replaceAll("font-size: 11pt; font-family: Arial Unicode MS", "");
+  	  html = html.replaceAll("font-size: 12pt; font-family: Arial Unicode MS", "");
+  	  html = html.replaceAll("font-size: 14pt; font-family: Arial Unicode MS", "");
+  	  html = html.replaceAll("font-size: 18pt; font-family: Arial Unicode MS", "");
+  	  html = html.replaceAll("font-size: 22pt; font-family: Arial Unicode MS", "");
+  	  html = html.replaceAll("font-size: 24pt; font-family: Arial Unicode MS", "");
+  	  html = html.replaceAll("<span style=\"\">", "");
+  	  html = html.replaceAll("<p class=default>", "");
+  	  html = html.replaceAll("</p>", "");
+  	  html = html.replaceAll("</span>", "");
+  	  //html = html.replaceAll("</span> </span>", "</span>");
+  	  html = html.replaceAll("\\s+", " ");
+  	  html = html.strip();
+  	  
+  	  return html;
+  	  
     }
 }

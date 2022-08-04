@@ -7,11 +7,13 @@ import javax.swing.event.*;
 import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
+import java.io.StringWriter;
+
 import com.borland.jbcl.layout.*;
 import ui.media.*;
 import ui.common.*;
 import util.logging.*;
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 import javax.swing.text.html.*;
 
 /**
@@ -36,7 +38,7 @@ public class TimelineControlPanel extends JPanel {
   protected TimepointEditor dlgTimepointEditor;
   protected AudioControlPanel pnlAudioControl = new AudioControlPanel();
   VolumePanel pnlVolumeControl = new VolumePanel();
-  //private static Logger log = Logger.getLogger(TimelineControlPanel.class);
+  private static Logger log = Logger.getLogger(TimelineControlPanel.class);
   protected UILogger uilogger;
 
   // fonts
@@ -142,6 +144,7 @@ public class TimelineControlPanel extends JPanel {
 
   // other variables
   protected int height;
+  protected int minHeight = 300;
 
   /**
    * constructor
@@ -151,8 +154,8 @@ public class TimelineControlPanel extends JPanel {
     frmTimeline = tf;
     pnlTimeline = frmTimeline.getTimelinePanel();
     height = initHeight;
-    this.setMinimumSize(new Dimension(initWidth, height));
-    this.setPreferredSize(new Dimension(initWidth, height));
+    this.setMinimumSize(new Dimension(initWidth, minHeight)); // height));
+    //this.setPreferredSize(new Dimension(initWidth, height));
     uilogger = frmTimeline.getUILogger();
 
     try {
@@ -189,7 +192,7 @@ public class TimelineControlPanel extends JPanel {
     GridBagLayout gridBagAnnotationTools = new GridBagLayout();
     GridBagLayout gridBagElapsed = new GridBagLayout();
     this.setLayout(gridbagMain);
-    pnlStatus.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
+    pnlStatus.setLayout(new BorderLayout());
     pnlDuration.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
     pnlPlayback.setLayout(new VerticalFlowLayout());
     pnlAudioControl.flowLay.setVgap(1);
@@ -242,9 +245,10 @@ public class TimelineControlPanel extends JPanel {
     lblDuration.setFont(timelineFont);
     lblDuration.setText("");
     lblAnnotations.setFont(timelineFont);
-    pnlStatus.setBorder(BorderFactory.createLoweredBevelBorder());
-    pnlDuration.setBorder(BorderFactory.createLoweredBevelBorder());
-    pnlStatus.add(lblStatus, null);
+    //pnlStatus.setBorder(BorderFactory.createLoweredBevelBorder());
+   // pnlDuration.setBorder(BorderFactory.createLoweredBevelBorder());
+    pnlStatus.add(lblStatus, BorderLayout.SOUTH);
+    lblStatus.setBorder(BorderFactory.createLoweredSoftBevelBorder());
     pnlDuration.add(lblDuration, null);
 
     // add panels to inner panels
@@ -263,7 +267,7 @@ public class TimelineControlPanel extends JPanel {
     TimelineUtilities.createConstraints(this, pnlTimepointButtons, 1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
     TimelineUtilities.createConstraints(this, pnlBubbleButtons, 1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
     TimelineUtilities.createConstraints(this, pnlAnnotations, 2, 0, 1, 5, 1.0, 0.8, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
-    TimelineUtilities.createConstraints(this, pnlStatus, 0, 4, 2, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(this, pnlStatus, 0, 4, 2, 1, 0.0, 0.0, GridBagConstraints.SOUTH, GridBagConstraints.BOTH, 2, 2, 6, 2, 0, 0);
 //    TimelineUtilities.createConstraints(this, pnlDuration, 2, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
 
     // create controls
@@ -290,7 +294,9 @@ public class TimelineControlPanel extends JPanel {
   private void createPlaybackControls() {
 
     // play button
-    pnlAudioControl.btnPlay.setIcon(UIUtilities.icoPlay);
+	  Image playBtn = UIUtilities.icoPlay.getImage(); 
+	  Image scaledPlay = playBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoPlay.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoPlay.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  pnlAudioControl.btnPlay.setIcon(new ImageIcon(scaledPlay));
     setEnterAction(pnlAudioControl.btnPlay);
     pnlAudioControl.btnPlay.setToolTipText("Play");
     pnlAudioControl.btnPlay.addActionListener(new ActionListener() {
@@ -771,12 +777,12 @@ public class TimelineControlPanel extends JPanel {
             annotationFont = new Font(unicodeFont, 0, annotationFontSize - 2);
             Style fontStyle = doc.addStyle("FontSize", null);
             StyleConstants.setFontSize(fontStyle, annotationFontSize - 2);
-            doc.setParagraphAttributes(0, doc.getLength(), fontStyle, false);
+          //  doc.setParagraphAttributes(0, doc.getLength(), fontStyle, false); !!!!!!!!!!!!
           } else {
             annotationFont = new Font(unicodeFont, Font.PLAIN, annotationFontSize);
             Style fontStyle = doc.addStyle("FontSize", null);
             StyleConstants.setFontSize(fontStyle, annotationFontSize);
-            doc.setParagraphAttributes(0, doc.getLength(), fontStyle, false);
+          //  doc.setParagraphAttributes(0, doc.getLength(), fontStyle, false); !!!!!!!!!!!!!!!!
           }
           if (isDescriptionShowing) {
             showDescription();
@@ -813,12 +819,12 @@ public class TimelineControlPanel extends JPanel {
             annotationFont = new Font(unicodeFont, 0, annotationFontSize - 2);
             Style fontStyle = doc.addStyle("FontSize", null);
             StyleConstants.setFontSize(fontStyle, annotationFontSize - 2);
-            doc.setParagraphAttributes(0, doc.getLength(), fontStyle, false);
+           // doc.setParagraphAttributes(0, doc.getLength(), fontStyle, false); !!!!!!!!!!!!!
           } else {
             annotationFont = new Font(unicodeFont, Font.PLAIN, annotationFontSize);
             Style fontStyle = doc.addStyle("FontSize", null);
             StyleConstants.setFontSize(fontStyle, annotationFontSize);
-            doc.setParagraphAttributes(0, doc.getLength(), fontStyle, false);
+           // doc.setParagraphAttributes(0, doc.getLength(), fontStyle, false); !!!!!!!!
           }
           if (isDescriptionShowing) {
             showDescription();
@@ -1269,7 +1275,6 @@ public class TimelineControlPanel extends JPanel {
   protected void updateAnnotationPane() {
     tpAnnotations = new JTextPane();
     tpAnnotations.setEditable(false);
-    //tpAnnotations.setContentType("text/html");
     tpAnnotations.setFont(annotationFont);
     if (scrpAnnotations != null && tpAnnotations != null && scrpAnnotations.getViewport() !=null) {
     scrpAnnotations.setViewportView(tpAnnotations);
@@ -1314,9 +1319,12 @@ public class TimelineControlPanel extends JPanel {
     }
     try {
       clearAnnotationPane();
+      tpAnnotations.setContentType("text/html");
       StyledEditorKit sek = new StyledEditorKit();
-      tpAnnotations.setEditorKit(sek);
-      tpAnnotations.setContentType("text/plain");
+      HTMLEditorKit hek = new HTMLEditorKit();
+      //tpAnnotations.setEditorKit(sek);
+      tpAnnotations.setEditorKit(hek);
+//      tpAnnotations.setContentType("text/plain");
       tpAnnotations.setVisible(false);
       doc = (StyledDocument)tpAnnotations.getDocument();
       selectedStyle = doc.addStyle("Selected", null);
@@ -1329,6 +1337,7 @@ public class TimelineControlPanel extends JPanel {
       StyleConstants.setFontFamily(selectedStyle, unicodeFont);
       StyleConstants.setFontFamily(normalStyle, unicodeFont);
       StyleConstants.setFontFamily(boldStyle, unicodeFont);
+      doc.insertString(0, "<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + "'>", normalStyle);
 
       for (int i = currentBubbles.size()- 1; i >= 0; i--) {
         int prevLength = doc.getLength();
@@ -1336,44 +1345,50 @@ public class TimelineControlPanel extends JPanel {
         String currAnnotation = currBubble.getAnnotation();
         String currLabel = currBubble.getLabel();
         if (showAllAnnotations && currBubble.isSelected()) { // selected bubble
+            int indentamt = ((currentBubbles.size()-1-i) * 20);
+            doc.insertString(doc.getLength(), "<div style='margin-top: 0em; margin-bottom: 0em; margin-left: " + indentamt + "px; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + ";'>", normalStyle);
           if (currLabel.equals("") && !currAnnotation.equals("")) { // if there is no label, use "Level 1", etc.
             doc.insertString(doc.getLength(), "Level " + currBubble.getLevel(), normalStyle);
           }
           else if (!currLabel.equals("")){ // or use the label
-            doc.insertString(doc.getLength(), currLabel, boldStyle);
+            doc.insertString(doc.getLength(), "<b>" + currLabel + "</b>", boldStyle);
           } // put in the annotation
           if (!currAnnotation.equals("")) {
             doc.insertString(doc.getLength(), ": ", normalStyle);
             doc.insertString(doc.getLength(), currAnnotation, selectedStyle);
           }
-          StyleConstants.setLeftIndent(selectedStyle, ((currentBubbles.size()-1-i) * 20));
-          doc.setParagraphAttributes(prevLength, doc.getLength()-prevLength, selectedStyle, false);
+          //StyleConstants.setLeftIndent(selectedStyle, ((currentBubbles.size()-1-i) * 20));
+         // doc.setParagraphAttributes(prevLength, doc.getLength()-prevLength, selectedStyle, false); !!!!!!!!
         }
         else { // non selected bubble -- or if selected levels is selected, a selected bubble :)
+            int indentamt = ((currentBubbles.size()-1-i) * 20);
+            log.debug("indent = " + indentamt);
+            doc.insertString(doc.getLength(), "<div style='margin-top: 0em; margin-bottom: 0em; margin-left: " + indentamt + "px; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + ";'>", normalStyle);
           if (currLabel.equals("") && !currAnnotation.equals("")) { // if there is no label, use "Level 1", etc.
             doc.insertString(doc.getLength(), "Level " + currBubble.getLevel(), normalStyle);
           }
           else if (!currLabel.equals("")){ // or use the label
-            doc.insertString(doc.getLength(), currLabel, boldStyle);
+            doc.insertString(doc.getLength(), "<b>" + currLabel + "</b>", boldStyle);
           } // put in the annotation
           if (!currAnnotation.equals("")) {
             doc.insertString(doc.getLength(), ": " + currAnnotation, normalStyle);
           }
-          StyleConstants.setLeftIndent(normalStyle, ((currentBubbles.size()-1-i) * 20));
-          doc.setParagraphAttributes(prevLength, doc.getLength()-prevLength, normalStyle, false);
+          //StyleConstants.setLeftIndent(normalStyle, ((currentBubbles.size()-1-i) * 20));
+          //doc.setParagraphAttributes(prevLength, doc.getLength()-prevLength, normalStyle, false); !!!!!!!!
         }
         if (currLabel.equals("") && currAnnotation.equals("")) {
           // do not add a line
         }
         else {
-          doc.insertString(doc.getLength(), "\n", normalStyle);
+          doc.insertString(doc.getLength(), "<br>", normalStyle); //"\n", normalStyle);
         }
       }
       // now add marker, if any
       if (chkShowMarkers.isSelected() && markerPrecedesOffset) {
         Marker currMarker = timeline.getMarker(timeline.previousMarkerOffset);
         if (currMarker != null && currMarker.getAnnotation()!="") {
-          StyleConstants.setLeftIndent(normalStyle, 0);
+          doc.insertString(doc.getLength(), "<div style='margin-top: 0em; margin-left: 0px; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + ";'>", normalStyle);
+          //StyleConstants.setLeftIndent(normalStyle, 0);
           doc.insertString(doc.getLength(), "\u25B2 " + currMarker.getLabel() + ": ", boldStyle);
           if (currMarker.isSelected()) {
             doc.insertString(doc.getLength(), currMarker.getAnnotation(), selectedStyle);
@@ -1383,7 +1398,13 @@ public class TimelineControlPanel extends JPanel {
           }
         }
       }
-
+      doc.insertString(doc.getLength(),  "</span></body></html>", normalStyle);
+      StringWriter output = new StringWriter();
+      try { sek.write( output, doc, 0, doc.getLength()); } catch (Exception exc) { System.err.println("Error getting annotation"); }
+   	  String html = output.toString();
+   	  log.debug(html);
+   	  
+      tpAnnotations.setText(html);
       tpAnnotations.setVisible(true);
     } catch (BadLocationException ble) {
       System.err.println("Error displaying annotation");

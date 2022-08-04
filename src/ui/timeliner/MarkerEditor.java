@@ -6,13 +6,21 @@ import java.awt.*;
 import javax.swing.border.*;
 //import com.borland.jbcl.layout.*;
 import java.awt.event.*;
+import java.io.StringWriter;
+
 import javax.swing.event.*;
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.EditorKit;
+import javax.swing.text.StyledDocument;
+import javax.swing.text.StyledEditorKit;
+import javax.swing.text.html.HTMLEditorKit;
+
 import java.util.*;
 
 import util.logging.*;
 import ui.common.*;
 
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 
 /**
  * MarkerEditor
@@ -26,12 +34,10 @@ public class MarkerEditor extends JDialog {
   private  TimelineFrame frmTimeline;
   private  Timeline timeline;
   private  TimelineMenuBar menubTimeline;
-  //private  Logger log = Logger.getLogger(MarkerEditor.class);
+  private  Logger log = Logger.getLogger(MarkerEditor.class);
   protected  UILogger uilogger;
 
   // visual components
-  //private  JTextField fldTimepointLabel;
-  //private  JDialog dlgSetTimepointLabel;
   private  JLabel lblLabel = new JLabel("Label: ");
   private  TitledBorder bordAnnotation = new TitledBorder(" Annotation ");
   private  JTextField fldMarkerLabel;
@@ -45,6 +51,12 @@ public class MarkerEditor extends JDialog {
   protected JButton btnCancel = new JButton("Cancel");
   protected JButton btnApply = new JButton("Apply");
 
+  // text editing
+  protected AbstractDocument doc; 
+  EditorKit kit = tpAnnotation.getEditorKit();
+  HTMLEditorKit htmlKit = new HTMLEditorKit();
+  StringWriter output = new StringWriter();
+  
   // variables
   //private  String oldText;
   //private  String oldAnnotation;
@@ -114,9 +126,29 @@ public class MarkerEditor extends JDialog {
     fldMarkerLabel.setMinimumSize(new Dimension(250, 25));
     fldMarkerLabel.setPreferredSize(new Dimension(250, 25));
     fldMarkerLabel.setToolTipText("Edit the marker label");
-    tpAnnotation.setFont(unicodeFont);
+    Font annotationFont = new Font("Arial Unicode MS", 0, 24);
+    tpAnnotation.setFont(annotationFont);
+    tpAnnotation.setContentType("text/html");
     tpAnnotation.setPreferredSize(new Dimension(430, 250));//375));
     tpAnnotation.setToolTipText("Edit the marker annotation");
+
+    tpAnnotation.setMargin(new Insets(5,5,5,5));
+    StyledDocument styledDoc = tpAnnotation.getStyledDocument();
+    if (styledDoc instanceof AbstractDocument) {
+        doc = (AbstractDocument)styledDoc;
+    } else {
+     }
+    
+    // menu bar
+    JMenu styleMenu = createStyleMenu();
+    //JMenu sizeMenu = createSizeMenu();
+    JMenu colorMenu = createColorMenu();
+    JMenuBar mb = new JMenuBar();
+    mb.add(styleMenu);
+    //mb.add(sizeMenu);
+    mb.add(colorMenu);
+    setJMenuBar(mb);
+
 
     // buttons
 //    btnLeft.setPreferredSize(new Dimension(buttonWidth + 10, 30));
@@ -289,12 +321,38 @@ public class MarkerEditor extends JDialog {
     if (prevSave == -1) { // this bubble has not been saved before
       editedMarkers.addElement(Integer.valueOf(currMarker));
       potentialLabels.addElement(fldMarkerLabel.getText());
-      potentialAnnotations.addElement(tpAnnotation.getText());
+      //potentialAnnotations.addElement(tpAnnotation.getText());
+      try {     
+    	  output.getBuffer().setLength(0);
+       	  htmlKit.write( output, doc, 0, doc.getLength());
+       	  String html = output.toString();
+    	  html = UIUtilities.htmlCleanup(html);
+    	  potentialAnnotations.addElement(html);
+    	  //log.debug("html = " + html);
+
+      } catch (Exception e) {
+          System.err.println("Error saving annotation");
+      }
+
     }
     else {
       editedMarkers.setElementAt(Integer.valueOf(currMarker), prevSave);
       potentialLabels.setElementAt(fldMarkerLabel.getText(), prevSave);
-      potentialAnnotations.setElementAt(tpAnnotation.getText(), prevSave);
+      //potentialAnnotations.setElementAt(tpAnnotation.getText(), prevSave);
+      try {      
+    	  output.getBuffer().setLength(0);
+    	  htmlKit.write( output, doc, 0, doc.getLength());
+    	  String html = "";
+    	  html = output.toString();
+    	  html = UIUtilities.htmlCleanup(html);
+    	  potentialAnnotations.setElementAt(html, prevSave);
+   	      // log.debug("html = " + html);
+    	  
+      } catch (Exception e) {
+          System.err.println("Error saving annotation");
+          
+      }
+
     }
   }
 
@@ -344,5 +402,72 @@ public class MarkerEditor extends JDialog {
       }
     }
     recentApplyMade = false;
+  }
+  
+  // text editing functions
+  
+  protected JMenu createSizeMenu() {
+      JMenu menu = new JMenu("Size");
+
+      menu.add(new StyledEditorKit.FontSizeAction("12", 12));
+      menu.add(new StyledEditorKit.FontSizeAction("14", 14));
+      menu.add(new StyledEditorKit.FontSizeAction("18", 18));
+      menu.add(new StyledEditorKit.FontSizeAction("24", 24));
+
+      return menu;
+  }
+  
+  protected JMenu createStyleMenu() {
+      JMenu menu = new JMenu("Style");
+
+      Action action = new StyledEditorKit.BoldAction();
+      action.putValue(Action.NAME, "Bold");
+      menu.add(action);
+
+      action = new StyledEditorKit.ItalicAction();
+      action.putValue(Action.NAME, "Italic");
+      menu.add(action);
+
+      action = new StyledEditorKit.UnderlineAction();
+      action.putValue(Action.NAME, "Underline");
+      menu.add(action);
+
+     // menu.addSeparator();
+
+      //menu.add(new StyledEditorKit.FontFamilyAction("Serif",
+      //                                              "Serif"));
+      //menu.add(new StyledEditorKit.FontFamilyAction("SansSerif",
+      //                                              "SansSerif"));
+
+      return menu;
+  }
+
+  protected JMenu createColorMenu() {
+      JMenu menu = new JMenu("Color");
+
+      menu.add(new StyledEditorKit.ForegroundAction("Red",
+                                                    Color.red));
+      menu.add(new StyledEditorKit.ForegroundAction("Green",
+                                                    Color.green));
+      menu.add(new StyledEditorKit.ForegroundAction("Blue",
+                                                    Color.blue));
+      menu.add(new StyledEditorKit.ForegroundAction("Black",
+                                                    Color.black));
+      
+      menu.addSeparator();
+
+      menu.add(new StyledEditorKit.ForegroundAction("Yellow",
+              Color.yellow));
+      menu.add(new StyledEditorKit.ForegroundAction("Magenta",
+              Color.magenta));
+      menu.add(new StyledEditorKit.ForegroundAction("Pink",
+              Color.pink));
+      menu.add(new StyledEditorKit.ForegroundAction("Orange",
+              Color.orange));
+      menu.add(new StyledEditorKit.ForegroundAction("Cyan",
+              Color.cyan));
+
+
+      return menu;
   }
 }

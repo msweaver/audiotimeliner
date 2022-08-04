@@ -632,7 +632,7 @@ public class TimelinePanel extends JPanel
     timeline.doLastResize(timelineLength, g2);
     timeline.refresh(g2);
     Dimension oldPanelSize = this.getSize();
-    Dimension newPanelSize = new Dimension(frameWidth - TimelineFrame.FRAME_SIDE_SPACE, this.getHeight());
+    Dimension newPanelSize = new Dimension(frameWidth - TimelineFrame.FRAME_SIDE_SPACE -10, this.getHeight() -10);
     this.setSize(newPanelSize);
     this.setPreferredSize(newPanelSize);
     this.setMinimumSize(newPanelSize);

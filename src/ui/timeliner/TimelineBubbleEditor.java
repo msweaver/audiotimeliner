@@ -3,14 +3,20 @@ package ui.timeliner;
 import javax.swing.*;
 import javax.swing.undo.*;
 import java.awt.*;
+import java.awt.font.*;
 import javax.swing.border.*;
 import java.awt.event.*;
 import javax.swing.event.*;
+import javax.swing.text.*;
 import java.util.*;
+
 import util.logging.*;
 import ui.media.*;
 import ui.common.*;
-//import org.apache.log4j.Logger;
+import javax.swing.text.html.*;
+import java.io.*;
+
+import org.apache.log4j.Logger;
 
 /**
  * TimelineBubbleEditor.java
@@ -27,8 +33,9 @@ public class TimelineBubbleEditor extends JDialog {
   private Timeline timeline;
   private TimelineMenuBar menubTimeline;
   AudioControlPanel pnlAudioControl = new AudioControlPanel();
-  //private Logger log = Logger.getLogger(TimelineBubbleEditor.class);
+  private Logger log = Logger.getLogger(TimelineBubbleEditor.class);
   protected UILogger uilogger;
+  protected Style normalStyle;
 
   // vectors for storing temporary values
   protected Vector<Integer> editedBubbles = new Vector<Integer>();
@@ -64,6 +71,12 @@ public class TimelineBubbleEditor extends JDialog {
   protected JTextPane tpAnnotation = new JTextPane();
   protected JScrollPane scrpAnnotation = new JScrollPane(tpAnnotation);
 
+  // text editing
+  protected AbstractDocument doc; 
+  EditorKit kit = tpAnnotation.getEditorKit();
+  HTMLEditorKit htmlKit = new HTMLEditorKit();
+  StringWriter output = new StringWriter();
+  
   // fonts
   private java.awt.Font timelineFont;
   private java.awt.Font unicodeFont = UIUtilities.fontUnicodeBigger;
@@ -132,10 +145,32 @@ public class TimelineBubbleEditor extends JDialog {
     fldBubbleLabel.setPreferredSize(new Dimension(250, 25));
     fldBubbleLabel.setFont(unicodeFont);
     fldBubbleLabel.setToolTipText("Edit the bubble label");
+    Font annotationFont = new Font("Arial Unicode MS", 0, 24);
     tpAnnotation.setPreferredSize(new Dimension(430, 375));
-    tpAnnotation.setFont(unicodeFont);
+    //tpAnnotation.setFont(timelineFont);
+    tpAnnotation.setFont(annotationFont);
+    tpAnnotation.setContentType("text/html");
     tpAnnotation.setToolTipText("Edit the bubble annotation");
-    //tpAnnotation.setContentType("text/html");
+
+    tpAnnotation.setMargin(new Insets(5,5,5,5));
+    StyledDocument styledDoc = tpAnnotation.getStyledDocument();
+    if (styledDoc instanceof AbstractDocument) {
+        doc = (AbstractDocument)styledDoc;
+    } else {
+     }
+    //Style fontStyle = ((StyledDocument)doc).addStyle("FontSize", null);
+    //styledDoc.addStyle("FontStyle", fontStyle);
+    //StyleConstants.setFontSize(fontStyle, 24);
+    
+    // menu bar
+    JMenu styleMenu = createStyleMenu();
+    //JMenu sizeMenu = createSizeMenu();
+    JMenu colorMenu = createColorMenu();
+    JMenuBar mb = new JMenuBar();
+    mb.add(styleMenu);
+    //mb.add(sizeMenu);
+    mb.add(colorMenu);
+    setJMenuBar(mb);
 
     // media buttons
     if (timeline.playerIsPlaying()) {
@@ -429,12 +464,37 @@ public class TimelineBubbleEditor extends JDialog {
     if (prevSave == -1) { // this bubble has not been saved before
       editedBubbles.addElement(Integer.valueOf(currentBubbleNum));
       potentialLabels.addElement(fldBubbleLabel.getText());
-      potentialAnnotations.addElement(tpAnnotation.getText());
+      //potentialAnnotations.addElement(tpAnnotation.getText());
+      try {     
+    	  output.getBuffer().setLength(0);
+       	  htmlKit.write( output, doc, 0, doc.getLength());
+       	  String html = output.toString();
+    	  html = UIUtilities.htmlCleanup(html);
+    	  potentialAnnotations.addElement(html);
+    	  //log.debug("html = " + html);
+
+      } catch (Exception e) {
+          System.err.println("Error saving annotation");
+      }
     }
     else {
       editedBubbles.setElementAt(Integer.valueOf(currentBubbleNum), prevSave);
       potentialLabels.setElementAt(fldBubbleLabel.getText(), prevSave);
-      potentialAnnotations.setElementAt(tpAnnotation.getText(), prevSave);
+      //potentialAnnotations.setElementAt(tpAnnotation.getText(), prevSave);
+      try {      
+    	  output.getBuffer().setLength(0);
+    	  htmlKit.write( output, doc, 0, doc.getLength());
+    	  String html = "";
+    	  html = output.toString();
+    	  html = UIUtilities.htmlCleanup(html);
+    	  potentialAnnotations.setElementAt(html, prevSave);
+   	      // log.debug("html = " + html);
+    	  
+      } catch (Exception e) {
+          System.err.println("Error saving annotation");
+          
+      }
+
     }
   }
 
@@ -505,4 +565,73 @@ public class TimelineBubbleEditor extends JDialog {
     }
     recentApplyMade = false;
   }
-}
+  
+  // text editing functions
+  
+  protected JMenu createSizeMenu() {
+      JMenu menu = new JMenu("Size");
+
+      menu.add(new StyledEditorKit.FontSizeAction("12", 12));
+      menu.add(new StyledEditorKit.FontSizeAction("14", 14));
+      menu.add(new StyledEditorKit.FontSizeAction("18", 18));
+      menu.add(new StyledEditorKit.FontSizeAction("24", 24));
+
+      return menu;
+  }
+  
+  protected JMenu createStyleMenu() {
+      JMenu menu = new JMenu("Style");
+
+      Action action = new StyledEditorKit.BoldAction();
+      action.putValue(Action.NAME, "Bold");
+      menu.add(action);
+
+      action = new StyledEditorKit.ItalicAction();
+      action.putValue(Action.NAME, "Italic");
+      menu.add(action);
+
+      action = new StyledEditorKit.UnderlineAction();
+      action.putValue(Action.NAME, "Underline");
+      menu.add(action);
+
+     // menu.addSeparator();
+
+      //menu.add(new StyledEditorKit.FontFamilyAction("Serif",
+      //                                              "Serif"));
+      //menu.add(new StyledEditorKit.FontFamilyAction("SansSerif",
+      //                                              "SansSerif"));
+
+      return menu;
+  }
+
+  protected JMenu createColorMenu() {
+      JMenu menu = new JMenu("Color");
+
+      menu.add(new StyledEditorKit.ForegroundAction("Red",
+                                                    Color.red));
+      menu.add(new StyledEditorKit.ForegroundAction("Green",
+                                                    Color.green));
+      menu.add(new StyledEditorKit.ForegroundAction("Blue",
+                                                    Color.blue));
+      menu.add(new StyledEditorKit.ForegroundAction("Black",
+                                                    Color.black));
+      
+      menu.addSeparator();
+
+      menu.add(new StyledEditorKit.ForegroundAction("Yellow",
+              Color.yellow));
+      menu.add(new StyledEditorKit.ForegroundAction("Magenta",
+              Color.magenta));
+      menu.add(new StyledEditorKit.ForegroundAction("Pink",
+              Color.pink));
+      menu.add(new StyledEditorKit.ForegroundAction("Orange",
+              Color.orange));
+      menu.add(new StyledEditorKit.ForegroundAction("Cyan",
+              Color.cyan));
+
+
+      return menu;
+  }
+
+  }
+
