@@ -285,7 +285,7 @@ public class UIUtilities {
     static public int scaleHeight(int size) {
     	
 	    double ppi = Toolkit.getDefaultToolkit().getScreenResolution();
-	    int newsize = (int)Math.round( size / (106 / ppi));
+	    int newsize = (int)Math.round( size / (110 / ppi));
 	    return newsize;
 	    //return size;
     }

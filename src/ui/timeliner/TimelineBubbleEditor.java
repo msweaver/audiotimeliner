@@ -248,7 +248,11 @@ public class TimelineBubbleEditor extends JDialog {
         currNode = currNode.getParentNode();
         updateLabelAndAnnotation();
         updateNavigationButtons();
-
+        
+        // do an apply"
+       // saveLabelAndAnnotation();
+       // doApply();
+        
         uilogger.log(UIEventType.BUTTON_CLICKED, "navigate to upper bubble");
       }
     });
@@ -264,6 +268,11 @@ public class TimelineBubbleEditor extends JDialog {
         currNode = currNode.getFirstChildNode();
         updateLabelAndAnnotation();
         updateNavigationButtons();
+
+        // do an apply"
+       // saveLabelAndAnnotation();
+       // doApply();
+        
         uilogger.log(UIEventType.BUTTON_CLICKED, "navigate to lower bubble");
       }
     });
@@ -279,7 +288,12 @@ public class TimelineBubbleEditor extends JDialog {
         currNode = currNode.getPreviousSiblingAtLevel(currNode.getBubble().getLevel());
         updateLabelAndAnnotation();
         updateNavigationButtons();
-        uilogger.log(UIEventType.BUTTON_CLICKED, "navigate to left bubble");
+       
+        // do an apply"
+       // saveLabelAndAnnotation();
+       // doApply();
+        
+         uilogger.log(UIEventType.BUTTON_CLICKED, "navigate to left bubble");
       }
     });
 
@@ -294,6 +308,11 @@ public class TimelineBubbleEditor extends JDialog {
         currNode = currNode.getNextSiblingAtLevel(currNode.getBubble().getLevel());
         updateLabelAndAnnotation();
         updateNavigationButtons();
+        
+        // do an apply"
+        //saveLabelAndAnnotation();
+        //doApply();
+        
         uilogger.log(UIEventType.BUTTON_CLICKED, "navigate to right bubble");
       }
     });
@@ -361,6 +380,7 @@ public class TimelineBubbleEditor extends JDialog {
       }
     });
 
+    
     btnCancel.setFont(timelineFont);
     btnCancel.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -371,6 +391,7 @@ public class TimelineBubbleEditor extends JDialog {
         pnlTimeline.btnBubbleEditorPlay = null;
         pnlTimeline.btnBubbleEditorUpLevel = null;
         pnlTimeline.btnBubbleEditorDownLevel = null;
+        undoPreviousApplys();
         closeWindow();
         uilogger.log(UIEventType.BUTTON_CLICKED, "cancel bubble edits");
       }
@@ -497,6 +518,36 @@ public class TimelineBubbleEditor extends JDialog {
 
     }
   }
+
+  /**
+   * Executes an apply (for navigational buttons)
+   */
+  
+  private void doApply() {
+  	
+      // back up old values for undo and set new values
+      undoPreviousApplys();
+      recentApplyMade = true;
+      for (int i = 0; i < editedBubbles.size(); i++) {
+        int currNum = ((Integer)editedBubbles.elementAt(i)).intValue();
+        Bubble currBubble = timeline.getBubble(currNum);
+        oldLabels.addElement(currBubble.getLabel());
+        oldAnnotations.addElement(currBubble.getAnnotation());
+        currBubble.setLabel((String)potentialLabels.elementAt(i));
+        currBubble.setAnnotation((String)potentialAnnotations.elementAt(i));
+      }
+
+      timeline.makeDirty();
+      pnlTimeline.refreshTimeline();
+      frmTimeline.getControlPanel().updateAnnotationPane();
+      pnlTimeline.undoManager.undoableEditHappened(new UndoableEditEvent(pnlTimeline,
+          new UndoableEditBubble(oldLabels, potentialLabels, oldAnnotations, potentialAnnotations,
+          editedBubbles, timeline)));
+      pnlTimeline.updateUndoMenu();
+      uilogger.log(UIEventType.BUTTON_CLICKED, "apply bubble edits");
+
+  }
+  
 
   /**
    * updates the displayed label and annotation

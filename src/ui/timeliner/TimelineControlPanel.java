@@ -306,7 +306,7 @@ public class TimelineControlPanel extends JPanel {
     TimelineUtilities.createConstraints(this, pnlTimepointButtons, 1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
     TimelineUtilities.createConstraints(this, pnlBubbleButtons, 1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
     TimelineUtilities.createConstraints(this, pnlAnnotations, 2, 0, 1, 5, 1.0, 0.8, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
-    TimelineUtilities.createConstraints(this, pnlStatus, 0, 4, 2, 1, 0.0, 0.0, GridBagConstraints.SOUTH, GridBagConstraints.BOTH, 2, 2, 8, 2, 0, 0);
+    TimelineUtilities.createConstraints(this, pnlStatus, 0, 4, 2, 1, 0.0, 0.0, GridBagConstraints.SOUTH, GridBagConstraints.BOTH, 2, 2, 12, 2, 0, 0);
 //    TimelineUtilities.createConstraints(this, pnlDuration, 2, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
 
     // create controls
