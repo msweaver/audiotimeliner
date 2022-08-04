@@ -30,8 +30,8 @@ public class MarkerEditor extends JDialog {
   protected  UILogger uilogger;
 
   // visual components
-  private  JTextField fldTimepointLabel;
-  private  JDialog dlgSetTimepointLabel;
+  //private  JTextField fldTimepointLabel;
+  //private  JDialog dlgSetTimepointLabel;
   private  JLabel lblLabel = new JLabel("Label: ");
   private  TitledBorder bordAnnotation = new TitledBorder(" Annotation ");
   private  JTextField fldMarkerLabel;
@@ -46,8 +46,8 @@ public class MarkerEditor extends JDialog {
   protected JButton btnApply = new JButton("Apply");
 
   // variables
-  private  String oldText;
-  private  String oldAnnotation;
+  //private  String oldText;
+  //private  String oldAnnotation;
   private  java.awt.Font timelineFont;
   private  java.awt.Font unicodeFont;
   protected int currMarker;

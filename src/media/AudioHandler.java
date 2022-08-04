@@ -7,17 +7,22 @@ import java.util.*;
 import java.awt.*;
 import java.io.*;
 import javax.sound.sampled.*;
+import javax.swing.JDialog;
+import javax.swing.JProgressBar;
+import javax.swing.SwingWorker;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaPlayer.Status;
 import javafx.util.Duration;
-import ui.timeliner.TimelineLocalPlayer;
+import ui.timeliner.*;
 import util.AppEnv;
+
 import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.mp3.*;
 import org.apache.log4j.Logger;
+
 
 /**
  * The AudioHandler
@@ -61,6 +66,7 @@ public class AudioHandler implements PlayableContentHandler {
     public Media audioFile;
     public MediaPlayer audioPlayer;
     public File audioFileName;
+    public File newPath;
 
     /**
      */
@@ -115,6 +121,7 @@ public class AudioHandler implements PlayableContentHandler {
     	return;
     }
     public void setContentRef(String ref, TimelineLocalPlayer tplayer) {
+    	logger = TimelineLocalPlayer.logger;
         logger.debug("Open url " + ref);
         
         audioFileName = tplayer.filename;
@@ -124,55 +131,9 @@ public class AudioHandler implements PlayableContentHandler {
         mp3FilePath = ref.replaceAll("\\\\", "/");
         mp3FilePath = mp3FilePath.replaceAll(" ", "%20");
         logger.debug("mp3 path " + mp3FilePath);
-      
-        audioFile = new Media(mp3FilePath);
-        logger.debug("audio file " + audioFile.getSource());
-            
-        audioPlayer = new MediaPlayer(audioFile);
-        
- /**        audioPlayer.setOnReady(new Runnable() {
 
-            @Override
-            public void run() {
-
-                System.out.println("Duration: "+audioFile.getDuration().toSeconds());
-
-                // display media's metadata
-                for (Map.Entry<String, Object> entry : audioFile.getMetadata().entrySet()){
-                    System.out.println(entry.getKey() + ": " + entry.getValue());
-                }
-                
-                tplayer.startUp();
-                
-            }
-        });
-     **/    
-         audioPlayer.setOnEndOfMedia(new Runnable() {
-         	
-         	@Override
-         	public void run() {
-//         		logger.debug("found the end");
-         		eos = true;
-         	}
-         	
-         }
-     );
-
-         while (audioPlayer.getStatus() != MediaPlayer.Status.READY) {
-        	 logger.debug("loading...");
-        	 }
-         //System.out.println("Duration: "+audioFile.getDuration().toSeconds());
-
-         // display media's metadata
-         for (Map.Entry<String, Object> entry : audioFile.getMetadata().entrySet()){
-             //System.out.println(entry.getKey() + ": " + entry.getValue());
-             logger.debug(entry.getKey() + ": " + entry.getValue());
-             //logger.debug(audioFile.durationProperty());
-             //logger.debug(audioFile.getDuration());
-             //logger.debug(audioFile.getTracks());
-         }
-         
-         if (tplayer.filename.toString().endsWith(".mp3")) { // double-check mp3 length
+        // check mp3 files for problems
+        if (tplayer.filename.toString().endsWith(".mp3")) { 
 	         try {
 	           AudioFile testfile = AudioFileIO.read(audioFileName);
 	           int testdur = testfile.getAudioHeader().getTrackLength();
@@ -196,16 +157,87 @@ public class AudioHandler implements PlayableContentHandler {
 	           logger.debug("format = " + mp3head.getFormat());
 	           logger.debug("channels = " + mp3head.getChannels());
 
-	           
+	           if (mp3head.isVariableBitRate()) {
+	        	   
+	        	   // warn about variable bit rate and offer to encode as WAV file
+	        	   FileFormatDialog dlgFile = new FileFormatDialog(audioFileName.toString(), this, tplayer.parentWindow);
+
+	        	   if (newPath != null) {
+	        			logger.debug("found new path = " + newPath);
+	        			
+	        	        mp3FilePath = "file:///" + newPath.toString().replaceAll("\\\\", "/");
+	        	        mp3FilePath = mp3FilePath.replaceAll(" ", "%20");
+	        	        logger.debug("mp3 path " + mp3FilePath);
+	        	        audioFileName = newPath; 
+	        	        tplayer.filename = newPath;
+	        		}
+	        		else {
+	        		}
+	        	   
+	           }
 	         } catch (Exception e) {
 	           e.printStackTrace();
 	         }
+        }
+
+        
+        audioFile = new Media(mp3FilePath);
+        logger.debug("audio file " + audioFile.getSource());
+        // display media's metadata
+        for (Map.Entry<String, Object> entry : audioFile.getMetadata().entrySet()){
+            //System.out.println(entry.getKey() + ": " + entry.getValue());
+            logger.debug(entry.getKey() + ": " + entry.getValue());
          }
+        
+           
+        audioPlayer = new MediaPlayer(audioFile);
+        audioPlayer.setOnEndOfMedia(new Runnable() {
+         	
+         	@Override
+         	public void run() {
+//         		logger.debug("found the end");
+         		eos = true;
+         	}
+         	
+         }
+     );
+
+     	JDialog dialog = new JDialog(tplayer.parentWindow, true); 
+       	dialog.setUndecorated(true);
+       	JProgressBar bar = new JProgressBar();
+       	bar.setIndeterminate(true);
+       	bar.setStringPainted(true);
+       	bar.setString("Loading audio ... ");
+       	dialog.add(bar);
+       	dialog.pack();
+       	dialog.setLocation((tplayer.parentWindow.getWidth() / 2)-(dialog.getWidth()/2), 200);
+       	
+       	SwingWorker<Void,Void> worker = new SwingWorker<Void,Void>()
+    	{
+    	    protected Void doInBackground()
+    	    {
+        	
+    	         while (audioPlayer.getStatus() != MediaPlayer.Status.READY) {
+    	            	bar.notify(); 
+    	            	//setString("Loading audio ... ");
+    	            	//logger.debug("loading...");
+    	        	 }
+
+    	        return null;
+    	    }
+    	 
+    	    protected void done()
+    	    {
+    	        dialog.dispose();
+    	    }
+    	};
+    	worker.execute();
+    	dialog.setVisible(true);
+
          tplayer.startUp();
         
 
         try {
-//        	DataRef newRef = null;
             if (ref.startsWith("http://") || ref.startsWith("HTTP://")) {
                 java.net.URL url = new java.net.URL(ref);
                 java.io.InputStream in = url.openStream();
@@ -220,17 +252,8 @@ public class AudioHandler implements PlayableContentHandler {
                     counter = counter + 1;
 
                 }
-//                newRef = new DataRef(new QTHandle(x), StdQTConstants.kDataRefExtensionMIMEType , "video/quicktime");
             } else {
-//                newRef = new DataRef(ref);
             }
-//            Movie mov = Movie.fromDataRef(newRef, StdQTConstants.newMovieActive);
-//            MovieController mc = new MovieController(mov);
-//            if (qtPlay != null) {
-//                qtPlay.setMovieController(mc);
-//            } else {
-//                qtPlay = QTFactory.makeQTComponent(mc);
- //           }
         } catch (Exception e) {
             System.err.println("Error with URL: " + ref);
             e.printStackTrace();
@@ -247,9 +270,7 @@ public class AudioHandler implements PlayableContentHandler {
 
     public void play() {
     	
-   	audioPlayer.play();
-    //	try {
-    //	thePlayer.play(); } catch (Exception e) {}
+    	audioPlayer.play();
     
    	}
  
@@ -272,11 +293,12 @@ public class AudioHandler implements PlayableContentHandler {
             //start player at new position
         	audioPlayer.pause();
         	//audioPlayer.setStartTime(Duration.millis(offset));
-        	Duration off = new Duration(offset);
-        	double seekSeconds = off.toMillis() / 1000.0;
+        	//Duration off = new Duration(offset);
+        	//double seekSeconds = off.toMillis() / 1000.0;
         	//logger.debug("seekSeconds = " + seekSeconds);
         	audioPlayer.seek(Duration.millis(offset)); 
             logger.debug("setting offset to " + offset);
+
             if (playflag) {                     //start playback again if playing before
             	audioPlayer.play();
             }

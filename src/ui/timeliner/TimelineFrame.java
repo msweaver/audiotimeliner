@@ -252,7 +252,7 @@ public class TimelineFrame extends BasicWindow  {
     menubTimeline.setPrintEnabled(true);
     menubTimeline.setSaveEnabled(true);
     menubTimeline.setTimelineMenuEnabled(true);
-
+    //this.setTitle(tLocalPlayer.filename.toString());
   }
 
   /**

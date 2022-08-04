@@ -160,7 +160,7 @@ public class TimelinePanel extends JPanel
   protected Vector undoGroupAnnotations = new Vector();
 
   // logging
-  private static Logger log = Logger.getLogger(TimelinePanel.class);
+  //private static Logger log = Logger.getLogger(TimelinePanel.class);
   protected UILogger uilogger;
   
   public String savePath;

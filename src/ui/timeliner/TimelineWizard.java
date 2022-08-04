@@ -5,7 +5,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import ui.common.*;
-import com.borland.jbcl.layout.*;
+//import com.borland.jbcl.layout.*;
 import util.logging.*;
 //import org.apache.log4j.Logger;
 
@@ -17,9 +17,9 @@ public class TimelineWizard extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 // external components
-  private static TimelinePanel pnlTimeline;
+  //private static TimelinePanel pnlTimeline;
   private static TimelineFrame frmTimeline;
-  private static Timeline timeline;
+  //private static Timeline timeline;
   //private static Logger log = Logger.getLogger(TimelinePrintDialog.class);
   protected static UILogger uilogger;
 
@@ -31,8 +31,8 @@ public class TimelineWizard extends JDialog {
   public TimelineWizard(TimelineFrame tf)  {
     super(tf);
     frmTimeline = tf;
-    pnlTimeline = frmTimeline.getTimelinePanel();
-    timeline = pnlTimeline.getTimeline();
+    //pnlTimeline = frmTimeline.getTimelinePanel();
+    //timeline = pnlTimeline.getTimeline();
     uilogger = frmTimeline.getUILogger();
 
     // set up dialog

@@ -22,8 +22,8 @@ public class TimelineBubbleEditor extends JDialog {
 // external components
   private TimelinePanel pnlTimeline;
   private TimelineFrame frmTimeline;
-  private TimelinePlayer tPlayer;
-  private TimelineLocalPlayer tLocalPlayer;
+  //private TimelinePlayer tPlayer;
+  //private TimelineLocalPlayer tLocalPlayer;
   private Timeline timeline;
   private TimelineMenuBar menubTimeline;
   AudioControlPanel pnlAudioControl = new AudioControlPanel();
@@ -101,8 +101,8 @@ public class TimelineBubbleEditor extends JDialog {
     frmTimeline = tf;
     pnlTimeline = frmTimeline.getTimelinePanel();
     timeline = pnlTimeline.getTimeline();
-    tPlayer = pnlTimeline.getPlayer();
-    tLocalPlayer = pnlTimeline.getLocalPlayer();
+    //tPlayer = pnlTimeline.getPlayer();
+    //tLocalPlayer = pnlTimeline.getLocalPlayer();
     menubTimeline = pnlTimeline.getMenuBar();
     final TimelineControlPanel pnlControl = frmTimeline.getControlPanel();
     uilogger = frmTimeline.getUILogger();

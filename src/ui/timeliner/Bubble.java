@@ -23,16 +23,16 @@ public class Bubble extends JComponent {
   private Color color = new Color(166, 202, 240); // default color is light blue
   private Color bwColor = new Color (255, 255, 255); // white
   private Color shadeColor;
-  private Graphics g;
+  //private Graphics g;
   private Graphics2D g2d;
   private int arcTop;
   private int arcHeight;
-  private int squareTop;
-  private int squareHeight;
+  //private int squareTop;
+  //private int squareHeight;
   private int selectStrokeWidth = 2;
   private Arc2D.Double arc;
   private Rectangle2D.Double square;
-  private Point labelPoint;
+  //private Point labelPoint;
   private int labelFontSize;
   private String unicodeFont = "Arial Unicode MS";
   private boolean selected;

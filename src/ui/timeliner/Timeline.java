@@ -260,8 +260,13 @@ public class Timeline extends JPanel {
     createTimepointAndMarkerTimes();
 
     sortList();
+    
+     pnlTimeline.doResize(length);
+     
+     if (pnlTimeline.getFrame().isNewAudio) {
+     	this.makeDirty();
+     }
 
-    pnlTimeline.doResize(length);
   }
 
   /*****************************************
@@ -3482,7 +3487,7 @@ public class Timeline extends JPanel {
   /**
    * returns a vector or selected base bubbles
    */
-  protected Vector getSelectedBaseBubbles() {
+  protected Vector<Integer> getSelectedBaseBubbles() {
     return selectedBaseBubbles;
   }
 
@@ -3576,7 +3581,7 @@ public class Timeline extends JPanel {
    * returns true if the given bubble is selected
    */
   public boolean isBubbleSelected(int bubNum) {
-    return (selectedBubbles.contains((new Integer(bubNum))));
+    return (selectedBubbles.contains((Integer.valueOf(bubNum))));
   }
 
   /**
@@ -4000,15 +4005,15 @@ public class Timeline extends JPanel {
    */
   protected String getPlayerContent() {
     if (pnlTimeline.getFrame().isUsingLocalAudio) {
-      String savePath = pnlTimeline.getSavePath();
+      //String savePath = pnlTimeline.getSavePath();
       String mediaPath = tLocalPlayer.filename.toString();
-      String relativePath = "";
+      //String relativePath = "";
 //      log.debug("save path = " + savePath);
 //      log.debug("file path = " + mediaPath);
-      try {
-    	  relativePath = TimelineUtilities.getRelativePath(new File(savePath), new File (mediaPath));
-      }
-      catch (Exception e) {}
+ //     try {
+    	  //relativePath = TimelineUtilities.getRelativePath(new File(savePath), new File (mediaPath));
+ //     }
+//      catch (Exception e) {}
 //      log.debug("relative path = " + relativePath);
 //      if (System.getProperty("os.name").startsWith("Mac OS")) {
     	  return mediaPath;

@@ -23,7 +23,7 @@ public class TimelineLocalPlayer implements PlayableContentHandlerListener {
 	  int currstart = 0;
 	  int currstop = 0;
   //QTContentHandler qtPlayer;
-	  private static Logger logger = Logger.getLogger(TimelineLocalPlayer.class);
+	  public static Logger logger = Logger.getLogger(TimelineLocalPlayer.class);
 
 /////EXTERNAL//////////
   //Will be true if playing OR buffering
@@ -47,7 +47,7 @@ public class TimelineLocalPlayer implements PlayableContentHandlerListener {
   int shiftAmount = INITIAL_TRACKING_AMOUNT;
   protected final static int TRACKING_FF = 1;
   protected final static int TRACKING_RW = -1;
-private static final PlayableContentHandlerEvent playerEvent = null;
+  // private static final PlayableContentHandlerEvent playerEvent = null;
 
   //amount of offset in millis that start of excerpt is from start of whole container
   int startOffset = 0;
@@ -83,6 +83,8 @@ private static final PlayableContentHandlerEvent playerEvent = null;
 
   public void startUp() {
 	//start up the timer
+	  
+	  filename = player.audioFileName;
 	  
 	  theTimer = new Runnable() {
 		    String elapsedString = "";
@@ -217,6 +219,11 @@ private static final PlayableContentHandlerEvent playerEvent = null;
     pnlControl.setLocalPlayer(this);
     pnlControl.doPlayerEnable();
     pnlControl.lblStatus.setText(TimelineControlPanel.STATUS_IDLE);
+    String newtitle = filename.getName();
+    newtitle = newtitle.substring(0, newtitle.length()-4);
+    parentWindow.setTitle(newtitle);
+    //pnlTimeline.getTimeline().makeDirty();
+    //logger.debug("setting timeline title to " + newtitle);
 
   }
 

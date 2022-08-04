@@ -7,11 +7,14 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.io.BufferedOutputStream;
 import client.*;
+import javazoom.jl.converter.Converter;
 import ui.common.*;
 import util.logging.*;
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
+import javazoom.jl.converter.*;
 
 /**
  * TimelineUtilities
@@ -23,15 +26,18 @@ public class TimelineUtilities {
   private static JFileChooser fileChooserSave = new JFileChooser();
   private static JFileChooser fileChooserOpen = new JFileChooser();
   private static JFileChooser fileChooserOpenAudio = new JFileChooser();
+  private static JFileChooser fileChooserSaveAudio = new JFileChooser();
    private static HTMLFilter HTMLfilt = new HTMLFilter();
-  //private static Logger log = Logger.getLogger(TimelineUtilities.class);
+  private static Logger logger = Logger.getLogger(TimelineUtilities.class);
   protected static UILogger uilogger;
   private static TimelineMenuBar menubTimeline;
   private static String[] timelineString = {"v2t", "tim"};
   private static TimelineFilter filter = new TimelineFilter(timelineString, "Timeline files");
   private static TimelineFilter saveFilter = new TimelineFilter("tim", "Timeline files");
   private static String[] audioString = {"mp3", "wav", "m4a"};
+  private static String[] wavString = {"wav"};
   private static AudioFilter audioFilt = new AudioFilter(audioString, "Audio files");
+  private static AudioFilter wavFilt = new AudioFilter(wavString, "WAV files");
 
   /**
    * empty constructor
@@ -343,7 +349,7 @@ public class TimelineUtilities {
             frmTimeline.isNewTimeline = true;
             frmTimeline.isNewAudio = true;
             frmTimeline.setContent(selectedFile, 0, 1);
-            frmTimeline.setTitle("Timeline: " + currFilename.substring(currFilename.lastIndexOf("\\")+1));
+             //frmTimeline.setTitle(currFilename.substring(currFilename.lastIndexOf("\\")+1));
           }
           else {
             BasicWindow newWindow = WindowManager.openWindow(WindowManager.WINTYPE_LOCAL_TIMELINE, WindowManager.WINLOCATION_CASCADE_DOWN);
@@ -352,7 +358,6 @@ public class TimelineUtilities {
             newTimelineWindow.isNewAudio = true;
             WindowManager.stopAllPlayers();
             newTimelineWindow.setContent(selectedFile, 0, 1);
-            newTimelineWindow.setTitle("Timeline: " + currFilename.substring(currFilename.lastIndexOf("\\")+1));
           }
         }
       }
@@ -368,10 +373,85 @@ public class TimelineUtilities {
   }
 
   /**
+   * createWavFile: creates a WAV file for an MP3 file
+   */
+  public static File createWavFile(BasicWindow parent, String sourcefile, String newfile) {
+
+      try // convert mp3 to wav
+      {
+	           ((TimelineFrame)parent).getControlPanel().lblStatus.setText("Status: Converting Audio ...");
+    	  	   Converter conv = new Converter();
+	           int detail = (Converter.PrintWriterProgressListener.VERBOSE_DETAIL);
+	           Converter.ProgressListener listener = new Converter.PrintWriterProgressListener(new PrintWriter(System.out, true), detail);
+	           
+   	  
+          conv.convert(sourcefile, newfile, listener);
+          
+          return new File(newfile);
+      }
+      catch (Exception ex)
+      {
+        System.err.println("Conversion failure: "+ex);
+        logger.debug("conversion failed");
+        JOptionPane.showMessageDialog(parent, "Error converting audio.", "Conversion error",
+                JOptionPane.ERROR_MESSAGE);
+        ex.printStackTrace();
+
+        return null;
+      }
+  }
+
+  /**
+   * chooseWavLocation: chooses a location for a new WAV file
+   */
+  public static File chooseWavLocation(BasicWindow parent, String filename) {
+    //TimelineFrame frmTimeline;
+    try {
+        fileChooserSaveAudio.setDialogTitle("Choose Location for WAV file");
+        fileChooserSaveAudio.setAcceptAllFileFilterUsed(false);
+        fileChooserSaveAudio.removeChoosableFileFilter(saveFilter);
+        fileChooserSaveAudio.addChoosableFileFilter(wavFilt);
+        fileChooserSaveAudio.setMultiSelectionEnabled(false);
+        fileChooserSaveAudio.setSelectedFile(new File(filename));
+        	
+      if (JFileChooser.APPROVE_OPTION == (fileChooserSaveAudio.showSaveDialog(parent))) {
+    	  
+        String currFilename = fileChooserSaveAudio.getSelectedFile().getPath();
+        fileChooserSaveAudio.removeChoosableFileFilter(audioFilt);
+        if (currFilename != null) {
+          java.io.File selectedFile = new java.io.File(currFilename);
+
+          // warn if file exists
+            if (selectedFile.exists()) {
+              int response = JOptionPane.showConfirmDialog(parent, "File " + selectedFile.getName() + " already exists. Overwrite?",
+                  "Overwrite file?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+              if (response == JOptionPane.NO_OPTION) {
+                return chooseWavLocation(parent, filename);
+              }
+              else {
+                return selectedFile;
+              }
+            }
+
+          return selectedFile;
+       }
+      }
+    }
+    catch (Exception e)
+    {
+      JOptionPane.showMessageDialog(parent, "Error creating WAV file.", "File error",
+                                    JOptionPane.ERROR_MESSAGE);
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+
+  /**
    * findMissingAudio: finds a missing audio file for an opened timeline
    */
   public static File findMissingAudio(BasicWindow parent, String filename) {
-    TimelineFrame frmTimeline;
+    //TimelineFrame frmTimeline;
     try {
       fileChooserOpenAudio.setDialogTitle("Browse for Missing Audio: " + filename);
       fileChooserOpenAudio.setAcceptAllFileFilterUsed(false);

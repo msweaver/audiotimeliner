@@ -19,7 +19,9 @@ import java.awt.*;
  */
 public class ScalableJFrame extends JFrame {
 
-    public ScalableJFrame() throws HeadlessException {
+    private static final long serialVersionUID = 1L;
+
+	public ScalableJFrame() throws HeadlessException {
         super();
     }
 

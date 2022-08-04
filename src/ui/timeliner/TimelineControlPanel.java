@@ -11,7 +11,7 @@ import com.borland.jbcl.layout.*;
 import ui.media.*;
 import ui.common.*;
 import util.logging.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import javax.swing.text.html.*;
 
 /**
@@ -36,7 +36,7 @@ public class TimelineControlPanel extends JPanel {
   protected TimepointEditor dlgTimepointEditor;
   protected AudioControlPanel pnlAudioControl = new AudioControlPanel();
   VolumePanel pnlVolumeControl = new VolumePanel();
-  private static Logger log = Logger.getLogger(TimelineControlPanel.class);
+  //private static Logger log = Logger.getLogger(TimelineControlPanel.class);
   protected UILogger uilogger;
 
   // fonts
@@ -127,6 +127,7 @@ public class TimelineControlPanel extends JPanel {
   final static String STATUS_TRACKING = "Status: Adjusting Playback Position";
   final static String STATUS_STREAM_ERROR = "Status: Stream Error";
   final static String STATUS_STREAM_NOT_FOUND = "Status: Stream Not Found";
+  final static String STATUS_CONVERTING = "Status: Converting Audio";
 
   // annotation pane
   protected JTextPane tpAnnotations = new JTextPane();
@@ -1242,12 +1243,12 @@ public class TimelineControlPanel extends JPanel {
       clearAnnotationPane();
       isDescriptionShowing = true;
 
-      HTMLDocument htmldoc = (HTMLDocument)tpAnnotations.getDocument();
+      //HTMLDocument htmldoc = (HTMLDocument)tpAnnotations.getDocument();
       String description = pnlTimeline.getTimeline().getDescription();
       if (description.length() > 0) {
         // create information icon and description
         String imageString = UIUtilities.infoString;
-        ImageIcon image = UIUtilities.icoInfoImage;
+        //ImageIcon image = UIUtilities.icoInfoImage;
         tpAnnotations.setText("<html><head></head><body>"
                               + "<DIV STYLE='font-size : " + annotationFontSize + "pt; "
                               + "font-family : " + unicodeFont + "'>"

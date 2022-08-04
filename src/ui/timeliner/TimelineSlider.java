@@ -45,7 +45,7 @@ public class TimelineSlider extends JSlider {
   private Point dragEnd = new Point();
 
   /**
-   * constructor: creates a timeline slider, given the orientation, min and max vales, current
+   * constructor: creates a timeline slider, given the orientation, min and max values, current
    * value, and a reference to the timeline
    */
   public TimelineSlider(int orient, int min, int max, int value, int width, int height, Timeline t) {

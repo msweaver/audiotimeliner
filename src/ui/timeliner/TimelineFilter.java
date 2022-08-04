@@ -13,8 +13,8 @@ import java.util.Enumeration;
 
 public class TimelineFilter extends FileFilter {
 
-  private   String TYPE_UNKNOWN = "Type Unknown";
-  private  String HIDDEN_FILE = "Hidden File";
+  //private   String TYPE_UNKNOWN = "Type Unknown";
+  //private  String HIDDEN_FILE = "Hidden File";
 
   private Hashtable<String, TimelineFilter> filters = null;
   private String description = null;

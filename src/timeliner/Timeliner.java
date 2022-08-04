@@ -1,6 +1,6 @@
 package timeliner;
 
-import java.awt.Toolkit;
+//import java.awt.Toolkit;
 
 import org.apache.log4j.PropertyConfigurator;
 
@@ -16,7 +16,7 @@ import ui.timeliner.TimelineXMLAdapter;
 import util.AppEnv;
 import util.logging.LogUtil;
 import util.SwingDPI;
-import util.URLDownload;
+//import util.URLDownload;
 
 /**
  * Title:        Timeliner

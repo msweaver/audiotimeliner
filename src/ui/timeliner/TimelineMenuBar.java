@@ -22,8 +22,8 @@ public class TimelineMenuBar extends JMenuBar {
 // references to external objects
   private TimelineFrame frmTimeline;
   private TimelinePanel pnlTimeline;
-  private TimelineControlPanel pnlControl;
-  private UndoManager undoManager;
+  //private TimelineControlPanel pnlControl;
+  //private UndoManager undoManager;
  // private static Logger log = Logger.getLogger(TimelineMenuBar.class);
   protected UILogger uilogger;
   protected TimepointEditor dlgTimepointEditor;
@@ -81,9 +81,9 @@ public class TimelineMenuBar extends JMenuBar {
 
     frmTimeline = tf;
     pnlTimeline = tf.getTimelinePanel();
-    pnlControl = tf.getControlPanel();
+    //pnlControl = tf.getControlPanel();
     uilogger = frmTimeline.getUILogger();
-    undoManager = pnlTimeline.undoManager;
+    //undoManager = pnlTimeline.undoManager;
     if (System.getProperty("os.name").startsWith("Mac OS")) {
     	timelineMenuFont = UIUtilities.fontMenusMac;
     } else {

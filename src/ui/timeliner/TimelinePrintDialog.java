@@ -20,7 +20,7 @@ public class TimelinePrintDialog extends JDialog {
   private static TimelinePanel pnlTimeline;
   private static TimelineFrame frmTimeline;
   private static Timeline timeline;
-  private static TimelineMenuBar menubTimeline;
+  //private static TimelineMenuBar menubTimeline;
   //private static Logger log = Logger.getLogger(TimelinePrintDialog.class);
   protected static UILogger uilogger;
 
@@ -40,16 +40,16 @@ public class TimelinePrintDialog extends JDialog {
     uilogger = frmTimeline.getUILogger();
 
     // set up dialog
-    int dialogWidth;
-    int dialogHeight;
+    //int dialogWidth;
+    //int dialogHeight;
     if (System.getProperty("os.name").startsWith("Mac OS")) {
       timelineFont = UIUtilities.fontDialogMacSmallest;
-      dialogWidth = UIUtilities.scalePixels(200);
-      dialogHeight = UIUtilities.scalePixels(200);
+      //dialogWidth = UIUtilities.scalePixels(200);
+      //dialogHeight = UIUtilities.scalePixels(200);
     } else {
       timelineFont = UIUtilities.fontDialogWin;
-      dialogWidth = UIUtilities.scalePixels(250);
-      dialogHeight = UIUtilities.scalePixels(200);
+      //dialogWidth = UIUtilities.scalePixels(250);
+      //dialogHeight = UIUtilities.scalePixels(200);
     }
     this.setTitle("Print Options");
     this.setLocationRelativeTo(frmTimeline);
