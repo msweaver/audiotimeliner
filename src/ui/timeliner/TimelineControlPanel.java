@@ -74,6 +74,13 @@ public class TimelineControlPanel extends JPanel {
   protected final JSlider slideVolume = pnlVolumeControl.slideVolume;
   protected ImageIcon sPlay; 
   protected ImageIcon sStop;
+  protected ImageIcon sPause;
+  protected ImageIcon sPrev;
+  protected ImageIcon sNext;
+  protected ImageIcon sRW;
+  protected ImageIcon sFF;
+  protected ImageIcon sSpeaker;
+  protected ImageIcon sMute;
 
   // icons
   final static ImageIcon icoEdit = UIUtilities.icoEdit;
@@ -192,6 +199,27 @@ public class TimelineControlPanel extends JPanel {
 	  Image stopBtn = UIUtilities.icoStop.getImage(); 
 	  Image scaledStop = stopBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoStop.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoStop.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
 	  sStop = new ImageIcon(scaledStop);
+	  Image pauseBtn = UIUtilities.icoPause.getImage(); 
+	  Image scaledPause = pauseBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoPause.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoPause.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  sPause = new ImageIcon(scaledPause);
+	  Image prevBtn = UIUtilities.icoPrev.getImage(); 
+	  Image scaledPrev = prevBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoPrev.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoPrev.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  sPrev = new ImageIcon(scaledPrev);
+	  Image nextBtn = UIUtilities.icoNext.getImage(); 
+	  Image scaledNext = nextBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoNext.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoNext.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  sNext = new ImageIcon(scaledNext);
+	  Image rwBtn = UIUtilities.icoRW.getImage(); 
+	  Image scaledRW = rwBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoRW.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoRW.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  sRW = new ImageIcon(scaledRW);
+	  Image ffBtn = UIUtilities.icoFF.getImage(); 
+	  Image scaledFF = ffBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoFF.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoFF.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  sFF = new ImageIcon(scaledFF);
+	  Image speakerBtn = UIUtilities.icoSpeaker.getImage(); 
+	  Image scaledSpeaker = speakerBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoSpeaker.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoSpeaker.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  sSpeaker = new ImageIcon(scaledSpeaker);
+	  Image muteBtn = UIUtilities.icoSpeakerMute.getImage(); 
+	  Image scaledMute = muteBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoSpeakerMute.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoSpeakerMute.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  sMute= new ImageIcon(scaledMute);
 
 	  
     // set panel layout models
@@ -335,7 +363,7 @@ public class TimelineControlPanel extends JPanel {
 
     // "previous" button
     pnlAudioControl.btnPrev.setToolTipText("Previous Timepoint");
-    pnlAudioControl.btnPrev.setIcon(UIUtilities.icoPrev);
+    pnlAudioControl.btnPrev.setIcon(sPrev);
     setEnterAction(pnlAudioControl.btnPrev);
     pnlAudioControl.btnPrev.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -347,7 +375,7 @@ public class TimelineControlPanel extends JPanel {
 
     // "rewind" button
     pnlAudioControl.btnRW.setToolTipText("Press and hold for RW");
-    pnlAudioControl.btnRW.setIcon(UIUtilities.icoRW);
+    pnlAudioControl.btnRW.setIcon(sRW);
     setEnterAction(pnlAudioControl.btnRW);
     pnlAudioControl.btnRW.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mousePressed(MouseEvent e) {
@@ -362,7 +390,7 @@ public class TimelineControlPanel extends JPanel {
 
     // "forward" button
     pnlAudioControl.btnFF.setToolTipText("Press and hold for FF");
-    pnlAudioControl.btnFF.setIcon(UIUtilities.icoFF);
+    pnlAudioControl.btnFF.setIcon(sFF);
     setEnterAction(pnlAudioControl.btnFF);
     pnlAudioControl.btnFF.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mousePressed(MouseEvent e) {
@@ -377,7 +405,7 @@ public class TimelineControlPanel extends JPanel {
 
     // "next" button
     pnlAudioControl.btnNext.setToolTipText("Next Timepoint");
-    pnlAudioControl.btnNext.setIcon(UIUtilities.icoNext);
+    pnlAudioControl.btnNext.setIcon(sNext);
     setEnterAction(pnlAudioControl.btnNext);
     pnlAudioControl.btnNext.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -428,11 +456,11 @@ public class TimelineControlPanel extends JPanel {
     lblStatus.setText(TimelineControlPanel.STATUS_BUFFERING);
     buffering = false;
     playing = true;
-    pnlAudioControl.btnPlay.setIcon(UIUtilities.icoPause);
+    pnlAudioControl.btnPlay.setIcon(sPause);
     pnlTimeline.enableAddTimepoint();
     pnlTimeline.enableAddMarker();
     if (pnlTimeline.btnBubbleEditorPlay != null) {
-      pnlTimeline.btnBubbleEditorPlay.setIcon(UIUtilities.icoPause);
+      pnlTimeline.btnBubbleEditorPlay.setIcon(sPause);
     }
   }
 
@@ -441,13 +469,13 @@ public class TimelineControlPanel extends JPanel {
    */
   protected void btn_pauseAction() {
     pnlTimeline.getTimeline().pausePlayer();
-    pnlAudioControl.btnPlay.setIcon(UIUtilities.icoPlay);
+    pnlAudioControl.btnPlay.setIcon(sPlay);
     lblStatus.setText(STATUS_IDLE);
     buffering = false;
     playing = false;
     pnlTimeline.scheduleRefresh();
     if (pnlTimeline.btnBubbleEditorPlay != null) {
-      pnlTimeline.btnBubbleEditorPlay.setIcon(UIUtilities.icoPlay);
+      pnlTimeline.btnBubbleEditorPlay.setIcon(sPlay);
     }
   }
 
@@ -456,14 +484,14 @@ public class TimelineControlPanel extends JPanel {
     timeline = pnlTimeline.getTimeline();
     timeline.stopPlayer();
     timeline.setPlayerOffset(timeline.getLocalStartOffset());
-    pnlAudioControl.btnPlay.setIcon(UIUtilities.icoPlay);
+    pnlAudioControl.btnPlay.setIcon(sPlay);
     lblStatus.setText(STATUS_IDLE);
     pnlTimeline.scheduleRefresh();
     timeline.getSlider().setValue(timeline.getLocalStartOffset());
     timeline.showTime(false);
     updateAnnotationPane();
     if (pnlTimeline.btnBubbleEditorPlay != null) {
-      pnlTimeline.btnBubbleEditorPlay.setIcon(UIUtilities.icoPlay);
+      pnlTimeline.btnBubbleEditorPlay.setIcon(sPlay);
     }
 
     timeline.setNextImportantOffset(Math.min(timeline.getSortedPointList()[1], timeline.getMarkerList()[0]));
@@ -1202,11 +1230,11 @@ public class TimelineControlPanel extends JPanel {
     if (muted) {
       muted = false;
       pnlTimeline.getTimeline().setPlayerVolume(vol);
-      pnlVolumeControl.btnMute.setIcon(UIUtilities.icoSpeaker);
+      pnlVolumeControl.btnMute.setIcon(sSpeaker);
     } else {
       muted = true;
       pnlTimeline.getTimeline().setPlayerVolume(0f);
-      pnlVolumeControl.btnMute.setIcon(UIUtilities.icoSpeakerMute);
+      pnlVolumeControl.btnMute.setIcon(sMute);
     }
   }
 

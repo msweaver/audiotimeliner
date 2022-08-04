@@ -41,7 +41,7 @@ public class AudioControlPanel extends JPanel {
         btnNext.setPreferredSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
         btnPlay.setMinimumSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
         btnPlay.setPreferredSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
-        btnPlay.setIcon(UIUtilities.icoPlay);
+        //btnPlay.setIcon(UIUtilities.icoPlay);
         btnStop.setMinimumSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
         btnStop.setPreferredSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
         btnStop.setIcon(UIUtilities.icoStop);
@@ -50,15 +50,15 @@ public class AudioControlPanel extends JPanel {
         btnFF.setMinimumSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
         btnFF.setPreferredSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
         btnPrev.setMargin(new Insets(0, 0, 0, 0));
-        btnPrev.setIcon(UIUtilities.icoPrev);
+        //btnPrev.setIcon(UIUtilities.icoPrev);
         btnNext.setMargin(new Insets(0, 0, 0, 0));
-        btnNext.setIcon(UIUtilities.icoNext);
+        //btnNext.setIcon(UIUtilities.icoNext);
         btnStop.setMargin(new Insets(0, 0, 0, 0));
         btnPlay.setMargin(new Insets(0, 0, 0, 0));
         btnRW.setMargin(new Insets(0, 0, 0, 0));
-        btnRW.setIcon(UIUtilities.icoRW);
+        //btnRW.setIcon(UIUtilities.icoRW);
         btnFF.setMargin(new Insets(0, 0, 0, 0));
-        btnFF.setIcon(UIUtilities.icoFF);
+        //btnFF.setIcon(UIUtilities.icoFF);
         if (!(System.getProperty("os.name").startsWith("Mac OS"))) {
             btnNext.setBorder(null);
             btnNext.setFocusPainted(false);
