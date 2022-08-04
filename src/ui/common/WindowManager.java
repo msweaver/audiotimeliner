@@ -112,13 +112,14 @@ public class WindowManager {
         }
     }
 
+ 
     /**
      * Close all windows and shutdown the app.
      */
     public static void doShutDown() {
         log.debug("Starting the shutdown process");
         //don't show confirmation dialog on mac
-        if (!(System.getProperty("os.name").startsWith("Mac OS"))) {
+       // if (!(System.getProperty("os.name").startsWith("Mac OS"))) {
             if (openWindows.size() > 1) {
                 //more than one window is open; send warning to user
                 int response = JOptionPane.showConfirmDialog(
@@ -130,7 +131,7 @@ public class WindowManager {
                     return;         //user canceled shut down
                 }
             }
-        }
+       // }
         //close all open windows one by one
         int counter = 0;
         int tempsize = openWindows.size();

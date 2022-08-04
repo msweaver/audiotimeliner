@@ -174,10 +174,10 @@ public class TimelineBubbleEditor extends JDialog {
 
     // media buttons
     if (timeline.playerIsPlaying()) {
-      pnlAudioControl.btnPlay.setIcon(UIUtilities.icoPause);
+      pnlAudioControl.btnPlay.setIcon(pnlControl.sPause);
     }
     else {
-      pnlAudioControl.btnPlay.setIcon(UIUtilities.icoPlay);
+      pnlAudioControl.btnPlay.setIcon(pnlControl.sPlay);
     }
     pnlTimeline.btnBubbleEditorPlay = pnlAudioControl.btnPlay;
     pnlAudioControl.btnPlay.setToolTipText("Play");
@@ -195,7 +195,7 @@ public class TimelineBubbleEditor extends JDialog {
       }
     });
 
-    pnlAudioControl.btnStop.setIcon(UIUtilities.icoStop);
+    pnlAudioControl.btnStop.setIcon(pnlControl.sStop);
     pnlAudioControl.btnStop.setToolTipText("Stop");
     pnlAudioControl.btnStop.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -205,7 +205,7 @@ public class TimelineBubbleEditor extends JDialog {
     });
 
     pnlAudioControl.btnRW.setToolTipText("Press and hold for RW");
-    pnlAudioControl.btnRW.setIcon(UIUtilities.icoRW);
+    pnlAudioControl.btnRW.setIcon(pnlControl.sRW);
     pnlAudioControl.btnRW.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mousePressed(MouseEvent e) {
         pnlControl.doRWTracking();
@@ -217,7 +217,7 @@ public class TimelineBubbleEditor extends JDialog {
     });
 
     pnlAudioControl.btnFF.setToolTipText("Press and hold for FF");
-    pnlAudioControl.btnFF.setIcon(UIUtilities.icoFF);
+    pnlAudioControl.btnFF.setIcon(pnlControl.sFF);
     pnlAudioControl.btnFF.addMouseListener(new java.awt.event.MouseAdapter() {
       public void mousePressed(MouseEvent e) {
         pnlControl.doFFTracking();

@@ -185,7 +185,9 @@ public class TimelineMenuBar extends JMenuBar {
     });
     this.frmTimeline.basicMenuBar.menuFile.menuiFileClose.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        frmTimeline.doWindowClose();
+    	  if (frmTimeline.tryClose()) {
+    		  frmTimeline.doWindowClose();
+    	  }
                 uilogger.log(UIEventType.MENUITEM_SELECTED, "close");
       }
     });

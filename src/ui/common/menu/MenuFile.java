@@ -7,6 +7,7 @@ import java.awt.event.*;
 import ui.common.*;
 import ui.timeliner.*;
 import util.logging.*;
+import org.apache.log4j.Logger;
 
 /**
  * The File menu 
@@ -19,7 +20,8 @@ public class MenuFile extends JMenu {
     public JMenuItem menuiFilePrint = new JMenuItem();
     public JMenuItem menuiFileClose = new JMenuItem();
     public JMenuItem menuiFileExit = new JMenuItem();
-    
+    private Logger log = Logger.getLogger(TimelineBubbleEditor.class);
+
     //DEFAULT FONT
     static java.awt.Font fileFont;
     
@@ -34,6 +36,7 @@ public class MenuFile extends JMenu {
                 menuiFileExit_actionPerformed(e);
             }
         });
+ 
         menuiFileOpenTimeline.addActionListener(new java.awt.event.ActionListener()  {
           public void actionPerformed(ActionEvent e) {
               menuiFileOpenTimeline_actionPerformed(e);
@@ -93,8 +96,8 @@ public class MenuFile extends JMenu {
       ((BasicWindow) this.getParent().getParent().getParent().getParent()).getUILogger().log(UIEventType.MENUITEM_SELECTED, "exit");
       WindowManager.doShutDown();         //attempt to shutdown the app
     }
-
-    void menuiFileOpenTimeline_actionPerformed(ActionEvent e) {
+    
+     void menuiFileOpenTimeline_actionPerformed(ActionEvent e) {
         TimelineUtilities.openTimeline(parentWindow);   //open a timeline from a file
     }
 
