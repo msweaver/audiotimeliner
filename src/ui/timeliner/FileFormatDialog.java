@@ -20,7 +20,7 @@ import org.apache.log4j.Logger;
 public class FileFormatDialog extends JDialog {
 
   private static final long serialVersionUID = 1L;
-  private static Logger logger = Logger.getLogger(AudioHandler.class);
+  private static Logger logger = Logger.getLogger(AudioHandler.class); 
   // external components
   protected static UILogger uilogger;
   private static BasicWindow parentWindow;
