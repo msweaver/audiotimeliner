@@ -2,6 +2,8 @@ package ui.timeliner;
 
 import java.awt.*;
 
+import ui.common.UIUtilities;
+
 /**
  * Marker class
  * This class represents a Marker object. Markers are created in connection with
@@ -14,8 +16,8 @@ import java.awt.*;
 
   // private variables
   private Color color = new Color(0,0,0);
-  private int width = 8;
-  private int height = 8;
+  private int width = UIUtilities.scalePixels(8);
+  private int height = UIUtilities.scalePixels(8);
   private int markerX;
   private int markerY;
   private String label = "";
@@ -27,12 +29,12 @@ import java.awt.*;
   private boolean visibleTime;
   private int timeWidth = 0;
   private int timeStart = 0;
-  private int timeFontSize = 11;
+  private int timeFontSize = UIUtilities.convertFontSize(11);
   private boolean visibleLabel = true;
   private int labelWidth = 0;
   private int labelHeight = 0;
   private int labelStart = 0;
-  private int labelFontSize = 12;
+  private int labelFontSize = UIUtilities.convertFontSize(12);
   private String unicodeFont = "Arial Unicode MS";
   //private Graphics g;
   private Graphics2D g2d;
@@ -93,18 +95,6 @@ import java.awt.*;
     int numPoints = 3;
     markerPolygon = new Polygon(xPoints, yPoints, numPoints);
 
-    // now draw the Marker
-    if (!selected) {
-      g2d.setColor(color);
-      g2d.fill(markerPolygon);
-    }
-    else {
-      g2d.setColor(Color.white);
-      g2d.fill(markerPolygon);
-      g2d.setColor(color);
-      g2d.draw(markerPolygon);
-    }
-
     // draw the marker label
     if (visibleLabel && label.length() > 0) {
       // draw an "opaque" background for the label
@@ -114,6 +104,18 @@ import java.awt.*;
       g2d.setColor(Color.black);
       g2d.setFont(labelFont);
       g2d.drawString(label, labelX, labelY);
+    }
+
+   // now draw the Marker
+    if (!selected) {
+      g2d.setColor(color);
+      g2d.fill(markerPolygon);
+    }
+    else {
+      g2d.setColor(Color.white);
+      g2d.fill(markerPolygon);
+      g2d.setColor(color);
+      g2d.draw(markerPolygon);
     }
 
     // draw the marker time

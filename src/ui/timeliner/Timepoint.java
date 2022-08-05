@@ -2,6 +2,8 @@ package ui.timeliner;
 
 import java.awt.*;
 
+import ui.common.UIUtilities;
+
 /**
  * Timepoint class
  * This class represents a timepoint object. Timepoints are created in connection with
@@ -14,8 +16,8 @@ public class Timepoint {
 
   // private variables
   private Color color = new Color(0,0,0);
-  private int width = 3;
-  private int height = 10;
+  private int width = UIUtilities.scalePixels(3);
+  private int height = UIUtilities.scalePixels(10);
   private int timepointX;
   private int timepointY;
   private String label = "";

@@ -231,7 +231,7 @@ public class TimelineControlPanel extends JPanel {
     GridBagLayout gridBagAnnotationTools = new GridBagLayout();
     GridBagLayout gridBagElapsed = new GridBagLayout();
     this.setLayout(gridbagMain);
-    pnlStatus.setLayout(new BorderLayout());
+    pnlStatus.setLayout(new VerticalFlowLayout());
     pnlDuration.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 1));
     pnlPlayback.setLayout(new VerticalFlowLayout());
     pnlAudioControl.flowLay.setVgap(1);
@@ -286,8 +286,9 @@ public class TimelineControlPanel extends JPanel {
     lblAnnotations.setFont(timelineFont);
     //pnlStatus.setBorder(BorderFactory.createLoweredBevelBorder());
    // pnlDuration.setBorder(BorderFactory.createLoweredBevelBorder());
-    pnlStatus.add(lblStatus, BorderLayout.SOUTH);
-    lblStatus.setBorder(BorderFactory.createLoweredSoftBevelBorder());
+    pnlStatus.add(lblStatus);
+    lblStatus.setBorder(BorderFactory.createLoweredBevelBorder());
+    //lblStatus.setMinimumSize(new Dimension(200, 100));
     pnlDuration.add(lblDuration, null);
 
     // add panels to inner panels
@@ -305,8 +306,8 @@ public class TimelineControlPanel extends JPanel {
     TimelineUtilities.createConstraints(this, pnlAnnotationTools2, 1, 2, 1, 2, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
     TimelineUtilities.createConstraints(this, pnlTimepointButtons, 1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
     TimelineUtilities.createConstraints(this, pnlBubbleButtons, 1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
-    TimelineUtilities.createConstraints(this, pnlAnnotations, 2, 0, 1, 5, 1.0, 0.8, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 2, 0);
-    TimelineUtilities.createConstraints(this, pnlStatus, 0, 4, 2, 1, 0.0, 0.0, GridBagConstraints.SOUTH, GridBagConstraints.BOTH, 2, 2, 12, 2, 0, 0);
+    TimelineUtilities.createConstraints(this, pnlAnnotations, 2, 0, 1, 5, 1.0, 0.8, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(this, pnlStatus, 0, 4, 2, 1, 0.0, 0.0, GridBagConstraints.SOUTH, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
 //    TimelineUtilities.createConstraints(this, pnlDuration, 2, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, 2, 2, 2, 2, 0, 0);
 
     // create controls
@@ -1292,11 +1293,12 @@ public class TimelineControlPanel extends JPanel {
       if (description.length() > 0) {
         // create information icon and description
         String imageString = UIUtilities.infoString;
+        int infoSize = UIUtilities.scalePixels(20);
         //ImageIcon image = UIUtilities.icoInfoImage;
         tpAnnotations.setText("<html><head></head><body>"
                               + "<DIV STYLE='font-size : " + annotationFontSize + "pt; "
                               + "font-family : " + unicodeFont + "'>"
-                              + "<img src = 'file:" + imageString + "'> &nbsp;"
+                              + "<img width = '" + infoSize + "' height = '" + infoSize + "' valign=top src = 'file:" + imageString + "'> &nbsp;"
                               + description + "</div></body></html>");
       }
     } catch (Exception e) {

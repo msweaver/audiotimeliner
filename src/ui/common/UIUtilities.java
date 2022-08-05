@@ -350,7 +350,7 @@ public class UIUtilities {
   	  html = html.replaceAll("</span>", "");
   	  //html = html.replaceAll("</span> </span>", "</span>");
   	  html = html.replaceAll("\\s+", " ");
-  	  html = html.strip();
+  	  //html = html.strip();
   	  
   	  return html;
   	  

@@ -10,7 +10,9 @@
 	<classpathentry kind="lib" path="lib/log4j-1.2.3.jar"/>
 	<classpathentry kind="lib" path="lib/MRJClasses.zip"/>
 	<classpathentry kind="lib" path="lib/jbcl.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Brent Yorgason/eclipse-workspace/AudioTimeliner/lib/mp3spi1.9.5.zip"/>
-	<classpathentry kind="lib" path="C:/Users/Brent Yorgason/eclipse-workspace/AudioTimeliner/lib/jl1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/mp3spi1.9.5.zip"/>
+	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/jl1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/jaudiotagger-3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/jaudiotagger-3.0.1-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
