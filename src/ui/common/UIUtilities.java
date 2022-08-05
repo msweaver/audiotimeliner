@@ -56,6 +56,22 @@ public class UIUtilities {
     final public static ImageIcon icoWindow = new ImageIcon(AppEnv.getAppDir()+"resources/common/v2generic.gif");
     final public static ImageIcon icoTimeliner = new ImageIcon(AppEnv.getAppDir()+"resources/common/timeliner.gif");
 
+    // menu icons
+    final public static ImageIcon icoBold = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/BOLD_1.gif");
+    final public static ImageIcon icoItalic = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/ITALIC_1.gif");
+    final public static ImageIcon icoUnderline = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/UNDERLINE_1.gif");
+    final public static ImageIcon icoRed = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorRed.gif");
+    final public static ImageIcon icoGreen = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorGreen2.gif");
+    final public static ImageIcon icoBlue = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorBlue.gif");
+    final public static ImageIcon icoBlack = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorBlack.gif");
+    final public static ImageIcon icoYellow = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorYellow.gif");
+    final public static ImageIcon icoOrange = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorOrange.gif");
+    final public static ImageIcon icoGray = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorGray.gif");
+    final public static ImageIcon icoPink = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorPink.gif");
+    final public static ImageIcon icoCyan = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorCyan.gif");
+    final public static ImageIcon icoMagenta = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorMagenta.gif");
+    final public static Image imgOverlap = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+ "resources/media/over.gif");
+
     // timeliner icons
     final public static ImageIcon icoLeftSmall = new ImageIcon(AppEnv.getAppDir()+"resources/media/moveleftSmall.gif");
     final public static ImageIcon icoRightSmall = new ImageIcon(AppEnv.getAppDir()+"resources/media/moverightSmall.gif");
@@ -354,5 +370,10 @@ public class UIUtilities {
   	  
   	  return html;
   	  
+    }
+    
+    static public String removeTags(String html) {
+    	String nohtml = html.toString().replaceAll("\\<.*?>","");
+    	return nohtml;
     }
 }

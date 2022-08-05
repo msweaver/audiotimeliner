@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry kind="src" output="target/classes" path="src">
 		<attributes>
-			<attribute name="module" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX11"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/log4j-1.2.3.jar"/>
 	<classpathentry kind="lib" path="lib/MRJClasses.zip"/>
 	<classpathentry kind="lib" path="lib/jbcl.jar"/>
-	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/mp3spi1.9.5.zip"/>
-	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/jl1.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/jaudiotagger-3.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/jaudiotagger-3.0.1-sources.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="lib" path="C:/Users/Brent Yorgason/eclipse-workspace/AudioTimeliner/lib/jaudiotagger-3.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Brent Yorgason/eclipse-workspace/AudioTimeliner/lib/jaudiotagger-3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Brent Yorgason/eclipse-workspace/AudioTimeliner/lib/jlayer-1.0.1.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>

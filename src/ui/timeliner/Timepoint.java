@@ -33,6 +33,7 @@ public class Timepoint {
   private int labelHeight = 0;
   private int labelStart = 0;
   private int labelFontSize = 12;
+  private boolean isOverlap = false;
   //private Graphics g;
   private Graphics2D g2d;
 
@@ -89,7 +90,13 @@ public class Timepoint {
     timeStart = timeX;
 
     // now draw the timepoint
-    if (!selected) {
+    if (isOverlap) {
+    	Image overlap = UIUtilities.imgOverlap;
+    	g2d.drawImage(overlap, timepointX-7, timepointY-44, 16, 10, null);
+    	g2d.fillRect(timepointX, timepointY, width, height);
+    }
+    else if (!selected) {
+
       g2d.setColor(color);
       g2d.fillRect(timepointX, timepointY, width, height);
     }
@@ -149,6 +156,13 @@ public class Timepoint {
    */
   public String getLabel() {
     return label;
+  }
+
+  /**
+   * getOverlap: returns whether the timepoint is an overlap
+   */
+  public Boolean getOverlap() {
+    return isOverlap;
   }
 
   /**
@@ -261,6 +275,13 @@ public class Timepoint {
    */
   protected void setAnnotation(String annot) {
     annotation = annot;
+  }
+
+  /**
+   * setOverlap: sets whether the timepoint is an overlap
+   */
+  protected void setOverlap(Boolean bool) {
+    isOverlap = bool;
   }
 
   /**

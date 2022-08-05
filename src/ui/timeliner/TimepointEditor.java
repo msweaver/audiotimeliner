@@ -28,12 +28,15 @@ public class TimepointEditor extends JDialog {
   // visual components
   private  JTextField fldTimepointLabel;
   private  JLabel lblLabel = new JLabel("Label: ");
+  private JCheckBox chkOverlap = new JCheckBox("Add Overlap");
 
   // variables
   //private  String oldText;
   protected Vector<Integer> editedTimepoints = new Vector<Integer>();
   protected Vector<String> potentialLabels = new Vector<String>();
+  protected Vector<Boolean> potentialOverlaps = new Vector<Boolean>();
   protected Vector<String> oldLabels = new Vector<String>();
+  protected Vector<Boolean> oldOverlaps = new Vector<Boolean>();
   protected int currTimepoint;
   protected int buttonWidth;
   protected boolean recentApplyMade = false;
@@ -46,6 +49,7 @@ public class TimepointEditor extends JDialog {
   protected JPanel pnlNavigate = new JPanel();
   protected JPanel pnlLabel = new JPanel();
   protected JPanel pnlButtons = new JPanel();
+  protected JPanel pnlOverlap = new JPanel();
 
   // icons
   final  ImageIcon icoLeft = UIUtilities.icoLeftSmall;
@@ -115,6 +119,7 @@ public class TimepointEditor extends JDialog {
           currTimepoint = currTimepoint - 1;
         }
         updateTimepointLabel();
+        updateOverlap();
         updateNavigationButtons();
         uilogger.log(UIEventType.BUTTON_CLICKED, "navigate to previous timepoint");
       }
@@ -132,6 +137,7 @@ public class TimepointEditor extends JDialog {
           currTimepoint = currTimepoint + 1;
         }
         updateTimepointLabel();
+        updateOverlap();
         updateNavigationButtons();
         uilogger.log(UIEventType.BUTTON_CLICKED, "navigate to next timepoint");
       }
@@ -148,14 +154,16 @@ public class TimepointEditor extends JDialog {
           int currNum = ((Integer)editedTimepoints.elementAt(i)).intValue();
           Timepoint currTimepoint = timeline.getTimepoint(currNum);
           oldLabels.addElement(currTimepoint.getLabel());
+          oldOverlaps.addElement(currTimepoint.getOverlap());
           currTimepoint.setLabel((String)potentialLabels.elementAt(i));
+          currTimepoint.setOverlap(chkOverlap.isSelected());
         }
 
         timeline.makeDirty();
         closeWindow();
         frmTimeline.getControlPanel().updateAnnotationPane();
         pnlTimeline.undoManager.undoableEditHappened(new UndoableEditEvent(pnlTimeline,
-            new UndoableEditTimepoint(oldLabels, potentialLabels, editedTimepoints, timeline)));
+            new UndoableEditTimepoint(oldLabels, potentialLabels, oldOverlaps, potentialOverlaps, editedTimepoints, timeline)));
         pnlTimeline.updateUndoMenu();
         uilogger.log(UIEventType.BUTTON_CLICKED, "accept timepoint edits");
       }
@@ -174,13 +182,14 @@ public class TimepointEditor extends JDialog {
           Timepoint currTimepoint = timeline.getTimepoint(currNum);
           oldLabels.addElement(currTimepoint.getLabel());
           currTimepoint.setLabel((String)potentialLabels.elementAt(i));
+          currTimepoint.setOverlap(chkOverlap.isSelected());
         }
 
         timeline.makeDirty();
         pnlTimeline.refreshTimeline();
         frmTimeline.getControlPanel().updateAnnotationPane();
         pnlTimeline.undoManager.undoableEditHappened(new UndoableEditEvent(pnlTimeline,
-            new UndoableEditTimepoint(oldLabels, potentialLabels, editedTimepoints, timeline)));
+            new UndoableEditTimepoint(oldLabels, potentialLabels, oldOverlaps, potentialOverlaps, editedTimepoints, timeline)));
         pnlTimeline.updateUndoMenu();
         uilogger.log(UIEventType.BUTTON_CLICKED, "apply timepoint edits");
       }
@@ -194,10 +203,19 @@ public class TimepointEditor extends JDialog {
       }
     });
 
+    chkOverlap.setFont(timelineFont);
+    chkOverlap.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        
+        uilogger.log(UIEventType.BUTTON_CLICKED, "overlap selected");
+      }
+    });
+
     // panels
     pnlLabel.setLayout(new FlowLayout(FlowLayout.LEFT));
     pnlButtons.setLayout(new FlowLayout(FlowLayout.RIGHT));
     pnlNavigate.setLayout(new FlowLayout(FlowLayout.LEFT));
+    pnlOverlap.setLayout(new FlowLayout(FlowLayout.CENTER));
 
     // labels
     lblLabel.setFont(timelineFont);
@@ -213,15 +231,18 @@ public class TimepointEditor extends JDialog {
     pnlButtons.add(btnApply);
     pnlNavigate.add(btnLeft);
     pnlNavigate.add(btnRight);
+    pnlOverlap.add(chkOverlap);
 
     TimelineUtilities.createConstraints(pane, pnlLabel, 0, 0, 2, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(pane, pnlNavigate, 0, 1, 1, 1, 1.0, 0.0, GridBagConstraints.SOUTHWEST, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
-    TimelineUtilities.createConstraints(pane, pnlButtons, 1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.SOUTHEAST, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(pane, pnlOverlap, 0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(pane, pnlNavigate, 1, 1, 1, 1, 1.0, 0.0, GridBagConstraints.EAST, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
+    TimelineUtilities.createConstraints(pane, pnlButtons, 0, 2, 2, 1, 0.0, 0.0, GridBagConstraints.SOUTH, GridBagConstraints.NONE, 2, 2, 2, 2, 0, 0);
 
     // set initial label and update navigation buttons
     editedTimepoints.removeAllElements();
     currTimepoint = timeline.getLastTimepointClicked();
     updateTimepointLabel();
+    updateOverlap();
     updateNavigationButtons();
 
     // show dialog
@@ -249,10 +270,12 @@ public class TimepointEditor extends JDialog {
     if (prevSave == -1) { // this bubble has not been saved before
       editedTimepoints.addElement(Integer.valueOf(currTimepoint));
       potentialLabels.addElement(fldTimepointLabel.getText());
+      potentialOverlaps.addElement(chkOverlap.isSelected());
     }
     else {
       editedTimepoints.setElementAt(Integer.valueOf(currTimepoint), prevSave);
       potentialLabels.setElementAt(fldTimepointLabel.getText(), prevSave);
+      potentialOverlaps.setElementAt(chkOverlap.isSelected(), prevSave);
     }
   }
 
@@ -267,6 +290,24 @@ public class TimepointEditor extends JDialog {
     }
     else { // it has not been edited
       fldTimepointLabel.setText(currentTimepoint.getLabel());
+    }
+    if (!currentTimepoint.isSelected()) {
+      timeline.selectTimepoint(currTimepoint);
+    }
+    pnlTimeline.refreshTimeline();
+  }
+
+  /**
+   *  updateOverlap: update the displayed overlap status
+   */
+  private void updateOverlap() {
+    Timepoint currentTimepoint = timeline.getTimepoint(currTimepoint);
+    int prevPos = editedTimepoints.indexOf(Integer.valueOf(currTimepoint));
+    if (prevPos != -1) { // this timepoint has already been edited
+      chkOverlap.setSelected((Boolean)potentialOverlaps.elementAt(prevPos));
+    }
+    else { // it has not been edited
+      chkOverlap.setSelected(currentTimepoint.getOverlap());
     }
     if (!currentTimepoint.isSelected()) {
       timeline.selectTimepoint(currTimepoint);

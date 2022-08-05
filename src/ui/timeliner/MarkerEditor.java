@@ -34,7 +34,7 @@ public class MarkerEditor extends JDialog {
   private  TimelineFrame frmTimeline;
   private  Timeline timeline;
   private  TimelineMenuBar menubTimeline;
-  private  Logger log = Logger.getLogger(MarkerEditor.class);
+  //private  Logger log = Logger.getLogger(MarkerEditor.class);
   protected  UILogger uilogger;
 
   // visual components
@@ -360,15 +360,17 @@ public class MarkerEditor extends JDialog {
    * updateLabelAndAnnotation: updates the displayed label and annotation
    */
   private void updateLabelAndAnnotation() {
+	  
+	int annotationFontSize = UIUtilities.convertFontSize(18);
     Marker currentMarker = timeline.getMarker(currMarker);
     int prevPos = editedMarkers.indexOf(Integer.valueOf(currMarker));
     if (prevPos != -1) { // this marker has already been edited
       fldMarkerLabel.setText((String)potentialLabels.elementAt(prevPos));
-      tpAnnotation.setText((String)potentialAnnotations.elementAt(prevPos));
+      tpAnnotation.setText("<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + "'>" + (String)potentialAnnotations.elementAt(prevPos) + "</span></body></html>");
     }
     else { // it has not been edited
       fldMarkerLabel.setText(currentMarker.getLabel());
-      tpAnnotation.setText(currentMarker.getAnnotation());
+      tpAnnotation.setText("<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + "'>" + currentMarker.getAnnotation() + "</span></body></html>");
     }
     if (!currentMarker.isSelected()) {
       timeline.selectMarker(currMarker);
@@ -423,21 +425,22 @@ public class MarkerEditor extends JDialog {
       Action action = new StyledEditorKit.BoldAction();
       action.putValue(Action.NAME, "Bold");
       menu.add(action);
+      menu.getItem(0).setIcon(UIUtilities.icoBold);
 
       action = new StyledEditorKit.ItalicAction();
       action.putValue(Action.NAME, "Italic");
       menu.add(action);
+      menu.getItem(1).setIcon(UIUtilities.icoItalic);
 
       action = new StyledEditorKit.UnderlineAction();
       action.putValue(Action.NAME, "Underline");
       menu.add(action);
+      menu.getItem(2).setIcon(UIUtilities.icoUnderline);
 
      // menu.addSeparator();
 
-      //menu.add(new StyledEditorKit.FontFamilyAction("Serif",
-      //                                              "Serif"));
-      //menu.add(new StyledEditorKit.FontFamilyAction("SansSerif",
-      //                                              "SansSerif"));
+      //menu.add(new StyledEditorKit.FontFamilyAction("Serif", "Serif"));
+      //menu.add(new StyledEditorKit.FontFamilyAction("SansSerif", "SansSerif"));
 
       return menu;
   }
@@ -445,29 +448,37 @@ public class MarkerEditor extends JDialog {
   protected JMenu createColorMenu() {
       JMenu menu = new JMenu("Color");
 
-      menu.add(new StyledEditorKit.ForegroundAction("Red",
-                                                    Color.red));
-      menu.add(new StyledEditorKit.ForegroundAction("Green",
-                                                    Color.green));
-      menu.add(new StyledEditorKit.ForegroundAction("Blue",
-                                                    Color.blue));
-      menu.add(new StyledEditorKit.ForegroundAction("Black",
-                                                    Color.black));
+      menu.add(new StyledEditorKit.ForegroundAction("Red", Color.red));
+      menu.getItem(0).setIcon(UIUtilities.icoRed);
       
-      menu.addSeparator();
+      menu.add(new StyledEditorKit.ForegroundAction("Green", Color.green));
+      menu.getItem(1).setIcon(UIUtilities.icoGreen);
+      
+      menu.add(new StyledEditorKit.ForegroundAction("Blue", Color.blue));
+      menu.getItem(2).setIcon(UIUtilities.icoBlue);
+      
+      menu.add(new StyledEditorKit.ForegroundAction("Yellow", Color.yellow));
+      menu.getItem(3).setIcon(UIUtilities.icoYellow);
 
-      menu.add(new StyledEditorKit.ForegroundAction("Yellow",
-              Color.yellow));
-      menu.add(new StyledEditorKit.ForegroundAction("Magenta",
-              Color.magenta));
-      menu.add(new StyledEditorKit.ForegroundAction("Pink",
-              Color.pink));
-      menu.add(new StyledEditorKit.ForegroundAction("Orange",
-              Color.orange));
-      menu.add(new StyledEditorKit.ForegroundAction("Cyan",
-              Color.cyan));
+       menu.add(new StyledEditorKit.ForegroundAction("Orange", Color.orange));
+       menu.getItem(4).setIcon(UIUtilities.icoOrange);
 
+       menu.add(new StyledEditorKit.ForegroundAction("Pink", Color.pink));
+       menu.getItem(5).setIcon(UIUtilities.icoPink);
+
+       menu.add(new StyledEditorKit.ForegroundAction("Cyam", Color.cyan));
+       menu.getItem(6).setIcon(UIUtilities.icoCyan);
+
+       menu.add(new StyledEditorKit.ForegroundAction("Magenta", Color.magenta));
+       menu.getItem(7).setIcon(UIUtilities.icoMagenta);
+
+       menu.add(new StyledEditorKit.ForegroundAction("Gray", Color.darkGray));
+       menu.getItem(8).setIcon(UIUtilities.icoGray);
+
+     menu.add(new StyledEditorKit.ForegroundAction("Black", Color.black));
+       menu.getItem(9).setIcon(UIUtilities.icoBlack);
 
       return menu;
   }
+
 }

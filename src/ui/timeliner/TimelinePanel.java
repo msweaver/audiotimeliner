@@ -160,7 +160,7 @@ public class TimelinePanel extends JPanel
   protected Vector undoGroupAnnotations = new Vector();
 
   // logging
-  //private static Logger log = Logger.getLogger(TimelinePanel.class);
+  private static Logger log = Logger.getLogger(TimelinePanel.class);
   protected UILogger uilogger;
   
   public String savePath;
@@ -1368,7 +1368,7 @@ public class TimelinePanel extends JPanel
       else if (bubHover != -1) {
         if (System.getProperty("os.name").startsWith("Mac OS")) {
           frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandPoint, new Point(8, 8), "Cursor"));
-          tip = ((Bubble)timeline.getBubble(bubHover)).getAnnotation();
+          tip = UIUtilities.removeTags(((Bubble)timeline.getBubble(bubHover)).getAnnotation());
           if (tip.length() == 0) {
             this.setToolTipText(null);
            }
@@ -1381,7 +1381,7 @@ public class TimelinePanel extends JPanel
           }
         } else {
           frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandPoint, new Point(8, 8), "Cursor"));
-          tip = ((Bubble)timeline.getBubble(bubHover)).getAnnotation();
+          tip = UIUtilities.removeTags(((Bubble)timeline.getBubble(bubHover)).getAnnotation());
           if (tip.length() == 0) {
             this.setToolTipText(null);
           }
@@ -1572,7 +1572,6 @@ public class TimelinePanel extends JPanel
       case ADD_TIMEPOINT:
         if (timeline != null) {
           int off = timeline.getPlayerOffset();
-          //log.debug(off);
           int timepointNum = timeline.addTimepoint(off);
           timeline.refresh(g2d);
           undoManager.undoableEditHappened(new UndoableEditEvent(this,
@@ -1746,7 +1745,7 @@ public class TimelinePanel extends JPanel
           Dimension oldPanelSize = null;
           Dimension newPanelSize = null;
           Rectangle scrollRect = null;
-          boolean alreadyZoomed = timeline.timelineZoomed;
+           boolean alreadyZoomed = timeline.timelineZoomed;
           if (alreadyZoomed) {
             if (undoManager.getUndoPresentationName().equals("Undo Zoom to Selection") &&
                 oldZoomSelection.equals((Vector)timeline.getSelectedBubbles())) {
@@ -1956,7 +1955,7 @@ public class TimelinePanel extends JPanel
             else if (numClicks == 1) {
               bubbleClicked = timeline.getBubbleClicked(e.getPoint());
               paintContext = SELECT_BUBBLE;
-
+              
               // determine the selection type
               if (e.isControlDown() || (System.getProperty("os.name").startsWith("Mac OS") && e.isMetaDown())) {
                 selectType = CONTROL_CLICK;
@@ -1970,8 +1969,14 @@ public class TimelinePanel extends JPanel
                 refreshTimeline();
                 uilogger.log(UIEventType.ITEM_SINGLE_CLICK, "bubble shift-click select: " + bubbleClicked);
               }
-              else {
-                timeline.repositionHead(bubbleClicked);
+              else { // single click
+
+                  if (!timeline.isBubblePlaying(bubbleClicked)) { // reposition playback if this bubble is not playing
+                	  timeline.repositionHead(bubbleClicked);
+                   }
+            	  else {
+             	  }
+
                 selectType = SINGLE_CLICK;
                 timeline.selectBubble(bubbleClicked, selectType);
                 refreshTimeline();
@@ -1990,8 +1995,8 @@ public class TimelinePanel extends JPanel
             else if (numClicks == 2 && timeline.isEditable()) {
               timeline.clearSelectedBubbles();
               timeline.selectBubble(bubbleClicked, this.SINGLE_CLICK);
-              dlgBubbleEditor = new TimelineBubbleEditor(frmTimeline);
               uilogger.log(UIEventType.ITEM_DOUBLE_CLICK, "bubble (edit label): " + bubbleClicked);
+              dlgBubbleEditor = new TimelineBubbleEditor(frmTimeline);
             }
           }
 

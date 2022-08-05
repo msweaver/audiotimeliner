@@ -217,6 +217,8 @@ public class TimelineProperties extends JDialog {
     fldTimelineTitle.setText(oldTimelineTitle);
     
     // description pane
+    
+    int descriptionFontSize = UIUtilities.convertFontSize(16);
     fldTimelineDescription.setFont(unicodeFont);
     fldTimelineDescription.setToolTipText("Edit the timeline description");
     pnlDescription.setPreferredSize(new Dimension(descriptionWidth, descriptionHeight));
@@ -227,7 +229,7 @@ public class TimelineProperties extends JDialog {
     fldTimelineDescription.setMinimumSize(new Dimension(descriptionWidth - 65, descriptionHeight-45));
     fldTimelineDescription.setContentType("text/html");
     oldTimelineDescription = timeline.getDescription();
-    fldTimelineDescription.setText(oldTimelineDescription);
+    fldTimelineDescription.setText("<html><body><span style='margin-bottom:0em; font-size: " + descriptionFontSize + "pt; font-family: " + unicodeFont + "'>" + oldTimelineDescription + "</span></body></html>");
     bordDescription.setTitleFont(timelineFont);
     pnlDescription.setBorder(bordDescription);
     fldTimelineDescription.setMargin(new Insets(5,5,5,5));
@@ -654,8 +656,9 @@ public class TimelineProperties extends JDialog {
     });
     btnRestore.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
+    	int descriptionFontSize = UIUtilities.convertFontSize(16);
         fldTimelineTitle.setText(oldTimelineTitle);
-        fldTimelineDescription.setText(oldTimelineDescription);
+        fldTimelineDescription.setText("<html><body><span style='margin-bottom:0em; font-size: " + descriptionFontSize + "pt; font-family: " + unicodeFont + "'>" + oldTimelineDescription + "</span></body></html>");
         chkEditable.setSelected(true);
         chkResizable.setSelected(true);
         chkShowTimes.setSelected(false);
@@ -805,7 +808,7 @@ public class TimelineProperties extends JDialog {
      	  String html = output.toString();
   	  html = UIUtilities.htmlCleanup(html);
       timeline.setDescription(html);
-  	  log.debug("html = " + html);
+  	  //log.debug("html = " + html);
 
     } catch (Exception e) {
         System.err.println("Error saving description");
@@ -919,21 +922,22 @@ public class TimelineProperties extends JDialog {
       Action action = new StyledEditorKit.BoldAction();
       action.putValue(Action.NAME, "Bold");
       menu.add(action);
+      menu.getItem(0).setIcon(UIUtilities.icoBold);
 
       action = new StyledEditorKit.ItalicAction();
       action.putValue(Action.NAME, "Italic");
       menu.add(action);
+      menu.getItem(1).setIcon(UIUtilities.icoItalic);
 
       action = new StyledEditorKit.UnderlineAction();
       action.putValue(Action.NAME, "Underline");
       menu.add(action);
+      menu.getItem(2).setIcon(UIUtilities.icoUnderline);
 
      // menu.addSeparator();
 
-      //menu.add(new StyledEditorKit.FontFamilyAction("Serif",
-      //                                              "Serif"));
-      //menu.add(new StyledEditorKit.FontFamilyAction("SansSerif",
-      //                                              "SansSerif"));
+      //menu.add(new StyledEditorKit.FontFamilyAction("Serif", "Serif"));
+      //menu.add(new StyledEditorKit.FontFamilyAction("SansSerif", "SansSerif"));
 
       return menu;
   }
@@ -941,30 +945,38 @@ public class TimelineProperties extends JDialog {
   protected JMenu createColorMenu() {
       JMenu menu = new JMenu("Color");
 
-      menu.add(new StyledEditorKit.ForegroundAction("Red",
-                                                    Color.red));
-      menu.add(new StyledEditorKit.ForegroundAction("Green",
-                                                    Color.green));
-      menu.add(new StyledEditorKit.ForegroundAction("Blue",
-                                                    Color.blue));
-      menu.add(new StyledEditorKit.ForegroundAction("Black",
-                                                    Color.black));
+      menu.add(new StyledEditorKit.ForegroundAction("Red", Color.red));
+      menu.getItem(0).setIcon(UIUtilities.icoRed);
       
-      menu.addSeparator();
+      menu.add(new StyledEditorKit.ForegroundAction("Green", Color.green));
+      menu.getItem(1).setIcon(UIUtilities.icoGreen);
+      
+      menu.add(new StyledEditorKit.ForegroundAction("Blue", Color.blue));
+      menu.getItem(2).setIcon(UIUtilities.icoBlue);
+      
+      menu.add(new StyledEditorKit.ForegroundAction("Yellow", Color.yellow));
+      menu.getItem(3).setIcon(UIUtilities.icoYellow);
 
-      menu.add(new StyledEditorKit.ForegroundAction("Yellow",
-              Color.yellow));
-      menu.add(new StyledEditorKit.ForegroundAction("Magenta",
-              Color.magenta));
-      menu.add(new StyledEditorKit.ForegroundAction("Pink",
-              Color.pink));
-      menu.add(new StyledEditorKit.ForegroundAction("Orange",
-              Color.orange));
-      menu.add(new StyledEditorKit.ForegroundAction("Cyan",
-              Color.cyan));
+       menu.add(new StyledEditorKit.ForegroundAction("Orange", Color.orange));
+       menu.getItem(4).setIcon(UIUtilities.icoOrange);
 
+       menu.add(new StyledEditorKit.ForegroundAction("Pink", Color.pink));
+       menu.getItem(5).setIcon(UIUtilities.icoPink);
+
+       menu.add(new StyledEditorKit.ForegroundAction("Cyam", Color.cyan));
+       menu.getItem(6).setIcon(UIUtilities.icoCyan);
+
+       menu.add(new StyledEditorKit.ForegroundAction("Magenta", Color.magenta));
+       menu.getItem(7).setIcon(UIUtilities.icoMagenta);
+
+       menu.add(new StyledEditorKit.ForegroundAction("Gray", Color.darkGray));
+       menu.getItem(8).setIcon(UIUtilities.icoGray);
+
+     menu.add(new StyledEditorKit.ForegroundAction("Black", Color.black));
+       menu.getItem(9).setIcon(UIUtilities.icoBlack);
 
       return menu;
   }
+
 
 }

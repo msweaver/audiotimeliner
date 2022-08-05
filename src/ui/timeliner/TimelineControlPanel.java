@@ -1377,6 +1377,7 @@ public class TimelineControlPanel extends JPanel {
       StyleConstants.setFontFamily(selectedStyle, unicodeFont);
       StyleConstants.setFontFamily(normalStyle, unicodeFont);
       StyleConstants.setFontFamily(boldStyle, unicodeFont);
+      if (doc!=null) {
       doc.insertString(0, "<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + "'>", normalStyle);
 
       for (int i = currentBubbles.size()- 1; i >= 0; i--) {
@@ -1402,7 +1403,7 @@ public class TimelineControlPanel extends JPanel {
         }
         else { // non selected bubble -- or if selected levels is selected, a selected bubble :)
             int indentamt = ((currentBubbles.size()-1-i) * 20);
-            log.debug("indent = " + indentamt);
+            //log.debug("indent = " + indentamt);
             doc.insertString(doc.getLength(), "<div style='margin-top: 0em; margin-bottom: 0em; margin-left: " + indentamt + "px; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + ";'>", normalStyle);
           if (currLabel.equals("") && !currAnnotation.equals("")) { // if there is no label, use "Level 1", etc.
             doc.insertString(doc.getLength(), "Level " + currBubble.getLevel(), normalStyle);
@@ -1442,9 +1443,11 @@ public class TimelineControlPanel extends JPanel {
       StringWriter output = new StringWriter();
       try { sek.write( output, doc, 0, doc.getLength()); } catch (Exception exc) { System.err.println("Error getting annotation"); }
    	  String html = output.toString();
-   	  log.debug(html);
-   	  
-      tpAnnotations.setText(html);
+   	  //log.debug(html);
+   	  if (html!= null) {
+        tpAnnotations.setText(html);
+   	  }
+      }
       tpAnnotations.setVisible(true);
     } catch (BadLocationException ble) {
       System.err.println("Error displaying annotation");

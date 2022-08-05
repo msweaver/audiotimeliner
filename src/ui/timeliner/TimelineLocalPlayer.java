@@ -117,7 +117,7 @@ public class TimelineLocalPlayer implements PlayableContentHandlerListener {
 		        if (off != prevVal) {
 		        	int currOff = player.getOffset();
 		        	// logger.debug("setting slider to " + currOff);
-		          timeline.getSlider().setValue(currOff);
+		          timeline.getSlider().setValue(currOff-currstart);
 		          //setOffset(off);
 		        }
 //		        else {

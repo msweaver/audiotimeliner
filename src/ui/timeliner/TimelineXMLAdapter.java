@@ -515,14 +515,14 @@ public class TimelineXMLAdapter {
         	// look for the audio file in the same folder as the timeline first
         	//String relativePath = TimelineUtilities.getRelativePath(new File(mediacontent), new File (mediaContent));
         	//log.debug("relative path: " + relativePath);
-        	log.debug(mediaFile);
-        	log.debug(mediaFile.getName());
+        	//log.debug(mediaFile);
+        	//log.debug(mediaFile.getName());
         	File currFile = new File(currOpenPath);
-        	log.debug(currOpenPath);
-        	log.debug(currFile.getParent());
+        	//log.debug(currOpenPath);
+        	//log.debug(currFile.getParent());
         	String altPath = currFile.getParent() + "\\" + mediaFile.getName();
         	File alternatePath = new File(altPath);
-        	log.debug(altPath); 
+        	//log.debug(altPath); 
         	if (alternatePath.exists()) {
         		mediaFile = alternatePath;
         	} else {
@@ -574,9 +574,13 @@ public class TimelineXMLAdapter {
     timeline.playWhenBubbleClicked = playWhenClicked;
     timeline.stopPlayingAtSelectionEnd = stopPlaying;
 
-    // set as not dirty
-    timeline.makeClean();
-
+    // set as dirty or clean (did it need converted audio?)
+    if (pnlTimeline.getFrame().isNewAudio) {
+    	timeline.makeDirty();
+    } else {
+        timeline.makeClean();
+    }
+    
     // set up menu items
     if (System.getProperty("os.name").startsWith("Mac OS")) {
       pnlTimeline.menuiShowTimesMac.setSelected(showTimes);

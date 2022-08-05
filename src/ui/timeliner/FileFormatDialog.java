@@ -7,7 +7,7 @@ import java.awt.event.*;
 import ui.common.*;
 import com.borland.jbcl.layout.*;
 
-import javazoom.jl.converter.Converter;
+//import javazoom.jl.converter.Converter;
 import media.AudioHandler;
 import util.logging.*;
 import javax.swing.border.EmptyBorder;
@@ -83,7 +83,7 @@ public class FileFormatDialog extends JDialog {
     	  fn = fn + ".wav";
 
     	File newFileName = TimelineUtilities.chooseWavLocation(parentWindow, fn);
-    	  logger.debug("new file location: " + newFileName);
+    	  //logger.debug("new file location: " + newFileName);
 	      logger.debug("converting " + audioFile.getName() + " to " + fn + " ...");
 
 	setVisible(false);

@@ -74,6 +74,15 @@ public class TimelineSlider extends JSlider {
     addListeners();
   }
 
+  public int getNewMax() {
+	  
+	  int max = timeline.getPlayerDuration();
+	  timeline.resetTimeline();
+	  pnlTimeline.refreshTimeline();
+	  
+	  return max;
+  }
+  
   /**
    * addListeners: adds listeners to the slider and behavior to respond to mouse events
    */
@@ -92,6 +101,8 @@ public class TimelineSlider extends JSlider {
         Point panelPoint = new Point(e.getX() + timeline.getLineStart() - offset,
                                      e.getY() + timeline.getLineY());
         rightClickHappened = ((e.getModifiers() == e.BUTTON3_MASK) || e.isPopupTrigger());
+        
+        //log.debug("point clicked = " + panelPoint);
 
         // determine if the user clicked on a timepoint
         if (timeline.timepointWasClicked(panelPoint)) {
@@ -116,7 +127,7 @@ public class TimelineSlider extends JSlider {
               timeline.setTimepointDragging(true);                      // signal a dragging event
               pnlTimeline.selectTimepoint(timepointClicked);  // 'select' the timepoint
               uilogger.log(UIEventType.ITEM_SINGLE_CLICK, "timepoint select: " + timepointClicked);
-              if (timeline.playerIsPlaying()) {
+              if (timeline.playerIsPlaying()) { /// this is NEW
                   timeline.pausePlayer();        // pause playback
                   wasPlaying = true;
                 }
@@ -147,7 +158,7 @@ public class TimelineSlider extends JSlider {
               timeline.setMarkerDragging(true);                      // signal a dragging event
               pnlTimeline.selectMarker(markerClicked);  // 'select' the marker
               uilogger.log(UIEventType.ITEM_SINGLE_CLICK, "marker select: " + markerClicked);
-              if (timeline.playerIsPlaying()) {
+              if (timeline.playerIsPlaying()) { // this is new
                   timeline.pausePlayer();        // pause playback
                   wasPlaying = true;
                 }

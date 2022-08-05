@@ -10,7 +10,7 @@ import java.util.*;
 import javax.swing.event.*;
 import com.borland.jbcl.layout.*;
 import java.awt.geom.*;
-import java.io.File;
+//import java.io.File;
 
 import ui.common.*;
 
@@ -207,7 +207,7 @@ public class Timeline extends JPanel {
    * and a reference to the timeline panel that contains it
    */
   public Timeline(Graphics2D graphics, int lineLength, int bHeight, int bType,
-                  boolean bw, int numBubs, int numMarks, int[] spList, int[] mList, Vector tPoints, Vector mPoints, BubbleTreeNode topNode, TimelinePanel tp) {
+                  boolean bw, int numBubs, int numMarks, int[] spList, int[] mList, Vector<Timepoint> tPoints, Vector<Marker> mPoints, BubbleTreeNode topNode, TimelinePanel tp) {
 
     // store parameters
     pnlTimeline = tp;
@@ -533,7 +533,7 @@ public class Timeline extends JPanel {
     } else {
       widthBuffer = 50;
     }
-    pnlTimeline.getFrame();
+
 	bottomSpace = TimelineFrame.BOTTOM_SPACE;
   }
 
@@ -605,12 +605,12 @@ public class Timeline extends JPanel {
     setLineEnd(length + start);
     TimelineFrame frmTimeline = pnlTimeline.getFrame();
     boolean doShift = true;
-    Dimension d = new Dimension(frmTimeline.scrollPane.getWidth(), frmTimeline.scrollPane.getHeight());
+    Dimension d = new Dimension((int)frmTimeline.scrollPane.getWidth(), (int)frmTimeline.scrollPane.getHeight());
     int panelWidth = pnlTimeline.getWidth();
     int screenWidth = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-    int frameWidth = frmTimeline.getWidth();
-    int frameHeight = frmTimeline.getHeight();
-    int panelHeight = frameHeight - pnlControl.height - TimelineFrame.SPACER;
+    int frameWidth = (int)frmTimeline.getWidth();
+    int frameHeight = (int)frmTimeline.getHeight();
+    int panelHeight = frameHeight - pnlControl.height - TimelineFrame.SPACER; // (int)frmTimeline.scrollPane.getHeight()  - TimelineFrame.SPACER;; // 
     int tallestBubble = (int)((double)totalBubbleHeight * ((double)len / (double)oldLength));
     boolean isTooTall = false;
     boolean isTooWide = false;
@@ -642,7 +642,7 @@ public class Timeline extends JPanel {
 
     // make sure scrollpane doesn't resize
     frmTimeline.scrollPane.setPreferredSize(d);
-    frmTimeline.scrollPane.setSize(d);
+    //frmTimeline.scrollPane.setSize(d);
 
     // change rect and hide time mark
     yLoc = panelHeight - bottomSpace;
@@ -659,17 +659,25 @@ public class Timeline extends JPanel {
     showTime(false);
 
     // adjust the position of the slider in the panel
+    
     pnlTimeline.add(slide, new XYConstraints(start - offset, yLoc,
         length + (offset * 2), slide.getHeight()));
     slide.setSize(length + (offset * 2), slide.getHeight());
-
+    
     // update timepoint list
     respaceTimepointsAndMarkers(oldLength, length);
 
     // determine if there is a zoom offset associated with this resize action
     if (timelineZoomed && freshZoom) {
+    	
       int zoomOffset = this.sortedPixelList[zoomIndex] + start;
-      pnlTimeline.scrollRectToVisible(new Rectangle(zoomOffset, panelHeight-100, pnlTimeline.getFrame().getWidth() - start, panelHeight));
+     // log.debug("zoom index = " + zoomIndex + " start = " + start + " zoomOffset = " + zoomOffset);
+      
+      if (!playerIsPlaying()) {
+          //Rectangle newRect = new Rectangle((int)pnlTimeline.getVisibleRect().getX(), panelHeight-100, pnlTimeline.getFrame().getWidth() - start, panelHeight);
+      //Rectangle zoomRect = new Rectangle(zoomOffset, panelHeight-100, pnlTimeline.getFrame().getWidth() - start, panelHeight);
+      //pnlTimeline.scrollRectToVisible(zoomRect);
+      }
       freshZoom = false;
     }
     else {
@@ -795,13 +803,6 @@ public class Timeline extends JPanel {
     int currOff = sortedPointList[currPoint];
 
     // handle playback
-    /**    if (pnlTimeline.getFrame().isUsingLocalAudio) {
-      TimelineLocalPlayer tLocalPlayer = pnlTimeline.getLocalPlayer();
-    }
-    else {
-      TimelinePlayer tPlayer = pnlTimeline.getPlayer();
-    }
-    */
     if (playerIsPlaying() || playWhenBubbleClicked) {
       pausePlayer();
       slide.setValue(currOff);
@@ -839,10 +840,10 @@ public class Timeline extends JPanel {
     int frameWidth = pnlTimeline.getFrame().getWidth();
     pnlTimeline.doResize(pnlTimeline.timelineLength);
     Graphics2D g2 = (Graphics2D)pnlTimeline.getGraphics();
-    doLastResize(frameWidth - pnlTimeline.getFrame().SIDE_SPACE, g2);
+	doLastResize(frameWidth - TimelineFrame.SIDE_SPACE, g2);
     refresh(g2);
-    Dimension newPanelSize = new Dimension(frameWidth - pnlTimeline.getFrame().FRAME_SIDE_SPACE, pnlTimeline.getHeight());
-    Rectangle scrollRect = new Rectangle(0, 0, frameWidth - pnlTimeline.getFrame().FRAME_SIDE_SPACE, 0);
+    Dimension newPanelSize = new Dimension(frameWidth - TimelineFrame.FRAME_SIDE_SPACE, pnlTimeline.getHeight());
+    Rectangle scrollRect = new Rectangle(0, 0, frameWidth - TimelineFrame.FRAME_SIDE_SPACE, 0);
     pnlTimeline.setSize(newPanelSize);
     pnlTimeline.setPreferredSize(newPanelSize);
     pnlTimeline.setMinimumSize(newPanelSize);
@@ -1995,7 +1996,7 @@ public class Timeline extends JPanel {
           selectedBubbles.add(bClicked);
 
           if (currNode.isLeaf()) {
-            selectedBaseBubbles.add(new Integer(topBubbleNode.getLeafIndex(currNode)));
+            selectedBaseBubbles.add(Integer.valueOf(topBubbleNode.getLeafIndex(currNode)));
           }
         }
 
@@ -2008,7 +2009,7 @@ public class Timeline extends JPanel {
           selectedBubbles.add(bClicked);
 
           if (currNode.isLeaf()) {
-            selectedBaseBubbles.add(new Integer(topBubbleNode.getLeafIndex(currNode)));
+            selectedBaseBubbles.add(Integer.valueOf(topBubbleNode.getLeafIndex(currNode)));
           }
         }
 
@@ -2363,7 +2364,7 @@ public class Timeline extends JPanel {
       // get top zoom level
       topZoomLevel = getHighestLevelNodeWithin(zoomStartPoint, zoomEndPoint).getBubble().getLevel();
 
-      pnlTimeline.getFrame();
+	pnlTimeline.getFrame();
 	// determine the zoom factor and return the new length
       float zoomWidth = pnlTimeline.getFrame().getWidth() - TimelineFrame.SIDE_SPACE;
       zoomFactor = (float)zoomWidth / (float)zoomRange;
@@ -3074,10 +3075,13 @@ public class Timeline extends JPanel {
    * respaceTimepointsAndMarkers: respaces the timepoints and markers when the line is resized, recieving as parameters the old length and the new length
    */
   private void respaceTimepointsAndMarkers(int oldLength, int newLength) {
+	  
+	  //log.debug("old length = " + oldLength + " and new length = " + newLength);
     BubbleTreeNode currBaseBub = topBubbleNode.getFirstLeaf();
     for (int i = 0; i < numBaseBubbles; i++) {
       sortedPixelList[i] = ((TimelineSliderUI)slide.getUI()).xPositionForValue(sortedPointList[i], newLength - 4) - offset;
 
+      //log.debug("pixel list at i = " + sortedPixelList[i]);
       // determine the bounds of the bubble
       int bStart = sortedPixelList[i] + start;
       int bEnd = sortedPixelList[i + 1] + start;
@@ -3582,6 +3586,34 @@ public class Timeline extends JPanel {
    */
   public boolean isBubbleSelected(int bubNum) {
     return (selectedBubbles.contains((Integer.valueOf(bubNum))));
+  }
+
+  /**
+   * returns true if the given bubble is playing
+   */
+  public boolean isBubblePlaying(int bubNum) {
+	    BubbleTreeNode currNode = getBubbleNode(bubNum);
+	    int currPoint = topBubbleNode.getLeafIndex(currNode.getFirstLeaf());
+	    //int buffer = 10;
+	    int prevOff = sortedPointList[currPoint];
+	    int nextOff = sortedPointList[currPoint+1];
+	    //log.debug ("curr off = " + prevOff);
+	    //log.debug("next off = " + nextOff);
+	    
+	    if (tLocalPlayer!=null) {
+	      int currTime = tLocalPlayer.getOffset();
+		  //log.debug("offset = " + currTime);
+		  
+		  if ((prevOff <= currTime) && (nextOff > currTime)) {
+			  return true;
+		  }
+		  else {
+			  return false;
+		  }
+	    }
+	  else {
+		  return false;
+	  }
   }
 
   /**

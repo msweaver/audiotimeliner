@@ -377,9 +377,9 @@ public class TimelineFrame extends BasicWindow  {
     int controlHeight;
     
     this.repaint();
-    log.debug("scroll height before calculation = " + scrollPane.getHeight());
+    //log.debug("scroll height before calculation = " + scrollPane.getHeight());
     controlHeight = y - scrollPane.getHeight() - SPACER;
-    log.debug("new control height = " + controlHeight);
+    //log.debug("new control height = " + controlHeight);
     Dimension d3 = new Dimension(pnlTimeline.getWidth(), controlHeight);
     pnlControl.setMinimumSize(new Dimension(pnlTimeline.getWidth(), pnlControl.minHeight));
     pnlControl.setPreferredSize(d3);
@@ -397,19 +397,8 @@ public class TimelineFrame extends BasicWindow  {
 	        pnlTimeline.repositionTimeline();
 	        pnlTimeline.scheduleRefresh();
 	        scrollPane.getVerticalScrollBar().setValue( scrollPane.getVerticalScrollBar().getMaximum() );
-	     //   pnlHeight = 300;
-	   //   Dimension d = new Dimension(pnlTimeline.getWidth(), pnlHeight);
-	     // pnlTimeline.setMinimumSize(d);
-	//      pnlTimeline.setPreferredSize(d);
-	//      pnlTimeline.setSize(d);
-	      
-	      // update scroll panes
-	   //   Dimension d2 = new Dimension(scrollPane.getWidth(), y - pnlControl.height - SPACER + 20);
-	      //scrollPane.setPreferredSize(d2);
-	      //scrollPane.setSize(d2);
-	      //scrollPane.setMinimumSize(new Dimension(scrollPane.getWidth(), 300));
 
-	      log.debug("actual control height = " + pnlControl.getHeight());
+	      //log.debug("actual control height = " + pnlControl.getHeight());
 	    }
     }
   }

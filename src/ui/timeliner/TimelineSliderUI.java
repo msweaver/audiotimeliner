@@ -1165,15 +1165,15 @@ import org.apache.log4j.Logger;
         else {
             int distanceFromTrackLeft = xPos - trackLeft;
             int valueRange = maxValue - minValue;
-            log.debug("range = " + valueRange);
+            //log.debug("range = " + valueRange);
             double valuePerPixel = (double)valueRange / (double)trackLength;
-            log.debug("value per pixel = " + valuePerPixel);
+            //log.debug("value per pixel = " + valuePerPixel);
             int valueFromTrackLeft = (int)Math.round( distanceFromTrackLeft * valuePerPixel );
 
             value = drawInverted() ? maxValue - valueFromTrackLeft :
               minValue + valueFromTrackLeft;
         }
-        log.debug("value = " + value);
+        //log.debug("value = " + value);
 
         return value;
     }

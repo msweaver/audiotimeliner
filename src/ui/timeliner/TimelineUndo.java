@@ -1094,12 +1094,16 @@ class UndoableEditTimepoint extends AbstractUndoableEdit
 {
   Vector oldLabels;
   Vector newLabels;
+  Vector oldOverlaps;
+  Vector newOverlaps;
   Vector timepointNumbers;
   Timeline timeline;
 
-  public UndoableEditTimepoint(Vector oldl, Vector newl, Vector tpNum, Timeline t) {
+  public UndoableEditTimepoint(Vector oldl, Vector newl, Vector oldo, Vector newo, Vector tpNum, Timeline t) {
     oldLabels = (Vector)oldl.clone();
     newLabels = (Vector)newl.clone();
+    oldOverlaps = (Vector)oldo.clone();
+    newOverlaps = (Vector)newo.clone();
     timepointNumbers = (Vector)tpNum.clone();
     timeline = t;
   }
@@ -1114,6 +1118,7 @@ class UndoableEditTimepoint extends AbstractUndoableEdit
     for (int i = 0; i < timepointNumbers.size(); i++) {
       Timepoint currTimepoint = timeline.getTimepoint(((Integer)timepointNumbers.elementAt(i)).intValue());
       currTimepoint.setLabel((String)oldLabels.elementAt(i));
+      currTimepoint.setOverlap((Boolean)oldOverlaps.elementAt(i));
     }
     timeline.getPanel().refreshTimeline();
     timeline.getPanel().getFrame().getControlPanel().updateAnnotationPane();
@@ -1123,6 +1128,7 @@ class UndoableEditTimepoint extends AbstractUndoableEdit
     for (int i = 0; i < timepointNumbers.size(); i++) {
       Timepoint currTimepoint = timeline.getTimepoint(((Integer)timepointNumbers.elementAt(i)).intValue());
       currTimepoint.setLabel((String)newLabels.elementAt(i));
+      currTimepoint.setOverlap((Boolean)newOverlaps.elementAt(i));
     }
     timeline.getPanel().refreshTimeline();
     timeline.getPanel().getFrame().getControlPanel().updateAnnotationPane();
