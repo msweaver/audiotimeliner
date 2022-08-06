@@ -10124,3 +10124,545 @@ Aug 05 2022 11:18:43.103 [INFO ] ion#7.WINTYPE_LOCAL_TIMELINE#1 window closed - 
 Aug 05 2022 11:18:43.104 [INFO ] ion#7.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
 Aug 05 2022 11:18:43.185 [DEBUG] common.WindowManager           Starting the shutdown process
 Aug 05 2022 11:18:43.185 [DEBUG] common.WindowManager           closing 0 windows
+Aug 05 2022 17:31:54.444 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 17:31:56.929 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:450
+Aug 05 2022 17:31:56.990 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:450
+Aug 05 2022 17:32:02.918 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:807
+Aug 05 2022 17:32:13.072 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 button clicked - Annotation text larger: 30
+Aug 05 2022 17:32:13.226 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 button clicked - Annotation text larger: 32
+Aug 05 2022 17:32:13.397 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 button clicked - Annotation text larger: 34
+Aug 05 2022 17:32:13.531 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 button clicked - Annotation text larger: 36
+Aug 05 2022 17:32:14.718 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 button clicked - Annotation text smaller: 34
+Aug 05 2022 17:32:14.905 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 button clicked - Annotation text smaller: 32
+Aug 05 2022 17:32:21.743 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 05 2022 17:32:21.892 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 2
+Aug 05 2022 17:32:27.093 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 10
+Aug 05 2022 17:32:27.104 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 button clicked - cancel bubble edits
+Aug 05 2022 17:32:29.700 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 231126
+Aug 05 2022 17:32:29.717 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 9
+Aug 05 2022 17:32:30.781 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 262921
+Aug 05 2022 17:32:30.798 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 10
+Aug 05 2022 17:32:31.927 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 318034
+Aug 05 2022 17:32:31.958 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 12
+Aug 05 2022 17:32:33.239 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 446273
+Aug 05 2022 17:32:33.255 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 15
+Aug 05 2022 17:32:44.147 [DEBUG] timeliner.TimelineSlider       milliseconds = 482838
+Aug 05 2022 17:32:44.147 [DEBUG] timeliner.TimelineSlider       jump to 596
+Aug 05 2022 17:32:44.147 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 482838
+Aug 05 2022 17:32:45.426 [DEBUG] timeliner.TimelineSlider       milliseconds = 582849
+Aug 05 2022 17:32:45.427 [DEBUG] timeliner.TimelineSlider       jump to 718
+Aug 05 2022 17:32:45.427 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 582849
+Aug 05 2022 17:32:47.074 [DEBUG] timeliner.TimelineSlider       milliseconds = 782870
+Aug 05 2022 17:32:47.074 [DEBUG] timeliner.TimelineSlider       jump to 962
+Aug 05 2022 17:32:47.075 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 782870
+Aug 05 2022 17:32:48.210 [DEBUG] timeliner.TimelineSlider       milliseconds = 812382
+Aug 05 2022 17:32:48.210 [DEBUG] timeliner.TimelineSlider       jump to 998
+Aug 05 2022 17:32:48.211 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 812382
+Aug 05 2022 17:32:49.594 [DEBUG] timeliner.TimelineSlider       milliseconds = 455786
+Aug 05 2022 17:32:49.594 [DEBUG] timeliner.TimelineSlider       jump to 563
+Aug 05 2022 17:32:49.595 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 455786
+Aug 05 2022 17:32:50.771 [DEBUG] timeliner.TimelineSlider       milliseconds = 336101
+Aug 05 2022 17:32:50.771 [DEBUG] timeliner.TimelineSlider       jump to 417
+Aug 05 2022 17:32:50.772 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 336101
+Aug 05 2022 17:32:52.227 [DEBUG] timeliner.TimelineSlider       milliseconds = 155754
+Aug 05 2022 17:32:52.227 [DEBUG] timeliner.TimelineSlider       jump to 197
+Aug 05 2022 17:32:52.228 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 155754
+Aug 05 2022 17:33:02.738 [DEBUG] timeliner.TimelineSlider       milliseconds = 908294
+Aug 05 2022 17:33:02.738 [DEBUG] timeliner.TimelineSlider       jump to 1115
+Aug 05 2022 17:33:02.739 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 908294
+Aug 05 2022 17:33:35.789 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - timepoint select: 8
+Aug 05 2022 17:33:35.790 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 318024
+Aug 05 2022 17:33:37.071 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 322112
+Aug 05 2022 17:33:37.082 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item dragged - timepoint repositioned: 8
+Aug 05 2022 17:33:37.090 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 322112
+Aug 05 2022 17:33:43.806 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 10
+Aug 05 2022 17:33:43.828 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 1
+Aug 05 2022 17:38:45.333 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 879175
+Aug 05 2022 17:38:45.366 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 33
+Aug 05 2022 17:38:50.144 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 1042258
+Aug 05 2022 17:38:50.158 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 38
+Aug 05 2022 17:38:55.692 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 38
+Aug 05 2022 17:38:56.821 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 38
+Aug 05 2022 17:38:58.120 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 38
+Aug 05 2022 17:38:58.752 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 38
+Aug 05 2022 17:38:59.881 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798682
+Aug 05 2022 17:38:59.893 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 31
+Aug 05 2022 17:39:00.677 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 31
+Aug 05 2022 17:39:01.832 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 1002229
+Aug 05 2022 17:39:01.840 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 37
+Aug 05 2022 17:39:03.236 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 37
+Aug 05 2022 17:39:04.603 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 972763
+Aug 05 2022 17:39:04.624 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 36
+Aug 05 2022 17:39:07.818 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 879175
+Aug 05 2022 17:39:07.830 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 33
+Aug 05 2022 17:39:09.640 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 940702
+Aug 05 2022 17:39:09.651 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 34
+Aug 05 2022 17:39:10.880 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 34
+Aug 05 2022 17:39:11.643 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 879175
+Aug 05 2022 17:39:11.663 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 33
+Aug 05 2022 17:39:22.459 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798682
+Aug 05 2022 17:39:22.486 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 32
+Aug 05 2022 17:39:23.785 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 879175
+Aug 05 2022 17:39:23.796 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 33
+Aug 05 2022 17:39:26.612 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 940702
+Aug 05 2022 17:39:26.637 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 34
+Aug 05 2022 17:39:28.809 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798682
+Aug 05 2022 17:39:28.824 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 31
+Aug 05 2022 17:39:29.746 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 964053
+Aug 05 2022 17:39:29.770 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 35
+Aug 05 2022 17:39:32.219 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 972763
+Aug 05 2022 17:39:32.244 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 36
+Aug 05 2022 17:39:33.765 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 1002229
+Aug 05 2022 17:39:33.781 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 37
+Aug 05 2022 17:39:34.816 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 1042258
+Aug 05 2022 17:39:34.830 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 38
+Aug 05 2022 17:39:36.930 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798682
+Aug 05 2022 17:39:36.954 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 31
+Aug 05 2022 17:39:38.689 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 32
+Aug 05 2022 17:39:40.679 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 879175
+Aug 05 2022 17:39:40.696 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 33
+Aug 05 2022 17:39:41.568 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798682
+Aug 05 2022 17:39:41.579 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 31
+Aug 05 2022 17:39:42.543 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 32
+Aug 05 2022 17:39:43.711 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 31
+Aug 05 2022 17:39:44.571 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 879175
+Aug 05 2022 17:39:44.587 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 33
+Aug 05 2022 17:39:51.440 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 446273
+Aug 05 2022 17:39:51.464 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 15
+Aug 05 2022 17:39:52.735 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 409161
+Aug 05 2022 17:39:52.751 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 14
+Aug 05 2022 17:39:53.614 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 322122
+Aug 05 2022 17:39:53.626 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 11
+Aug 05 2022 17:39:55.475 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 567907
+Aug 05 2022 17:39:55.496 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 19
+Aug 05 2022 17:39:56.531 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 613905
+Aug 05 2022 17:39:56.551 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 21
+Aug 05 2022 17:39:58.333 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 21
+Aug 05 2022 17:39:59.748 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 21
+Aug 05 2022 17:40:01.462 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 20
+Aug 05 2022 17:40:02.754 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 648469
+Aug 05 2022 17:40:02.778 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 22
+Aug 05 2022 17:40:04.519 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 22
+Aug 05 2022 17:40:06.643 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 678956
+Aug 05 2022 17:40:06.663 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 23
+Aug 05 2022 17:40:07.677 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 23
+Aug 05 2022 17:40:16.080 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 23
+Aug 05 2022 17:40:19.730 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 613905
+Aug 05 2022 17:40:19.760 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 20
+Aug 05 2022 17:40:21.434 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 678956
+Aug 05 2022 17:40:21.464 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 23
+Aug 05 2022 17:40:22.789 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 648469
+Aug 05 2022 17:40:22.803 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 22
+Aug 05 2022 17:40:24.447 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 613905
+Aug 05 2022 17:40:24.457 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 20
+Aug 05 2022 17:40:25.638 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 648469
+Aug 05 2022 17:40:25.652 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 22
+Aug 05 2022 17:40:27.039 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 613905
+Aug 05 2022 17:40:27.050 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 20
+Aug 05 2022 17:40:29.736 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 button clicked - play
+Aug 05 2022 17:40:32.320 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 21
+Aug 05 2022 17:40:34.090 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 648459
+Aug 05 2022 17:40:34.101 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 22
+Aug 05 2022 17:40:35.368 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 678946
+Aug 05 2022 17:40:35.378 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 23
+Aug 05 2022 17:40:36.832 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 723926
+Aug 05 2022 17:40:36.841 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 25
+Aug 05 2022 17:40:38.039 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 567897
+Aug 05 2022 17:40:38.053 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 19
+Aug 05 2022 17:40:39.112 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 538414
+Aug 05 2022 17:40:39.124 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 18
+Aug 05 2022 17:40:40.231 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 523275
+Aug 05 2022 17:40:40.243 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 17
+Aug 05 2022 17:40:41.769 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 506448
+Aug 05 2022 17:40:41.780 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 16
+Aug 05 2022 17:40:42.872 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 446263
+Aug 05 2022 17:40:42.883 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 15
+Aug 05 2022 17:40:44.043 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 322112
+Aug 05 2022 17:40:44.060 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 11
+Aug 05 2022 17:40:45.583 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798672
+Aug 05 2022 17:40:45.594 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 31
+Aug 05 2022 17:40:46.967 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 32
+Aug 05 2022 17:40:48.119 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 879165
+Aug 05 2022 17:40:48.155 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 33
+Aug 05 2022 17:40:50.369 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798672
+Aug 05 2022 17:40:50.381 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 31
+Aug 05 2022 17:40:51.112 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 32
+Aug 05 2022 17:40:52.234 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 879165
+Aug 05 2022 17:40:52.246 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 33
+Aug 05 2022 17:40:53.538 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798672
+Aug 05 2022 17:40:53.549 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 32
+Aug 05 2022 17:40:54.738 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 879165
+Aug 05 2022 17:40:54.748 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 33
+Aug 05 2022 17:40:56.064 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798672
+Aug 05 2022 17:40:56.075 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 31
+Aug 05 2022 17:40:56.849 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 940692
+Aug 05 2022 17:40:56.858 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 34
+Aug 05 2022 17:40:57.506 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 879165
+Aug 05 2022 17:40:57.517 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 33
+Aug 05 2022 17:40:58.479 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 972753
+Aug 05 2022 17:40:58.489 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 36
+Aug 05 2022 17:40:59.801 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 1002219
+Aug 05 2022 17:40:59.811 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 37
+Aug 05 2022 17:41:00.783 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 1042248
+Aug 05 2022 17:41:00.793 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 38
+Aug 05 2022 17:41:01.823 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 879165
+Aug 05 2022 17:41:01.839 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 33
+Aug 05 2022 17:41:02.931 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798672
+Aug 05 2022 17:41:02.943 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 32
+Aug 05 2022 17:41:04.862 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 678946
+Aug 05 2022 17:41:04.874 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 23
+Aug 05 2022 17:41:06.836 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 button clicked - pause
+Aug 05 2022 17:41:08.135 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 879175
+Aug 05 2022 17:41:08.147 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 33
+Aug 05 2022 17:41:09.782 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798682
+Aug 05 2022 17:41:09.792 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 32
+Aug 05 2022 17:41:10.726 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 766429
+Aug 05 2022 17:41:10.736 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 30
+Aug 05 2022 17:41:15.213 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 30
+Aug 05 2022 17:41:18.400 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 754248
+Aug 05 2022 17:41:18.410 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 29
+Aug 05 2022 17:41:19.373 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 29
+Aug 05 2022 17:41:20.752 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 748069
+Aug 05 2022 17:41:20.763 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 28
+Aug 05 2022 17:41:21.716 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 28
+Aug 05 2022 17:41:24.558 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 736204
+Aug 05 2022 17:41:24.567 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 26
+Aug 05 2022 17:41:26.083 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 26
+Aug 05 2022 17:41:26.782 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 26
+Aug 05 2022 17:41:27.490 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 723936
+Aug 05 2022 17:41:27.502 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 25
+Aug 05 2022 17:41:29.018 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 766429
+Aug 05 2022 17:41:29.044 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 30
+Aug 05 2022 17:41:29.767 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798682
+Aug 05 2022 17:41:29.778 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 32
+Aug 05 2022 17:41:31.326 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 766429
+Aug 05 2022 17:41:31.337 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 30
+Aug 05 2022 17:41:32.377 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798682
+Aug 05 2022 17:41:32.397 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 32
+Aug 05 2022 17:41:33.396 [DEBUG] timeliner.TimelineSlider       milliseconds = 819759
+Aug 05 2022 17:41:33.396 [DEBUG] timeliner.TimelineSlider       jump to 1007
+Aug 05 2022 17:41:33.396 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 819759
+Aug 05 2022 17:41:34.471 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 766429
+Aug 05 2022 17:41:34.479 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 30
+Aug 05 2022 17:41:35.466 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 798682
+Aug 05 2022 17:41:35.485 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 32
+Aug 05 2022 17:41:36.207 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 766429
+Aug 05 2022 17:41:36.219 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 30
+Aug 05 2022 17:41:37.385 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 613905
+Aug 05 2022 17:41:37.404 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 20
+Aug 05 2022 17:41:38.413 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 648469
+Aug 05 2022 17:41:38.425 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 22
+Aug 05 2022 17:41:39.342 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 879175
+Aug 05 2022 17:41:39.353 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 33
+Aug 05 2022 17:41:40.902 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 446273
+Aug 05 2022 17:41:40.914 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 15
+Aug 05 2022 17:41:41.758 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 409161
+Aug 05 2022 17:41:41.769 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 14
+Aug 05 2022 17:41:42.623 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 322122
+Aug 05 2022 17:41:42.633 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 11
+Aug 05 2022 17:41:43.524 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 11
+Aug 05 2022 17:41:44.846 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 384899
+Aug 05 2022 17:41:44.853 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 13
+Aug 05 2022 17:41:46.813 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 13
+Aug 05 2022 17:41:48.094 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 322122
+Aug 05 2022 17:41:48.103 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 12
+Aug 05 2022 17:41:49.446 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 384899
+Aug 05 2022 17:41:49.462 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 13
+Aug 05 2022 17:41:50.223 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 409161
+Aug 05 2022 17:41:50.236 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 14
+Aug 05 2022 17:41:50.981 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 14
+Aug 05 2022 17:41:52.046 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 384899
+Aug 05 2022 17:41:52.057 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 13
+Aug 05 2022 17:41:53.250 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 409161
+Aug 05 2022 17:41:53.271 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 14
+Aug 05 2022 17:41:55.816 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 446273
+Aug 05 2022 17:41:55.832 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 15
+Aug 05 2022 17:41:56.657 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 15
+Aug 05 2022 17:41:59.703 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 15
+Aug 05 2022 17:42:01.895 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 384899
+Aug 05 2022 17:42:01.915 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 13
+Aug 05 2022 17:42:03.599 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 446273
+Aug 05 2022 17:42:03.610 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 15
+Aug 05 2022 17:42:05.150 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 409161
+Aug 05 2022 17:42:05.162 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 14
+Aug 05 2022 17:42:06.285 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 384899
+Aug 05 2022 17:42:06.297 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 13
+Aug 05 2022 17:42:07.534 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 322122
+Aug 05 2022 17:42:07.544 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 12
+Aug 05 2022 17:42:10.001 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 384899
+Aug 05 2022 17:42:10.021 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 13
+Aug 05 2022 17:42:10.534 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 322122
+Aug 05 2022 17:42:10.547 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 12
+Aug 05 2022 17:42:11.695 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 446273
+Aug 05 2022 17:42:11.708 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 15
+Aug 05 2022 17:42:13.646 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 506458
+Aug 05 2022 17:42:13.656 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 16
+Aug 05 2022 17:42:14.590 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 523285
+Aug 05 2022 17:42:14.602 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 17
+Aug 05 2022 17:42:15.782 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 538424
+Aug 05 2022 17:42:15.792 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 18
+Aug 05 2022 17:42:16.814 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 567907
+Aug 05 2022 17:42:16.823 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 19
+Aug 05 2022 17:42:18.112 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 446273
+Aug 05 2022 17:42:18.127 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 15
+Aug 05 2022 17:42:19.382 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 613905
+Aug 05 2022 17:42:19.397 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 20
+Aug 05 2022 17:42:20.486 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 648469
+Aug 05 2022 17:42:20.495 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 22
+Aug 05 2022 17:42:21.366 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 742224
+Aug 05 2022 17:42:21.376 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 27
+Aug 05 2022 17:42:37.784 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 27
+Aug 05 2022 17:42:38.949 [INFO ] on#95.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 27
+Aug 05 2022 19:15:23.571 [INFO ] .Session#58                    Begin
+Aug 05 2022 19:15:23.572 [INFO ] .Session#58                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 19:15:23.576 [INFO ] .Session#58                    Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 19:15:47.814 [INFO ] on#58.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 19:24:46.425 [INFO ] on#58.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 05 2022 19:24:46.466 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 05 2022 19:24:46.488 [DEBUG] common.WindowManager           closing 0 windows
+Aug 05 2022 20:16:16.204 [INFO ] .Session#4                     Begin
+Aug 05 2022 20:16:16.206 [INFO ] .Session#4                     System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 20:16:16.212 [INFO ] .Session#4                     Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 20:16:25.473 [INFO ] ion#4.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 20:20:06.681 [INFO ] .Session#27                    Begin
+Aug 05 2022 20:20:06.682 [INFO ] .Session#27                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 20:20:06.683 [INFO ] .Session#27                    Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 20:20:11.914 [INFO ] on#27.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 20:22:17.909 [INFO ] .Session#34                    Begin
+Aug 05 2022 20:22:17.911 [INFO ] .Session#34                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 20:22:17.919 [INFO ] .Session#34                    Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 20:22:21.707 [INFO ] on#34.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 20:22:27.254 [INFO ] on#34.WINTYPE_LOCAL_TIMELINE#1 button clicked - cancel open timeline
+Aug 05 2022 20:22:27.255 [INFO ] on#34.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 05 2022 20:22:36.387 [INFO ] on#34.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 05 2022 20:22:36.402 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 05 2022 20:22:36.403 [DEBUG] common.WindowManager           closing 0 windows
+Aug 05 2022 20:23:49.596 [INFO ] .Session#52                    Begin
+Aug 05 2022 20:23:49.597 [INFO ] .Session#52                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 20:23:49.599 [INFO ] .Session#52                    Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 20:23:52.187 [INFO ] on#52.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 20:23:56.576 [DEBUG] timeliner.TimelineLocalPlayer  mp3 path file:///C:/Users/Brent%20Yorgason/Dropbox/Documents/N74291.wav
+Aug 05 2022 20:23:57.337 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1209965, duration: 1209965
+Aug 05 2022 20:23:57.338 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 20:23:57.338 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 1209965
+Aug 05 2022 20:23:57.342 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 20:23:58.225 [INFO ] on#52.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 05 2022 20:23:58.226 [INFO ] on#52.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 05 2022 20:24:02.249 [INFO ] on#52.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 05 2022 20:24:04.201 [INFO ] on#52.WINTYPE_LOCAL_TIMELINE#1 button clicked - Annotation text larger: 20
+Aug 05 2022 20:24:04.389 [INFO ] on#52.WINTYPE_LOCAL_TIMELINE#1 button clicked - Annotation text larger: 22
+Aug 05 2022 20:24:04.725 [INFO ] on#52.WINTYPE_LOCAL_TIMELINE#1 button clicked - Annotation text larger: 24
+Aug 05 2022 20:24:05.074 [INFO ] on#52.WINTYPE_LOCAL_TIMELINE#1 button clicked - Annotation text larger: 26
+Aug 05 2022 20:30:39.192 [INFO ] .Session#4                     Begin
+Aug 05 2022 20:30:39.193 [INFO ] .Session#4                     System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 20:30:39.194 [INFO ] .Session#4                     Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 20:30:42.216 [INFO ] ion#4.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 20:32:50.737 [INFO ] .Session#29                    Begin
+Aug 05 2022 20:32:50.738 [INFO ] .Session#29                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 20:32:50.740 [INFO ] .Session#29                    Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 20:32:53.211 [INFO ] on#29.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 20:32:55.972 [INFO ] on#29.WINTYPE_LOCAL_TIMELINE#1 window closed - remaining open window count - 0
+Aug 05 2022 20:32:55.984 [DEBUG] common.WindowManager           Starting the shutdown process
+Aug 05 2022 20:32:55.985 [DEBUG] common.WindowManager           closing 0 windows
+Aug 05 2022 20:49:02.761 [INFO ] .Session#6                     Begin
+Aug 05 2022 20:49:02.762 [INFO ] .Session#6                     System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 20:49:02.769 [INFO ] .Session#6                     Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 20:49:05.325 [INFO ] ion#6.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 20:49:08.460 [DEBUG] timeliner.TimelineLocalPlayer  mp3 path file:///C:/Users/Brent%20Yorgason/Dropbox/Documents/N74291.wav
+Aug 05 2022 20:49:08.654 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1209965, duration: 1209965
+Aug 05 2022 20:49:08.655 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 20:49:08.656 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 1209965
+Aug 05 2022 20:49:08.656 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 20:49:08.799 [INFO ] ion#6.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 05 2022 20:49:08.799 [INFO ] ion#6.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 05 2022 20:49:11.042 [INFO ] ion#6.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 05 2022 20:49:11.528 [INFO ] ion#6.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 05 2022 20:49:11.713 [INFO ] ion#6.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 2
+Aug 05 2022 20:49:16.769 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 20:49:16.805 [INFO ] ion#6.WINTYPE_LOCAL_TIMELINE#1 button clicked - cancel bubble edits
+Aug 05 2022 20:53:11.884 [INFO ] .Session#89                    Begin
+Aug 05 2022 20:53:11.885 [INFO ] .Session#89                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 20:53:11.887 [INFO ] .Session#89                    Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 20:53:14.428 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 20:53:17.072 [DEBUG] timeliner.TimelineLocalPlayer  mp3 path file:///C:/Users/Brent%20Yorgason/Dropbox/Documents/N74291.wav
+Aug 05 2022 20:53:17.247 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1209965, duration: 1209965
+Aug 05 2022 20:53:17.250 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 20:53:17.250 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 1209965
+Aug 05 2022 20:53:17.253 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 20:53:17.386 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 05 2022 20:53:17.386 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 05 2022 20:53:18.533 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 05 2022 20:53:18.812 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 2
+Aug 05 2022 20:56:25.274 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 972763
+Aug 05 2022 20:56:25.341 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 36
+Aug 05 2022 20:56:26.657 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 1002229
+Aug 05 2022 20:56:26.700 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 37
+Aug 05 2022 20:56:28.830 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 538424
+Aug 05 2022 20:56:28.846 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 18
+Aug 05 2022 20:56:34.601 [DEBUG] timeliner.TimelineLocalPlayer  mp3 path file:///C:/Users/Brent%20Yorgason/Dropbox/Documents/N74293.wav
+Aug 05 2022 20:56:34.852 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#2 window resized - x:1600 y:655
+Aug 05 2022 20:56:34.891 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1, duration: 314226
+Aug 05 2022 20:56:34.898 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 20:56:34.898 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 314226
+Aug 05 2022 20:56:34.900 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 20:56:36.717 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#2 item single click - bubble select: 1
+Aug 05 2022 20:56:36.856 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#2 item double click - bubble (edit label): 1
+Aug 05 2022 20:56:40.335 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 20:56:40.383 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#2 button clicked - accept bubble edits
+Aug 05 2022 20:56:41.215 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#2 item single click - bubble select: 1
+Aug 05 2022 20:56:41.395 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#2 item double click - bubble (edit label): 1
+Aug 05 2022 20:56:49.684 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 20:56:49.714 [INFO ] on#89.WINTYPE_LOCAL_TIMELINE#2 button clicked - cancel bubble edits
+Aug 05 2022 22:42:50.651 [INFO ] .Session#66                    Begin
+Aug 05 2022 22:42:50.651 [INFO ] .Session#66                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 22:42:50.654 [INFO ] .Session#66                    Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 22:42:53.770 [INFO ] on#66.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 22:42:57.998 [DEBUG] timeliner.TimelineLocalPlayer  mp3 path file:///C:/Users/Brent%20Yorgason/Dropbox/Documents/N74291.wav
+Aug 05 2022 22:42:58.289 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1209965, duration: 1209965
+Aug 05 2022 22:42:58.291 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 22:42:58.291 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 1209965
+Aug 05 2022 22:42:58.294 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 22:42:58.467 [INFO ] on#66.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 05 2022 22:42:58.467 [INFO ] on#66.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 05 2022 23:09:50.218 [INFO ] on#66.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 05 2022 23:09:50.398 [INFO ] on#66.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 2
+Aug 05 2022 23:12:46.809 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:12:46.822 [INFO ] on#66.WINTYPE_LOCAL_TIMELINE#1 button clicked - cancel bubble edits
+Aug 05 2022 23:19:27.555 [INFO ] .Session#55                    Begin
+Aug 05 2022 23:19:27.559 [INFO ] .Session#55                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 23:19:27.562 [INFO ] .Session#55                    Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 23:19:30.940 [INFO ] on#55.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 23:19:35.913 [DEBUG] timeliner.TimelineLocalPlayer  mp3 path file:///C:/Users/Brent%20Yorgason/Dropbox/Documents/N74291.wav
+Aug 05 2022 23:19:36.115 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1209965, duration: 1209965
+Aug 05 2022 23:19:36.117 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:19:36.117 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 1209965
+Aug 05 2022 23:19:36.118 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:19:36.257 [INFO ] on#55.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 05 2022 23:19:36.258 [INFO ] on#55.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 05 2022 23:19:37.776 [INFO ] on#55.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 05 2022 23:19:37.951 [INFO ] on#55.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 2
+Aug 05 2022 23:20:29.443 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:20:29.458 [INFO ] on#55.WINTYPE_LOCAL_TIMELINE#1 button clicked - cancel bubble edits
+Aug 05 2022 23:20:30.800 [INFO ] on#55.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 05 2022 23:20:30.989 [INFO ] on#55.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 2
+Aug 05 2022 23:20:42.322 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:20:42.362 [INFO ] on#55.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept bubble edits
+Aug 05 2022 23:21:24.219 [INFO ] .Session#38                    Begin
+Aug 05 2022 23:21:24.220 [INFO ] .Session#38                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 23:21:24.223 [INFO ] .Session#38                    Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 23:21:26.800 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 23:21:30.249 [DEBUG] timeliner.TimelineLocalPlayer  mp3 path file:///C:/Users/Brent%20Yorgason/Dropbox/Documents/N74291.wav
+Aug 05 2022 23:21:30.473 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1209965, duration: 1209965
+Aug 05 2022 23:21:30.475 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:21:30.475 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 1209965
+Aug 05 2022 23:21:30.477 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:21:30.620 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 05 2022 23:21:30.621 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 05 2022 23:21:32.014 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 2
+Aug 05 2022 23:21:32.163 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 2
+Aug 05 2022 23:21:34.786 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:21:34.797 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 button clicked - cancel bubble edits
+Aug 05 2022 23:21:36.644 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 item single click - marker select: 4
+Aug 05 2022 23:21:36.648 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 614250
+Aug 05 2022 23:21:36.751 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 614250
+Aug 05 2022 23:21:37.235 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 item single click - marker select: 4
+Aug 05 2022 23:21:37.238 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 614250
+Aug 05 2022 23:21:37.333 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 614250
+Aug 05 2022 23:21:37.439 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 614250
+Aug 05 2022 23:21:53.936 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept marker edits
+Aug 05 2022 23:21:53.937 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 item double click - marker (edit): 4
+Aug 05 2022 23:21:56.376 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 21
+Aug 05 2022 23:21:58.207 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 button clicked - play
+Aug 05 2022 23:22:00.842 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:22:00.843 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:22:00.862 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 button clicked - stop
+Aug 05 2022 23:22:17.513 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept timeline properties changes
+Aug 05 2022 23:22:17.513 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 button clicked - edit timeline properties
+Aug 05 2022 23:24:06.243 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 312478
+Aug 05 2022 23:24:06.272 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 11
+Aug 05 2022 23:24:06.408 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 11
+Aug 05 2022 23:24:11.658 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 312478
+Aug 05 2022 23:24:11.690 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept bubble edits
+Aug 05 2022 23:25:23.393 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 11
+Aug 05 2022 23:25:23.557 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 11
+Aug 05 2022 23:25:50.545 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 312478
+Aug 05 2022 23:25:50.580 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept bubble edits
+Aug 05 2022 23:25:53.428 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 11
+Aug 05 2022 23:25:53.611 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 11
+Aug 05 2022 23:25:57.487 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 312478
+Aug 05 2022 23:25:57.499 [INFO ] on#38.WINTYPE_LOCAL_TIMELINE#1 button clicked - cancel bubble edits
+Aug 05 2022 23:51:26.032 [INFO ] .Session#49                    Begin
+Aug 05 2022 23:51:26.036 [INFO ] .Session#49                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 23:51:26.040 [INFO ] .Session#49                    Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 23:51:29.264 [INFO ] on#49.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 23:51:32.670 [DEBUG] timeliner.TimelineLocalPlayer  mp3 path file:///C:/Users/Brent%20Yorgason/Dropbox/Documents/N74291.wav
+Aug 05 2022 23:51:32.864 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1209965, duration: 1209965
+Aug 05 2022 23:51:32.865 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:51:32.865 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 1209965
+Aug 05 2022 23:51:32.868 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:51:33.035 [INFO ] on#49.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 05 2022 23:51:33.035 [INFO ] on#49.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 05 2022 23:51:34.072 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 312478
+Aug 05 2022 23:51:34.096 [INFO ] on#49.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 11
+Aug 05 2022 23:51:34.279 [INFO ] on#49.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 11
+Aug 05 2022 23:51:38.622 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 312478
+Aug 05 2022 23:51:38.661 [INFO ] on#49.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept bubble edits
+Aug 05 2022 23:52:14.197 [INFO ] .Session#79                    Begin
+Aug 05 2022 23:52:14.198 [INFO ] .Session#79                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 23:52:14.201 [INFO ] .Session#79                    Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 23:52:17.137 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 23:52:21.725 [DEBUG] timeliner.TimelineLocalPlayer  mp3 path file:///C:/Users/Brent%20Yorgason/Dropbox/Documents/N74291.wav
+Aug 05 2022 23:52:21.921 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1209965, duration: 1209965
+Aug 05 2022 23:52:21.922 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:52:21.922 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 1209965
+Aug 05 2022 23:52:21.926 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 05 2022 23:52:22.046 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 05 2022 23:52:22.047 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 05 2022 23:52:22.704 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 312478
+Aug 05 2022 23:52:22.728 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 11
+Aug 05 2022 23:52:22.908 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 11
+Aug 05 2022 23:52:26.459 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 312478
+Aug 05 2022 23:52:26.496 [INFO ] on#79.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept bubble edits
+Aug 05 2022 23:58:33.506 [INFO ] .Session#94                    Begin
+Aug 05 2022 23:58:33.507 [INFO ] .Session#94                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 05 2022 23:58:33.510 [INFO ] .Session#94                    Initial display resolution is x:1600.0 y:900.0
+Aug 05 2022 23:58:37.101 [INFO ] on#94.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 05 2022 23:58:42.489 [DEBUG] timeliner.TimelineLocalPlayer  mp3 path file:///C:/Users/Brent%20Yorgason/Dropbox/Documents/N74293-constant.mp3
+Aug 05 2022 23:58:43.085 [DEBUG] timeliner.TimelineLocalPlayer  bitrate = 128
+Aug 05 2022 23:58:43.086 [DEBUG] timeliner.TimelineLocalPlayer  bits per sample = 16
+Aug 05 2022 23:58:43.086 [DEBUG] timeliner.TimelineLocalPlayer  encoding type = MPEG-1 Layer 3
+Aug 05 2022 23:58:43.086 [DEBUG] timeliner.TimelineLocalPlayer  variable bitrate = false
+Aug 05 2022 23:58:43.087 [DEBUG] timeliner.TimelineLocalPlayer  lossless = false
+Aug 05 2022 23:58:43.087 [DEBUG] timeliner.TimelineLocalPlayer  byte rate = null
+Aug 05 2022 23:58:43.087 [DEBUG] timeliner.TimelineLocalPlayer  audio sample rate = 44100
+Aug 05 2022 23:58:43.087 [DEBUG] timeliner.TimelineLocalPlayer  number of frames = 12029
+Aug 05 2022 23:58:43.087 [DEBUG] timeliner.TimelineLocalPlayer  mpeg version = MPEG-1
+Aug 05 2022 23:58:43.088 [DEBUG] timeliner.TimelineLocalPlayer  mpeg layer = Layer 3
+Aug 05 2022 23:58:43.088 [DEBUG] timeliner.TimelineLocalPlayer  format = Mp3
+Aug 05 2022 23:58:43.088 [DEBUG] timeliner.TimelineLocalPlayer  channels = Joint Stereo
+Aug 05 2022 23:58:43.596 [DEBUG] timeliner.TimelineLocalPlayer  Precise Duration = 314227
+Aug 05 2022 23:58:43.603 [DEBUG] timeliner.TimelineLocalPlayer  Precise Duration = 314227
+Aug 05 2022 23:58:43.604 [DEBUG] timeliner.TimelineLocalPlayer  start: 64151, stop: 114600, duration: 314227
+Aug 05 2022 23:58:43.604 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 64151
+Aug 05 2022 23:58:43.604 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 50449
+Aug 05 2022 23:58:43.604 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 64151
+Aug 05 2022 23:58:43.795 [INFO ] on#94.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 05 2022 23:58:43.796 [INFO ] on#94.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 05 2022 23:58:45.784 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 76243
+Aug 05 2022 23:58:45.817 [INFO ] on#94.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 3
+Aug 05 2022 23:58:46.742 [INFO ] on#94.WINTYPE_LOCAL_TIMELINE#1 item single click - bubble select: 3
+Aug 05 2022 23:58:46.923 [INFO ] on#94.WINTYPE_LOCAL_TIMELINE#1 item double click - bubble (edit label): 3
+Aug 05 2022 23:58:50.432 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 76243
+Aug 05 2022 23:58:50.471 [INFO ] on#94.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept bubble edits
+Aug 06 2022 00:08:24.894 [INFO ] .Session#55                    Begin
+Aug 06 2022 00:08:24.894 [INFO ] .Session#55                    System Properties: java 16.0.1, Oracle Corporation, Windows 10, amd64, os version 10.0
+Aug 06 2022 00:08:24.896 [INFO ] .Session#55                    Initial display resolution is x:1600.0 y:900.0
+Aug 06 2022 00:08:27.461 [INFO ] on#55.WINTYPE_LOCAL_TIMELINE#1 window resized - x:1600 y:655
+Aug 06 2022 00:08:32.109 [DEBUG] timeliner.TimelineLocalPlayer  mp3 path file:///C:/Users/Brent%20Yorgason/Dropbox/Documents/N74291.wav
+Aug 06 2022 00:08:32.340 [DEBUG] timeliner.TimelineLocalPlayer  start: 0, stop: 1209965, duration: 1209965
+Aug 06 2022 00:08:32.342 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 06 2022 00:08:32.343 [DEBUG] timeliner.TimelineLocalPlayer  localStartOffset: 0, localEndOffset: 1209965
+Aug 06 2022 00:08:32.350 [DEBUG] timeliner.TimelineLocalPlayer  setting offset to 0
+Aug 06 2022 00:08:32.501 [INFO ] on#55.WINTYPE_LOCAL_TIMELINE#1 button clicked - accept open timeline
+Aug 06 2022 00:08:32.501 [INFO ] on#55.WINTYPE_LOCAL_TIMELINE#1 button clicked - open an existing timeline
+Aug 06 2022 00:08:47.049 [INFO ] on#55.WINTYPE_LOCAL_TIMELINE#1 button clicked - edit timeline properties

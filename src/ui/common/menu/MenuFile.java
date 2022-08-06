@@ -79,15 +79,17 @@ public class MenuFile extends JMenu {
             menuiFileClose.setMnemonic('c');
             menuiFileExit.setMnemonic('x');
             
-            menuiFileClose.setFont(fileFont);
-            menuiFileNewTimeline.setFont(fileFont);
-            menuiFileOpenTimeline.setFont(fileFont);
-            menuiFileExit.setFont(fileFont);
-            menuiFilePrint.setFont(fileFont);
-            this.setFont(fileFont);
             //Exit only present on Win
             this.add(menuiFileExit);
         }
+        
+        menuiFileClose.setFont(fileFont);
+        menuiFileNewTimeline.setFont(fileFont);
+        menuiFileOpenTimeline.setFont(fileFont);
+        menuiFileExit.setFont(fileFont);
+        menuiFilePrint.setFont(fileFont);
+        this.setFont(fileFont);
+
         //Some options disabled by default
         menuiFilePrint.setEnabled(false);
     }

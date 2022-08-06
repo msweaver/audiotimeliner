@@ -255,7 +255,7 @@ public class TimelineControlPanel extends JPanel {
     tpAnnotations.setFont(annotationFont);
     //tpAnnotations.setContentType("text/html");
     scrpAnnotations.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
+    
     // create panel borders
     titledBorderPlayback = new TitledBorder(" Playback ");
     titledBorderTimepoints = new TitledBorder(" Timepoints and Markers ");
@@ -855,9 +855,9 @@ public class TimelineControlPanel extends JPanel {
             annotationFontSize = annotationFontSize - 2;
           }
           if (System.getProperty("os.name").startsWith("Mac OS")) {
-            annotationFont = new Font(unicodeFont, 0, annotationFontSize - 2);
+            annotationFont = new Font(unicodeFont, 0, annotationFontSize);
             Style fontStyle = doc.addStyle("FontSize", null);
-            StyleConstants.setFontSize(fontStyle, annotationFontSize - 2);
+            StyleConstants.setFontSize(fontStyle, annotationFontSize);
            // doc.setParagraphAttributes(0, doc.getLength(), fontStyle, false); !!!!!!!!!!!!!
           } else {
             annotationFont = new Font(unicodeFont, Font.PLAIN, annotationFontSize);
@@ -1364,7 +1364,7 @@ public class TimelineControlPanel extends JPanel {
       HTMLEditorKit hek = new HTMLEditorKit();
       //tpAnnotations.setEditorKit(sek);
       tpAnnotations.setEditorKit(hek);
-//      tpAnnotations.setContentType("text/plain");
+ //      tpAnnotations.setContentType("text/plain");
       tpAnnotations.setVisible(false);
       doc = (StyledDocument)tpAnnotations.getDocument();
       selectedStyle = doc.addStyle("Selected", null);

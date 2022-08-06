@@ -146,7 +146,7 @@ public class TimelineProperties extends JDialog {
       timelineFont = UIUtilities.fontDialogMacSmallest;
       unicodeFont = UIUtilities.fontUnicodeSmaller;
       titleWidth = 45;
-      descriptionWidth = UIUtilities.scalePixels(600); //530
+      descriptionWidth = UIUtilities.scalePixels(530); 
       dialogWidth = UIUtilities.scalePixels(570);
       dialogHeight = UIUtilities.scalePixels(570);
       levelButtonWidth = 39;
@@ -225,8 +225,8 @@ public class TimelineProperties extends JDialog {
     pnlDescription.setMinimumSize(new Dimension(descriptionWidth, descriptionHeight));
     scrpDescription.setPreferredSize(new Dimension(descriptionWidth - 65, descriptionHeight-45));
     scrpDescription.setMinimumSize(new Dimension(descriptionWidth - 65, descriptionHeight-45));
-    fldTimelineDescription.setPreferredSize(new Dimension(descriptionWidth - 65, descriptionHeight-45));
-    fldTimelineDescription.setMinimumSize(new Dimension(descriptionWidth - 65, descriptionHeight-45));
+   // fldTimelineDescription.setPreferredSize(new Dimension(descriptionWidth - 65, descriptionHeight-45));
+   // fldTimelineDescription.setMinimumSize(new Dimension(descriptionWidth - 65, descriptionHeight-45));
     fldTimelineDescription.setContentType("text/html");
     oldTimelineDescription = timeline.getDescription();
     fldTimelineDescription.setText("<html><body><span style='margin-bottom:0em; font-size: " + descriptionFontSize + "pt; font-family: " + unicodeFont + "'>" + oldTimelineDescription + "</span></body></html>");
@@ -939,6 +939,23 @@ public class TimelineProperties extends JDialog {
       //menu.add(new StyledEditorKit.FontFamilyAction("Serif", "Serif"));
       //menu.add(new StyledEditorKit.FontFamilyAction("SansSerif", "SansSerif"));
 
+      if (System.getProperty("os.name").startsWith("Mac OS")) {
+          //Mac specific stuff
+          menu.getItem(0).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.META_DOWN_MASK));
+          menu.getItem(1).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.META_DOWN_MASK));
+          menu.getItem(2).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.META_DOWN_MASK));
+      } else {
+          //Windows specific stuff
+          menu.getItem(0).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.CTRL_DOWN_MASK));
+          menu.getItem(1).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_DOWN_MASK));
+          menu.getItem(2).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.CTRL_DOWN_MASK));
+          menu.setMnemonic('f');
+          menu.getItem(0).setMnemonic('b');
+          menu.getItem(1).setMnemonic('i');
+          menu.getItem(2).setMnemonic('u');
+
+      }
+
       return menu;
   }
 
@@ -963,7 +980,7 @@ public class TimelineProperties extends JDialog {
        menu.add(new StyledEditorKit.ForegroundAction("Pink", Color.pink));
        menu.getItem(5).setIcon(UIUtilities.icoPink);
 
-       menu.add(new StyledEditorKit.ForegroundAction("Cyam", Color.cyan));
+       menu.add(new StyledEditorKit.ForegroundAction("Cyan", Color.cyan));
        menu.getItem(6).setIcon(UIUtilities.icoCyan);
 
        menu.add(new StyledEditorKit.ForegroundAction("Magenta", Color.magenta));

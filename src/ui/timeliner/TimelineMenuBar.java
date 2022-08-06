@@ -290,6 +290,8 @@ public class TimelineMenuBar extends JMenuBar {
     menuiDeleteBubble = new JMenuItem("Delete");
     menuiMoveBubbleUp = new JMenuItem("Move Up a Level");
     menuiMoveBubbleDown = new JMenuItem("Move Down a Level");
+    menuiMoveBubbleUp.setFont(timelineMenuFont);
+    menuiMoveBubbleDown.setFont(timelineMenuFont);
     menuiDeleteBubble.setFont(timelineMenuFont);
     menuBubbles.add(menuiSetText);
     menuBubbles.add(menuiChangeColor);

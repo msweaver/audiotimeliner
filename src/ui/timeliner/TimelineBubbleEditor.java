@@ -145,10 +145,7 @@ public class TimelineBubbleEditor extends JDialog {
     fldBubbleLabel.setPreferredSize(new Dimension(250, 25));
     fldBubbleLabel.setFont(unicodeFont);
     fldBubbleLabel.setToolTipText("Edit the bubble label");
-    Font annotationFont = new Font("Arial Unicode MS", 0, 24);
     tpAnnotation.setPreferredSize(new Dimension(430, 375));
-    //tpAnnotation.setFont(timelineFont);
-    tpAnnotation.setFont(annotationFont);
     tpAnnotation.setContentType("text/html");
     tpAnnotation.setToolTipText("Edit the bubble annotation");
 
@@ -158,9 +155,6 @@ public class TimelineBubbleEditor extends JDialog {
         doc = (AbstractDocument)styledDoc;
     } else {
      }
-    //Style fontStyle = ((StyledDocument)doc).addStyle("FontSize", null);
-    //styledDoc.addStyle("FontStyle", fontStyle);
-    //StyleConstants.setFontSize(fontStyle, 24);
     
     // menu bar
     JMenu styleMenu = createStyleMenu();
@@ -563,11 +557,11 @@ public class TimelineBubbleEditor extends JDialog {
     int prevPos = editedBubbles.indexOf(Integer.valueOf(currentBubbleNum));
     if (prevPos != -1) { // this bubble has already been edited
       fldBubbleLabel.setText((String)potentialLabels.elementAt(prevPos));
-      tpAnnotation.setText("<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + "'>" + (String)potentialAnnotations.elementAt(prevPos) + "</span></body></html>");
+      tpAnnotation.setText("<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: Arial Unicode MS'>" + (String)potentialAnnotations.elementAt(prevPos) + "</span></body></html>");
     }
     else { // it has not been edited
       fldBubbleLabel.setText(currBubble.getLabel());
-      tpAnnotation.setText("<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + "'>" + currBubble.getAnnotation() + "</span></body></html>");
+      tpAnnotation.setText("<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: Arial Unicode MS'>" + currBubble.getAnnotation() + "</span></body></html>");
     }
     if (!currBubble.isSelected()) {
       timeline.selectBubble(currentBubbleNum, 0);
@@ -657,6 +651,23 @@ public class TimelineBubbleEditor extends JDialog {
       //menu.add(new StyledEditorKit.FontFamilyAction("Serif", "Serif"));
       //menu.add(new StyledEditorKit.FontFamilyAction("SansSerif", "SansSerif"));
 
+      if (System.getProperty("os.name").startsWith("Mac OS")) {
+          //Mac specific stuff
+          menu.getItem(0).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.META_DOWN_MASK));
+          menu.getItem(1).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.META_DOWN_MASK));
+          menu.getItem(2).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.META_DOWN_MASK));
+      } else {
+          //Windows specific stuff
+          menu.getItem(0).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.CTRL_DOWN_MASK));
+          menu.getItem(1).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_DOWN_MASK));
+          menu.getItem(2).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.CTRL_DOWN_MASK));
+          menu.setMnemonic('f');
+          menu.getItem(0).setMnemonic('b');
+          menu.getItem(1).setMnemonic('i');
+          menu.getItem(2).setMnemonic('u');
+
+      }
+
       return menu;
   }
 
@@ -681,7 +692,7 @@ public class TimelineBubbleEditor extends JDialog {
        menu.add(new StyledEditorKit.ForegroundAction("Pink", Color.pink));
        menu.getItem(5).setIcon(UIUtilities.icoPink);
 
-       menu.add(new StyledEditorKit.ForegroundAction("Cyam", Color.cyan));
+       menu.add(new StyledEditorKit.ForegroundAction("Cyan", Color.cyan));
        menu.getItem(6).setIcon(UIUtilities.icoCyan);
 
        menu.add(new StyledEditorKit.ForegroundAction("Magenta", Color.magenta));

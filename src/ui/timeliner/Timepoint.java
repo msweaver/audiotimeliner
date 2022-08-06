@@ -92,7 +92,7 @@ public class Timepoint {
     // now draw the timepoint
     if (isOverlap) {
     	Image overlap = UIUtilities.imgOverlap;
-    	g2d.drawImage(overlap, timepointX-7, timepointY-44, 16, 10, null);
+    	g2d.drawImage(overlap, timepointX-7, timepointY-40, 16, 10, null);
     	g2d.fillRect(timepointX, timepointY, width, height);
     }
     else if (!selected) {

@@ -132,7 +132,7 @@ public class TimelineFrame extends BasicWindow  {
 
 // Mac specific layout
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      CONTROL_PANEL_HEIGHT = UIUtilities.scaleHeight(203);
+      CONTROL_PANEL_HEIGHT = UIUtilities.scaleHeight(350); // 203
       SPACER = UIUtilities.scaleHeight(52);
     }
 

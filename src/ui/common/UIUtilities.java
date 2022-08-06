@@ -25,7 +25,7 @@ public class UIUtilities {
     
     static public final Font fontUnicode = new Font("Arial Unicode MS", 0, convertFontSize(11));
     static public final Font fontUnicodeBigger = new Font("Arial Unicode MS", 0, convertFontSize(12));
-    static public final Font fontUnicodeBiggest = new Font("Arial Unicode MS", 0, convertFontSize(12));
+    static public final Font fontUnicodeBiggest = new Font("Arial Unicode MS", 0, convertFontSize(14));
     static public final Font fontUnicodeSmaller = new Font("Arial Unicode MS", 0, convertFontSize(10));
     static public final Font fontMenusWin = new Font("Dialog", 0, convertFontSize(12));  //windows font for menus
     static public final Font fontMenusMac = new Font("Dialog", 0, convertFontSize(14));            //mac font for menus

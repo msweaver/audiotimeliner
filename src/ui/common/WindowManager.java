@@ -65,53 +65,42 @@ public class WindowManager {
                                           "Error initializing app.", JOptionPane.ERROR_MESSAGE);
             Client.shutdown();
         }
-        try {
-/**            if (QTSession.isInitialized() == false) {   //initialize QT
-                try {
-                    QTSession.open();                   //open a quicktime session
-                } catch (QTException e) {
-                    JOptionPane.showMessageDialog(null, "Error initializing QuickTime.",
-                            "Error initializing app.", JOptionPane.ERROR_MESSAGE);
-                    e.printStackTrace();
-                    Client.shutdown();
-                }
-                //loop until done
-                while (QTSession.isInitialized() == false) {
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException except) {
-                        ; // ignore
-                    }
-                }
-            }
-**/        } catch (UnsatisfiedLinkError err) {
-            //will happen in QuickTime is not installed AT ALL
-            JOptionPane.showMessageDialog(null, "Error initializing QuickTime.",
-                            "Error initializing app.", JOptionPane.ERROR_MESSAGE);
-                    err.printStackTrace();
-                    Client.shutdown();
-        }
         if (System.getProperty("os.name").startsWith("Mac OS")) {       //Mac specific stuff
             //put menu bar on the top of screen
             System.setProperty("com.apple.macos.useScreenMenuBar", "true");
             System.setProperty("com.apple.macos.use-file-dialog-packages", "true");  //don't allow navigation into apps
             //the following line does nothing if uncommented, must be set with AppBuilder instead, otherwise no about menu appears
-//            //System.setProperty("com.apple.mrj.application.apple.menu.about.name", "About Variations2");  //add 'about' to app menu
+            //System.setProperty("com.apple.mrj.application.apple.menu.about.name", "About Variations2");  //add 'about' to app menu
             System.setProperty("com.apple.mrj.application.growbox.intrudes", "true");       //looks bad otherwise
             //MacMenuHandler x = new MacMenuHandler(); 
             //trigger application's quit method appropriately
             //MRJApplicationUtils.registerQuitHandler(x);
             //about menu handler for mac
             //MRJApplicationUtils.registerAboutHandler(x);
+            
+       //     Desktop desktop = Desktop.getDesktop();
+      //      desktop.setAboutHandler(e -> JOptionPane.showMessageDialog(null, new Object[] {"Audio Timeliner" + "\n" +
+      //              "Version 3.0" + "\n" +
+      //              "Copyright 2022" + "\n" + "Brent Yorgason" + "\n" + "Brigham Young University"},
+      //              "About Audio Timeliner", JOptionPane.INFORMATION_MESSAGE, UIUtilities.icoTimeliner)
+       //     		);
+            
+          //  desktop.setPreferencesHandler(e ->
+           // JOptionPane.showMessageDialog(null, "Preferences dialog")
+      //  );
+      //  desktop.setQuitHandler((e,r) -> {
+              //  JOptionPane.showMessageDialog(null, "Quit dialog");
+              //  System.exit(0);
+      //      }
+     //   );
         }
 
         if (System.getProperty("os.name").startsWith("Mac OS")) {
             // OpenDocument handler for Mac
-            //MacOpenHandler openHandler = new MacOpenHandler();
+            MacOpenHandler openHandler = new MacOpenHandler();
             //MRJApplicationUtils.registerOpenDocumentHandler(openHandler);
         }
     }
-
  
     /**
      * Close all windows and shutdown the app.

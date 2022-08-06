@@ -19,7 +19,7 @@ public class MacMenuHandler implements MRJAboutHandler, MRJQuitHandler {
     public void handleAbout() {
         JOptionPane.showMessageDialog(null, new Object[] {"Audio Timeliner" + "\n" +
                 "Version 3.0" + "\n" +
-                "Copyright 2022" + "\n" + "Brent Yorgason"},
+                "Copyright 2022" + "\n" + "Brent Yorgason" + "\n" + "Brigham Young University"},
                 "About Audio Timeliner", JOptionPane.INFORMATION_MESSAGE, UIUtilities.icoTimeliner);
     }
 
