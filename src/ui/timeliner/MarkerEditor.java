@@ -370,7 +370,7 @@ public class MarkerEditor extends JDialog {
     }
     else { // it has not been edited
       fldMarkerLabel.setText(currentMarker.getLabel());
-      tpAnnotation.setText("<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + "'>" + currentMarker.getAnnotation() + "</span></body></html>");
+      tpAnnotation.setText("<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + "'>" + currentMarker.getAnnotation() + "&nbsp;</span></body></html>");
     }
     if (!currentMarker.isSelected()) {
       timeline.selectMarker(currMarker);

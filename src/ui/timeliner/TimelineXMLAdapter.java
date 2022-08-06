@@ -130,7 +130,7 @@ public class TimelineXMLAdapter {
    * saveTimelineXML: saves a timeline to an XML file
    */
   public void saveTimelineXML(String filename, Timeline timeline, String username) throws Exception {
-	  pnlTimeline.setSavePath(filename);
+	  timeline.getPanel().setSavePath(filename);
     Document doc = exportTimeline(timeline);
     addTimelineAnnotation(doc, username);
     TransformerFactory factory = TransformerFactory.newInstance();

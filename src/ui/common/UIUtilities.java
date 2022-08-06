@@ -365,7 +365,9 @@ public class UIUtilities {
   	  html = html.replaceAll("</p>", "");
   	  html = html.replaceAll("</span>", "");
   	  //html = html.replaceAll("</span> </span>", "</span>");
+  	  html = html.replaceAll("&#160;", "");
   	  html = html.replaceAll("\\s+", " ");
+  	  //html = html.trim();
   	  //html = html.strip();
   	  
   	  return html;

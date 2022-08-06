@@ -80,6 +80,7 @@ public class TimelineBubbleEditor extends JDialog {
   // fonts
   private java.awt.Font timelineFont;
   private java.awt.Font unicodeFont = UIUtilities.fontUnicodeBigger;
+	int annotationFontSize = UIUtilities.convertFontSize(18);
 
   // icons
   final static ImageIcon icoUp = UIUtilities.icoUpSmall;
@@ -155,7 +156,7 @@ public class TimelineBubbleEditor extends JDialog {
         doc = (AbstractDocument)styledDoc;
     } else {
      }
-    
+	
     // menu bar
     JMenu styleMenu = createStyleMenu();
     //JMenu sizeMenu = createSizeMenu();
@@ -550,7 +551,6 @@ public class TimelineBubbleEditor extends JDialog {
    */
   private void updateLabelAndAnnotation() {
     
-	int annotationFontSize = UIUtilities.convertFontSize(18);
     currentBubbleNum = timeline.topBubbleNode.getPreOrderIndex(currNode);
     Bubble currBubble = timeline.getBubble(currentBubbleNum);
     //timeline.repositionHead(currentBubbleNum);
@@ -561,7 +561,8 @@ public class TimelineBubbleEditor extends JDialog {
     }
     else { // it has not been edited
       fldBubbleLabel.setText(currBubble.getLabel());
-      tpAnnotation.setText("<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: Arial Unicode MS'>" + currBubble.getAnnotation() + "</span></body></html>");
+      log.debug("setting text");
+      tpAnnotation.setText("<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: Arial Unicode MS'>" + currBubble.getAnnotation() + "&nbsp;</span></body></html>");
     }
     if (!currBubble.isSelected()) {
       timeline.selectBubble(currentBubbleNum, 0);

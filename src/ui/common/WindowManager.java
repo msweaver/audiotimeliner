@@ -238,6 +238,8 @@ public class WindowManager {
         wt.win.setVisible(true);
         openWindows.add(wt);
         updateWindowMenus();        //let open windows know about new addition
+        wt.win.toFront();
+
         return wt.win;
     }
 

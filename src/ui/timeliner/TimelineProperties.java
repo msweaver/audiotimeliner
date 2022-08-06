@@ -229,7 +229,7 @@ public class TimelineProperties extends JDialog {
    // fldTimelineDescription.setMinimumSize(new Dimension(descriptionWidth - 65, descriptionHeight-45));
     fldTimelineDescription.setContentType("text/html");
     oldTimelineDescription = timeline.getDescription();
-    fldTimelineDescription.setText("<html><body><span style='margin-bottom:0em; font-size: " + descriptionFontSize + "pt; font-family: " + unicodeFont + "'>" + oldTimelineDescription + "</span></body></html>");
+    fldTimelineDescription.setText("<html><body><span style='margin-bottom:0em; font-size: " + descriptionFontSize + "pt; font-family: " + unicodeFont + "'>" + oldTimelineDescription + "&nbsp;</span></body></html>");
     bordDescription.setTitleFont(timelineFont);
     pnlDescription.setBorder(bordDescription);
     fldTimelineDescription.setMargin(new Insets(5,5,5,5));

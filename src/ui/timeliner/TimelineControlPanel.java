@@ -454,6 +454,7 @@ public class TimelineControlPanel extends JPanel {
     WindowManager.stopAllPlayers();
     pnlTimeline.getTimeline().startPlayer();
     pnlTimeline.getTimeline().showTime(false);
+    updateAnnotationPane();
     lblStatus.setText(TimelineControlPanel.STATUS_BUFFERING);
     buffering = false;
     playing = true;

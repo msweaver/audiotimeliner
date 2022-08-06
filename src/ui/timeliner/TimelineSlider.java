@@ -423,9 +423,9 @@ public class TimelineSlider extends JSlider {
         // cursor over timepoint
         if (timeline.timepointsContain(panelPoint) && timeline.isEditable()) {
           if (System.getProperty("os.name").startsWith("Mac OS")) {
-            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgMovePoint, new Point(8, 8), "Cursor"));
+            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgMovePoint, new Point(UIUtilities.scalePixels(8), UIUtilities.scalePixels(8)), "Cursor"));
           } else {
-            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgMovePoint, new Point(16, 16), "Cursor"));
+            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgMovePoint, new Point(UIUtilities.scalePixels(16), UIUtilities.scalePixels(16)), "Cursor"));
           }
         }
 
@@ -517,9 +517,9 @@ public class TimelineSlider extends JSlider {
                                      e.getY() + timeline.getLineY());
         if (timeline.timepointsContain(panelPoint) && timeline.isEditable()) {
           if (System.getProperty("os.name").startsWith("Mac OS")) {
-            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgMovePoint, new Point(8, 8), "Cursor"));
+            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgMovePoint, new Point(UIUtilities.scalePixels(8), UIUtilities.scalePixels(8)), "Cursor"));
           } else {
-            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgMovePoint, new Point(16, 16), "Cursor"));
+            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgMovePoint, new Point(UIUtilities.scalePixels(16), UIUtilities.scalePixels(16)), "Cursor"));
           }
           timeline.getSlider().setToolTipText(null);
         }

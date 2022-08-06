@@ -1354,7 +1354,7 @@ public class TimelinePanel extends JPanel
 
       // hovering over a marker
       if (markerHover != -1 && timeline.isEditable()) {
-        frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgMovePoint, new Point(8, 8), "Cursor"));
+        frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
         tip = ((Marker)timeline.getMarker(markerHover)).getAnnotation();
         if (tip.length() == 0) {
           this.setToolTipText(null);
@@ -1930,7 +1930,10 @@ public class TimelinePanel extends JPanel
               else {
                 //  paintContext = SELECT_BUBBLE;
                 selectType = SINGLE_CLICK;
-                timeline.repositionHead(bubbleClicked);
+                if (!timeline.isBubblePlaying(bubbleClicked)) { // reposition playback if this bubble is not playing
+              	  timeline.repositionHead(bubbleClicked);
+                 }
+
                 //   scheduledSelect = true;
                 timeline.selectBubble(bubbleClicked, selectType);
                 refreshTimeline();
@@ -1974,8 +1977,6 @@ public class TimelinePanel extends JPanel
                   if (!timeline.isBubblePlaying(bubbleClicked)) { // reposition playback if this bubble is not playing
                 	  timeline.repositionHead(bubbleClicked);
                    }
-            	  else {
-             	  }
 
                 selectType = SINGLE_CLICK;
                 timeline.selectBubble(bubbleClicked, selectType);

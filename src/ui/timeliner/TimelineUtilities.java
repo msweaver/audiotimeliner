@@ -510,6 +510,7 @@ public class TimelineUtilities {
         // now delete the temporary xml file
         selectedFile.delete();
 
+
       } catch (Exception err) {
         JOptionPane.showMessageDialog(parentFrame, "Error creating excerpt.", "Error",
                                       JOptionPane.ERROR_MESSAGE);
