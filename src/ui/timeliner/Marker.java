@@ -1,6 +1,8 @@
 package ui.timeliner;
 
 import java.awt.*;
+//import java.lang.System.Logger;
+import org.apache.log4j.Logger;
 
 import ui.common.UIUtilities;
 
@@ -39,6 +41,7 @@ import ui.common.UIUtilities;
   //private Graphics g;
   private Graphics2D g2d;
   private Polygon markerPolygon;
+  private static Logger log = Logger.getLogger(Marker.class);
 
   // constructor
   public Marker() {
@@ -271,6 +274,29 @@ import ui.common.UIUtilities;
     if (annotation.length() > 0) {
       org.w3c.dom.Element annotationElement = doc.createElement("Annotation");
       annotationElement.appendChild(doc.createTextNode(annotation));
+      MarkerElement.appendChild(annotationElement);
+    }
+    return MarkerElement;
+  }
+  
+  /**
+   * toElementHTML: creates and returns an XML element representing the marker for HTML format
+   */
+  public org.w3c.dom.Element toElementHTML(org.w3c.dom.Document doc, int offset) throws Exception{
+    // Marker element
+    org.w3c.dom.Element MarkerElement = doc.createElement("Marker");
+    MarkerElement.setAttribute("offset", String.valueOf(offset));
+    MarkerElement.setAttribute("time", String.valueOf(time));
+    // label attribute
+    if (label.length() > 0) {
+      MarkerElement.setAttribute("label", label);
+    }
+    // annotation attribute
+    if (annotation.length() > 0) {
+    	String plainAnnotation = UIUtilities.removeTags(annotation);
+    	//log.debug(plainAnnotation);
+    	org.w3c.dom.Element annotationElement = doc.createElement("Annotation");
+      annotationElement.appendChild(doc.createTextNode(plainAnnotation));
       MarkerElement.appendChild(annotationElement);
     }
     return MarkerElement;

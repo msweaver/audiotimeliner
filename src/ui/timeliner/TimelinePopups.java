@@ -327,30 +327,56 @@ public class TimelinePopups {
     if (System.getProperty("os.name").startsWith("Mac OS")) {
       Object radioIcon = UIManager.get(RADIO_ICON_KEY);
       UIManager.put(RADIO_ICON_KEY, UIManager.get(CHECK_ICON_KEY));
-      pnlTimeline.menuiShowTimesMac = new JRadioButtonMenuItem("Show Times", false);
+      pnlTimeline.menuiShowTimesMac = new JRadioButtonMenuItem("Show Timepoint Times", false);
+      pnlTimeline.menuiShowMarkerTimesMac = new JRadioButtonMenuItem("Show Marker Times", false);
       UIManager.put(RADIO_ICON_KEY, radioIcon);
       timelinePopup.add(pnlTimeline.menuiShowTimesMac);
+      timelinePopup.add(pnlTimeline.menuiShowMarkerTimesMac);
       pnlTimeline.menuiShowTimesMac.addActionListener(new ActionListener() {
         public void actionPerformed (ActionEvent e) {
           boolean show = ((JRadioButtonMenuItem)e.getSource()).isSelected();
           pnlTimeline.showTimes(show);
           pnlTimeline.menubTimeline.menuiShowTimesMac.setSelected(show);
           pnlTimeline.refreshTimeline();
-          uilogger.log(UIEventType.POPUPMENUITEM_SELECTED, "show times" + pnlTimeline.menubTimeline.menuiShowTimesMac.isSelected());
+          uilogger.log(UIEventType.POPUPMENUITEM_SELECTED, "show timepoint times" + pnlTimeline.menubTimeline.menuiShowTimesMac.isSelected());
         }
       });
+      pnlTimeline.menuiShowMarkerTimesMac.addActionListener(new ActionListener() {
+          public void actionPerformed (ActionEvent e) {
+            boolean show = ((JRadioButtonMenuItem)e.getSource()).isSelected();
+            pnlTimeline.showMarkerTimes(show);
+            pnlTimeline.menubTimeline.menuiShowMarkerTimesMac.setSelected(show);
+            pnlTimeline.refreshTimeline();
+            uilogger.log(UIEventType.POPUPMENUITEM_SELECTED, "show marker times" + pnlTimeline.menubTimeline.menuiShowMarkerTimesMac.isSelected());
+          }
+        });
+
     }
     else {
-      pnlTimeline.menuiShowTimes = new JCheckBoxMenuItem("Show Times", false);
+      pnlTimeline.menuiShowTimes = new JCheckBoxMenuItem("Show Timepoint Times", false);
       timelinePopup.add(pnlTimeline.menuiShowTimes);
+      pnlTimeline.menuiShowMarkerTimes = new JCheckBoxMenuItem("Show Marker Times", false);
+      timelinePopup.add(pnlTimeline.menuiShowMarkerTimes);
+
       pnlTimeline.menuiShowTimes.addActionListener(new ActionListener() {
         public void actionPerformed (ActionEvent e) {
           boolean show = ((JCheckBoxMenuItem)e.getSource()).isSelected();
           pnlTimeline.showTimes(show);
           pnlTimeline.menubTimeline.menuiShowTimes.setSelected(show);
-          uilogger.log(UIEventType.POPUPMENUITEM_SELECTED, "show times" + pnlTimeline.menubTimeline.menuiShowTimes.isSelected());
+          pnlTimeline.refreshTimeline();
+          uilogger.log(UIEventType.POPUPMENUITEM_SELECTED, "show timepoint times" + pnlTimeline.menubTimeline.menuiShowTimes.isSelected());
         }
       });
+      pnlTimeline.menuiShowMarkerTimes.addActionListener(new ActionListener() {
+          public void actionPerformed (ActionEvent e) {
+            boolean show = ((JCheckBoxMenuItem)e.getSource()).isSelected();
+            pnlTimeline.showMarkerTimes(show);
+            pnlTimeline.menubTimeline.menuiShowMarkerTimes.setSelected(show);
+            pnlTimeline.refreshTimeline();
+            uilogger.log(UIEventType.POPUPMENUITEM_SELECTED, "show marker times" + pnlTimeline.menubTimeline.menuiShowMarkerTimes.isSelected());
+          }
+        });
+
     }
     timelinePopup.add(item = new JMenuItem("Print"));
     item.addActionListener(new ActionListener() {

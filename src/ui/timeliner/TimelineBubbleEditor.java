@@ -147,6 +147,7 @@ public class TimelineBubbleEditor extends JDialog {
     fldBubbleLabel.setFont(unicodeFont);
     fldBubbleLabel.setToolTipText("Edit the bubble label");
     tpAnnotation.setPreferredSize(new Dimension(430, 375));
+    tpAnnotation.setEditorKit(htmlKit); // NEW
     tpAnnotation.setContentType("text/html");
     tpAnnotation.setToolTipText("Edit the bubble annotation");
 
@@ -327,6 +328,7 @@ public class TimelineBubbleEditor extends JDialog {
           oldAnnotations.addElement(currBubble.getAnnotation());
           currBubble.setLabel((String)potentialLabels.elementAt(i));
           currBubble.setAnnotation((String)potentialAnnotations.elementAt(i));
+
         }
 
         timeline.makeDirty();
@@ -339,6 +341,7 @@ public class TimelineBubbleEditor extends JDialog {
         pnlTimeline.btnBubbleEditorDownLevel = null;
         closeWindow();
         pnlControl.updateAnnotationPane();
+        
         pnlTimeline.undoManager.undoableEditHappened(new UndoableEditEvent(pnlTimeline,
             new UndoableEditBubble(oldLabels, potentialLabels, oldAnnotations, potentialAnnotations,
             editedBubbles, timeline)));
@@ -487,9 +490,9 @@ public class TimelineBubbleEditor extends JDialog {
     	  output.getBuffer().setLength(0);
        	  htmlKit.write( output, doc, 0, doc.getLength());
        	  String html = output.toString();
+       	 // log.debug("html = " + html);
     	  html = UIUtilities.htmlCleanup(html);
     	  potentialAnnotations.addElement(html);
-    	  //log.debug("html = " + html);
 
       } catch (Exception e) {
           System.err.println("Error saving annotation");
@@ -505,8 +508,8 @@ public class TimelineBubbleEditor extends JDialog {
     	  String html = "";
     	  html = output.toString();
     	  html = UIUtilities.htmlCleanup(html);
+   	     // log.debug("html = " + html);
     	  potentialAnnotations.setElementAt(html, prevSave);
-   	      // log.debug("html = " + html);
     	  
       } catch (Exception e) {
           System.err.println("Error saving annotation");
@@ -561,7 +564,6 @@ public class TimelineBubbleEditor extends JDialog {
     }
     else { // it has not been edited
       fldBubbleLabel.setText(currBubble.getLabel());
-      log.debug("setting text");
       tpAnnotation.setText("<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: Arial Unicode MS'>" + currBubble.getAnnotation() + "&nbsp;</span></body></html>");
     }
     if (!currBubble.isSelected()) {
@@ -647,7 +649,18 @@ public class TimelineBubbleEditor extends JDialog {
       menu.add(action);
       menu.getItem(2).setIcon(UIUtilities.icoUnderline);
 
-     // menu.addSeparator();
+      menu.addSeparator();
+      
+      JMenuItem menuiReturn = new JMenuItem();
+      menu.add(menuiReturn);
+      menuiReturn.setText("Hard Return");
+      menuiReturn.addActionListener(new java.awt.event.ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+             try {
+             doc.insertString(tpAnnotation.getCaretPosition(), "\r\n", null);
+             } catch (Exception ex) {}
+          }
+      });
 
       //menu.add(new StyledEditorKit.FontFamilyAction("Serif", "Serif"));
       //menu.add(new StyledEditorKit.FontFamilyAction("SansSerif", "SansSerif"));
@@ -657,15 +670,18 @@ public class TimelineBubbleEditor extends JDialog {
           menu.getItem(0).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.META_DOWN_MASK));
           menu.getItem(1).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.META_DOWN_MASK));
           menu.getItem(2).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.META_DOWN_MASK));
+          menu.getItem(4).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, InputEvent.META_DOWN_MASK));
       } else {
           //Windows specific stuff
           menu.getItem(0).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.CTRL_DOWN_MASK));
           menu.getItem(1).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_DOWN_MASK));
           menu.getItem(2).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.CTRL_DOWN_MASK));
+          menu.getItem(4).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, InputEvent.SHIFT_DOWN_MASK));
           menu.setMnemonic('f');
           menu.getItem(0).setMnemonic('b');
           menu.getItem(1).setMnemonic('i');
           menu.getItem(2).setMnemonic('u');
+          menu.getItem(4).setMnemonic('r');
 
       }
 

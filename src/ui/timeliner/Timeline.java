@@ -62,7 +62,7 @@ public class Timeline extends JPanel {
   private int sortedPointList[] = new int[1000];  // arbitrary large number of points
 
   /* the sortedPixelList is a separate list of pixel positions based on the sortedPointList */
-  private int sortedPixelList[] = new int[1000];
+  public int sortedPixelList[] = new int[1000];
 
   /* the markerList contains the horizontal offset values of the markers on the timeline */
   private int markerList[] = new int[1000];
@@ -102,6 +102,7 @@ public class Timeline extends JPanel {
   private boolean editable = true;
   private boolean resizable = true;
   private boolean showTimepointTimes = false;
+  private boolean showMarkerTimes = false;
   protected boolean autoScalingOn = true;
   protected boolean playWhenBubbleClicked = false;
   protected boolean stopPlayingAtSelectionEnd = false;
@@ -290,7 +291,7 @@ public class Timeline extends JPanel {
   public void createTimepointAndMarkerTimes() {
     for (int i = 0; i < numBaseBubbles; i++) {
       Timepoint timepoint = (Timepoint)Timepoints.elementAt(i);
-      String str = UIUtilities.convertOffsetToHoursMinutesSecondsTenths(sortedPointList[i]);
+      String str = UIUtilities.convertOffsetToHoursMinutesSeconds(sortedPointList[i]); // .convertOffsetToHoursMinutesSecondsTenths(sortedPointList[i]);
       if (i == 0) {
         timepoint.setTime("0");
       }
@@ -300,7 +301,7 @@ public class Timeline extends JPanel {
     }
     for (int i = 0; i < numMarkers; i++) {
       Marker marker = (Marker)Markers.elementAt(i);
-      String str = UIUtilities.convertOffsetToHoursMinutesSecondsTenths(markerList[i]);
+      String str = UIUtilities.convertOffsetToHoursMinutesSeconds(markerList[i]); // .convertOffsetToHoursMinutesSecondsTenths(sortedPointList[i]);
       marker.setTime(str);
     }
   }
@@ -610,7 +611,7 @@ public class Timeline extends JPanel {
     int screenWidth = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     int frameWidth = (int)frmTimeline.getWidth();
     int frameHeight = (int)frmTimeline.getHeight();
-    int panelHeight = frameHeight - pnlControl.height - TimelineFrame.SPACER; // (int)frmTimeline.scrollPane.getHeight()  - TimelineFrame.SPACER;; // 
+    int panelHeight = frameHeight - pnlControl.height - TimelineFrame.SPACER; // changed from frmTimeline.SPACER;  
     int tallestBubble = (int)((double)totalBubbleHeight * ((double)len / (double)oldLength));
     boolean isTooTall = false;
     boolean isTooWide = false;
@@ -623,25 +624,29 @@ public class Timeline extends JPanel {
     if (end < frameWidth - widthBuffer) {
       pnlTimeline.setMinimumSize(new Dimension(frameWidth - widthBuffer, panelHeight));
       pnlTimeline.setPreferredSize(new Dimension(frameWidth - widthBuffer, panelHeight));
+      pnlTimeline.setSize(new Dimension(frameWidth - widthBuffer, panelHeight));
     }
     else if (end >= panelWidth - widthBuffer) {
       pnlTimeline.setMinimumSize(new Dimension(end + 500, panelHeight));
       pnlTimeline.setPreferredSize(new Dimension(end + 500, panelHeight));
+      pnlTimeline.setSize(new Dimension(end + 500, panelHeight));
       isTooWide = true;
     }
     else if (end < panelWidth - frameWidth + widthBuffer) {
       pnlTimeline.setMinimumSize(new Dimension(end + 500, panelHeight));
       pnlTimeline.setPreferredSize(new Dimension(end + 500, panelHeight));
+      pnlTimeline.setSize(new Dimension(end + 500, panelHeight));
       isTooWide = true;
     }
     else {
       pnlTimeline.setMinimumSize(new Dimension(panelWidth, panelHeight));
       pnlTimeline.setPreferredSize(new Dimension(panelWidth, panelHeight));
-      isTooWide = true;
+      pnlTimeline.setSize(new Dimension(panelWidth, panelHeight));
+     isTooWide = true;
     }
 
     // make sure scrollpane doesn't resize
-    frmTimeline.scrollPane.setPreferredSize(d);
+    frmTimeline.scrollPane.setPreferredSize(d);  // Updated from setPrefSize(d.getWidth(), d.getHeight());
     //frmTimeline.scrollPane.setSize(d);
 
     // change rect and hide time mark
@@ -663,30 +668,29 @@ public class Timeline extends JPanel {
     pnlTimeline.add(slide, new XYConstraints(start - offset, yLoc,
         length + (offset * 2), slide.getHeight()));
     slide.setSize(length + (offset * 2), slide.getHeight());
-    
+    slide.getSliderUI().calculateGeometry();
+        
     // update timepoint list
     respaceTimepointsAndMarkers(oldLength, length);
 
     // determine if there is a zoom offset associated with this resize action
     if (timelineZoomed && freshZoom) {
-    	
+
       int zoomOffset = this.sortedPixelList[zoomIndex] + start;
-     // log.debug("zoom index = " + zoomIndex + " start = " + start + " zoomOffset = " + zoomOffset);
-      
-      if (!playerIsPlaying()) {
-          //Rectangle newRect = new Rectangle((int)pnlTimeline.getVisibleRect().getX(), panelHeight-100, pnlTimeline.getFrame().getWidth() - start, panelHeight);
-      //Rectangle zoomRect = new Rectangle(zoomOffset, panelHeight-100, pnlTimeline.getFrame().getWidth() - start, panelHeight);
-      //pnlTimeline.scrollRectToVisible(zoomRect);
-      }
+      //log.debug("zoom index = " + zoomIndex + " start = " + start + " zoomOffset = " + zoomOffset);
+      pnlTimeline.scrollRectToVisible(new Rectangle(zoomOffset, panelHeight-100, pnlTimeline.getFrame().getWidth() - start, panelHeight));
+
       freshZoom = false;
+      
     }
     else {
       Rectangle newRect = new Rectangle((int)pnlTimeline.getVisibleRect().getX(), panelHeight-100, pnlTimeline.getFrame().getWidth() - start, panelHeight);
       pnlTimeline.scrollRectToVisible(newRect);
+
     }
   }
 
-  /**
+  /** 
    * makeClean: makes the timeline clean, so that a save is not required
    */
   protected void makeClean() {
@@ -814,7 +818,7 @@ public class Timeline extends JPanel {
       slide.setValue(currOff+buffer);
       setPlayerOffset(currOff+buffer);
       pnlControl.btn_pauseAction();
-      if (showTimepointTimes) {
+      if (showTimepointTimes || showMarkerTimes) {
         showTime(false);
       }
       else {
@@ -936,6 +940,7 @@ public class Timeline extends JPanel {
                                  + String.valueOf(pnlTimeline.getPanelColor().getBlue()));
     // show timepoint times attribute
     timelineElement.setAttribute("visibleTimes", String.valueOf(this.showTimepointTimes));
+    timelineElement.setAttribute("visibleMarkerTimes", String.valueOf(this.showMarkerTimes));
 
     // media attributes
     timelineElement.setAttribute("mediaOffset", String.valueOf(getPlayerStartOffset()));
@@ -1004,7 +1009,7 @@ public class Timeline extends JPanel {
     // title attribute
     timelineElement.setAttribute("title", pnlTimeline.getFrame().getTitle());
     // description attribute
-    timelineElement.setAttribute("description", description);
+    timelineElement.setAttribute("description", UIUtilities.removeTags(description));
     // media attributes
     timelineElement.setAttribute("mediaOffset", String.valueOf(getPlayerStartOffset()));
     timelineElement.setAttribute("mediaLength", String.valueOf(getPlayerDuration()));
@@ -1033,7 +1038,7 @@ public class Timeline extends JPanel {
       org.w3c.dom.Element markerListElement = doc.createElement("Markers");
       for (int i = 0; i < numMarkers; i++) {
         Marker currMarker = ((Marker)Markers.elementAt(i));
-        org.w3c.dom.Element markerElement = currMarker.toElement(doc, markerList[i]);
+        org.w3c.dom.Element markerElement = currMarker.toElementHTML(doc, markerList[i]);
         markerListElement.appendChild(markerElement);
 //      }
 
@@ -1069,6 +1074,7 @@ public class Timeline extends JPanel {
                                  + String.valueOf(pnlTimeline.getPanelColor().getBlue()));
     // show timepoint times attribute
     timelineElement.setAttribute("visibleTimes", String.valueOf(this.showTimepointTimes));
+    timelineElement.setAttribute("visibleMarkerTimes", String.valueOf(this.showMarkerTimes));
 
     // media attributes -- adjust to selected subset
     int newOffset, offsetShift;
@@ -1300,7 +1306,7 @@ public class Timeline extends JPanel {
       }
       else {
         marker.showLabel(true);
-        marker.showTime(showTimepointTimes);
+        marker.showTime(showMarkerTimes);
         marker.drawMarker(g2d, markerPixelList[j] + start, yLoc, pnlTimeline.getBackground());
       }
       // advance the marker count
@@ -1712,7 +1718,7 @@ public class Timeline extends JPanel {
       if (sortedPointList[i] - 250 > currPos) {
         slide.setValue(sortedPointList[i]);
         setPlayerOffset(sortedPointList[i]);
-        if (showTimepointTimes) {
+        if (showTimepointTimes || showMarkerTimes) {
           showTime(false);
         }
         else {
@@ -1732,7 +1738,7 @@ public class Timeline extends JPanel {
       if (sortedPointList[i] + 250 < currPos) {
         slide.setValue(sortedPointList[i]);
         setPlayerOffset(sortedPointList[i]);
-        if (showTimepointTimes) {
+        if (showTimepointTimes || showMarkerTimes) {
           showTime(false);
         }
         else {
@@ -2364,15 +2370,30 @@ public class Timeline extends JPanel {
       // get top zoom level
       topZoomLevel = getHighestLevelNodeWithin(zoomStartPoint, zoomEndPoint).getBubble().getLevel();
 
-	pnlTimeline.getFrame();
 	// determine the zoom factor and return the new length
-      float zoomWidth = pnlTimeline.getFrame().getWidth() - TimelineFrame.SIDE_SPACE;
+      float zoomWidth = pnlTimeline.getFrame().getWidth() - TimelineFrame.SIDE_SPACE; // changed from pnlTimeline.getFrame().SIDE_SPACE;
       zoomFactor = (float)zoomWidth / (float)zoomRange;
     }
     return ((int)(length * zoomFactor));
   }
 
-
+/**
+ * getZoomIndex
+ */
+  
+  public int getZoomIndex() {
+	  
+	  int firstBubble = (((Integer)selectedBubbles.elementAt(0)).intValue());
+      int lastBubble = (((Integer)selectedBubbles.elementAt(selectedBubbles.size() - 1)).intValue());
+      BubbleTreeNode startNode = getBubbleNode(firstBubble);
+      BubbleTreeNode endNode = getBubbleNode(lastBubble);
+      int zoomStartPoint = startNode.getFirstLeafBubble().start;
+      int zoomEndPoint = endNode.getLastLeafBubble().end;
+      int zoomRange = zoomEndPoint - zoomStartPoint;
+      return topBubbleNode.getLeafIndex(startNode.getFirstLeaf());
+      
+  }
+  
   /******************
    * Bubble Tree Utilities
    ******************/
@@ -2628,10 +2649,10 @@ public class Timeline extends JPanel {
     Markers.insertElementAt(marker.getMarker(), markerPosition);
 
     // set the marker time
-    String str = UIUtilities.convertOffsetToHoursMinutesSecondsTenths(newPoint);
+    String str = UIUtilities.convertOffsetToHoursMinutesSeconds(newPoint); //.convertOffsetToHoursMinutesSecondsTenths(sortedPointList[i]);
     lblThumb.setText(str);
     marker.setTime(str);
-    marker.showTime(showTimepointTimes);
+    marker.showTime(showMarkerTimes);
 
     return markerPosition;
   }
@@ -2682,7 +2703,7 @@ public class Timeline extends JPanel {
       Timepoints.insertElementAt(timepoint.getTimepoint(), timepointPosition);
 
       // set the timepoint time
-      String str = UIUtilities.convertOffsetToHoursMinutesSecondsTenths(newPoint);
+      String str = UIUtilities.convertOffsetToHoursMinutesSeconds(newPoint); //.convertOffsetToHoursMinutesSecondsTenths(sortedPointList[i]);
       lblThumb.setText(str);
       if (timepointPosition == 0) {
         timepoint.setTime("0");
@@ -3056,7 +3077,7 @@ public class Timeline extends JPanel {
           marker.showTime(false);
         }
         else {
-          marker.showTime(showTimepointTimes);
+          marker.showTime(showMarkerTimes);
         }
       }
       // check to see if the marker is being dragged off the line
@@ -3076,12 +3097,10 @@ public class Timeline extends JPanel {
    */
   private void respaceTimepointsAndMarkers(int oldLength, int newLength) {
 	  
-	  //log.debug("old length = " + oldLength + " and new length = " + newLength);
     BubbleTreeNode currBaseBub = topBubbleNode.getFirstLeaf();
     for (int i = 0; i < numBaseBubbles; i++) {
       sortedPixelList[i] = ((TimelineSliderUI)slide.getUI()).xPositionForValue(sortedPointList[i], newLength - 4) - offset;
 
-      //log.debug("pixel list at i = " + sortedPixelList[i]);
       // determine the bounds of the bubble
       int bStart = sortedPixelList[i] + start;
       int bEnd = sortedPixelList[i + 1] + start;
@@ -3152,7 +3171,6 @@ public class Timeline extends JPanel {
     }
     setNextImportantOffset(sortedPointList[tSelected]);
     setPlayerOffset(sortedPointList[tSelected]);
-    //log.debug(sortedPointList[tSelected]);
     pnlControl.updateAnnotationPane();
   }
 
@@ -3209,7 +3227,7 @@ public class Timeline extends JPanel {
     double currValue = (((double)value / (double)length) * (mediaLength));
 
     // display the time label
-    String str = UIUtilities.convertOffsetToHoursMinutesSecondsTenths((int)(currValue));
+    String str = UIUtilities.convertOffsetToHoursMinutesSecondsTenths((int)(currValue)); //
     if (draggingTimepoint) {
       getTimepoint(lastTimepointClicked).setTime(str);
     }
@@ -3219,18 +3237,25 @@ public class Timeline extends JPanel {
   }
 
   /**
-   * showTimepointTimes: sets whether the times are shown below each timepoint and marker
+   * showTimepointTimes: sets whether the times are shown below each timepoint
    */
   protected void showTimepointTimes(boolean show) {
     showTimepointTimes = show;
     for (int i = 0; i < Timepoints.size(); i++) {
       getTimepoint(i).showTime(show);
     }
+
+  }
+
+  /**
+   * showMarkerTimes: sets whether the times are shown below each marker
+   */
+  protected void showMarkerTimes(boolean show) {
+    showMarkerTimes = show;
     for (int i = 0; i < Markers.size(); i++) {
       getMarker(i).showTime(show);
     }
   }
-
   /**
    * timepointsContain: checks to see whether the point p is contained by any timepoint,
    */
@@ -3568,10 +3593,17 @@ public class Timeline extends JPanel {
   }
 
   /**
-   * returns true if times are being shown below timepoints / markers
+   * returns true if times are being shown below timepoints
    */
   public boolean areTimesShown() {
     return showTimepointTimes;
+  }
+
+  /**
+   * returns true if times are being shown below markers
+   */
+  public boolean areMarkerTimesShown() {
+    return showMarkerTimes;
   }
 
   /**
@@ -3597,12 +3629,9 @@ public class Timeline extends JPanel {
 	    //int buffer = 10;
 	    int prevOff = sortedPointList[currPoint];
 	    int nextOff = sortedPointList[currPoint+1];
-	    //log.debug ("curr off = " + prevOff);
-	    //log.debug("next off = " + nextOff);
 	    
 	    if (tLocalPlayer!=null) {
 	      int currTime = tLocalPlayer.getOffset();
-		  //log.debug("offset = " + currTime);
 		  
 		  if ((prevOff <= currTime) && (nextOff > currTime)) {
 			  return true;
@@ -3799,7 +3828,7 @@ public class Timeline extends JPanel {
    */
   protected void setMarkerDragging (boolean b) {
     draggingMarker = b;
-    getMarker(lastMarkerClicked).showTime(showTimepointTimes);
+    getMarker(lastMarkerClicked).showTime(showMarkerTimes);
   }
 
   /**

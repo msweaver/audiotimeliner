@@ -298,6 +298,7 @@ public class AudioHandler implements PlayableContentHandler {
         	//logger.debug("seekSeconds = " + seekSeconds);
         	audioPlayer.seek(Duration.millis(offset)); 
             logger.debug("setting offset to " + offset);
+            logger.debug("total duration = " + this.getDuration());
 
             if (playflag) {                     //start playback again if playing before
             	audioPlayer.play();

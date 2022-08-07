@@ -448,6 +448,7 @@ import org.apache.log4j.Logger;
             trackRect.width = thumbRect.width;
             trackRect.height = contentRect.height - (trackBuffer * 2);
         }
+        
     }
 
     /**

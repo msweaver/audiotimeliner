@@ -83,7 +83,7 @@ public class TimelinePanel extends JPanel
   private int markerToDelete = 0;
   private boolean draggingMarker = false;
   private boolean markerWasDragged = false;
-  private boolean resizingLine = false;
+  public boolean resizingLine = false;
   private boolean lineWasResized = false;
   private boolean draggingTimeline = false;
   private boolean dragStarted = false;
@@ -142,6 +142,8 @@ public class TimelinePanel extends JPanel
   TimelinePopups timelinePopups;
   protected JCheckBoxMenuItem menuiShowTimes;
   protected JRadioButtonMenuItem menuiShowTimesMac;
+  protected JCheckBoxMenuItem menuiShowMarkerTimes;
+  protected JRadioButtonMenuItem menuiShowMarkerTimesMac;
   protected boolean showGroupingError = false;
 
   // undo
@@ -1111,6 +1113,8 @@ public class TimelinePanel extends JPanel
       if (System.getProperty("os.name").startsWith("Mac OS")) {
         menuiShowTimesMac.setEnabled(state);
         menubTimeline.menuiShowTimesMac.setEnabled(state);
+        menuiShowMarkerTimesMac.setEnabled(state);
+        menubTimeline.menuiShowMarkerTimesMac.setEnabled(state);
         menubTimeline.menuiRoundBubblesMac.setEnabled(state);
         menubTimeline.menuiSquareBubblesMac.setEnabled(state);
         menubTimeline.menuiBlackAndWhiteMac.setEnabled(state);
@@ -1118,6 +1122,8 @@ public class TimelinePanel extends JPanel
       else {
         menuiShowTimes.setEnabled(state);
         menubTimeline.menuiShowTimes.setEnabled(state);
+        menuiShowMarkerTimes.setEnabled(state);
+        menubTimeline.menuiShowMarkerTimes.setEnabled(state);
         menubTimeline.menuiRoundBubbles.setEnabled(state);
         menubTimeline.menuiSquareBubbles.setEnabled(state);
         menubTimeline.menuiBlackAndWhite.setEnabled(state);
@@ -1325,7 +1331,7 @@ public class TimelinePanel extends JPanel
   }
 
   /**
-   * showTimes: sets whether the times are shown below each timepoint or marker
+   * showTimes: sets whether the times are shown below each timepoint
    */
   public void showTimes(boolean show) {
     if (System.getProperty("os.name").startsWith("Mac OS")) {
@@ -1344,6 +1350,25 @@ public class TimelinePanel extends JPanel
   }
 
   /**
+   * showMarkerTimes: sets whether the times are shown below each marker
+   */
+  public void showMarkerTimes(boolean show) {
+    if (System.getProperty("os.name").startsWith("Mac OS")) {
+      this.menuiShowMarkerTimesMac.setSelected(show);
+      menubTimeline.menuiShowMarkerTimesMac.setSelected(show);
+    }
+    else {
+      this.menuiShowMarkerTimes.setSelected(show);
+      menubTimeline.menuiShowMarkerTimes.setSelected(show);
+    }
+    timeline.showMarkerTimes(show);
+    undoManager.undoableEditHappened(new UndoableEditEvent(this,
+        new UndoableShowMarkerTimes(show, this)));
+    updateUndoMenu();
+
+  }
+
+  /**
    * showToolTip: sets the text for the tool tip at the given point
    */
   public void showToolTip(Point p) {
@@ -1355,7 +1380,7 @@ public class TimelinePanel extends JPanel
       // hovering over a marker
       if (markerHover != -1 && timeline.isEditable()) {
         frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
-        tip = ((Marker)timeline.getMarker(markerHover)).getAnnotation();
+        tip = UIUtilities.removeTags(((Marker)timeline.getMarker(markerHover)).getAnnotation());
         if (tip.length() == 0) {
           this.setToolTipText(null);
         }
@@ -1701,6 +1726,7 @@ public class TimelinePanel extends JPanel
         if (timeline != null) {
           timeline.resizeTimeline(timelineLength, g2d);
           timeline.refresh(g2d);
+          log.debug("resize length = " + timelineLength);
         }
         break;
 
@@ -1745,29 +1771,34 @@ public class TimelinePanel extends JPanel
           Dimension oldPanelSize = null;
           Dimension newPanelSize = null;
           Rectangle scrollRect = null;
-           boolean alreadyZoomed = timeline.timelineZoomed;
+
+          boolean alreadyZoomed = timeline.timelineZoomed;
+
           if (alreadyZoomed) {
             if (undoManager.getUndoPresentationName().equals("Undo Zoom to Selection") &&
                 oldZoomSelection.equals((Vector)timeline.getSelectedBubbles())) {
               timeline.refresh(g2d);
               return;
             }
-            timeline.timelineZoomed = false;
+            //timeline.timelineZoomed = false;
+          //}
             int frameWidth = frmTimeline.getWidth();
             oldTimelineLength = timelineLength;
-            timelineLength = frameWidth - TimelineFrame.SIDE_SPACE;
+            timelineLength = frameWidth - TimelineFrame.SIDE_SPACE; /// CHANGED from frmTimeline.SIDE_SPACE;
             timeline.freshZoom = true;
-            timeline.doLastResize(frameWidth - TimelineFrame.SIDE_SPACE, g2d);
+            timeline.doLastResize(frameWidth - TimelineFrame.SIDE_SPACE, g2d); /// CHANGED from frmTimeline.SIDE_SPACE;
             oldPanelSize = this.getSize();
-            newPanelSize = new Dimension(frameWidth - TimelineFrame.FRAME_SIDE_SPACE, this.getHeight());
+            newPanelSize = new Dimension(frameWidth - TimelineFrame.FRAME_SIDE_SPACE, this.getHeight()); /// CHANGED from frmTimeline.FRAME_SIDE_SPACE;
             this.setSize(newPanelSize);
             this.setPreferredSize(newPanelSize);
             this.setMinimumSize(newPanelSize);
-            scrollRect = new Rectangle(0, 0, frameWidth - TimelineFrame.FRAME_SIDE_SPACE, 0);
-            scrollRectToVisible(scrollRect);
+
+            scrollRect = new Rectangle(0, 0, frameWidth - TimelineFrame.FRAME_SIDE_SPACE, 0); /// CHANGED from frmTimeline.FRAME_SIDE_SPACE;
+            scrollRectToVisible(scrollRect); 
             timeline.refresh(g2d);
           }
           int newLength = timeline.zoomToSelectedBubbles();
+          log.debug("new length = " + newLength);
           timeline.freshZoom = true;
           timeline.doLastResize(newLength, g2d);
           undoManager.undoableEditHappened(new UndoableEditEvent(this,
@@ -1775,7 +1806,11 @@ public class TimelinePanel extends JPanel
               timelineLength, oldPanelSize, newPanelSize, alreadyZoomed, scrollRect, this)));
           updateUndoMenu();
           oldZoomSelection = (Vector)timeline.getSelectedBubbles().clone();
-          timeline.refresh(g2d);
+          	///this.setLineResizing(true);	
+          	//this.doResize(newLength/100);
+          	//this.setLineResizing(false);
+          //timeline.getSlider().setVisible(true);
+        timeline.refresh(g2d);
         }
         break;
 
@@ -2069,7 +2104,7 @@ public class TimelinePanel extends JPanel
         timeline.setTimepointDragging(false);
         int tNum = timeline.getLastTimepointClicked();
         Timepoint t = timeline.getTimepoint(tNum);
-        t.showTime(timeline.areTimesShown());
+        t.showTime(timeline.areTimesShown() && timeline.areMarkerTimesShown());
         t.deselect();
         timeline.selectTimepoint(tNum);
         uilogger.log(UIEventType.ITEM_DRAGGED, "timepoint repositioned: " + tNum);
@@ -2130,7 +2165,7 @@ public class TimelinePanel extends JPanel
         timeline.setMarkerDragging(false);
         int mNum = timeline.getLastMarkerClicked();
         Marker m = timeline.getMarker(mNum);
-        m.showTime(timeline.areTimesShown());
+        m.showTime(timeline.areMarkerTimesShown());
         m.deselect();
         timeline.selectMarker(mNum);
         uilogger.log(UIEventType.ITEM_DRAGGED, "marker repositioned: " + mNum);

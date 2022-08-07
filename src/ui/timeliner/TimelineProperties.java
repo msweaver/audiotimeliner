@@ -97,7 +97,8 @@ public class TimelineProperties extends JDialog {
   protected JCheckBox chkEditable = new JCheckBox("Editable");
   protected JCheckBox chkResizable = new JCheckBox("Resizable");
   protected JCheckBox chkMovable = new JCheckBox("Movable");
-  protected JCheckBox chkShowTimes = new JCheckBox("Show Times");
+  protected JCheckBox chkShowTimes = new JCheckBox("Show Timepoint Times");
+  protected JCheckBox chkShowMarkerTimes = new JCheckBox("Show Marker Times");
   protected JCheckBox chkBlackAndWhite = new JCheckBox("Black and White");
   protected JCheckBox chkAutoScale = new JCheckBox("Auto-scale height on resize");
   protected JCheckBox chkPlayWhenClicked = new JCheckBox("Start playing when bubble is clicked");
@@ -276,6 +277,7 @@ public class TimelineProperties extends JDialog {
     bordBubbleShape.setTitleFont(timelineFont);
     pnlBubbleShape.setBorder(bordBubbleShape);
     pnlTimelineAppearance.add(chkShowTimes);
+    pnlTimelineAppearance.add(chkShowMarkerTimes);
     pnlTimelineAppearance.add(chkBlackAndWhite);
     pnlTimelineAppearance.add(pnlBubbleShape);
     pnlTimelineAppearance.add(btnBackgroundColor);
@@ -285,7 +287,10 @@ public class TimelineProperties extends JDialog {
     grpBubbleShape.add(radSquareBubbles);
     chkShowTimes.setFont(timelineFont);
     chkShowTimes.setSelected(timeline.areTimesShown());
-    chkShowTimes.setToolTipText("Show times below each timepoint and marker");
+    chkShowTimes.setToolTipText("Show times below each timepoint");
+    chkShowMarkerTimes.setFont(timelineFont);
+    chkShowMarkerTimes.setSelected(timeline.areMarkerTimesShown());
+    chkShowMarkerTimes.setToolTipText("Show times below each marker");
     chkBlackAndWhite.setFont(timelineFont);
     chkBlackAndWhite.setSelected(timeline.getBlackAndWhite());
     chkBlackAndWhite.setToolTipText("Set black and white mode");
@@ -479,6 +484,7 @@ public class TimelineProperties extends JDialog {
     fldTimelineDescription.setEditable(chkEditable.isSelected());
     chkResizable.setEnabled(chkEditable.isSelected());
     chkShowTimes.setEnabled(chkEditable.isSelected());
+    chkShowMarkerTimes.setEnabled(chkEditable.isSelected());
     chkBlackAndWhite.setEnabled(chkEditable.isSelected());
     radRoundBubbles.setEnabled(chkEditable.isSelected());
     radSquareBubbles.setEnabled(chkEditable.isSelected());
@@ -504,6 +510,7 @@ public class TimelineProperties extends JDialog {
         }
         chkResizable.setEnabled(chkEditable.isSelected());
         chkShowTimes.setEnabled(chkEditable.isSelected());
+        chkShowMarkerTimes.setEnabled(chkEditable.isSelected());
         chkBlackAndWhite.setEnabled(chkEditable.isSelected());
         radRoundBubbles.setEnabled(chkEditable.isSelected());
         radSquareBubbles.setEnabled(chkEditable.isSelected());
@@ -549,9 +556,15 @@ public class TimelineProperties extends JDialog {
     });
     chkShowTimes.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        uilogger.log(UIEventType.CHECKBOX_SELECTED, "show times: " + chkShowTimes.isSelected());
+        uilogger.log(UIEventType.CHECKBOX_SELECTED, "show timepoint times: " + chkShowTimes.isSelected());
       }
     });
+    chkShowMarkerTimes.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+          uilogger.log(UIEventType.CHECKBOX_SELECTED, "show marker times: " + chkShowMarkerTimes.isSelected());
+        }
+      });
+
     chkBlackAndWhite.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         uilogger.log(UIEventType.CHECKBOX_SELECTED, "black and white: " + chkBlackAndWhite.isSelected());
@@ -662,6 +675,7 @@ public class TimelineProperties extends JDialog {
         chkEditable.setSelected(true);
         chkResizable.setSelected(true);
         chkShowTimes.setSelected(false);
+        chkShowMarkerTimes.setSelected(false);
         chkBlackAndWhite.setSelected(false);
         radRoundBubbles.setSelected(true);
         radSquareBubbles.setSelected(false);
@@ -680,6 +694,7 @@ public class TimelineProperties extends JDialog {
         fldTimelineDescription.setEditable(true);
         chkResizable.setEnabled(true);
         chkShowTimes.setEnabled(true);
+        chkShowMarkerTimes.setEnabled(true);
         chkBlackAndWhite.setEnabled(true);
         radRoundBubbles.setEnabled(true);
         radSquareBubbles.setEnabled(true);
@@ -770,12 +785,13 @@ public class TimelineProperties extends JDialog {
 
     // set up other variables
     firstApplyMade = true;
-    boolean editable, resizable, show, bw, square, autoscale, play, stop;
-    boolean wasEditable, wasResizable, wereTimesShown, wasBW, wasSquare, wasAutoScaled, wasPlayed, wasStopped;
+    boolean editable, resizable, show, showMarker, bw, square, autoscale, play, stop;
+    boolean wasEditable, wasResizable, wereTimesShown, wereMarkerTimesShown, wasBW, wasSquare, wasAutoScaled, wasPlayed, wasStopped;
     int newHeight, oldHeight;
     editable = chkEditable.isSelected();
     resizable = chkResizable.isSelected();
     show = chkShowTimes.isSelected();
+    showMarker = chkShowMarkerTimes.isSelected();
     bw = chkBlackAndWhite.isSelected();
     square = radSquareBubbles.isSelected();
     wasSquare = timeline.getBubbleType() == 1;
@@ -787,11 +803,12 @@ public class TimelineProperties extends JDialog {
     wasEditable = timeline.isEditable();
     wasResizable = timeline.isResizable();
     wereTimesShown = timeline.areTimesShown();
+    wereMarkerTimesShown = timeline.areMarkerTimesShown();
     wasBW = timeline.getBlackAndWhite();
     wasAutoScaled = timeline.isAutoScalingOn();
     wasPlayed = timeline.playWhenBubbleClicked;
     wasStopped = timeline.stopPlayingAtSelectionEnd;
-    oldTimelineTitle = pnlTimeline.getFrame().getTitle().substring(10);
+    oldTimelineTitle = pnlTimeline.getFrame().getTitle(); // .substring(10)
     oldTimelineDescription = timeline.getDescription();
 
     // now apply new settings
@@ -821,6 +838,9 @@ public class TimelineProperties extends JDialog {
       pnlTimeline.menuiShowTimesMac.setSelected(show);
       tmb.menuiShowTimesMac.setSelected(show);
       timeline.showTimepointTimes(show);
+      pnlTimeline.menuiShowMarkerTimesMac.setSelected(showMarker);
+      tmb.menuiShowMarkerTimesMac.setSelected(showMarker);
+      timeline.showMarkerTimes(showMarker);
       pnlTimeline.timelineBlackAndWhite = bw;
       tmb.menuiBlackAndWhiteMac.setSelected(bw);
       timeline.setBlackAndWhite(bw);
@@ -839,6 +859,9 @@ public class TimelineProperties extends JDialog {
       pnlTimeline.menuiShowTimes.setSelected(show);
       tmb.menuiShowTimes.setSelected(show);
       timeline.showTimepointTimes(show);
+      pnlTimeline.menuiShowMarkerTimes.setSelected(showMarker);
+      tmb.menuiShowMarkerTimes.setSelected(showMarker);
+      timeline.showMarkerTimes(showMarker);
       pnlTimeline.timelineBlackAndWhite = bw;
       tmb.menuiBlackAndWhite.setSelected(bw);
       timeline.setBlackAndWhite(bw);
@@ -895,7 +918,7 @@ public class TimelineProperties extends JDialog {
     // allow for undo
     pnlTimeline.undoManager.undoableEditHappened(new UndoableEditEvent(this,
         new UndoableEditProperties(oldTimelineTitle, fldTimelineTitle.getText(), oldTimelineDescription,
-        fldTimelineDescription.getText(), wasEditable, editable, wasResizable, resizable, wereTimesShown, show,
+        fldTimelineDescription.getText(), wasEditable, editable, wasResizable, resizable, wereTimesShown, show, wereMarkerTimesShown, showMarker,
         wasBW, bw, wasSquare, square, oldHeight, newHeight, wasAutoScaled, autoscale, oldLevelColors, newLevelColors,
         oldColorScheme, currColorScheme, oldColors, levelColorChanged, wasPlayed, play, wasStopped, stop, pnlTimeline,
         oldBackgroundColor, newBackgroundColor, this)));
@@ -934,7 +957,18 @@ public class TimelineProperties extends JDialog {
       menu.add(action);
       menu.getItem(2).setIcon(UIUtilities.icoUnderline);
 
-     // menu.addSeparator();
+      menu.addSeparator();
+      
+      JMenuItem menuiReturn = new JMenuItem();
+      menu.add(menuiReturn);
+      menuiReturn.setText("Hard Return");
+      menuiReturn.addActionListener(new java.awt.event.ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+             try {
+             doc.insertString(fldTimelineDescription.getCaretPosition(), "\r\n", null);
+             } catch (Exception ex) {}
+          }
+      });
 
       //menu.add(new StyledEditorKit.FontFamilyAction("Serif", "Serif"));
       //menu.add(new StyledEditorKit.FontFamilyAction("SansSerif", "SansSerif"));
@@ -944,15 +978,19 @@ public class TimelineProperties extends JDialog {
           menu.getItem(0).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.META_DOWN_MASK));
           menu.getItem(1).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.META_DOWN_MASK));
           menu.getItem(2).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.META_DOWN_MASK));
+          menu.getItem(4).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, InputEvent.META_DOWN_MASK));
       } else {
           //Windows specific stuff
           menu.getItem(0).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.CTRL_DOWN_MASK));
           menu.getItem(1).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_DOWN_MASK));
           menu.getItem(2).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.CTRL_DOWN_MASK));
+          menu.getItem(4).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, InputEvent.SHIFT_DOWN_MASK));
           menu.setMnemonic('f');
           menu.getItem(0).setMnemonic('b');
           menu.getItem(1).setMnemonic('i');
           menu.getItem(2).setMnemonic('u');
+          menu.getItem(4).setMnemonic('r');
+
 
       }
 

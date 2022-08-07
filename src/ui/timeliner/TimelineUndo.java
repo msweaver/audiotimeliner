@@ -334,6 +334,47 @@ class UndoableShowTimes extends AbstractUndoableEdit
   }
 }
 
+class UndoableShowMarkerTimes extends AbstractUndoableEdit
+{
+  private static final long serialVersionUID = 1L;
+  boolean show;
+  TimelinePanel pnlTimeline;
+
+  public UndoableShowMarkerTimes(boolean sh, TimelinePanel tp) {
+    show = sh;
+    pnlTimeline = tp;
+  }
+  public String getPresentationName() {
+    return "Show Marker Times";
+  }
+  public void undo() {
+    super.undo();
+    if (System.getProperty("os.name").startsWith("Mac OS")) {
+      pnlTimeline.menuiShowMarkerTimesMac.setSelected(!show);
+      pnlTimeline.menubTimeline.menuiShowMarkerTimesMac.setSelected(!show);
+    }
+    else {
+      pnlTimeline.menuiShowMarkerTimes.setSelected(!show);
+      pnlTimeline.menubTimeline.menuiShowMarkerTimes.setSelected(!show);
+    }
+    pnlTimeline.getTimeline().showMarkerTimes(!show);
+    pnlTimeline.refreshTimeline();
+  }
+  public void redo() {
+    super.redo();
+    if (System.getProperty("os.name").startsWith("Mac OS")) {
+      pnlTimeline.menuiShowMarkerTimesMac.setSelected(show);
+      pnlTimeline.menubTimeline.menuiShowMarkerTimesMac.setSelected(show);
+    }
+    else {
+      pnlTimeline.menuiShowMarkerTimes.setSelected(show);
+      pnlTimeline.menubTimeline.menuiShowMarkerTimes.setSelected(show);
+    }
+    pnlTimeline.getTimeline().showMarkerTimes(show);
+    pnlTimeline.refreshTimeline();
+  }
+}
+
 class UndoableSetBlackAndWhite extends AbstractUndoableEdit
 {
   private static final long serialVersionUID = 1L;
@@ -1050,7 +1091,7 @@ class UndoableDragMarker extends AbstractUndoableEdit
     super.undo();
     timeline.setMarkerAt(markerNum, oldOffset);
     Marker m = timeline.getMarker(markerNum);
-    m.showTime(timeline.areTimesShown());
+    m.showTime(timeline.areMarkerTimesShown());
     m.deselect();
     timeline.selectMarker(markerNum);
     pnlTimeline.refreshTimeline();
@@ -1059,7 +1100,7 @@ class UndoableDragMarker extends AbstractUndoableEdit
     super.redo();
     timeline.setMarkerAt(markerNum, newOffset);
     Marker m = timeline.getMarker(markerNum);
-    m.showTime(timeline.areTimesShown());
+    m.showTime(timeline.areMarkerTimesShown());
     m.deselect();
     timeline.selectMarker(markerNum);
     pnlTimeline.refreshTimeline();
@@ -1237,6 +1278,8 @@ class UndoableEditProperties extends AbstractUndoableEdit
   boolean newResizable;
   boolean oldShowTimes;
   boolean newShowTimes;
+  boolean oldShowMarkerTimes;
+  boolean newShowMarkerTimes;
   boolean oldBW;
   boolean newBW;
   boolean oldSquareBubbles;
@@ -1261,7 +1304,7 @@ class UndoableEditProperties extends AbstractUndoableEdit
   TimelinePanel pnlTimeline;
   TimelineProperties tProp;
 
-  public UndoableEditProperties(String oldt, String newt, String oldd, String newd, boolean olde, boolean newe, boolean oldr, boolean newr, boolean oldst, boolean newst,
+  public UndoableEditProperties(String oldt, String newt, String oldd, String newd, boolean olde, boolean newe, boolean oldr, boolean newr, boolean oldst, boolean newst, boolean oldmst, boolean newmst, 
                                 boolean oldbw, boolean newbw, boolean oldsb, boolean newsb, int oldbh, int newbh, boolean oldas, boolean newas, Color oldlc[], Color newlc[],
                                 int oldcs, int newcs, Vector oldc, boolean lc[], boolean oldpwc, boolean newpwc, boolean oldsae, boolean newsae, TimelinePanel tp,
                                 Color oldbc, Color newbc, TimelineProperties tpr) {
@@ -1275,6 +1318,8 @@ class UndoableEditProperties extends AbstractUndoableEdit
     newResizable = newr;
     oldShowTimes = oldst;
     newShowTimes = newst;
+    oldShowMarkerTimes = oldmst;
+    newShowMarkerTimes = newmst;
     oldBW = oldbw;
     newBW = newbw;
     oldSquareBubbles = oldsb;
@@ -1313,13 +1358,15 @@ class UndoableEditProperties extends AbstractUndoableEdit
     TimelineMenuBar tmb = pnlTimeline.getMenuBar();
 
     // undo property changes
-    pnlTimeline.getFrame().setTitle("Timeline: " + oldTitle);
+    pnlTimeline.getFrame().setTitle(oldTitle);
     timeline.setDescription(oldDescription);
     pnlTimeline.setEditableTimeline(oldEditable);
     pnlTimeline.setResizableTimeline(oldResizable);
     if (System.getProperty("os.name").startsWith("Mac OS")) {
       pnlTimeline.menuiShowTimesMac.setSelected(oldShowTimes);
       tmb.menuiShowTimesMac.setSelected(oldShowTimes);
+      pnlTimeline.menuiShowMarkerTimesMac.setSelected(oldShowMarkerTimes);
+      tmb.menuiShowMarkerTimesMac.setSelected(oldShowMarkerTimes);
       tmb.menuiBlackAndWhiteMac.setSelected(oldBW);
       tmb.menuiRoundBubblesMac.setSelected(!oldSquareBubbles);
       tmb.menuiSquareBubblesMac.setSelected(oldSquareBubbles);
@@ -1327,11 +1374,14 @@ class UndoableEditProperties extends AbstractUndoableEdit
     else {
       pnlTimeline.menuiShowTimes.setSelected(oldShowTimes);
       tmb.menuiShowTimes.setSelected(oldShowTimes);
+      pnlTimeline.menuiShowMarkerTimes.setSelected(oldShowMarkerTimes);
+      tmb.menuiShowMarkerTimes.setSelected(oldShowMarkerTimes);
       tmb.menuiBlackAndWhite.setSelected(oldBW);
       tmb.menuiRoundBubbles.setSelected(!oldSquareBubbles);
       tmb.menuiSquareBubbles.setSelected(oldSquareBubbles);
     }
     timeline.showTimepointTimes(oldShowTimes);
+    timeline.showMarkerTimes(oldShowMarkerTimes);
     pnlTimeline.setPanelColor(oldBackgroundColor);
     timeline.lblThumb.setBackground(oldBackgroundColor);
     pnlTimeline.timelineBlackAndWhite = oldBW;
@@ -1365,13 +1415,15 @@ class UndoableEditProperties extends AbstractUndoableEdit
     TimelineMenuBar tmb = pnlTimeline.getMenuBar();
 
     // redo property changes
-    pnlTimeline.getFrame().setTitle("Timeline: " + newTitle);
+    pnlTimeline.getFrame().setTitle(newTitle);
     timeline.setDescription(newDescription);
     pnlTimeline.setEditableTimeline(newEditable);
     pnlTimeline.setResizableTimeline(newResizable);
     if (System.getProperty("os.name").startsWith("Mac OS")) {
       pnlTimeline.menuiShowTimesMac.setSelected(newShowTimes);
       pnlTimeline.getMenuBar().menuiShowTimesMac.setSelected(newShowTimes);
+      pnlTimeline.menuiShowMarkerTimesMac.setSelected(newShowMarkerTimes);
+      pnlTimeline.getMenuBar().menuiShowMarkerTimesMac.setSelected(newShowMarkerTimes);
       pnlTimeline.getMenuBar().menuiBlackAndWhiteMac.setSelected(newBW);
       tmb.menuiRoundBubblesMac.setSelected(!newSquareBubbles);
       tmb.menuiSquareBubblesMac.setSelected(newSquareBubbles);
@@ -1379,11 +1431,15 @@ class UndoableEditProperties extends AbstractUndoableEdit
     else {
       pnlTimeline.menuiShowTimes.setSelected(newShowTimes);
       pnlTimeline.getMenuBar().menuiShowTimes.setSelected(newShowTimes);
+      pnlTimeline.menuiShowMarkerTimes.setSelected(newShowMarkerTimes);
+      pnlTimeline.getMenuBar().menuiShowMarkerTimes.setSelected(newShowMarkerTimes);
+
       pnlTimeline.getMenuBar().menuiBlackAndWhite.setSelected(newBW);
       tmb.menuiRoundBubbles.setSelected(!newSquareBubbles);
       tmb.menuiSquareBubbles.setSelected(newSquareBubbles);
     }
     timeline.showTimepointTimes(newShowTimes);
+    timeline.showMarkerTimes(newShowMarkerTimes);
     pnlTimeline.setPanelColor(newBackgroundColor);
     timeline.lblThumb.setBackground(newBackgroundColor);
     pnlTimeline.timelineBlackAndWhite = newBW;

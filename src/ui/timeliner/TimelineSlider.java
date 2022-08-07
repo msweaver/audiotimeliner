@@ -74,13 +74,11 @@ public class TimelineSlider extends JSlider {
     addListeners();
   }
 
-  public int getNewMax() {
-	  
-	  int max = timeline.getPlayerDuration();
-	  timeline.resetTimeline();
-	  pnlTimeline.refreshTimeline();
-	  
-	  return max;
+  /**
+   * getSliderUI
+   */
+  public TimelineSliderUI getSliderUI( ) {
+	  return sliderUI;
   }
   
   /**
@@ -102,7 +100,7 @@ public class TimelineSlider extends JSlider {
                                      e.getY() + timeline.getLineY());
         rightClickHappened = ((e.getModifiers() == e.BUTTON3_MASK) || e.isPopupTrigger());
         
-        //log.debug("point clicked = " + panelPoint);
+        // log.debug("point clicked = " + panelPoint);
 
         // determine if the user clicked on a timepoint
         if (timeline.timepointWasClicked(panelPoint)) {
@@ -191,8 +189,9 @@ public class TimelineSlider extends JSlider {
           else if (e.getClickCount() == 2 && timeline.isEditable()) {
           	doubleclickHappened = true;
             pnlTimeline.addTimepoint();
-            if (timeline.areTimesShown()) {
+            if (timeline.areTimesShown() || timeline.areMarkerTimesShown()) {
               timeline.showTime(false);
+              //timeline.showMarkerTime(false);
             }
             uilogger.log(UIEventType.ITEM_DOUBLE_CLICK, "timeline (add timepoint)");
           }
@@ -242,6 +241,7 @@ public class TimelineSlider extends JSlider {
           int tNum = timeline.getLastTimepointClicked();
           Timepoint t = timeline.getTimepoint(tNum);
           t.showTime(timeline.areTimesShown());
+          //t.showMarkerTime(timeline.areMarkerTimesShown());
           t.deselect();
           timeline.selectTimepoint(tNum);         // select the timepoint
           sliderUI.setDraggableThumb(true);       // slider can now be repositioned again
@@ -270,8 +270,9 @@ public class TimelineSlider extends JSlider {
               timeline.startPlayer();
               wasPlaying = false;
               timeline.showTime(false);
+
             }
-            else {timeline.showTime(true); }
+            else {timeline.showTime(true);  }
             pnlTimeline.getFrame().getControlPanel().updateAnnotationPane();
           }
         }
@@ -288,8 +289,9 @@ public class TimelineSlider extends JSlider {
             timeline.startPlayer();
             wasPlaying = false;
             timeline.showTime(false);
+
           }
-          else {timeline.showTime(true); }
+          else {timeline.showTime(true);  }
         }
 
         // if user was dragging a marker
@@ -299,7 +301,7 @@ public class TimelineSlider extends JSlider {
           markerWasDragged = false;
           int mNum = timeline.getLastMarkerClicked();
           Marker m = timeline.getMarker(mNum);
-          m.showTime(timeline.areTimesShown());
+          m.showTime(timeline.areMarkerTimesShown());
           m.deselect();
           timeline.selectMarker(mNum);            // select the marker
           sliderUI.setDraggableThumb(true);       // slider can now be repositioned again
@@ -349,7 +351,7 @@ public class TimelineSlider extends JSlider {
             wasPlaying = false;
             timeline.showTime(false);
           }
-          else {timeline.showTime(true); }
+          else {timeline.showTime(true);  }
         }
 
         // if user was resizing the line
@@ -391,8 +393,7 @@ public class TimelineSlider extends JSlider {
         else {
           dragStarted = false;
           sliderUI.jumpDueToClickInTrack(e.getX());  // have the thumb jump to the point
-          log.debug("milliseconds = " + getValue());
-          log.debug("jump to " + e.getX());
+          log.debug("jump to " + e.getX() + "; milliseconds = " + getValue());
           timeline.setPlayerOffset(getValue());
           timeline.deselectAllBubbles();             // deselect any selections
           timeline.clearSelectedBubbles();
@@ -526,7 +527,7 @@ public class TimelineSlider extends JSlider {
         else if (timeline.markersContain(panelPoint) && timeline.isEditable()) {
           pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
           int markerHover = timeline.getMarkerAt(panelPoint);
-          String tip = ((Marker)timeline.getMarker(markerHover)).getAnnotation();
+          String tip = UIUtilities.removeTags(((Marker)timeline.getMarker(markerHover)).getAnnotation());
           if (tip.length() == 0) {
             timeline.getSlider().setToolTipText(null);
           }

@@ -95,7 +95,8 @@ public class Timepoint {
     	g2d.drawImage(overlap, timepointX-7, timepointY-40, 16, 10, null);
     	g2d.fillRect(timepointX, timepointY, width, height);
     }
-    else if (!selected) {
+    
+    if (!selected) {
 
       g2d.setColor(color);
       g2d.fillRect(timepointX, timepointY, width, height);
@@ -302,6 +303,11 @@ public class Timepoint {
       annotationElement.appendChild(doc.createTextNode(annotation));
       timepointElement.appendChild(annotationElement);
     }
+    // is overlap element (new in 2022)
+    if (isOverlap) {
+        timepointElement.setAttribute("overlap", "1");    	
+    } 
+    
     return timepointElement;
   }
 }

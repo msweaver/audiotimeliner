@@ -98,7 +98,6 @@ public class TimelineLocalPlayer implements PlayableContentHandlerListener {
 		        return;
 		      }
 		      int off = getOffset();
-		      //logger.debug(off);
  
 		      // if playing
 		     	if (player.isPlaying()) { 
@@ -116,7 +115,7 @@ public class TimelineLocalPlayer implements PlayableContentHandlerListener {
 		        }
 		        if (off != prevVal) {
 		        	int currOff = player.getOffset();
-		        	// logger.debug("setting slider to " + currOff);
+		           //logger.debug("setting slider to " + currOff);
 		          timeline.getSlider().setValue(currOff-currstart);
 		          //setOffset(off);
 		        }
@@ -209,7 +208,7 @@ public class TimelineLocalPlayer implements PlayableContentHandlerListener {
       localStartOffset = 0 ;
       localEndOffset = endOffset - startOffset;
       player.setOffset(startOffset);
-      logger.debug("localStartOffset: " + localStartOffset + ", localEndOffset: " + localEndOffset);
+       logger.debug("localStartOffset: " + localStartOffset + ", localEndOffset: " + localEndOffset);
 
     //go to beginning of excerpt
     setOffset(0);
@@ -363,7 +362,9 @@ public class TimelineLocalPlayer implements PlayableContentHandlerListener {
     }
 
     player.setOffset(offset + startOffset);
-
+    if (this.parentWindow.getTimelinePanel().getTimeline() != null ) {
+    //logger.debug("slider units = " + this.parentWindow.getTimelinePanel().getTimeline().getSlider().getMaximumSize());
+    }
     //start playing again, if we were before
     if (wasPlaying) {
       player.play();

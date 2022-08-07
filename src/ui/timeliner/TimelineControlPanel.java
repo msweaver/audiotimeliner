@@ -70,6 +70,8 @@ public class TimelineControlPanel extends JPanel {
   protected JRadioButton radAllLevels;
   protected JRadioButton radSelectedLevels;
   protected JCheckBox chkShowMarkers;
+  protected JCheckBox chkShowTimes;
+  protected JCheckBox chkShowMarkerTimes;
   protected ButtonGroup grpShowLevels = new ButtonGroup();
   protected final JSlider slideVolume = pnlVolumeControl.slideVolume;
   protected ImageIcon sPlay; 
@@ -100,9 +102,11 @@ public class TimelineControlPanel extends JPanel {
   private JPanel pnlAnnotations = new JPanel();
   private JPanel pnlAnnotationTools = new JPanel(); 
   private JPanel pnlAnnotationTools2 = new JPanel(); 
+  private JPanel pnlAnnotationTools3 = new JPanel();
   private JPanel pnlLevels = new JPanel();
   private JPanel pnlMarkers = new JPanel();
   private JPanel pnlShow = new JPanel();
+  private JPanel pnlShow2 = new JPanel();
   private JPanel pnlFontButtons = new JPanel();
   private TitledBorder titledBorderPlayback;
   private TitledBorder titledBorderBubbles;
@@ -110,7 +114,8 @@ public class TimelineControlPanel extends JPanel {
   private TitledBorder titledBorderTimeline;
   private TitledBorder titledBorderAnnotations;
   private TitledBorder titledBorderLevels;
-  private TitledBorder titledBorderShow;
+  private TitledBorder titledBorderShow;  
+  private TitledBorder titledBorderShow2;
 
   // media variables
   protected boolean playing = false;
@@ -137,7 +142,7 @@ public class TimelineControlPanel extends JPanel {
   final static String STATUS_IDLE = "Status: Idle";
   final static String STATUS_TRACKING = "Status: Adjusting Playback Position";
   final static String STATUS_STREAM_ERROR = "Status: Stream Error";
-  final static String STATUS_STREAM_NOT_FOUND = "Status: Stream Not Found";
+  final static String STATUS_STREAM_NOT_FOUND = "Status: Audio Not Found";
   final static String STATUS_CONVERTING = "Status: Converting Audio";
 
   // annotation pane
@@ -157,7 +162,7 @@ public class TimelineControlPanel extends JPanel {
 
   /**
    * constructor
-   * recieves a timeline frame, initial width, and initial height
+   * receives a timeline frame, initial width, and initial height
    */
   public TimelineControlPanel(TimelineFrame tf, int initWidth, int initHeight) {
     frmTimeline = tf;
@@ -245,9 +250,11 @@ public class TimelineControlPanel extends JPanel {
     pnlAnnotations.setLayout(gridBagAnnotations);
     pnlAnnotationTools.setLayout(new GridLayout());
     pnlAnnotationTools2.setLayout(gridBagAnnotationTools);
+    pnlAnnotationTools3.setLayout(gridBagAnnotationTools);
     pnlLevels.setLayout(new BorderLayout());
     pnlMarkers.setLayout(new BorderLayout());
     pnlShow.setLayout(new GridLayout());
+    pnlShow2.setLayout(new GridLayout());
     pnlFontButtons.setLayout(new VerticalFlowLayout(FlowLayout.RIGHT));
 
     // set up annotation pane
@@ -262,10 +269,12 @@ public class TimelineControlPanel extends JPanel {
     titledBorderTimeline = new TitledBorder(" Timeline ");
     titledBorderBubbles = new TitledBorder(" Bubbles ");
     titledBorderAnnotations = new TitledBorder(" Annotations ");
-    titledBorderShow = new TitledBorder(" Show Levels ");
+    titledBorderShow = new TitledBorder(" Show Annotations ");
+    titledBorderShow2 = new TitledBorder(" Show Times ");
     titledBorderLevels = new TitledBorder(" Levels: ");
     titledBorderPlayback.setTitleFont(timelineFont);
     titledBorderShow.setTitleFont(timelineFont);
+    titledBorderShow2.setTitleFont(timelineFont);
     titledBorderTimepoints.setTitleFont(timelineFont);
     titledBorderTimeline.setTitleFont(timelineFont);
     titledBorderBubbles.setTitleFont(timelineFont);
@@ -276,7 +285,8 @@ public class TimelineControlPanel extends JPanel {
     pnlTimelineButtons.setBorder(titledBorderTimeline);
     pnlBubbleButtons.setBorder(titledBorderBubbles);
     pnlAnnotations.setBorder(titledBorderAnnotations);
-    pnlAnnotationTools.setBorder(titledBorderShow);
+    pnlAnnotationTools.setBorder(titledBorderShow); 
+    pnlAnnotationTools2.setBorder(titledBorderShow2);
 
     // set up status bar
     lblStatus.setFont(timelineFont);
@@ -327,6 +337,22 @@ public class TimelineControlPanel extends JPanel {
     });
   }
 
+  /**
+   * SetShowTimes
+   */
+  
+  public void setShowTimes(Boolean b) {
+	this.chkShowTimes.setSelected(b);  
+  }
+  
+  /**
+   * SetShowMarkerTimes
+   */
+  
+  public void setShowMarkerTimes(Boolean b) {
+	this.chkShowMarkerTimes.setSelected(b);  
+  }
+  
   /**
    * createPlaybackControls: adds playback controls to the control panel and adds
    * listeners to each control
@@ -789,7 +815,9 @@ public class TimelineControlPanel extends JPanel {
     btnZoomTo.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         if (pnlTimeline.getTimeline() != null) {
+        	// pnlTimeline.getTimeline().timelineZoomed = false;
           pnlTimeline.zoomToSelectedBubbles();
+         //  pnlTimeline.doResize(pnlTimeline.timelineLength); //// TESTING
           uilogger.log(UIEventType.BUTTON_CLICKED, "zoom to selection: " + pnlTimeline.getTimeline().getSelectedBubbles());
         }
       }
@@ -878,7 +906,7 @@ public class TimelineControlPanel extends JPanel {
     });
 
     // "all levels" radio button
-    radAllLevels = new JRadioButton("All");
+    radAllLevels = new JRadioButton("All Levels");
     radAllLevels.setFont(timelineFont);
     radAllLevels.setToolTipText("Show the annotations for all bubble levels");
     radAllLevels.setSelected(true);
@@ -902,7 +930,7 @@ public class TimelineControlPanel extends JPanel {
     });
 
     // "selected levels" radio button
-    radSelectedLevels = new JRadioButton("Selected");
+    radSelectedLevels = new JRadioButton("Selected Levels");
     radSelectedLevels.setFont(timelineFont);
     radSelectedLevels.setToolTipText("Show the annotations for the selected bubble level(s)");
     if (System.getProperty("os.name").startsWith("Mac OS")) {
@@ -924,10 +952,10 @@ public class TimelineControlPanel extends JPanel {
       }
     });
 
-    // "markers" check box
+    // "markers" check boxes
     chkShowMarkers = new JCheckBox("<html><head></head><body>" + "<DIV STYLE='font-size : " + timelineFontSize + "pt; "
                                    + "font-family : " + timelineFont + "'>"
-                                   + "Show Marker<br>Annotations");
+                                   + "Marker Annotations"); // "Show Marker<br>Annotations");
     chkShowMarkers.setFont(timelineFont);
     chkShowMarkers.setSelected(true);
     chkShowMarkers.setToolTipText("Show the current marker annotations");
@@ -948,13 +976,68 @@ public class TimelineControlPanel extends JPanel {
         }
       }
     });
+    
+    
+    
+    chkShowMarkerTimes = new JCheckBox("<html><head></head><body>" + "<DIV STYLE='font-size : " + timelineFontSize + "pt; "
+            + "font-family : " + timelineFont + "'>"
+            + "Markers"); // "Show Marker<br>Annotations");
+	chkShowMarkerTimes.setFont(timelineFont);
+	chkShowMarkerTimes.setSelected(false);
+	chkShowMarkerTimes.setToolTipText("Show the marker times below the timeline");
+	if (System.getProperty("os.name").startsWith("Mac OS")) {
+		//  chkShowMarkers.setMinimumSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
+		//  chkShowMarkers.setPreferredSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
+	} else {
+		//  chkShowMarkers.setMinimumSize(new Dimension(UIUtilities.scalePixels(90), UIUtilities.scalePixels(23)));
+		//  chkShowMarkers.setPreferredSize(new Dimension(UIUtilities.scalePixels(90), UIUtilities.scalePixels(23)));
+	}
+	chkShowMarkerTimes.setMargin(new Insets(0, 0, 0, 0));
+	setEnterAction(chkShowMarkerTimes);
+	chkShowMarkerTimes.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		if (pnlTimeline.getTimeline() != null) {
+			pnlTimeline.showMarkerTimes(chkShowMarkerTimes.isSelected());
+			pnlTimeline.refreshTimeline();
+			uilogger.log(UIEventType.CHECKBOX_SELECTED, "show marker times");
+		}
+	  }
+	});
+
+    chkShowTimes = new JCheckBox("<html><head></head><body>" + "<DIV STYLE='font-size : " + timelineFontSize + "pt; "
+            + "font-family : " + timelineFont + "'>"
+            + "Timepoints"); // "Show Timepoint<br>Annotations");
+	chkShowTimes.setFont(timelineFont);
+	chkShowTimes.setSelected(false);
+	chkShowTimes.setToolTipText("Show the timepoint times below the timeline");
+	if (System.getProperty("os.name").startsWith("Mac OS")) {
+		//  chkShowMarkers.setMinimumSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
+		//  chkShowMarkers.setPreferredSize(new Dimension(UIUtilities.scalePixels(100), UIUtilities.scalePixels(23)));
+	} else {
+		//  chkShowMarkers.setMinimumSize(new Dimension(UIUtilities.scalePixels(90), UIUtilities.scalePixels(23)));
+		//  chkShowMarkers.setPreferredSize(new Dimension(UIUtilities.scalePixels(90), UIUtilities.scalePixels(23)));
+	}
+	chkShowTimes.setMargin(new Insets(0, 0, 0, 0));
+	setEnterAction(chkShowTimes);
+	chkShowTimes.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		if (pnlTimeline.getTimeline() != null) {
+			pnlTimeline.showTimes(chkShowTimes.isSelected());
+			pnlTimeline.refreshTimeline();
+			uilogger.log(UIEventType.CHECKBOX_SELECTED, "show timepoint times");
+		}
+	  }
+	});
+
 
     // add components to show levels panel
     grpShowLevels.add(radAllLevels);
     grpShowLevels.add(radSelectedLevels);
     pnlLevels.add(radAllLevels, BorderLayout.NORTH);
     pnlLevels.add(radSelectedLevels, BorderLayout.CENTER);
-    pnlMarkers.add(chkShowMarkers, BorderLayout.NORTH);
+    pnlLevels.add(chkShowMarkers, BorderLayout.SOUTH); 
+    pnlMarkers.add(chkShowMarkerTimes, BorderLayout.NORTH);
+    pnlMarkers.add(chkShowTimes, BorderLayout.SOUTH);
   //  pnlAnnotationTools.add(pnlLevels, null);
     pnlFontButtons.add(btnFontLarger);
     pnlFontButtons.add(btnFontSmaller);
@@ -1106,6 +1189,7 @@ public class TimelineControlPanel extends JPanel {
     this.radAllLevels.setEnabled(false);
     this.radSelectedLevels.setEnabled(false);
     this.chkShowMarkers.setEnabled(false);
+    this.chkShowMarkerTimes.setEnabled(false);
     this.pnlVolumeControl.btnMute.setEnabled(false);
     this.pnlVolumeControl.slideVolume.setEnabled(false);
   }
@@ -1124,6 +1208,7 @@ public class TimelineControlPanel extends JPanel {
     this.radAllLevels.setEnabled(true);
     this.radSelectedLevels.setEnabled(true);
     this.chkShowMarkers.setEnabled(true);
+    this.chkShowMarkerTimes.setEnabled(true);
     this.pnlVolumeControl.btnMute.setEnabled(true);
     this.pnlVolumeControl.slideVolume.setEnabled(true);
   }
@@ -1316,9 +1401,9 @@ public class TimelineControlPanel extends JPanel {
   protected void updateAnnotationPane() {
     tpAnnotations = new JTextPane();
     tpAnnotations.setEditable(false);
-    tpAnnotations.setFont(annotationFont);
+    //tpAnnotations.setFont(annotationFont);
     if (scrpAnnotations != null && tpAnnotations != null && scrpAnnotations.getViewport() !=null) {
-    scrpAnnotations.setViewportView(tpAnnotations);
+    	scrpAnnotations.setViewportView(tpAnnotations);
     }
     Timeline timeline = pnlTimeline.getTimeline();
     Vector currentBubbles = new Vector();
@@ -1326,7 +1411,6 @@ public class TimelineControlPanel extends JPanel {
     isDescriptionShowing = false;
     boolean markerPrecedesOffset = timeline.lastImportantOffsetIsMarker();
     BubbleTreeNode currNode = timeline.getBaseBubbleNode(timeline.getBaseBubbleNumAtCurrentOffset()-1);
-    //log.debug("annotations: " + timeline.getBaseBubbleNumAtCurrentOffset());
 
     if (showAllAnnotations) { // add base bubble and all parent bubbles to currentbubbles
       currentBubbles.add(currNode);
@@ -1358,103 +1442,117 @@ public class TimelineControlPanel extends JPanel {
       }
       pnlTimeline.refreshTimeline();
     }
+
     try {
       clearAnnotationPane();
       tpAnnotations.setContentType("text/html");
       StyledEditorKit sek = new StyledEditorKit();
       HTMLEditorKit hek = new HTMLEditorKit();
       //tpAnnotations.setEditorKit(sek);
-      tpAnnotations.setEditorKit(hek);
- //      tpAnnotations.setContentType("text/plain");
+      //tpAnnotations.setEditorKit(hek);
+      //tpAnnotations.setContentType("text/plain");
       tpAnnotations.setVisible(false);
-      doc = (StyledDocument)tpAnnotations.getDocument();
-      selectedStyle = doc.addStyle("Selected", null);
-      normalStyle = doc.addStyle("Normal", null);
-      boldStyle = doc.addStyle("Bold", null);
-      StyleConstants.setBackground(selectedStyle, new Color(230, 230, 230));
-      StyleConstants.setBold(boldStyle, true);
-      StyleConstants.setFontSize(selectedStyle, annotationFontSize);
-      StyleConstants.setFontSize(normalStyle, annotationFontSize);
-      StyleConstants.setFontFamily(selectedStyle, unicodeFont);
-      StyleConstants.setFontFamily(normalStyle, unicodeFont);
-      StyleConstants.setFontFamily(boldStyle, unicodeFont);
-      if (doc!=null) {
-      doc.insertString(0, "<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + "'>", normalStyle);
+      doc = (StyledDocument)tpAnnotations.getDocument(); 
 
-      for (int i = currentBubbles.size()- 1; i >= 0; i--) {
-        int prevLength = doc.getLength();
-        Bubble currBubble = ((BubbleTreeNode)currentBubbles.elementAt(i)).getBubble();
-        String currAnnotation = currBubble.getAnnotation();
-        String currLabel = currBubble.getLabel();
-        if (showAllAnnotations && currBubble.isSelected()) { // selected bubble
-            int indentamt = ((currentBubbles.size()-1-i) * 20);
-            doc.insertString(doc.getLength(), "<div style='margin-top: 0em; margin-bottom: 0em; margin-left: " + indentamt + "px; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + ";'>", normalStyle);
-          if (currLabel.equals("") && !currAnnotation.equals("")) { // if there is no label, use "Level 1", etc.
-            doc.insertString(doc.getLength(), "Level " + currBubble.getLevel(), normalStyle);
-          }
-          else if (!currLabel.equals("")){ // or use the label
-            doc.insertString(doc.getLength(), "<b>" + currLabel + "</b>", boldStyle);
-          } // put in the annotation
-          if (!currAnnotation.equals("")) {
-            doc.insertString(doc.getLength(), ": ", normalStyle);
-            doc.insertString(doc.getLength(), currAnnotation, selectedStyle);
-          }
-          //StyleConstants.setLeftIndent(selectedStyle, ((currentBubbles.size()-1-i) * 20));
-         // doc.setParagraphAttributes(prevLength, doc.getLength()-prevLength, selectedStyle, false); !!!!!!!!
-        }
-        else { // non selected bubble -- or if selected levels is selected, a selected bubble :)
-            int indentamt = ((currentBubbles.size()-1-i) * 20);
-            //log.debug("indent = " + indentamt);
-            doc.insertString(doc.getLength(), "<div style='margin-top: 0em; margin-bottom: 0em; margin-left: " + indentamt + "px; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + ";'>", normalStyle);
-          if (currLabel.equals("") && !currAnnotation.equals("")) { // if there is no label, use "Level 1", etc.
-            doc.insertString(doc.getLength(), "Level " + currBubble.getLevel(), normalStyle);
-          }
-          else if (!currLabel.equals("")){ // or use the label
-            doc.insertString(doc.getLength(), "<b>" + currLabel + "</b>", boldStyle);
-          } // put in the annotation
-          if (!currAnnotation.equals("")) {
-            doc.insertString(doc.getLength(), ": " + currAnnotation, normalStyle);
-          }
-          //StyleConstants.setLeftIndent(normalStyle, ((currentBubbles.size()-1-i) * 20));
-          //doc.setParagraphAttributes(prevLength, doc.getLength()-prevLength, normalStyle, false); !!!!!!!!
-        }
-        if (currLabel.equals("") && currAnnotation.equals("")) {
-          // do not add a line
-        }
-        else {
-          doc.insertString(doc.getLength(), "<br>", normalStyle); //"\n", normalStyle);
-        }
+      if (doc!=null) {
+	      selectedStyle = doc.addStyle("Selected", null);
+	      normalStyle = doc.addStyle("Normal", null);
+	      boldStyle = doc.addStyle("Bold", null);
+	      StyleConstants.setBackground(selectedStyle, new Color(230, 230, 230));
+	      StyleConstants.setBold(boldStyle, true);
+	      StyleConstants.setFontSize(selectedStyle, annotationFontSize);
+	      StyleConstants.setFontSize(normalStyle, annotationFontSize);
+	      StyleConstants.setFontFamily(selectedStyle, unicodeFont);
+	      StyleConstants.setFontFamily(normalStyle, unicodeFont);
+	      StyleConstants.setFontFamily(boldStyle, unicodeFont);
+      
+	      doc.insertString(0, "<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + "'>", normalStyle);
+	
+	      for (int i = currentBubbles.size()- 1; i >= 0; i--) {
+	        int prevLength = doc.getLength();
+	        Bubble currBubble = ((BubbleTreeNode)currentBubbles.elementAt(i)).getBubble();
+	        String currAnnotation = currBubble.getAnnotation();
+	        String currLabel = currBubble.getLabel();
+	        if (showAllAnnotations && currBubble.isSelected()) { // selected bubble
+		          int indentamt = ((currentBubbles.size()-1-i) * 20);
+		          doc.insertString(doc.getLength(), "<div style='margin-top: 0em; margin-bottom: 0em; margin-left: " + indentamt + "px; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + ";'>", normalStyle);
+		          if (currLabel.equals("") && !currAnnotation.equals("")) { // if there is no label, use "Level 1", etc.
+		            doc.insertString(doc.getLength(), "Level " + currBubble.getLevel(), normalStyle);
+		          }
+		          else if (!currLabel.equals("")){ // or use the label
+		            doc.insertString(doc.getLength(), "<b>" + currLabel + "</b>", boldStyle);
+		          } // put in the annotation
+		          if (!currAnnotation.equals("")) {
+		            doc.insertString(doc.getLength(), ": ", normalStyle);
+		            doc.insertString(doc.getLength(), currAnnotation, selectedStyle);
+		          }
+		          //StyleConstants.setLeftIndent(selectedStyle, ((currentBubbles.size()-1-i) * 20));
+		          // doc.setParagraphAttributes(prevLength, doc.getLength()-prevLength, selectedStyle, false); !!!!!!!!
+	        }
+	        else { // non selected bubble -- or if selected levels is selected, a selected bubble :)
+	              int indentamt = ((currentBubbles.size()-1-i) * 20);
+	              doc.insertString(doc.getLength(), "<div style='margin-top: 0em; margin-bottom: 0em; margin-left: " + indentamt + "px; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + ";'>", normalStyle);
+		          if (currLabel.equals("") && !currAnnotation.equals("")) { // if there is no label, use "Level 1", etc.
+		            doc.insertString(doc.getLength(), "Level " + currBubble.getLevel(), normalStyle);
+		          }
+		          else if (!currLabel.equals("")){ // or use the label
+		            doc.insertString(doc.getLength(), "<b>" + currLabel + "</b>", boldStyle);
+		          } // put in the annotation
+		          if (!currAnnotation.equals("")) {
+		            doc.insertString(doc.getLength(), ": " + currAnnotation, normalStyle);
+		          }
+		          //StyleConstants.setLeftIndent(normalStyle, ((currentBubbles.size()-1-i) * 20));
+		          //doc.setParagraphAttributes(prevLength, doc.getLength()-prevLength, normalStyle, false); !!!!!!!!
+	        }
+	
+	        if (currLabel.equals("") && currAnnotation.equals("")) {
+	          // do not add a line
+	        }
+	        else {
+	          doc.insertString(doc.getLength(), "<br>", normalStyle); //"\n", normalStyle);
+	        }
+	        
+	      }
+	      
+	      // now add marker, if any
+	      if (chkShowMarkers.isSelected() && markerPrecedesOffset) {
+		        Marker currMarker = timeline.getMarker(timeline.previousMarkerOffset);
+		        if (currMarker != null && currMarker.getAnnotation()!="") {
+			          doc.insertString(doc.getLength(), "<div style='margin-top: 0em; margin-left: 0px; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + ";'>", normalStyle);
+			          //StyleConstants.setLeftIndent(normalStyle, 0);
+			          doc.insertString(doc.getLength(), "\u25B2 " + currMarker.getLabel() + ": ", boldStyle);
+			          if (currMarker.isSelected()) {
+			            doc.insertString(doc.getLength(), currMarker.getAnnotation(), selectedStyle);
+			          }
+			          else {
+			            doc.insertString(doc.getLength(), currMarker.getAnnotation(), normalStyle);
+			          }
+		        }
+	      }
+	      
+	      doc.insertString(doc.getLength(),  "</span></body></html>", normalStyle);
+	      StringWriter output = new StringWriter();
+	      try { 	  sek.write( output, doc, 0, doc.getLength()); 
+	    	  } catch (Exception exc) { System.err.println("Error getting annotation"); 
+	    	  }
+	   	  
+	      String html = output.toString();
+	
+	   	  if (html!= null) {
+	        tpAnnotations.setText(html);
+	   	  }
       }
-      // now add marker, if any
-      if (chkShowMarkers.isSelected() && markerPrecedesOffset) {
-        Marker currMarker = timeline.getMarker(timeline.previousMarkerOffset);
-        if (currMarker != null && currMarker.getAnnotation()!="") {
-          doc.insertString(doc.getLength(), "<div style='margin-top: 0em; margin-left: 0px; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + ";'>", normalStyle);
-          //StyleConstants.setLeftIndent(normalStyle, 0);
-          doc.insertString(doc.getLength(), "\u25B2 " + currMarker.getLabel() + ": ", boldStyle);
-          if (currMarker.isSelected()) {
-            doc.insertString(doc.getLength(), currMarker.getAnnotation(), selectedStyle);
-          }
-          else {
-            doc.insertString(doc.getLength(), currMarker.getAnnotation(), normalStyle);
-          }
-        }
-      }
-      doc.insertString(doc.getLength(),  "</span></body></html>", normalStyle);
-      StringWriter output = new StringWriter();
-      try { sek.write( output, doc, 0, doc.getLength()); } catch (Exception exc) { System.err.println("Error getting annotation"); }
-   	  String html = output.toString();
-   	  //log.debug(html);
-   	  if (html!= null) {
-        tpAnnotations.setText(html);
-   	  }
-      }
+      
       tpAnnotations.setVisible(true);
+      
     } catch (BadLocationException ble) {
       System.err.println("Error displaying annotation");
+      pnlTimeline.refreshTimeline(); // new
     }
+    
     tpAnnotations.setCaretPosition(0);
     scrpAnnotations.revalidate();
+    
   }
 
 }

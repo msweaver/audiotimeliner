@@ -9,6 +9,9 @@ import java.util.Enumeration;
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.plaf.*;
+import org.apache.log4j.Logger;
+
+import ui.timeliner.TimelineSlider;
 
 /**
  * VariationsWindows Slider UI
@@ -31,6 +34,7 @@ import javax.swing.plaf.*;
     protected Rectangle tickRect = null;
     protected Rectangle trackRect = null;
     protected Rectangle thumbRect = null;
+    private static Logger log = Logger.getLogger(TimelineSlider.class);
 
     protected int trackBuffer = 0;  // The distance that the track is from the side of the control
 
@@ -1149,7 +1153,7 @@ import javax.swing.plaf.*;
 
         xPosition = Math.max( trackLeft, xPosition );
         xPosition = Math.min( trackRight, xPosition );
-
+        
         return xPosition;
     }
 

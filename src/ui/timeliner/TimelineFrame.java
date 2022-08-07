@@ -377,9 +377,7 @@ public class TimelineFrame extends BasicWindow  {
     int controlHeight;
     
     this.repaint();
-    //log.debug("scroll height before calculation = " + scrollPane.getHeight());
     controlHeight = y - scrollPane.getHeight() - SPACER;
-    //log.debug("new control height = " + controlHeight);
     Dimension d3 = new Dimension(pnlTimeline.getWidth(), controlHeight);
     pnlControl.setMinimumSize(new Dimension(pnlTimeline.getWidth(), pnlControl.minHeight));
     pnlControl.setPreferredSize(d3);
@@ -398,7 +396,6 @@ public class TimelineFrame extends BasicWindow  {
 	        pnlTimeline.scheduleRefresh();
 	        scrollPane.getVerticalScrollBar().setValue( scrollPane.getVerticalScrollBar().getMaximum() );
 
-	      //log.debug("actual control height = " + pnlControl.getHeight());
 	    }
     }
   }
@@ -468,18 +465,10 @@ public class TimelineFrame extends BasicWindow  {
     new PropertyChangeListener() {
         public void propertyChange(PropertyChangeEvent pce) {
         	
-         	//log.debug("timeline panel height = " + scrollPane.getHeight());
-         	//log.debug("control panel height = " + pnlControl.getHeight());
 	        //scrollPane.revalidate();
-
          	//doWindowResize();
          	if (pnlTimeline.getTimeline() != null) {
          		scrollPane.getVerticalScrollBar().setValue( scrollPane.getVerticalScrollBar().getMaximum() );
-         		//log.debug("scrolling panel to " + scrollPane.getVerticalScrollBar().getMaximum());
-//         		pnlTimeline.refreshTimeline();
-         		//doWindowResize();
-         		//pnlTimeline.fitToWindow();
-         		//pnlTimeline.repositionTimeline();
          	}
         }
 });

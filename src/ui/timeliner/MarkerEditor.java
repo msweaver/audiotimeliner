@@ -437,7 +437,18 @@ public class MarkerEditor extends JDialog {
       menu.add(action);
       menu.getItem(2).setIcon(UIUtilities.icoUnderline);
 
-     // menu.addSeparator();
+      menu.addSeparator();
+      
+      JMenuItem menuiReturn = new JMenuItem();
+      menu.add(menuiReturn);
+      menuiReturn.setText("Hard Return");
+      menuiReturn.addActionListener(new java.awt.event.ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+             try {
+             doc.insertString(tpAnnotation.getCaretPosition(), "\r\n", null);
+             } catch (Exception ex) {}
+          }
+      });
 
       //menu.add(new StyledEditorKit.FontFamilyAction("Serif", "Serif"));
       //menu.add(new StyledEditorKit.FontFamilyAction("SansSerif", "SansSerif"));
@@ -447,15 +458,19 @@ public class MarkerEditor extends JDialog {
           menu.getItem(0).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.META_DOWN_MASK));
           menu.getItem(1).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.META_DOWN_MASK));
           menu.getItem(2).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.META_DOWN_MASK));
+          menu.getItem(4).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, InputEvent.META_DOWN_MASK));
       } else {
           //Windows specific stuff
           menu.getItem(0).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.CTRL_DOWN_MASK));
           menu.getItem(1).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_DOWN_MASK));
           menu.getItem(2).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.CTRL_DOWN_MASK));
+          menu.getItem(4).setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, InputEvent.SHIFT_DOWN_MASK));
           menu.setMnemonic('f');
           menu.getItem(0).setMnemonic('b');
           menu.getItem(1).setMnemonic('i');
           menu.getItem(2).setMnemonic('u');
+          menu.getItem(4).setMnemonic('r');
+
 
       }
 

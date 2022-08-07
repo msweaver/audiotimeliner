@@ -59,10 +59,12 @@ public class TimelineMenuBar extends JMenuBar {
   JMenuItem menuiViewDetails;
   JMenuItem menuiChangeBackgroundColor;
   JRadioButtonMenuItem menuiShowTimesMac;
+  JRadioButtonMenuItem menuiShowMarkerTimesMac;
   JRadioButtonMenuItem menuiBlackAndWhiteMac;
   JRadioButtonMenuItem menuiRoundBubblesMac;
   JRadioButtonMenuItem menuiSquareBubblesMac;
   JCheckBoxMenuItem menuiShowTimes;
+  JCheckBoxMenuItem menuiShowMarkerTimes;
   JCheckBoxMenuItem menuiBlackAndWhite;
   JCheckBoxMenuItem menuiRoundBubbles;
   JCheckBoxMenuItem menuiSquareBubbles;
@@ -321,22 +323,26 @@ public class TimelineMenuBar extends JMenuBar {
     if (System.getProperty("os.name").startsWith("Mac OS")) {
       Object radioIcon = UIManager.get(RADIO_ICON_KEY);
       UIManager.put(RADIO_ICON_KEY, UIManager.get(CHECK_ICON_KEY));
-      menuiShowTimesMac = new JRadioButtonMenuItem("Show Times", false);
+      menuiShowTimesMac = new JRadioButtonMenuItem("Show Timepoint Times", false);
+      menuiShowMarkerTimesMac = new JRadioButtonMenuItem("Show Marker Times", false);
       menuiBlackAndWhiteMac = new JRadioButtonMenuItem("Black and White", false);
       menuiRoundBubblesMac = new JRadioButtonMenuItem("Round Bubbles", true);
       menuiSquareBubblesMac = new JRadioButtonMenuItem("Square Bubbles", false);
       UIManager.put(RADIO_ICON_KEY, radioIcon);
       menuiShowTimesMac.setFont(timelineMenuFont);
+      menuiShowMarkerTimesMac.setFont(timelineMenuFont);
       menuiBlackAndWhiteMac.setFont(timelineMenuFont);
       menuiRoundBubblesMac.setFont(timelineMenuFont);
       menuiSquareBubblesMac.setFont(timelineMenuFont);
     }
     else {
-      menuiShowTimes = new JCheckBoxMenuItem("Show Times", false);
+      menuiShowTimes = new JCheckBoxMenuItem("Show Timepoint Times", false);
+      menuiShowMarkerTimes = new JCheckBoxMenuItem("Show Marker Times", false);
       menuiBlackAndWhite = new JCheckBoxMenuItem("Black and White", false);
       menuiRoundBubbles = new JCheckBoxMenuItem("Round Bubbles", true);
       menuiSquareBubbles = new JCheckBoxMenuItem("Square Bubbles", false);
       menuiShowTimes.setFont(timelineMenuFont);
+      menuiShowMarkerTimes.setFont(timelineMenuFont);
       menuiBlackAndWhite.setFont(timelineMenuFont);
       menuiRoundBubbles.setFont(timelineMenuFont);
       menuiSquareBubbles.setFont(timelineMenuFont);
@@ -358,12 +364,14 @@ public class TimelineMenuBar extends JMenuBar {
     // mac radio items need to be handled separately
     if (System.getProperty("os.name").startsWith("Mac OS")) {
       menuTimeline.add(menuiShowTimesMac);
+      menuTimeline.add(menuiShowMarkerTimesMac);
       menuTimeline.add(menuiBlackAndWhiteMac);
       menuTimeline.add(menuiRoundBubblesMac);
       menuTimeline.add(menuiSquareBubblesMac);
     }
     else {
       menuTimeline.add(menuiShowTimes);
+      menuTimeline.add(menuiShowMarkerTimes);
       menuTimeline.add(menuiBlackAndWhite);
       menuTimeline.add(menuiRoundBubbles);
       menuTimeline.add(menuiSquareBubbles);
@@ -405,6 +413,7 @@ public class TimelineMenuBar extends JMenuBar {
       menuiViewDetails.setMnemonic('v');
       menuiChangeBackgroundColor.setMnemonic('b');
       menuiShowTimes.setMnemonic('h');
+      menuiShowMarkerTimes.setMnemonic('m');
       menuiBlackAndWhite.setMnemonic('w');
       menuiRoundBubbles.setMnemonic('r');
       menuiSquareBubbles.setMnemonic('q');
@@ -564,9 +573,19 @@ public class TimelineMenuBar extends JMenuBar {
           pnlTimeline.showTimes(show);
           pnlTimeline.menuiShowTimesMac.setSelected(show);
           pnlTimeline.refreshTimeline();
-                     uilogger.log(UIEventType.MENUITEM_SELECTED, "show times" + menuiShowTimesMac.isSelected());
+                     uilogger.log(UIEventType.MENUITEM_SELECTED, "show timepoint times" + menuiShowTimesMac.isSelected());
         }
       });
+      menuiShowMarkerTimesMac.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            boolean show = ((JRadioButtonMenuItem)e.getSource()).isSelected();
+            pnlTimeline.showMarkerTimes(show);
+            pnlTimeline.menuiShowMarkerTimesMac.setSelected(show);
+            pnlTimeline.refreshTimeline();
+                       uilogger.log(UIEventType.MENUITEM_SELECTED, "show marker times" + menuiShowMarkerTimesMac.isSelected());
+          }
+        });
+
       menuiBlackAndWhiteMac.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
           boolean state = ((JRadioButtonMenuItem)e.getSource()).isSelected();
@@ -599,9 +618,19 @@ public class TimelineMenuBar extends JMenuBar {
           pnlTimeline.showTimes(show);
           pnlTimeline.menuiShowTimes.setState(show);
           pnlTimeline.refreshTimeline();
-                     uilogger.log(UIEventType.MENUITEM_SELECTED, "show times" + menuiShowTimes.isSelected());
+                     uilogger.log(UIEventType.MENUITEM_SELECTED, "show timepoint times" + menuiShowTimes.isSelected());
         }
       });
+      menuiShowMarkerTimes.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            boolean show = ((JCheckBoxMenuItem)e.getSource()).isSelected();
+            pnlTimeline.showMarkerTimes(show);
+            pnlTimeline.menuiShowMarkerTimes.setState(show);
+            pnlTimeline.refreshTimeline();
+                       uilogger.log(UIEventType.MENUITEM_SELECTED, "show marker times" + menuiShowMarkerTimes.isSelected());
+          }
+        });
+
       menuiBlackAndWhite.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
             boolean state = ((JCheckBoxMenuItem)e.getSource()).isSelected();

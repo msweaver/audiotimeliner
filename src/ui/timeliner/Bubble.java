@@ -487,8 +487,9 @@ public class Bubble extends JComponent {
     }
     // annotation element
     if (annotation.length() > 0) {
+    	String plainAnnotation = UIUtilities.removeTags(annotation);
       org.w3c.dom.Element annotationElement = doc.createElement("Annotation");
-      annotationElement.appendChild(doc.createTextNode(annotation));
+      annotationElement.appendChild(doc.createTextNode(plainAnnotation));
       bubbleElement.appendChild(annotationElement);
     }
     // now add any markers contained in the bubble, if it is a base bubble
@@ -504,7 +505,7 @@ public class Bubble extends JComponent {
           markerAnnotationElement.setAttribute("time", m.getTime());
           if (m.getAnnotation().length() > 0) {
             org.w3c.dom.Element annElement = doc.createElement("Ann");
-            annElement.appendChild(doc.createTextNode(m.getAnnotation()));
+            annElement.appendChild(doc.createTextNode(UIUtilities.removeTags(m.getAnnotation())));
             markerAnnotationElement.appendChild(annElement);
           }
           bubbleElement.appendChild(markerAnnotationElement);

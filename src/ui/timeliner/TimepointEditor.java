@@ -165,6 +165,7 @@ public class TimepointEditor extends JDialog {
         pnlTimeline.undoManager.undoableEditHappened(new UndoableEditEvent(pnlTimeline,
             new UndoableEditTimepoint(oldLabels, potentialLabels, oldOverlaps, potentialOverlaps, editedTimepoints, timeline)));
         pnlTimeline.updateUndoMenu();
+        pnlTimeline.refreshTimeline();
         uilogger.log(UIEventType.BUTTON_CLICKED, "accept timepoint edits");
       }
     });
@@ -181,6 +182,7 @@ public class TimepointEditor extends JDialog {
           int currNum = ((Integer)editedTimepoints.elementAt(i)).intValue();
           Timepoint currTimepoint = timeline.getTimepoint(currNum);
           oldLabels.addElement(currTimepoint.getLabel());
+          oldOverlaps.addElement(currTimepoint.getOverlap());
           currTimepoint.setLabel((String)potentialLabels.elementAt(i));
           currTimepoint.setOverlap(chkOverlap.isSelected());
         }

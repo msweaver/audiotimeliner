@@ -315,6 +315,7 @@ public class TimelineXMLAdapter {
     boolean resizable;
     Color panelColor;
     boolean showTimes;
+    boolean showMarkerTimes;
     Color levelColors[] = new Color[numSavedLevels + 1];
     int pointList[] = new int[1000];
     int markerList[] = new int[1000];
@@ -343,6 +344,7 @@ public class TimelineXMLAdapter {
       resizable = pnlTimeline.getTimeline().isResizable();
       panelColor = pnlTimeline.getPanelColor();
       showTimes = pnlTimeline.getTimeline().areTimesShown();
+      showMarkerTimes = pnlTimeline.getTimeline().areMarkerTimesShown();
       numBubs = pnlTimeline.getTimeline().getNumBaseBubbles();
       numMarkers = pnlTimeline.getTimeline().getNumMarkers();
       if (pnlTimeline.getFrame().isUsingLocalAudio) {
@@ -378,6 +380,11 @@ public class TimelineXMLAdapter {
     StringTokenizer st = new StringTokenizer(rootElement.getAttribute("bgColor"), ",");
     panelColor = new Color(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
     showTimes = (rootElement.getAttribute("visibleTimes").equals("true"));
+    if (rootElement.hasAttribute("visibleMarkerTimes")) {
+    	showMarkerTimes = (rootElement.getAttribute("visibleMarkerTimes").equals("true"));
+    } else {
+    	showMarkerTimes = false; 
+    }
 
     // read in media properties
     mediaStart = Integer.parseInt(rootElement.getAttribute("mediaOffset"));
@@ -411,6 +418,11 @@ public class TimelineXMLAdapter {
             Timepoint timepoint = new Timepoint();
             Timepoints.addElement(timepoint.getTimepoint());
             timepoint.setLabel(((Element)tpl.item(k)).getAttribute("label"));
+            if (((Element)tpl.item(k)).hasAttribute("overlap")) {
+            	timepoint.setOverlap(true);
+            } else {
+            	timepoint.setOverlap(false);
+            }
             NodeList annList = ((Element)tpl.item(k)).getElementsByTagName("Annotation");
             if (annList.getLength() > 0) {
               Node ann = annList.item(0).getFirstChild();
@@ -562,6 +574,7 @@ public class TimelineXMLAdapter {
     timeline.setEditable(editable);
     timeline.setResizable(resizable);
     timeline.showTimepointTimes(showTimes);
+    timeline.showMarkerTimes(showMarkerTimes);
     timeline.setSliderBackground(panelColor);
     timeline.lblThumb.setBackground(panelColor);
     for (int i = 1; i < levelColors.length; i++) {
@@ -584,17 +597,26 @@ public class TimelineXMLAdapter {
     // set up menu items
     if (System.getProperty("os.name").startsWith("Mac OS")) {
       pnlTimeline.menuiShowTimesMac.setSelected(showTimes);
+      pnlTimeline.menuiShowMarkerTimesMac.setSelected(showMarkerTimes);
       pnlTimeline.menubTimeline.menuiShowTimesMac.setSelected(showTimes);
+      pnlTimeline.menubTimeline.menuiShowMarkerTimesMac.setSelected(showMarkerTimes);
       pnlTimeline.menubTimeline.menuiBlackAndWhiteMac.setSelected(blackAndWhite);
       pnlTimeline.menubTimeline.menuiRoundBubblesMac.setSelected(bubbleType == 0);
       pnlTimeline.menubTimeline.menuiSquareBubblesMac.setSelected(bubbleType == 1);
-    } else {
+      } else {
       pnlTimeline.menuiShowTimes.setSelected(showTimes);
       pnlTimeline.menubTimeline.menuiShowTimes.setSelected(showTimes);
+      pnlTimeline.menuiShowMarkerTimes.setSelected(showMarkerTimes);
+      pnlTimeline.menubTimeline.menuiShowMarkerTimes.setSelected(showMarkerTimes);
       pnlTimeline.menubTimeline.menuiBlackAndWhite.setSelected(blackAndWhite);
       pnlTimeline.menubTimeline.menuiRoundBubbles.setSelected(bubbleType == 0);
       pnlTimeline.menubTimeline.menuiSquareBubbles.setSelected(bubbleType == 1);
-    }
+      pnlTimeline.menuiShowTimes.setState(showTimes);
+      pnlTimeline.menuiShowMarkerTimes.setState(showMarkerTimes);
+     }
+
+    pnlTimeline.getFrame().getControlPanel().setShowTimes(showTimes);
+    pnlTimeline.getFrame().getControlPanel().setShowMarkerTimes(showMarkerTimes);
 
     // set timeline frame title and pass the timeline to the timeline panel
     pnlTimeline.getFrame().setTitle(timelineTitle);
