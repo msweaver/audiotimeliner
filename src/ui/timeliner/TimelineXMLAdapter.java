@@ -1,6 +1,6 @@
 package ui.timeliner;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import org.w3c.dom.*;
 
 //import com.sun.tools.javac.util.Log;
@@ -30,7 +30,7 @@ public class TimelineXMLAdapter {
   java.io.File newPath;
   String selectedPath;
   String currOpenPath;
-  private static Logger log = Logger.getLogger(TimelineUtilities.class);
+  //private static Logger log = Logger.getLogger(TimelineUtilities.class);
 
   // external
   TimelinePanel pnlTimeline;
@@ -321,8 +321,8 @@ public class TimelineXMLAdapter {
     int markerList[] = new int[1000];
     int numBubs = 1;
     int numMarkers = 0;
-    Vector<Timepoint> Timepoints = new Vector<Timepoint>(2);
-    Vector<Marker> Markers = new Vector<Marker>(0);
+    Vector<Timepoint> Timepoints = new Vector<>(2);
+    Vector<Marker> Markers = new Vector<>(0);
     BubbleTreeNode topBubbleNode = null;
     Bubble rootBubble = new Bubble();
     int mediaStart;

@@ -3,7 +3,7 @@ package ui.timeliner;
 import javax.swing.*;
 import javax.swing.tree.*;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 import java.awt.*;
 import java.util.*;
@@ -49,7 +49,7 @@ public class Timeline extends JPanel {
   protected int bottomSpace;
   protected int smallestBubbleHeight = 13;
 
-  private static Logger log = Logger.getLogger(TimelineControlPanel.class);
+  //private static Logger log = Logger.getLogger(TimelineControlPanel.class);
 
   // description icon
   protected Image imgDescription = UIUtilities.imgDescription;
@@ -71,15 +71,15 @@ public class Timeline extends JPanel {
   private int markerPixelList[] = new int[1000];
 
   /* this Vector allows access to individual timepoint objects */
-  private Vector<Timepoint> Timepoints = new Vector<Timepoint>(2);
+  private Vector<Timepoint> Timepoints = new Vector<>(2);
 
   /* this Vector allows access to individual timepoint objects */
-  private Vector<Marker> Markers = new Vector<Marker>(0);
+  private Vector<Marker> Markers = new Vector<>(0);
 
   /* these vectors keep track of which bubbles are selected */
   private Vector selectedBubbles = new Vector();
-  private Vector<Integer> selectedBaseBubbles = new Vector<Integer>();
-  private Vector<Integer> selectedBoxBubbles = new Vector<Integer>();
+  private Vector<Integer> selectedBaseBubbles = new Vector<>();
+  private Vector<Integer> selectedBoxBubbles = new Vector<>();
 
   // other components of the timeline
   private TimelineResizer tResizer;
@@ -605,10 +605,10 @@ public class Timeline extends JPanel {
     setLineLength(len);
     setLineEnd(length + start);
     TimelineFrame frmTimeline = pnlTimeline.getFrame();
-    boolean doShift = true;
+    //boolean doShift = true;
     Dimension d = new Dimension((int)frmTimeline.scrollPane.getWidth(), (int)frmTimeline.scrollPane.getHeight());
     int panelWidth = pnlTimeline.getWidth();
-    int screenWidth = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+    //int screenWidth = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     int frameWidth = (int)frmTimeline.getWidth();
     int frameHeight = (int)frmTimeline.getHeight();
     int panelHeight = frameHeight - pnlControl.height - TimelineFrame.SPACER; // changed from frmTimeline.SPACER;  
@@ -847,7 +847,7 @@ public class Timeline extends JPanel {
 	doLastResize(frameWidth - TimelineFrame.SIDE_SPACE, g2);
     refresh(g2);
     Dimension newPanelSize = new Dimension(frameWidth - TimelineFrame.FRAME_SIDE_SPACE, pnlTimeline.getHeight());
-    Rectangle scrollRect = new Rectangle(0, 0, frameWidth - TimelineFrame.FRAME_SIDE_SPACE, 0);
+    //Rectangle scrollRect = new Rectangle(0, 0, frameWidth - TimelineFrame.FRAME_SIDE_SPACE, 0);
     pnlTimeline.setSize(newPanelSize);
     pnlTimeline.setPreferredSize(newPanelSize);
     pnlTimeline.setMinimumSize(newPanelSize);
@@ -1606,7 +1606,7 @@ public class Timeline extends JPanel {
     if (numMarkers == 0 || previousMarkerOffset < 0) {
       return false;
     }
-    int currOffset = getPlayerOffset();
+   // int currOffset = getPlayerOffset();
     int currBaseBub = getBaseBubbleNumAtCurrentOffset()-1;
     if (currBaseBub >= 0) {
       int previousTimepoint = sortedPointList[getBaseBubbleNumAtCurrentOffset()-1];
@@ -1667,7 +1667,7 @@ public class Timeline extends JPanel {
    * getSelectedLevels: returns a vector of the selected levels
    */
   protected Vector<Integer> getSelectedLevels() {
-    Vector<Integer> selectedLevels = new Vector<Integer>();
+    Vector<Integer> selectedLevels = new Vector<>();
 
     // determine the selected levels
     for (int i = 0; i < selectedBubbles.size(); i++) {
@@ -2243,7 +2243,7 @@ public class Timeline extends JPanel {
    */
   protected void setSelectedLevelColor(Color newColor) {
     makeDirty();
-    Vector<Integer> selectedLevels = new Vector<Integer>();
+    Vector<Integer> selectedLevels = new Vector<>();
 
     // determine the selected levels
     for (int i = 0; i < selectedBubbles.size(); i++) {
@@ -2384,12 +2384,12 @@ public class Timeline extends JPanel {
   public int getZoomIndex() {
 	  
 	  int firstBubble = (((Integer)selectedBubbles.elementAt(0)).intValue());
-      int lastBubble = (((Integer)selectedBubbles.elementAt(selectedBubbles.size() - 1)).intValue());
+      //int lastBubble = (((Integer)selectedBubbles.elementAt(selectedBubbles.size() - 1)).intValue());
       BubbleTreeNode startNode = getBubbleNode(firstBubble);
-      BubbleTreeNode endNode = getBubbleNode(lastBubble);
-      int zoomStartPoint = startNode.getFirstLeafBubble().start;
-      int zoomEndPoint = endNode.getLastLeafBubble().end;
-      int zoomRange = zoomEndPoint - zoomStartPoint;
+      //BubbleTreeNode endNode = getBubbleNode(lastBubble);
+      //int zoomStartPoint = startNode.getFirstLeafBubble().start;
+      //int zoomEndPoint = endNode.getLastLeafBubble().end;
+      //int zoomRange = zoomEndPoint - zoomStartPoint;
       return topBubbleNode.getLeafIndex(startNode.getFirstLeaf());
       
   }

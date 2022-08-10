@@ -119,7 +119,7 @@ public class BubbleTreeNode extends Object implements Cloneable,
             }
             newChild.setParent(this);
             if (children == null) {
-                children = new Vector<MutableTreeNode>();
+                children = new Vector<>();
             }
             children.insertElementAt(newChild, childIndex);
     }
@@ -1237,7 +1237,7 @@ public class BubbleTreeNode extends Object implements Cloneable,
             super();
             Vector v = new Vector(1);
             v.addElement(rootNode);	// PENDING: don't really need a vector
-            stack = new Stack<Enumeration<?>>();
+            stack = new Stack<>();
             stack.push(v.elements());
         }
 
@@ -1306,7 +1306,7 @@ public class BubbleTreeNode extends Object implements Cloneable,
 
         public BreadthFirstEnumeration(TreeNode rootNode) {
             super();
-            Vector<TreeNode> v = new Vector<TreeNode>(1);
+            Vector<TreeNode> v = new Vector<>(1);
             v.addElement(rootNode);	// PENDING: don't really need a vector
             queue = new Queue();
             queue.enqueue(v.elements());
@@ -1403,7 +1403,7 @@ public class BubbleTreeNode extends Object implements Cloneable,
 
             TreeNode current;
 
-            stack = new Stack<TreeNode>();
+            stack = new Stack<>();
             stack.push(descendant);
 
             current = descendant;

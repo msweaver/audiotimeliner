@@ -34,8 +34,8 @@ public class MenuWindow extends JMenu {
     public void populateWindowMenu() {
         int counter = 0;
         WindowMenuItem temp;
-        Vector<BasicWindow> openWindows = new Vector<BasicWindow>();
-        Vector<String> openWindowNames = new Vector<String>();
+        Vector<BasicWindow> openWindows = new Vector<>();
+        Vector<String> openWindowNames = new Vector<>();
         this.removeAll();                                   //clear out menu and start over
         openWindows = WindowManager.getOpenWindows();       //get list of currently open windows
         String title = "";

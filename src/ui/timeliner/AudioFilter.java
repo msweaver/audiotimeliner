@@ -26,7 +26,7 @@ public class AudioFilter extends FileFilter {
      * files are accepted.
      */
     public AudioFilter() {
-        this.filters = new Hashtable<String, AudioFilter>();
+        this.filters = new Hashtable<>();
     }
 
     /**
@@ -104,7 +104,7 @@ public class AudioFilter extends FileFilter {
      */
     public void addExtension(String extension) {
         if(filters == null) {
-            filters = new Hashtable<String, AudioFilter>(5);
+            filters = new Hashtable<>(5);
         }
         filters.put(extension.toLowerCase(), this);
         fullDescription = null;

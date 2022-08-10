@@ -13,7 +13,7 @@ import com.borland.jbcl.layout.*;
 import ui.media.*;
 import ui.common.*;
 import util.logging.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import javax.swing.text.html.*;
 
 /**
@@ -38,7 +38,7 @@ public class TimelineControlPanel extends JPanel {
   protected TimepointEditor dlgTimepointEditor;
   protected AudioControlPanel pnlAudioControl = new AudioControlPanel();
   VolumePanel pnlVolumeControl = new VolumePanel();
-  private static Logger log = Logger.getLogger(TimelineControlPanel.class);
+  //private static Logger log = Logger.getLogger(TimelineControlPanel.class);
   protected UILogger uilogger;
 
   // fonts
@@ -1469,7 +1469,7 @@ public class TimelineControlPanel extends JPanel {
 	      doc.insertString(0, "<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + "'>", normalStyle);
 	
 	      for (int i = currentBubbles.size()- 1; i >= 0; i--) {
-	        int prevLength = doc.getLength();
+	        //int prevLength = doc.getLength();
 	        Bubble currBubble = ((BubbleTreeNode)currentBubbles.elementAt(i)).getBubble();
 	        String currAnnotation = currBubble.getAnnotation();
 	        String currLabel = currBubble.getLabel();

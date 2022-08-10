@@ -356,7 +356,7 @@ public class SwingDPI {
             throw new IllegalStateException("UI Defaults is in whitelist mode");
         }
         if (BLACKLISTED_DEFAULTS == null) {
-            BLACKLISTED_DEFAULTS = new HashSet<String>();
+            BLACKLISTED_DEFAULTS = new HashSet<>();
         }
         BLACKLISTED_DEFAULTS.addAll(toExclude);
     }
@@ -382,7 +382,7 @@ public class SwingDPI {
             throw new IllegalStateException("UI Defaults is in blacklist mode");
         }
         if (WHITELISTED_DEFAULTS == null) {
-            WHITELISTED_DEFAULTS = new HashSet<String>();
+            WHITELISTED_DEFAULTS = new HashSet<>();
         }
         WHITELISTED_DEFAULTS.addAll(toWhitelist);
     }

@@ -1159,7 +1159,7 @@ public class TimelinePanel extends JPanel
     int currLevel = currBubble.getLevel();
 
     // find out all of the levels involved, store old colors
-    Vector<Integer> levels = new Vector<Integer>();
+    Vector<Integer> levels = new Vector<>();
     for (int i = 0; i < timeline.getSelectedBubbles().size(); i++) {
       Integer lev = Integer.valueOf(timeline.getBubble(((Integer)timeline.getSelectedBubbles().elementAt(i)).intValue()).getLevel());
       if (!levels.contains(lev)) {

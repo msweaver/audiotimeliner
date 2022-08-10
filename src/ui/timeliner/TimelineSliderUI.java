@@ -9,7 +9,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.plaf.*;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * Timeline Slider UI
@@ -26,7 +26,7 @@ import org.apache.log4j.Logger;
  public class TimelineSliderUI extends SliderUI {
 
     protected TimelineSlider slider;
-    private static Logger log = Logger.getLogger(TimelineSlider.class);
+    //private static Logger log = Logger.getLogger(TimelineSlider.class);
 
     protected Insets focusInsets = null;
     protected Insets insetCache = null;
@@ -807,10 +807,10 @@ import org.apache.log4j.Logger;
         int maj, min, max;
         int w = tickBounds.width;
         int h = tickBounds.height;
-        int centerEffect, tickHeight;
+        //int centerEffect; //, tickHeight;
 
         g.setColor(slider.getBackground());
-        g.fillRect(tickBounds.x, tickBounds.y, tickBounds.width, tickBounds.height);
+        g.fillRect(tickBounds.x, tickBounds.y, w, h);
         g.setColor(Color.black);
 
         maj = slider.getMajorTickSpacing();

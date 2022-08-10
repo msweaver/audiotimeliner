@@ -16,6 +16,12 @@ import ui.timeliner.TimelineXMLAdapter;
 import util.AppEnv;
 import util.logging.LogUtil;
 import util.SwingDPI;
+//import javax.swing.*;
+
+//import java.awt.Desktop;
+
+//import javax.swing.SwingUtilities;
+
 //import util.URLDownload;
 
 /**
@@ -29,12 +35,31 @@ import util.SwingDPI;
 public class Timeliner extends Application {
 
   public static final String DEFAULT_LOG4J_CONF = AppEnv.getAppDir() + "conf/client/timeliner_console.lcf";
-   
+ // private static final String APPLICATION_NAME = "Audio Timeliner";
+ // private static final String APPLICATION_ICON = AppEnv.getAppDir()+"resources/common/timeliner.gif";
+
   public Timeliner() {
 
   }
   
   public static void main(String[] args) {
+	  
+	    if (System.getProperty("os.name").startsWith("Mac OS")) {
+	    		    	
+	    	System.setProperty("apple.laf.useScreenMenuBar", "true");
+            System.setProperty("apple.awt.application.name", "Audio Timeliner");
+	    	//System.setProperty("apple.laf.useScreenMenuBar", "true");
+	    	//setMacMenu(args, APPLICATION_NAME, APPLICATION_ICON);
+            
+            //Desktop desktop = Desktop.getDesktop();
+            //if ( desktop.isSupported(Desktop.Action.APP_ABOUT)) {
+            //	desktop.setAboutHandler( e -> {
+            //		JOptionPane.showMessageDialog(null, "About");
+            //	}		);
+
+          //  }
+	    }
+
 	  if (args.length > 0) {
 		  String timfile = args[0];
           java.io.File timelineFile = new java.io.File(timfile);

@@ -43,7 +43,7 @@ import javax.swing.plaf.*;
     private transient boolean draggingMarker;
     private transient boolean hasVolumeWedge;
 
-    private Vector<Rectangle> labelRects = new Vector<Rectangle>(0);
+    private Vector<Rectangle> labelRects = new Vector<>(0);
 
     protected TrackListener trackListener;
     protected ChangeListener changeListener;
@@ -669,7 +669,7 @@ import javax.swing.plaf.*;
                     lowestValue = Math.min( value, lowestValue );
                 }
 
-                label = (Component)dictionary.get( new Integer( lowestValue ) );
+                label = (Component)dictionary.get( Integer.valueOf( lowestValue ) );
             }
         }
 
@@ -694,7 +694,7 @@ import javax.swing.plaf.*;
                     highestValue = Math.max( value, highestValue );
                 }
 
-                label = (Component)dictionary.get( new Integer( highestValue ) );
+                label = (Component)dictionary.get( Integer.valueOf( highestValue ) );
             }
         }
 
@@ -808,13 +808,13 @@ import javax.swing.plaf.*;
     public void paintTicks(Graphics g)  {
         Rectangle tickBounds = tickRect;
         //int i;
-        int maj, min, max;
+        int maj, min; //, max;
         int w = tickBounds.width;
         int h = tickBounds.height;
-        int centerEffect, tickHeight;
+        //int centerEffect; //, tickHeight;
 
         g.setColor(slider.getBackground());
-        g.fillRect(tickBounds.x, tickBounds.y, tickBounds.width, tickBounds.height);
+        g.fillRect(tickBounds.x, tickBounds.y, w, h);
         g.setColor(Color.black);
 
         maj = slider.getMajorTickSpacing();

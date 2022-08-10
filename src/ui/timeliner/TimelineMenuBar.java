@@ -104,7 +104,7 @@ public class TimelineMenuBar extends JMenuBar {
     createTimelineMenu();
 
     if (System.getProperty("os.name").startsWith("Mac OS")) {
-      frmTimeline.basicMenuBar.add(menuTimeline, 4);     //so the window menu won't move around on Mac
+      frmTimeline.basicMenuBar.add(menuTimeline, 3);     //so the window menu won't move around on Mac (was 4)
     }
     else {
       frmTimeline.basicMenuBar.add(menuTimeline, 3);     //add player menu in the appropriate place
@@ -572,6 +572,7 @@ public class TimelineMenuBar extends JMenuBar {
           boolean show = ((JRadioButtonMenuItem)e.getSource()).isSelected();
           pnlTimeline.showTimes(show);
           pnlTimeline.menuiShowTimesMac.setSelected(show);
+          pnlTimeline.getFrame().getControlPanel().setShowTimes(show);
           pnlTimeline.refreshTimeline();
                      uilogger.log(UIEventType.MENUITEM_SELECTED, "show timepoint times" + menuiShowTimesMac.isSelected());
         }
@@ -581,6 +582,7 @@ public class TimelineMenuBar extends JMenuBar {
             boolean show = ((JRadioButtonMenuItem)e.getSource()).isSelected();
             pnlTimeline.showMarkerTimes(show);
             pnlTimeline.menuiShowMarkerTimesMac.setSelected(show);
+            pnlTimeline.getFrame().getControlPanel().setShowMarkerTimes(show);
             pnlTimeline.refreshTimeline();
                        uilogger.log(UIEventType.MENUITEM_SELECTED, "show marker times" + menuiShowMarkerTimesMac.isSelected());
           }
@@ -617,6 +619,7 @@ public class TimelineMenuBar extends JMenuBar {
           boolean show = ((JCheckBoxMenuItem)e.getSource()).isSelected();
           pnlTimeline.showTimes(show);
           pnlTimeline.menuiShowTimes.setState(show);
+          pnlTimeline.getFrame().getControlPanel().setShowTimes(show);
           pnlTimeline.refreshTimeline();
                      uilogger.log(UIEventType.MENUITEM_SELECTED, "show timepoint times" + menuiShowTimes.isSelected());
         }
@@ -626,6 +629,7 @@ public class TimelineMenuBar extends JMenuBar {
             boolean show = ((JCheckBoxMenuItem)e.getSource()).isSelected();
             pnlTimeline.showMarkerTimes(show);
             pnlTimeline.menuiShowMarkerTimes.setState(show);
+            pnlTimeline.getFrame().getControlPanel().setShowMarkerTimes(show);
             pnlTimeline.refreshTimeline();
                        uilogger.log(UIEventType.MENUITEM_SELECTED, "show marker times" + menuiShowMarkerTimes.isSelected());
           }

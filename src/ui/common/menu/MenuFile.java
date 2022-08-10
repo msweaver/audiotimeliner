@@ -7,7 +7,7 @@ import java.awt.event.*;
 import ui.common.*;
 import ui.timeliner.*;
 import util.logging.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * The File menu 
@@ -20,7 +20,7 @@ public class MenuFile extends JMenu {
     public JMenuItem menuiFilePrint = new JMenuItem();
     public JMenuItem menuiFileClose = new JMenuItem();
     public JMenuItem menuiFileExit = new JMenuItem();
-    private Logger log = Logger.getLogger(TimelineBubbleEditor.class);
+    //private Logger log = Logger.getLogger(TimelineBubbleEditor.class);
 
     //DEFAULT FONT
     static java.awt.Font fileFont;

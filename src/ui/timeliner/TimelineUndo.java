@@ -494,7 +494,9 @@ class UndoableSquareBubbles extends AbstractUndoableEdit
 
 class UndoableFitToWindow extends AbstractUndoableEdit
 {
-  int oldTimelineLength;
+
+	private static final long serialVersionUID = 1L;
+int oldTimelineLength;
   int newTimelineLength;
   Dimension oldPanelSize;
   Dimension newPanelSize;
@@ -548,7 +550,9 @@ class UndoableFitToWindow extends AbstractUndoableEdit
 
 class UndoableZoomToSelectedBubbles extends AbstractUndoableEdit
 {
-  Vector oldSelectedBubbles = new Vector();
+
+	private static final long serialVersionUID = 1L;
+Vector oldSelectedBubbles = new Vector();
   Vector newSelectedBubbles = new Vector();
   int oldTimelineLength;
   int newTimelineLength;
@@ -621,7 +625,9 @@ class UndoableZoomToSelectedBubbles extends AbstractUndoableEdit
 
 class UndoableGroupBubbles extends AbstractUndoableEdit
 {
-  Vector selectedBubbles;
+
+	private static final long serialVersionUID = 1L;
+Vector selectedBubbles;
   TimelinePanel pnlTimeline;
   Timeline timeline;
 
@@ -655,7 +661,9 @@ class UndoableGroupBubbles extends AbstractUndoableEdit
 
 class UndoableUngroupBubbles extends AbstractUndoableEdit
 {
-  Vector selectedBubbles;
+
+	private static final long serialVersionUID = 1L;
+Vector selectedBubbles;
   Bubble oldBub = new Bubble();
   int bubbleNum;
   TimelinePanel pnlTimeline;
@@ -699,7 +707,9 @@ class UndoableUngroupBubbles extends AbstractUndoableEdit
 
 class UndoableDeleteBubble extends AbstractUndoableEdit
 {
-  Vector selectedBubbles;
+
+	private static final long serialVersionUID = 1L;
+Vector selectedBubbles;
   Vector offsets;
   Vector timepointLabels;
   Vector baseColors;
@@ -762,8 +772,8 @@ class UndoableDeleteBubble extends AbstractUndoableEdit
       int endPixels = (((Integer)groupEnds.elementAt(i)).intValue());
       int startPoint = timeline.getTimepointNumberAtPixel(startPixels);
       int endPoint = timeline.getTimepointNumberAtPixel(endPixels);
-      int startOffset = timeline.getOffsetAt(startPoint);
-      int endOffset = timeline.getOffsetAt(endPoint);
+      //int startOffset = timeline.getOffsetAt(startPoint);
+      //int endOffset = timeline.getOffsetAt(endPoint);
       BubbleTreeNode startNode = timeline.getBaseBubbleNode(startPoint);
       BubbleTreeNode endNode = timeline.getBaseBubbleNode(endPoint - 1);
       int startPos = timeline.topBubbleNode.getPreOrderIndex(startNode);
@@ -792,7 +802,9 @@ class UndoableDeleteBubble extends AbstractUndoableEdit
 
 class UndoableDeleteTimepoint extends AbstractUndoableEdit
 {
-  int timepointNum;
+
+	private static final long serialVersionUID = 1L;
+int timepointNum;
   int offset;
   Vector timepointLabels;
   Vector baseColors;
@@ -846,8 +858,8 @@ class UndoableDeleteTimepoint extends AbstractUndoableEdit
       int endPixels = (((Integer)groupEnds.elementAt(i)).intValue());
       int startPoint = timeline.getTimepointNumberAtPixel(startPixels);
       int endPoint = timeline.getTimepointNumberAtPixel(endPixels);
-      int startOffset = timeline.getOffsetAt(startPoint);
-      int endOffset = timeline.getOffsetAt(endPoint);
+      //int startOffset = timeline.getOffsetAt(startPoint);
+      //int endOffset = timeline.getOffsetAt(endPoint);
       BubbleTreeNode startNode = timeline.getBaseBubbleNode(startPoint);
       BubbleTreeNode endNode = timeline.getBaseBubbleNode(endPoint - 1);
       int startPos = timeline.topBubbleNode.getPreOrderIndex(startNode);
@@ -875,7 +887,9 @@ class UndoableDeleteTimepoint extends AbstractUndoableEdit
 
 class UndoableDeleteMarker extends AbstractUndoableEdit
 {
-  int markerNum;
+
+	private static final long serialVersionUID = 1L;
+int markerNum;
   int offset;
   String markerLabel;
   String markerAnnotation;
@@ -909,7 +923,9 @@ class UndoableDeleteMarker extends AbstractUndoableEdit
 
 class UndoableMoveSelectedBubblesUp extends AbstractUndoableEdit
 {
-  Vector selectedBubbles;
+
+	private static final long serialVersionUID = 1L;
+Vector selectedBubbles;
   Timeline time;
 
   public UndoableMoveSelectedBubblesUp(Vector sb, Timeline t) {
@@ -971,7 +987,9 @@ class UndoableMoveSelectedBubblesUp extends AbstractUndoableEdit
 
 class UndoableMoveSelectedBubblesDown extends AbstractUndoableEdit
 {
-  Vector selectedBubbles;
+
+	private static final long serialVersionUID = 1L;
+Vector selectedBubbles;
   Timeline time;
 
   public UndoableMoveSelectedBubblesDown(Vector sb, Timeline t) {
@@ -1033,7 +1051,9 @@ class UndoableMoveSelectedBubblesDown extends AbstractUndoableEdit
 
 class UndoableDragTimepoint extends AbstractUndoableEdit
 {
-  int oldOffset;
+
+	private static final long serialVersionUID = 1L;
+int oldOffset;
   int newOffset;
   int timepointNum;
   TimelinePanel pnlTimeline;
@@ -1071,7 +1091,9 @@ class UndoableDragTimepoint extends AbstractUndoableEdit
 
 class UndoableDragMarker extends AbstractUndoableEdit
 {
-  int oldOffset;
+
+	private static final long serialVersionUID = 1L;
+int oldOffset;
   int newOffset;
   int markerNum;
   TimelinePanel pnlTimeline;
@@ -1109,7 +1131,9 @@ class UndoableDragMarker extends AbstractUndoableEdit
 
 class UndoableResizeTimeline extends AbstractUndoableEdit
 {
-  int oldTimelineLength;
+
+	private static final long serialVersionUID = 1L;
+int oldTimelineLength;
   int newTimelineLength;
   TimelinePanel pnlTimeline;
 
@@ -1133,7 +1157,9 @@ class UndoableResizeTimeline extends AbstractUndoableEdit
 
 class UndoableEditTimepoint extends AbstractUndoableEdit
 {
-  Vector oldLabels;
+
+	private static final long serialVersionUID = 1L;
+Vector oldLabels;
   Vector newLabels;
   Vector oldOverlaps;
   Vector newOverlaps;
@@ -1178,7 +1204,9 @@ class UndoableEditTimepoint extends AbstractUndoableEdit
 
 class UndoableEditMarker extends AbstractUndoableEdit
 {
-  Vector oldLabels;
+
+	private static final long serialVersionUID = 1L;
+Vector oldLabels;
   Vector newLabels;
   Vector oldAnnotations;
   Vector newAnnotations;
@@ -1223,7 +1251,9 @@ class UndoableEditMarker extends AbstractUndoableEdit
 
 class UndoableEditBubble extends AbstractUndoableEdit
 {
-  Vector oldLabels;
+
+	private static final long serialVersionUID = 1L;
+Vector oldLabels;
   Vector newLabels;
   Vector oldAnnotations;
   Vector newAnnotations;
@@ -1268,7 +1298,9 @@ class UndoableEditBubble extends AbstractUndoableEdit
 
 class UndoableEditProperties extends AbstractUndoableEdit
 {
-  String oldTitle;
+
+	private static final long serialVersionUID = 1L;
+String oldTitle;
   String newTitle;
   String oldDescription;
   String newDescription;

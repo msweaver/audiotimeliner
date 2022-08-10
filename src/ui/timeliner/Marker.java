@@ -2,7 +2,7 @@ package ui.timeliner;
 
 import java.awt.*;
 //import java.lang.System.Logger;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 import ui.common.UIUtilities;
 
@@ -41,7 +41,7 @@ import ui.common.UIUtilities;
   //private Graphics g;
   private Graphics2D g2d;
   private Polygon markerPolygon;
-  private static Logger log = Logger.getLogger(Marker.class);
+  //private static Logger log = Logger.getLogger(Marker.class);
 
   // constructor
   public Marker() {

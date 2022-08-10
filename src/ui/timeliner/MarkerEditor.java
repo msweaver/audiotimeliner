@@ -20,7 +20,7 @@ import java.util.*;
 import util.logging.*;
 import ui.common.*;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * MarkerEditor
@@ -77,11 +77,11 @@ public class MarkerEditor extends JDialog {
   final  ImageIcon icoRight = UIUtilities.icoRightSmall;
 
   // vectors for temporary storage
-  protected Vector<Integer> editedMarkers = new Vector<Integer>();
-  protected Vector<String> potentialLabels = new Vector<String>();
-  protected Vector<String> potentialAnnotations = new Vector<String>();
-  protected Vector<String> oldLabels = new Vector<String>();
-  protected Vector<String> oldAnnotations = new Vector<String>();
+  protected Vector<Integer> editedMarkers = new Vector<>();
+  protected Vector<String> potentialLabels = new Vector<>();
+  protected Vector<String> potentialAnnotations = new Vector<>();
+  protected Vector<String> oldLabels = new Vector<>();
+  protected Vector<String> oldAnnotations = new Vector<>();
 
   /**
    * MarkerEditor: constructor

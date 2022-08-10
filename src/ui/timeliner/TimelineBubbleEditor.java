@@ -3,7 +3,7 @@ package ui.timeliner;
 import javax.swing.*;
 import javax.swing.undo.*;
 import java.awt.*;
-import java.awt.font.*;
+//import java.awt.font.*;
 import javax.swing.border.*;
 import java.awt.event.*;
 import javax.swing.event.*;
@@ -16,7 +16,7 @@ import ui.common.*;
 import javax.swing.text.html.*;
 import java.io.*;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * TimelineBubbleEditor.java
@@ -33,16 +33,16 @@ public class TimelineBubbleEditor extends JDialog {
   private Timeline timeline;
   private TimelineMenuBar menubTimeline;
   AudioControlPanel pnlAudioControl = new AudioControlPanel();
-  private Logger log = Logger.getLogger(TimelineBubbleEditor.class);
+  //private Logger log = Logger.getLogger(TimelineBubbleEditor.class);
   protected UILogger uilogger;
   protected Style normalStyle;
 
   // vectors for storing temporary values
-  protected Vector<Integer> editedBubbles = new Vector<Integer>();
-  protected Vector<String> potentialLabels = new Vector<String>();
-  protected Vector<String> potentialAnnotations = new Vector<String>();
-  protected Vector<String> oldLabels = new Vector<String>();
-  protected Vector<String> oldAnnotations = new Vector<String>();
+  protected Vector<Integer> editedBubbles = new Vector<>();
+  protected Vector<String> potentialLabels = new Vector<>();
+  protected Vector<String> potentialAnnotations = new Vector<>();
+  protected Vector<String> oldLabels = new Vector<>();
+  protected Vector<String> oldAnnotations = new Vector<>();
 
   // titled borders
   protected TitledBorder bordAnnotation = new TitledBorder(" Annotation ");

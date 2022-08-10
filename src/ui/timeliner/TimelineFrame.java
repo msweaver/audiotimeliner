@@ -10,9 +10,9 @@ import util.*;
 import util.logging.*;
 import ui.common.*;
 import java.beans.*;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
-import javafx.scene.control.SplitPane;
+//import javafx.scene.control.SplitPane;
 
 /**
  * Timeline Frame
@@ -34,7 +34,7 @@ public class TimelineFrame extends BasicWindow  {
   private TimelineMenuBar menubTimeline;
   JMenuItem menuiTimelineHelp = new JMenuItem();
   protected TimelineWizard wizard;
-  private static Logger log = Logger.getLogger(TimelineControlPanel.class);
+  //private static Logger log = Logger.getLogger(TimelineControlPanel.class);
 
   // variables
   private int height;
@@ -148,6 +148,14 @@ public class TimelineFrame extends BasicWindow  {
     menubTimeline = new TimelineMenuBar(this);
     pnlTimeline.setMenuBar(menubTimeline);
     pnlControl.setMenuBar(menubTimeline);
+    
+    if (System.getProperty("os.name").startsWith("Mac OS") ) {
+    	if (Desktop.isDesktopSupported()) {
+    		//log.debug("desktop is supported!");
+    		//Desktop.getDesktop().setDefaultMenuBar(menubTimeline);
+    	}
+    	//Desktop.getDesktop().setDefaultMenuBar(menubTimeline);
+    }
 
 // initially disable some menu options
     menubTimeline.setPrintEnabled(false);
@@ -373,7 +381,7 @@ public class TimelineFrame extends BasicWindow  {
     this.setSize(x, y);
 
     // update control panel size
-    int pnlHeight;
+    //int pnlHeight;
     int controlHeight;
     
     this.repaint();
@@ -422,7 +430,7 @@ public class TimelineFrame extends BasicWindow  {
 
     // scrollpanes and scrollbars
     scrollPane = new JScrollPane(pnlTimeline);
-    scrollPane.setMinimumSize(new Dimension(this.X_MINIMUM, 200));
+    scrollPane.setMinimumSize(new Dimension(TimelineFrame.X_MINIMUM, 200));
     hscrollBar = scrollPane.getHorizontalScrollBar();
     hscrollBar.addMouseListener(new MouseAdapter () {
       public void mouseEntered (MouseEvent e) {

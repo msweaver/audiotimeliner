@@ -30,6 +30,8 @@ public class MenuHelp extends JMenu {
         if (System.getProperty("os.name").startsWith("Mac OS")) {
             //Mac specific stuff
             helpFont = UIUtilities.fontMenusMac;
+            this.add(menuiHelpAbout);
+            menuiHelpAbout.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B, InputEvent.META_DOWN_MASK));
         } else {
             //Windows specific stuff
             helpFont = UIUtilities.fontMenusWin;

@@ -16,7 +16,7 @@ import ui.common.*;
 import javax.swing.text.*;
 import javax.swing.text.html.HTMLEditorKit;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 /**
  * TimelineProperties.java
@@ -29,7 +29,7 @@ public class TimelineProperties extends JDialog {
   private TimelinePanel pnlTimeline;
   private Timeline timeline;
   private TimelineMenuBar menubTimeline;
-  private static Logger log = Logger.getLogger(TimelineProperties.class);
+  //private static Logger log = Logger.getLogger(TimelineProperties.class);
   protected UILogger uilogger;
 
   // fonts
@@ -91,7 +91,7 @@ public class TimelineProperties extends JDialog {
   protected boolean firstApplyMade = false;
 
   // combo box
-  protected JComboBox<String> combColorSchemes = new JComboBox<String>();
+  protected JComboBox<String> combColorSchemes = new JComboBox<>();
 
   // check boxes
   protected JCheckBox chkEditable = new JCheckBox("Editable");
@@ -316,7 +316,7 @@ public class TimelineProperties extends JDialog {
     sldBubbleHeight.setMajorTickSpacing(5);
     sldBubbleHeight.setSnapToTicks(true);
     sldBubbleHeight.setToolTipText("Adjust the bubble height");
-    Hashtable<Integer, JLabel> tickLabels = new Hashtable<Integer, JLabel>();
+    Hashtable<Integer, JLabel> tickLabels = new Hashtable<>();
     tickLabels.clear();
     JLabel lblSmall = new JLabel("small");
     lblSmall.setFont(timelineFont);

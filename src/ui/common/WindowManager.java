@@ -6,6 +6,7 @@ import javax.swing.*;
 import org.apache.log4j.Logger;
 import client.*;
 import ui.timeliner.*;
+//import javafx.application.*;
 
 /**
  * This class is for keeping track of open windows, and other
@@ -43,7 +44,7 @@ public class WindowManager {
     //Used to generate window serial numbers.
     static public long serialNumberID = 0;
     //Vector of WindowTracker objects to keep track of the currently open windows.
-    private static Vector<WindowTracker> openWindows = new Vector<WindowTracker>();
+    private static Vector<WindowTracker> openWindows = new Vector<>();
     //Hashtable of local image files, with URL's as keys.
     //public static Hashtable imageCache = new Hashtable();
     static Image winImage = null;
@@ -66,19 +67,27 @@ public class WindowManager {
             Client.shutdown();
         }
         if (System.getProperty("os.name").startsWith("Mac OS")) {       //Mac specific stuff
+        	
+	    	//Desktop.getDesktop().setDefaultMenuBar(null);
+
             //put menu bar on the top of screen
-            System.setProperty("com.apple.macos.useScreenMenuBar", "true");
-            System.setProperty("com.apple.macos.use-file-dialog-packages", "true");  //don't allow navigation into apps
+            //System.setProperty("com.apple.macos.useScreenMenuBar", "true");
+            //System.setProperty("apple.laf.useScreenMenuBar", "true");
+            //System.setProperty("apple.awt.application.name", "Audio Timeliner");
+            //System.setProperty("com.apple.macos.use-file-dialog-packages", "true");  //don't allow navigation into apps
             //the following line does nothing if uncommented, must be set with AppBuilder instead, otherwise no about menu appears
-            //System.setProperty("com.apple.mrj.application.apple.menu.about.name", "About Variations2");  //add 'about' to app menu
-            System.setProperty("com.apple.mrj.application.growbox.intrudes", "true");       //looks bad otherwise
+            //System.setProperty("com.apple.mrj.application.apple.menu.about.name", "About");  //add 'about' to app menu
+            //System.setProperty("com.apple.mrj.application.growbox.intrudes", "true");       //looks bad otherwise
             //MacMenuHandler x = new MacMenuHandler(); 
+            
             //trigger application's quit method appropriately
-            //MRJApplicationUtils.registerQuitHandler(x);
+            
+           // MRJApplicationUtils.registerQuitHandler(x);
             //about menu handler for mac
             //MRJApplicationUtils.registerAboutHandler(x);
             
-       //     Desktop desktop = Desktop.getDesktop();
+           // Desktop desktop = Desktop.getDesktop();
+            //desktop.setAboutHandler(e -> JOptionPane.showMessageDialog(null, "Testing"));
       //      desktop.setAboutHandler(e -> JOptionPane.showMessageDialog(null, new Object[] {"Audio Timeliner" + "\n" +
       //              "Version 3.0" + "\n" +
       //              "Copyright 2022" + "\n" + "Brent Yorgason" + "\n" + "Brigham Young University"},
@@ -97,7 +106,7 @@ public class WindowManager {
 
         if (System.getProperty("os.name").startsWith("Mac OS")) {
             // OpenDocument handler for Mac
-            MacOpenHandler openHandler = new MacOpenHandler();
+            //MacOpenHandler openHandler = new MacOpenHandler();
             //MRJApplicationUtils.registerOpenDocumentHandler(openHandler);
         }
     }
@@ -375,7 +384,7 @@ public class WindowManager {
      * @see ui.common.menu.MenuWindow
      */
      public static Vector<BasicWindow> getOpenWindows() {
-        Vector<BasicWindow> windows = new Vector<BasicWindow>();
+        Vector<BasicWindow> windows = new Vector<>();
         int counter = 0;
         while (counter < openWindows.size()) {
             windows.add(((WindowTracker)(openWindows.get(counter))).win);
@@ -594,4 +603,5 @@ public class WindowManager {
     }
 
 
+    
 }

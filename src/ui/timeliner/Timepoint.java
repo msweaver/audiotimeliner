@@ -91,9 +91,16 @@ public class Timepoint {
 
     // now draw the timepoint
     if (isOverlap) {
-    	Image overlap = UIUtilities.imgOverlap;
-    	g2d.drawImage(overlap, timepointX-7, timepointY-40, 16, 10, null);
-    	g2d.fillRect(timepointX, timepointY, width, height);
+    	//Image overlap = UIUtilities.imgOverlap;
+    	//g2d.drawImage(overlap, timepointX-7, timepointY-40, 16, 10, null);
+    	//g2d.fillRect(timepointX, timepointY, width, height);
+    	int overW = 10;
+    	//int overH = 5;
+    	int overY = 40;
+    	g2d.setColor(Color.black);
+    	g2d.drawLine(timepointX-overW, timepointY-overY, timepointX+overW, timepointY-overY);
+    	g2d.drawLine(timepointX-overW, timepointY-overY, timepointX-overW, timepointY-overY+5);
+    	g2d.drawLine(timepointX+overW, timepointY-overY, timepointX+overW, timepointY-overY+5);
     }
     
     if (!selected) {

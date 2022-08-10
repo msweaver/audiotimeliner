@@ -14,7 +14,7 @@ import javazoom.jl.converter.Converter;
 import ui.common.*;
 import util.logging.*;
 import org.apache.log4j.Logger;
-import javazoom.jl.converter.*;
+//import javazoom.jl.converter.*;
 
 /**
  * TimelineUtilities

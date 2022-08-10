@@ -26,7 +26,7 @@ public class TimelineFilter extends FileFilter {
      * files are accepted.
      */
     public TimelineFilter() {
-        this.filters = new Hashtable<String, TimelineFilter>();
+        this.filters = new Hashtable<>();
     }
 
     /**
@@ -104,7 +104,7 @@ public class TimelineFilter extends FileFilter {
      */
     public void addExtension(String extension) {
         if(filters == null) {
-            filters = new Hashtable<String, TimelineFilter>(5);
+            filters = new Hashtable<>(5);
         }
         filters.put(extension.toLowerCase(), this);
         fullDescription = null;

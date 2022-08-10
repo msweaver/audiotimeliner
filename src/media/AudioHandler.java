@@ -74,7 +74,7 @@ public class AudioHandler implements PlayableContentHandler {
         tim = new java.util.Timer();    //initialize the timer that will wait for EOS events
         AudioTask eosTask = new AudioTask(tim);
         tim.schedule(eosTask, 0, TASK_FREQ);     //timer fires every hundredth of a sec.
-        listenerList = new Vector<PlayableContentHandlerListener>();             //initialize list of listeners
+        listenerList = new Vector<>();             //initialize list of listeners
         contentRef = null;                       //contentref will be set later
         eos = false;
     }
@@ -136,9 +136,9 @@ public class AudioHandler implements PlayableContentHandler {
         if (tplayer.filename.toString().endsWith(".mp3")) { 
 	         try {
 	           AudioFile testfile = AudioFileIO.read(audioFileName);
-	           int testdur = testfile.getAudioHeader().getTrackLength();
+	           //int testdur = testfile.getAudioHeader().getTrackLength();
 	           MP3AudioHeader mp3head = (MP3AudioHeader)testfile.getAudioHeader();
-	           int mp3duration = (int)Math.round(mp3head.getPreciseTrackLength() * 1000);
+	           //int mp3duration = (int)Math.round(mp3head.getPreciseTrackLength() * 1000);
 	           //logger.debug("JAudioTagger Duration = " + testdur);
 	           //logger.debug("JAudioTagger Precise = " + mp3duration);
 	           logger.debug("bitrate = " + mp3head.getBitRate());

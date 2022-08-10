@@ -18,7 +18,7 @@ public class StringTools extends Object {
     private static HashSet<Character> punctuation = null;
 
     static {
-        diacritics = new HashSet<Character>();
+        diacritics = new HashSet<>();
         diacritics.add(Character.valueOf('\u0309'));
         diacritics.add(Character.valueOf('\u0300'));
         diacritics.add(Character.valueOf('\u0301'));
@@ -48,7 +48,7 @@ public class StringTools extends Object {
         diacritics.add(Character.valueOf('\uFE22'));
         diacritics.add(Character.valueOf('\uFE23'));
 
-        punctuation = new HashSet<Character>();
+        punctuation = new HashSet<>();
         punctuation.add(Character.valueOf('\u0021'));
         punctuation.add(Character.valueOf('\u0023'));
         punctuation.add(Character.valueOf('\u0024')); // dollar sign
@@ -155,7 +155,7 @@ public class StringTools extends Object {
      */
     public static Vector<String> split(String values) {
         StringTokenizer tokenizer = new StringTokenizer(values, " \"", true);
-        Vector<String> result = new Vector<String>();
+        Vector<String> result = new Vector<>();
         final int OUT = 0;
         final int OUT_IN = 1;
         final int IN = 2;

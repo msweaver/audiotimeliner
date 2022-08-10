@@ -47,7 +47,7 @@ import ui.timeliner.TimelineSlider;
     private transient boolean draggingMarker;
     private transient boolean hasVolumeWedge;
 
-    private Vector<Rectangle> labelRects = new Vector<Rectangle>(0);
+    private Vector<Rectangle> labelRects = new Vector<>(0);
 
     protected TrackListener trackListener;
     protected ChangeListener changeListener;
@@ -815,10 +815,10 @@ import ui.timeliner.TimelineSlider;
         int maj, min, max;
         int w = tickBounds.width;
         int h = tickBounds.height;
-        int centerEffect, tickHeight;
+        //int centerEffect, tickHeight;
 
         g.setColor(slider.getBackground());
-        g.fillRect(tickBounds.x, tickBounds.y, tickBounds.width, tickBounds.height);
+        g.fillRect(tickBounds.x, tickBounds.y, w, h);
         g.setColor(Color.black);
 
         maj = slider.getMajorTickSpacing();
@@ -1498,7 +1498,9 @@ import ui.timeliner.TimelineSlider;
      * Instantiate it only within subclasses of <Foo>.
      */
     public class ActionScroller extends AbstractAction {
-        int dir;
+
+		private static final long serialVersionUID = 1L;
+		int dir;
         boolean block;
         JSlider slider;
 
@@ -1525,7 +1527,9 @@ import ui.timeliner.TimelineSlider;
      * A static version of the above.
      */
     static class SharedActionScroller extends AbstractAction {
-        int dir;
+
+		private static final long serialVersionUID = 1L;
+		int dir;
         boolean block;
 
         public SharedActionScroller(int dir, boolean block) {

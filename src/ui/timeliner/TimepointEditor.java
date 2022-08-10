@@ -32,11 +32,11 @@ public class TimepointEditor extends JDialog {
 
   // variables
   //private  String oldText;
-  protected Vector<Integer> editedTimepoints = new Vector<Integer>();
-  protected Vector<String> potentialLabels = new Vector<String>();
-  protected Vector<Boolean> potentialOverlaps = new Vector<Boolean>();
-  protected Vector<String> oldLabels = new Vector<String>();
-  protected Vector<Boolean> oldOverlaps = new Vector<Boolean>();
+  protected Vector<Integer> editedTimepoints = new Vector<>();
+  protected Vector<String> potentialLabels = new Vector<>();
+  protected Vector<Boolean> potentialOverlaps = new Vector<>();
+  protected Vector<String> oldLabels = new Vector<>();
+  protected Vector<Boolean> oldOverlaps = new Vector<>();
   protected int currTimepoint;
   protected int buttonWidth;
   protected boolean recentApplyMade = false;
