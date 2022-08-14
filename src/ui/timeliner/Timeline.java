@@ -3,6 +3,8 @@ package ui.timeliner;
 import javax.swing.*;
 import javax.swing.tree.*;
 
+import org.apache.log4j.Logger;
+
 //import org.apache.log4j.Logger;
 
 import java.awt.*;
@@ -49,7 +51,7 @@ public class Timeline extends JPanel {
   protected int bottomSpace;
   protected int smallestBubbleHeight = 13;
 
-  //private static Logger log = Logger.getLogger(TimelineControlPanel.class);
+  private static Logger log = Logger.getLogger(TimelineControlPanel.class);
 
   // description icon
   protected Image imgDescription = UIUtilities.imgDescription;
@@ -181,6 +183,7 @@ public class Timeline extends JPanel {
   public Timeline(Graphics2D graphics, int lineStart, int lineY, int lineLength, int bHeight,
                   int bType, boolean bw, TimelinePanel tp) {
     // store parameters
+	  
     g2d = graphics;
     start = lineStart;
     end = lineStart + lineLength;
@@ -199,6 +202,7 @@ public class Timeline extends JPanel {
 
     // create the bubble tree
     createBubbleTree();
+
   }
 
   /**

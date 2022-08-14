@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--To open this file, start Audio Timeliner and choose "Open Timeline..." from the File menu. Locate your copy of this file and open it.)--><Timeline BWBubbles="false" autoscale="true" bgColor="255,255,255" bubbleHeight="40" bubbleType="0" clickPlay="false" description="" editable="true" mediaContent="C:\Users\Brent Yorgason\Dropbox\Documents\rondo2.mp3" mediaLength="215432" mediaOffset="0" resizable="true" stopPlay="false" title="rondo2" visibleMarkerTimes="false" visibleTimes="false">
+    <LevelColors>
+        <LevelColor>166,202,240</LevelColor>
+        <LevelColor>255,255,120</LevelColor>
+        <LevelColor>255,200,100</LevelColor>
+        <LevelColor>200,255,200</LevelColor>
+        <LevelColor>252,215,215</LevelColor>
+        <LevelColor>209,173,209</LevelColor>
+        <LevelColor>249,188,162</LevelColor>
+        <LevelColor>156,222,235</LevelColor>
+        <LevelColor>210,210,205</LevelColor>
+        <LevelColor>255,255,255</LevelColor>
+        <LevelColor>255,255,255</LevelColor>
+        <LevelColor>255,255,255</LevelColor>
+    </LevelColors>
+    <Bubble color="166,202,240" level="2" time="0:00.0">
+        <Bubble color="166,202,240" label="a" level="1" time="0:00.0">
+            <Annotation>&lt;span style="margin-bottom: 0"&gt;&lt;font size="18pt" face="Arial Unicode MS"&gt;A&lt;/font&gt;</Annotation>
+        </Bubble>
+        <Bubble color="166,202,240" label="b" level="1" time="0:56">
+            <Annotation>&lt;span style="margin-bottom: 0"&gt;&lt;font size="18pt" face="Arial Unicode MS"&gt;B&lt;/font&gt;</Annotation>
+        </Bubble>
+        <Bubble color="166,202,240" label="c" level="1" time="1:41">
+            <Annotation>&lt;span style="margin-bottom: 0"&gt;&lt;font size="18pt" face="Arial Unicode MS"&gt;C&lt;/font&gt;</Annotation>
+        </Bubble>
+        <Bubble color="166,202,240" label="d" level="1" time="2:22">
+            <Annotation>&lt;span style="margin-bottom: 0"&gt;&lt;font size="18pt" face="Arial Unicode MS"&gt;D&lt;/font&gt;</Annotation>
+        </Bubble>
+        <Bubble color="166,202,240" label="e" level="1" time="3:01">
+            <Annotation>&lt;span style="margin-bottom: 0"&gt;&lt;font size="18pt" face="Arial Unicode MS"&gt;E&lt;/font&gt;</Annotation>
+        </Bubble>
+    </Bubble>
+    <Timepoints>
+        <Timepoint offset="0"/>
+        <Timepoint offset="56047"/>
+        <Timepoint offset="101002"/>
+        <Timepoint offset="142596"/>
+        <Timepoint offset="181564"/>
+        <Timepoint offset="215432"/>
+    </Timepoints>
+    <Markers/>
+    <Annotation>Exported on Sat Aug 13 20:55:45 MDT 2022</Annotation>
+</Timeline>

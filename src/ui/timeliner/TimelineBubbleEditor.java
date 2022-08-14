@@ -585,6 +585,7 @@ public class TimelineBubbleEditor extends JDialog {
     timeline.setLocalStartOffset(timeline.getOffsetAt(startTimepointNum));
     timeline.setLocalEndOffset(timeline.getOffsetAt(endTimepointNum));
     timeline.setNextImportantOffset(timeline.getLocalEndOffset());
+    fldBubbleLabel.requestFocus();
   }
 
   /**

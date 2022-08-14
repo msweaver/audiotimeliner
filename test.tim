@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--To open this file, start Audio Timeliner and choose "Open Timeline..." from the File menu. Locate your copy of this file and open it.)--><Timeline BWBubbles="false" autoscale="true" bgColor="255,255,255" bubbleHeight="40" bubbleType="0" clickPlay="false" description="&lt;span style=&quot;margin-bottom: 0&quot;&gt;&lt;font size=&quot;16pt&quot; face=&quot;java.awt.Font[family=Arial Unicode MS,name=Arial Unicode MS,style=plain,size=11]&quot;&gt;asdf&lt;/font&gt;" editable="true" mediaContent="C:\Users\Brent Yorgason\Dropbox\Documents\N74293-128.wav" mediaLength="314201" mediaOffset="0" resizable="true" stopPlay="false" title="Timeline: N74293-128.mp3" visibleMarkerTimes="false" visibleTimes="false">
+    <LevelColors>
+        <LevelColor>166,202,240</LevelColor>
+        <LevelColor>255,255,120</LevelColor>
+        <LevelColor>255,200,100</LevelColor>
+        <LevelColor>200,255,200</LevelColor>
+        <LevelColor>252,215,215</LevelColor>
+        <LevelColor>209,173,209</LevelColor>
+        <LevelColor>249,188,162</LevelColor>
+        <LevelColor>156,222,235</LevelColor>
+        <LevelColor>210,210,205</LevelColor>
+        <LevelColor>255,255,255</LevelColor>
+        <LevelColor>255,255,255</LevelColor>
+        <LevelColor>255,255,255</LevelColor>
+    </LevelColors>
+    <Bubble color="166,202,240" level="2" time="0:00.0">
+        <Bubble color="166,202,240" level="1" time="0:00.0">
+            <Annotation>&lt;span style="margin-bottom: 0"&gt;&lt;font size="18pt" face="Arial Unicode MS"&gt;asdf&lt;/font&gt;</Annotation>
+        </Bubble>
+        <Bubble color="166,202,240" level="1" time="1:18">
+            <Annotation>&lt;span style="margin-bottom: 0"&gt;&lt;font size="18pt" face="Arial Unicode MS"&gt;asdfasdf&lt;/font&gt;</Annotation>
+        </Bubble>
+        <Bubble color="166,202,240" level="1" time="1:55">
+            <Annotation>&lt;span style="margin-bottom: 0"&gt;&lt;font size="18pt" face="Arial Unicode MS"&gt;asdfasdfasdfa&lt;/font&gt;</Annotation>
+        </Bubble>
+        <Bubble color="166,202,240" level="1" time="2:49">
+            <Annotation>&lt;span style="margin-bottom: 0"&gt;&lt;font size="18pt" face="Arial Unicode MS"&gt;asdfasdfasdfasdfasdf&lt;/font&gt;</Annotation>
+        </Bubble>
+        <Bubble color="166,202,240" level="1" time="3:29">
+            <Annotation>&lt;span style="margin-bottom: 0"&gt;&lt;font size="18pt" face="Arial Unicode MS"&gt;asdfasdfasdfasdfasdfasdfasdf&lt;/font&gt;</Annotation>
+        </Bubble>
+        <Bubble color="166,202,240" level="1" time="3:50">
+            <Annotation>&lt;span style="margin-bottom: 0"&gt;&lt;font size="18pt" face="Arial Unicode MS"&gt;asdfasdfasdfasdfasdfasdfasdfasdf&lt;/font&gt;</Annotation>
+        </Bubble>
+    </Bubble>
+    <Timepoints>
+        <Timepoint offset="0"/>
+        <Timepoint offset="78337"/>
+        <Timepoint offset="115803"/>
+        <Timepoint offset="169021"/>
+        <Timepoint offset="209042"/>
+        <Timepoint offset="230116"/>
+        <Timepoint offset="314201"/>
+    </Timepoints>
+    <Markers/>
+    <Annotation>Exported on Wed Aug 10 01:54:51 MDT 2022</Annotation>
+</Timeline>

@@ -10,6 +10,7 @@ import java.awt.event.*;
 import java.io.StringWriter;
 
 import com.borland.jbcl.layout.*;
+import java.awt.LayoutManager;
 import ui.media.*;
 import ui.common.*;
 import util.logging.*;
@@ -155,6 +156,8 @@ public class TimelineControlPanel extends JPanel {
   protected Style boldStyle;
   protected boolean isDescriptionShowing = false;
   protected int timelineFontSize;
+  StyledEditorKit sek = new StyledEditorKit();
+  HTMLEditorKit hek = new HTMLEditorKit();
 
   // other variables
   protected int height;
@@ -260,7 +263,7 @@ public class TimelineControlPanel extends JPanel {
     // set up annotation pane
     tpAnnotations.setEditable(false);
     tpAnnotations.setFont(annotationFont);
-    //tpAnnotations.setContentType("text/html");
+    tpAnnotations.setContentType("text/html");
     scrpAnnotations.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     
     // create panel borders
@@ -1351,14 +1354,16 @@ public class TimelineControlPanel extends JPanel {
    * setAnnotationText: sets the annotation text to the string passed
    */
   protected void setAnnotationText(String str) {
-    tpAnnotations.setText(str);
+	  if (str!=null) {
+		  tpAnnotations.setText(str);
+	  }
   }
 
   /**
    * clearAnnotationPane: clears the annotation pane
    */
   protected void clearAnnotationPane() {
-    setAnnotationText("");
+	  setAnnotationText("");
   }
 
   /**
@@ -1399,12 +1404,13 @@ public class TimelineControlPanel extends JPanel {
    * updateAnnotationPane: displays the currently active annotations in the annotation pane
    */
   protected void updateAnnotationPane() {
-    tpAnnotations = new JTextPane();
-    tpAnnotations.setEditable(false);
+	//  this.clearAnnotationPane();
+    //tpAnnotations = new JTextPane();
+    //tpAnnotations.setEditable(false);
     //tpAnnotations.setFont(annotationFont);
-    if (scrpAnnotations != null && tpAnnotations != null && scrpAnnotations.getViewport() !=null) {
-    	scrpAnnotations.setViewportView(tpAnnotations);
-    }
+    //if (scrpAnnotations != null && tpAnnotations != null && scrpAnnotations.getViewport() !=null) {
+    //	scrpAnnotations.setViewportView(tpAnnotations);
+    //}
     Timeline timeline = pnlTimeline.getTimeline();
     Vector currentBubbles = new Vector();
     timeline.getNextMarkerOffset();
@@ -1444,28 +1450,25 @@ public class TimelineControlPanel extends JPanel {
     }
 
     try {
-      clearAnnotationPane();
-      tpAnnotations.setContentType("text/html");
-      StyledEditorKit sek = new StyledEditorKit();
-      HTMLEditorKit hek = new HTMLEditorKit();
-      //tpAnnotations.setEditorKit(sek);
+      //clearAnnotationPane();
+      //tpAnnotations.setEditorKit(hek);      //tpAnnotations.setEditorKit(sek);
       //tpAnnotations.setEditorKit(hek);
       //tpAnnotations.setContentType("text/plain");
-      tpAnnotations.setVisible(false);
+      //tpAnnotations.setVisible(false);
       doc = (StyledDocument)tpAnnotations.getDocument(); 
 
       if (doc!=null) {
-	      selectedStyle = doc.addStyle("Selected", null);
+	      //selectedStyle = doc.addStyle("Selected", null);
 	      normalStyle = doc.addStyle("Normal", null);
 	      boldStyle = doc.addStyle("Bold", null);
-	      StyleConstants.setBackground(selectedStyle, new Color(230, 230, 230));
+	      //StyleConstants.setBackground(selectedStyle, new Color(230, 230, 230));
 	      StyleConstants.setBold(boldStyle, true);
-	      StyleConstants.setFontSize(selectedStyle, annotationFontSize);
+	     // StyleConstants.setFontSize(selectedStyle, annotationFontSize);
 	      StyleConstants.setFontSize(normalStyle, annotationFontSize);
-	      StyleConstants.setFontFamily(selectedStyle, unicodeFont);
+	      //StyleConstants.setFontFamily(selectedStyle, unicodeFont);
 	      StyleConstants.setFontFamily(normalStyle, unicodeFont);
 	      StyleConstants.setFontFamily(boldStyle, unicodeFont);
-      
+	      clearAnnotationPane(); // just to be safe!
 	      doc.insertString(0, "<html><body><span style='margin-bottom:0em; font-size: " + annotationFontSize + "pt; font-family: " + unicodeFont + "'>", normalStyle);
 	
 	      for (int i = currentBubbles.size()- 1; i >= 0; i--) {
@@ -1543,11 +1546,11 @@ public class TimelineControlPanel extends JPanel {
 	   	  }
       }
       
-      tpAnnotations.setVisible(true);
+     // tpAnnotations.setVisible(true);
       
     } catch (BadLocationException ble) {
-      System.err.println("Error displaying annotation");
-      pnlTimeline.refreshTimeline(); // new
+      //System.err.println("Error displaying annotation");
+      // pnlTimeline.refreshTimeline(); // new
     }
     
     tpAnnotations.setCaretPosition(0);

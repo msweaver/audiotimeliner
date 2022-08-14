@@ -7,6 +7,8 @@ import ui.common.UIUtilities;
 
 import java.util.concurrent.*;
 
+import javax.swing.JOptionPane;
+
 //import javax.swing.JOptionPane;
 
 import org.apache.log4j.Logger;
@@ -63,6 +65,7 @@ public class TimelineLocalPlayer implements PlayableContentHandlerListener {
    * timeline local player constructor: requires a filename, start and stop offsets, and a timeline frame parent
    */
   public TimelineLocalPlayer(File file, int start, int stop, TimelineFrame parent) throws Exception {
+	  
     filename = file;
     parentWindow = parent;
     pnlTimeline = parent.getTimelinePanel();
@@ -70,13 +73,14 @@ public class TimelineLocalPlayer implements PlayableContentHandlerListener {
     currstart = start;
     currstop = stop;
 
+     //logger.debug("file = " + file + " "  + start + " " + stop);
     try {
         player = new AudioHandler();
       } catch (HandlerInitException err) {
         throw new ContentLoadingException("Trouble initiating audio.");
       }
-      player.addListener(this);      
-                  
+      player.addListener(this);     
+
       player.setContentRef("file:///" + (filename).toString(), this);
  
   }
@@ -183,12 +187,17 @@ public class TimelineLocalPlayer implements PlayableContentHandlerListener {
       //make sure offsets are within valid range for this container
       if ((currstop-currstart) > player.getDuration())  {
           logger.debug("Trouble initiating audio. Start/stop times are incorrect values.");
-          
-          if ((currstop > player.getDuration())) {
+         
+          if (player.getDuration() == 0) {
+        	    
+        	  //do nothing for now
+          }
+          else if ((currstop > player.getDuration())) {
         	  currstop = player.getDuration();
           }
+         
         } 
-      logger.debug("start: " + currstart + ", stop: " + currstop + ", duration: " + player.getDuration());
+      //logger.debug("start: " + currstart + ", stop: " + currstop + ", duration: " + player.getDuration());
 
       //set start offset into container, navigate there
       startOffset = currstart;

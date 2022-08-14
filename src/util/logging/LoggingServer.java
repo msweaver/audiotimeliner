@@ -29,7 +29,6 @@ public class LoggingServer {
         try {
             cat.info("Listening on port " + port);
             ServerSocket serverSocket = new ServerSocket(port);
-            serverSocket.close();
             while(true) {
             // cat.info("Waiting to accept a new client.");
             Socket socket = serverSocket.accept();
@@ -91,20 +90,20 @@ public class LoggingServer {
                 event = (LoggingEvent) ois.readObject();
                 remoteLogger = hierarchy.getLogger(event.categoryName);
 
-                if(event.level.isGreaterOrEqual(remoteLogger.getEffectiveLevel())) {
-                    event.logger = remoteLogger;
-                        msgbuf = new StringBuffer();
-                        msgbuf.append("[");
-                        msgbuf.append(socket.getInetAddress());
-                        msgbuf.append(" -- ");
-                        dateFormat.format(new java.util.Date(event.timeStamp), msgbuf, null);
-                        msgbuf.append("] ");
-                        msgbuf.append(event.getMessage());
-
-                        newevent = new LoggingEvent(event.fqnOfCategoryClass,
-                                        remoteLogger, event.level, msgbuf.toString(), null);
-                    remoteLogger.callAppenders(newevent);
-                }
+ //               if(event.level.isGreaterOrEqual(remoteLogger.getEffectiveLevel())) {
+ //                   event.logger = remoteLogger; // had to comment this out to compile 2022
+ //                       msgbuf = new StringBuffer();
+ //                      msgbuf.append("[");
+ //                       msgbuf.append(socket.getInetAddress());
+ //                       msgbuf.append(" -- ");
+ //                       dateFormat.format(new java.util.Date(event.timeStamp), msgbuf, null);
+ //                       msgbuf.append("] ");
+ //                       msgbuf.append(event.getMessage());
+//
+ //                       newevent = new LoggingEvent(event.fqnOfCategoryClass,
+  //                                      remoteLogger, event.level, msgbuf.toString(), null);
+   //                 remoteLogger.callAppenders(newevent);
+  //              }
                 }
             } catch(java.io.EOFException e) {
                 logger.info("Connection closed by client at " + socket.getInetAddress());

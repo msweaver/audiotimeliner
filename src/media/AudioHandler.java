@@ -8,6 +8,7 @@ import java.awt.*;
 import java.io.*;
 import javax.sound.sampled.*;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 
@@ -112,7 +113,7 @@ public class AudioHandler implements PlayableContentHandler {
 	         } 
 	         
     	} else {
-	        	 
+
     		return (int)audioFile.getDuration().toMillis(); // return milliseconds? 
 	    }
     }
@@ -127,6 +128,7 @@ public class AudioHandler implements PlayableContentHandler {
         audioFileName = tplayer.filename;
         
         String mp3FilePath=null;
+        
 
         mp3FilePath = ref.replaceAll("\\\\", "/");
         mp3FilePath = mp3FilePath.replaceAll(" ", "%20");
@@ -182,6 +184,7 @@ public class AudioHandler implements PlayableContentHandler {
 
         
         audioFile = new Media(mp3FilePath);
+        
         //logger.debug("audio file " + audioFile.getSource());
         // display media's metadata
         for (Map.Entry<String, Object> entry : audioFile.getMetadata().entrySet()){
@@ -189,8 +192,8 @@ public class AudioHandler implements PlayableContentHandler {
             logger.debug(entry.getKey() + ": " + entry.getValue());
          }
         
-           
         audioPlayer = new MediaPlayer(audioFile);
+        
         audioPlayer.setOnEndOfMedia(new Runnable() {
          	
          	@Override
@@ -211,6 +214,7 @@ public class AudioHandler implements PlayableContentHandler {
        	dialog.add(bar);
        	dialog.pack();
        	dialog.setLocation((tplayer.parentWindow.getWidth() / 2)-(dialog.getWidth()/2), 200);
+       	
        	
        	SwingWorker<Void,Void> worker = new SwingWorker<Void,Void>()
     	{
@@ -261,6 +265,7 @@ public class AudioHandler implements PlayableContentHandler {
         }
         contentRef = ref;
         eos = false;
+        
         return;
     }
 

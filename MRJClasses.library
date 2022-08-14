@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<library>
-  <!--JBuilder Library Definition File-->
-  <fullname>MRJClasses</fullname>
-  <class>
-    <path>[lib/MRJClasses.zip]</path>
-  </class>
-</library>

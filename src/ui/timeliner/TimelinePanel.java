@@ -1561,6 +1561,7 @@ public class TimelinePanel extends JPanel
           if (audioAdded) {
             timeline.makeDirty();
           }
+          this.fitToWindow();
         }
         break;
 

@@ -1,10 +1,7 @@
 package ui.timeliner;
 
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.w3c.dom.*;
-
-//import com.sun.tools.javac.util.Log;
-
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.*;
@@ -30,7 +27,7 @@ public class TimelineXMLAdapter {
   java.io.File newPath;
   String selectedPath;
   String currOpenPath;
-  //private static Logger log = Logger.getLogger(TimelineUtilities.class);
+  private static Logger log = Logger.getLogger(TimelineUtilities.class);
 
   // external
   TimelinePanel pnlTimeline;
@@ -466,6 +463,7 @@ public class TimelineXMLAdapter {
       }
     }
 
+
     File mediaFile;
     if (!restoringTempFile && !revertingToSavedFile) {
       // make a new timeline frame and set its content
@@ -504,7 +502,8 @@ public class TimelineXMLAdapter {
                 JOptionPane.INFORMATION_MESSAGE);
       }
       else { // local audio timeline
-        TimelineFrame newTimelineWindow;
+    	  
+         TimelineFrame newTimelineWindow;
         if (openingInitialStandalone) {
            newTimelineWindow = pnlTimeline.getFrame();
         }
@@ -518,11 +517,13 @@ public class TimelineXMLAdapter {
         }
         newTimelineWindow.setTitle("New Timeline");
         newTimelineWindow.isNewTimeline = false;
-      if (mediaContent.startsWith("..")) { // relative path
-        String absolutePath = TimelineUtilities.absolutePath(pnlTimeline.getSavePath(),mediaContent);
-        mediaContent = absolutePath;
-      }
+
+        if (mediaContent.startsWith("..")) { // relative path
+	        String absolutePath = TimelineUtilities.absolutePath(pnlTimeline.getSavePath(),mediaContent);
+	        mediaContent = absolutePath;
+	    }
         mediaFile = new File(mediaContent);
+        
         if (!mediaFile.exists()) { // there is no media file at the path specified
         	// look for the audio file in the same folder as the timeline first
         	//String relativePath = TimelineUtilities.getRelativePath(new File(mediacontent), new File (mediaContent));
@@ -547,6 +548,7 @@ public class TimelineXMLAdapter {
         		}
         	}
         }
+
         newTimelineWindow.setContent(mediaFile, mediaStart, mediaEnd);
         pnlTimeline = newTimelineWindow.getTimelinePanel();
 
