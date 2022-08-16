@@ -14,7 +14,6 @@ import javazoom.jl.converter.Converter;
 import ui.common.*;
 import util.logging.*;
 import org.apache.log4j.Logger;
-//import javazoom.jl.converter.*;
 
 /**
  * TimelineUtilities
@@ -196,6 +195,7 @@ public class TimelineUtilities {
           }
           int lastSlash = gifPath.lastIndexOf("\\");
           gifFilename = gifPath.substring(lastSlash + 1, gifPath.length());
+          logger.debug("gif name = " + gifFilename);
           uilogger.log(UIEventType.BUTTON_CLICKED, "accept save timeline as web page");
         }
         if (System.getProperty("os.name").startsWith("Mac OS")) { // needed to fix a 1.3 key bug
@@ -243,7 +243,8 @@ public class TimelineUtilities {
           if (currFilename.endsWith(".htm") || currFilename.endsWith(".html")) {
             tim.saveTimelineHTML(selectedFile.getPath(), timeline, Client.getUserName(), gifFilename);
             saveGifImage(timeline, selectedFileGIF);
-          }
+            timeline.getPanel().fitToWindow();
+           }
         }
 
       } catch (Exception err) {

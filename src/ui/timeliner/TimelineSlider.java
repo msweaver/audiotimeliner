@@ -4,10 +4,10 @@ import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
-import util.AppEnv;
 import util.logging.*;
 import org.apache.log4j.Logger;
 import ui.common.*;
+import resources.media.*;
 
 /**
  * TimelineSlider class
@@ -31,6 +31,10 @@ public class TimelineSlider extends JSlider {
   Toolkit kit = Toolkit.getDefaultToolkit();
   private static Logger log = Logger.getLogger(TimelineSlider.class);
   protected UILogger uilogger;
+  Image imgHandClosed = new ImageIcon(getClass().getClassLoader().getResource("resources/media/handclosed.gif")).getImage();
+  Image imgHandOpen = new ImageIcon(getClass().getClassLoader().getResource("resources/media/handopen.gif")).getImage();
+  Image imgHandPoint = new ImageIcon(getClass().getClassLoader().getResource("resources/media/handpoint.gif")).getImage();
+  Image imgMovePoint = new ImageIcon(getClass().getClassLoader().getResource("resources/media/movepoint.gif")).getImage();
 
   // variables
   final private int offset = 5;  // this has to do with the layout of the slider object
@@ -169,7 +173,7 @@ public class TimelineSlider extends JSlider {
           if (timeline.isResizable() && timeline.isEditable()) {
 
             // start a resize action: change the cursor
-            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandClosed, new Point(8, 8), "Cursor"));
+            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandClosed, new Point(8, 8), "Cursor"));
             pnlTimeline.oldTimelineLength = timeline.getLineLength();
             pnlTimeline.setLineResizing(true);
             timeline.getSlider().setVisible(false);
@@ -203,7 +207,7 @@ public class TimelineSlider extends JSlider {
             }
             // clicked on the slider thumb
             if (sliderUI.thumbRect.contains(e.getPoint())) { // change cursor
-              pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandClosed, new Point(8, 8), "Cursor"));
+              pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandClosed, new Point(8, 8), "Cursor"));
             }
             else { // potential drag-select
               dragStarted = true;
@@ -333,13 +337,13 @@ public class TimelineSlider extends JSlider {
             else {timeline.showTime(true); }
           }
           // reset the cursor
-          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
         }
 
         // if a marker drag started but didn't "happen"
         else if (timeline.isMarkerDragging() ) {
           timeline.setMarkerDragging(false);      // signal the end of the dragging event
-          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
           // reposition the playback head
           setValue(timeline.getMarkerList()[timeline.getLastMarkerClicked()]);
           pnlTimeline.refreshTimeline();
@@ -357,7 +361,7 @@ public class TimelineSlider extends JSlider {
         // if user was resizing the line
         else if (pnlTimeline.isLineResizing()) {
           // re-blows the bubbles one last time
-          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
           int newSize = e.getX() - offset;
           pnlTimeline.doResize(newSize);
           pnlTimeline.setLineResizing(false);
@@ -410,7 +414,7 @@ public class TimelineSlider extends JSlider {
             timeline.showTime(true);
           }
           // change the cursor back to a hand
-          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
           pnlTimeline.getFrame().getControlPanel().updateAnnotationPane();
         }
       }
@@ -424,25 +428,25 @@ public class TimelineSlider extends JSlider {
         // cursor over timepoint
         if (timeline.timepointsContain(panelPoint) && timeline.isEditable()) {
           if (System.getProperty("os.name").startsWith("Mac OS")) {
-            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgMovePoint, new Point(UIUtilities.scalePixels(8), UIUtilities.scalePixels(8)), "Cursor"));
+            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgMovePoint, new Point(UIUtilities.scalePixels(8), UIUtilities.scalePixels(8)), "Cursor"));
           } else {
-            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgMovePoint, new Point(UIUtilities.scalePixels(16), UIUtilities.scalePixels(16)), "Cursor"));
+            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgMovePoint, new Point(UIUtilities.scalePixels(16), UIUtilities.scalePixels(16)), "Cursor"));
           }
         }
 
         // cursor over marker
         if (timeline.markersContain(panelPoint) && timeline.isEditable()) {
-          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
         }
 
         // cursor over thumb
         else if (sliderUI.thumbRect.contains(new Point(e.getX(), e.getY()))) {
-          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
         }
 
         // cursor over resizer
         else if (timeline.isResizable() && timeline.isEditable() && tResizer.contains(panelPoint)) {
-          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
         }
 
         // not over anything
@@ -465,14 +469,14 @@ public class TimelineSlider extends JSlider {
 
         // if the user is dragging a timepoint, call dragTimepoint with the current point
         if (timeline.isTimepointDragging() ) {
-          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandClosed, new Point(8, 8), "Cursor"));
+          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandClosed, new Point(8, 8), "Cursor"));
           timeline.dragTimepoint(panelPoint);
           timepointWasDragged = true;
         }
 
         // if the user is dragging a marker, call dragMarker with the current point
         else if (timeline.isMarkerDragging() ) {
-          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandClosed, new Point(8, 8), "Cursor"));
+          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandClosed, new Point(8, 8), "Cursor"));
           timeline.dragMarker(panelPoint);
           markerWasDragged = true;
         }
@@ -480,10 +484,10 @@ public class TimelineSlider extends JSlider {
         // if the user is dragging the resizer, resize the line
         else if (pnlTimeline.isLineResizing()) {
           if (System.getProperty("os.name").startsWith("Mac OS")) {
-            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(kit.getImage(AppEnv.getAppDir()+"resources/media/handclosed.gif"), new Point(8, 8), "Cursor"));
+            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandClosed, new Point(8, 8), "Cursor"));
           }
           else {
-            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(kit.getImage(AppEnv.getAppDir()+"resources/media/handclosed.gif"), new Point(8, 8), "Cursor"));
+            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandClosed, new Point(8, 8), "Cursor"));
           }
           int newLength = e.getX() - offset;
           if (newLength > 0) {
@@ -503,7 +507,7 @@ public class TimelineSlider extends JSlider {
 
         // otherwise drag the slider pointer
         else {
-          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandClosed, new Point(8, 8), "Cursor"));
+          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandClosed, new Point(8, 8), "Cursor"));
           pnlTimeline.refreshTimeline();
           sliderUI.jumpDueToClickInTrack(e.getX());
           timeline.showTime(true);
@@ -518,14 +522,14 @@ public class TimelineSlider extends JSlider {
                                      e.getY() + timeline.getLineY());
         if (timeline.timepointsContain(panelPoint) && timeline.isEditable()) {
           if (System.getProperty("os.name").startsWith("Mac OS")) {
-            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgMovePoint, new Point(UIUtilities.scalePixels(8), UIUtilities.scalePixels(8)), "Cursor"));
+            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgMovePoint, new Point(UIUtilities.scalePixels(8), UIUtilities.scalePixels(8)), "Cursor"));
           } else {
-            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgMovePoint, new Point(UIUtilities.scalePixels(16), UIUtilities.scalePixels(16)), "Cursor"));
+            pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgMovePoint, new Point(UIUtilities.scalePixels(16), UIUtilities.scalePixels(16)), "Cursor"));
           }
           timeline.getSlider().setToolTipText(null);
         }
         else if (timeline.markersContain(panelPoint) && timeline.isEditable()) {
-          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
           int markerHover = timeline.getMarkerAt(panelPoint);
           String tip = UIUtilities.removeTags(((Marker)timeline.getMarker(markerHover)).getAnnotation());
           if (tip.length() == 0) {
@@ -536,11 +540,11 @@ public class TimelineSlider extends JSlider {
           }
         }
         else if (sliderUI.thumbRect.contains(e.getPoint())) {
-          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
           timeline.getSlider().setToolTipText(null);
         }
         else if (tResizer.contains(panelPoint) && timeline.isResizable() && timeline.isEditable()) {
-          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+          pnlTimeline.getFrame().setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
           timeline.getSlider().setToolTipText(null);
         }
         else {

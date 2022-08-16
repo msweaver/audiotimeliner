@@ -19,11 +19,13 @@ import javafx.util.Duration;
 import ui.timeliner.*;
 import util.AppEnv;
 
-import org.jaudiotagger.audio.AudioFileIO;
-import org.jaudiotagger.audio.AudioFile;
-import org.jaudiotagger.audio.mp3.*;
+//import org.jaudiotagger.audio.AudioFileIO;
+//import org.jaudiotagger.audio.AudioFile;
+//import org.jaudiotagger.audio.mp3.*;
 import org.apache.log4j.Logger;
 
+import javazoom.jl.decoder.*;
+import javazoom.jl.player.*;
 
 /**
  * The AudioHandler
@@ -34,8 +36,9 @@ public class AudioHandler implements PlayableContentHandler {
     //how often the TASK thread fires
    final static String CONTENT_EOS = "End of stream.";
    final static int TASK_FREQ = 1;
-   static String bogusMedia = AppEnv.getAppDir()+ "resources/audio/null.mp3";
+   //static String bogusMedia = AppEnv.getAppDir()+ "resources/audio/null.mp3";
    //private final Object disposeLock = new Object();
+   Bitstream bitstream;
 
     /////////////////////VARIABLES////////////////////////////
     /**
@@ -72,7 +75,7 @@ public class AudioHandler implements PlayableContentHandler {
     /**
      */
     public AudioHandler() throws HandlerInitException{
-        tim = new java.util.Timer();    //initialize the timer that will wait for EOS events
+         tim = new java.util.Timer();    //initialize the timer that will wait for EOS events
         AudioTask eosTask = new AudioTask(tim);
         tim.schedule(eosTask, 0, TASK_FREQ);     //timer fires every hundredth of a sec.
         listenerList = new Vector<>();             //initialize list of listeners
@@ -93,9 +96,10 @@ public class AudioHandler implements PlayableContentHandler {
      */
     public int getDuration()  {
     	
-    	if (audioFileName.toString().endsWith(".mp3")) {
+    	return (int)audioFile.getDuration().toMillis(); 
+//    	if (audioFileName.toString().endsWith(".mp3")) {
 	         
-    		try {
+/**    		try {
     			
 	           AudioFile tempfile = AudioFileIO.read(audioFileName);
 	           MP3AudioHeader mp3head = (MP3AudioHeader)tempfile.getAudioHeader();
@@ -108,14 +112,14 @@ public class AudioHandler implements PlayableContentHandler {
 	        	 
 	        	e.printStackTrace();
 	           
-	    		return (int)audioFile.getDuration().toMillis(); // return milliseconds? 
+	    		return (int)audioFile.getDuration().toMillis(); // return milliseconds
 
 	         } 
-	         
-    	} else {
+	     */    
+  //  	} else {
 
-    		return (int)audioFile.getDuration().toMillis(); // return milliseconds? 
-	    }
+    //		return (int)audioFile.getDuration().toMillis(); // return milliseconds
+	 //   } 
     }
     
     public void setContentRef(String ref) {
@@ -128,36 +132,69 @@ public class AudioHandler implements PlayableContentHandler {
         audioFileName = tplayer.filename;
         
         String mp3FilePath=null;
-        
 
         mp3FilePath = ref.replaceAll("\\\\", "/");
         mp3FilePath = mp3FilePath.replaceAll(" ", "%20");
         logger.debug("mp3 path " + mp3FilePath);
 
-        // check mp3 files for problems
+        // check mp3 files for problems 
         if (tplayer.filename.toString().endsWith(".mp3")) { 
-	         try {
-	           AudioFile testfile = AudioFileIO.read(audioFileName);
+
+	        // check for variable bit rate (VBR)
+			try {
+				FileInputStream in = new FileInputStream(audioFileName);
+				bitstream = new Bitstream(in);
+			}
+			catch (FileNotFoundException fe) {
+				fe.printStackTrace();
+			}
+			try {
+				Header header = bitstream.readFrame();
+				if (header != null) {
+					if (header.vbr()) {
+						logger.debug("is vbr = " + header.vbr());
+			        	   
+						// warn about variable bit rate and offer to encode as WAV file
+			        	FileFormatDialog dlgFile = new FileFormatDialog(audioFileName.toString(), this, tplayer.parentWindow);
+
+			        	if (newPath != null) {
+			        		//logger.debug("found new path = " + newPath);
+			        			
+			        	    mp3FilePath = "file:///" + newPath.toString().replaceAll("\\\\", "/");
+			        	    mp3FilePath = mp3FilePath.replaceAll(" ", "%20");
+			        	    logger.debug("new wav path " + mp3FilePath);
+			        	    audioFileName = newPath; 
+			        	    tplayer.filename = newPath;
+			        	}
+					}
+				}
+			}
+			catch (BitstreamException be) {
+			    be.printStackTrace();
+			}
+/**
+ //       	try {
+//	           AudioFile testfile = AudioFileIO.read(audioFileName);
 	           //int testdur = testfile.getAudioHeader().getTrackLength();
-	           MP3AudioHeader mp3head = (MP3AudioHeader)testfile.getAudioHeader();
-	           //int mp3duration = (int)Math.round(mp3head.getPreciseTrackLength() * 1000);
+//	           MP3AudioHeader mp3head = (MP3AudioHeader)testfile.getAudioHeader();
+//	           int mp3duration = (int)Math.round(mp3head.getPreciseTrackLength() * 1000);
 	           //logger.debug("JAudioTagger Duration = " + testdur);
 	           //logger.debug("JAudioTagger Precise = " + mp3duration);
-	           logger.debug("bitrate = " + mp3head.getBitRate());
-	           logger.debug("bits per sample = " + mp3head.getBitsPerSample());;
-	           logger.debug("encoding type = " + mp3head.getEncodingType());	
-	           logger.debug("variable bitrate = " + mp3head.isVariableBitRate());
-	           logger.debug("lossless = " + mp3head.isLossless());
-	           logger.debug("byte rate = " + mp3head.getByteRate());
-	           //logger.debug("audio data length = " + mp3head.getAudioDataLength());
-	           //logger.debug("audio date end position = " + mp3head.getAudioDataEndPosition());
-	           //logger.debug("audio track length = " + mp3head.getTrackLength());
-	           logger.debug("audio sample rate = " + mp3head.getSampleRate());           
-	           logger.debug("number of frames = " + mp3head.getNumberOfFrames());
-	           logger.debug("mpeg version = " + mp3head.getMpegVersion());
-	           logger.debug("mpeg layer = " + mp3head.getMpegLayer());
-	           logger.debug("format = " + mp3head.getFormat());
-	           logger.debug("channels = " + mp3head.getChannels());
+//	           logger.debug("bitrate = " + mp3head.getBitRate());
+//	           logger.debug("bits per sample = " + mp3head.getBitsPerSample());;
+//	           logger.debug("encoding type = " + mp3head.getEncodingType());	
+//	           logger.debug("variable bitrate = " + mp3head.isVariableBitRate());
+//	           logger.debug("lossless = " + mp3head.isLossless());
+//	           logger.debug("byte rate = " + mp3head.getByteRate());
+//	           //logger.debug("audio data length = " + mp3head.getAudioDataLength());
+//	           //logger.debug("audio date end position = " + mp3head.getAudioDataEndPosition());
+//	           //logger.debug("audio track length = " + mp3head.getTrackLength());
+//	           logger.debug("audio sample rate = " + mp3head.getSampleRate());           
+//	           logger.debug("number of frames = " + mp3head.getNumberOfFrames());
+//	           logger.debug("mpeg version = " + mp3head.getMpegVersion());
+//	           logger.debug("mpeg layer = " + mp3head.getMpegLayer());
+//	           logger.debug("format = " + mp3head.getFormat());
+//	           logger.debug("channels = " + mp3head.getChannels());
 
 	           if (mp3head.isVariableBitRate()) {
 	        	   
@@ -180,12 +217,29 @@ public class AudioHandler implements PlayableContentHandler {
 	         } catch (Exception e) {
 	           e.printStackTrace();
 	         }
+       }
+ */        	
+       
         }
+/**        else if (tplayer.filename.toString().endsWith(".mp3") && (getDuration() == 0 || getDuration() > 3600000)) { 
+        	// may not be able to determine the right duration if it is zero or over an hour in length
+logger.debug("mac with weird mp3 file duration");     	   
+     	   // warn about duration issue and offer to encode as WAV file
+     	   FileFormatDialog dlgFile = new FileFormatDialog(audioFileName.toString(), this, tplayer.parentWindow);
 
-        
+     	   if (newPath != null) {
+     	        mp3FilePath = "file:///" + newPath.toString().replaceAll("\\\\", "/");
+     	        mp3FilePath = mp3FilePath.replaceAll(" ", "%20");
+     	        logger.debug("new wav path " + mp3FilePath);
+     	        audioFileName = newPath; 
+     	        tplayer.filename = newPath;
+     		}
+     		else {
+     		}
+        }
+*/        
         audioFile = new Media(mp3FilePath);
         
-        //logger.debug("audio file " + audioFile.getSource());
         // display media's metadata
         for (Map.Entry<String, Object> entry : audioFile.getMetadata().entrySet()){
             //System.out.println(entry.getKey() + ": " + entry.getValue());

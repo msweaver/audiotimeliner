@@ -12,6 +12,7 @@ import java.io.*;
 import util.logging.*;
 import ui.common.*;
 import org.apache.log4j.Logger;
+import resources.media.*;
 
 /**
  * Timeline Panel
@@ -165,6 +166,11 @@ public class TimelinePanel extends JPanel
   private static Logger log = Logger.getLogger(TimelinePanel.class);
   protected UILogger uilogger;
   
+  Image imgHandClosed = new ImageIcon(getClass().getClassLoader().getResource("resources/media/handclosed.gif")).getImage();
+  Image imgHandOpen = new ImageIcon(getClass().getClassLoader().getResource("resources/media/handopen.gif")).getImage();
+  Image imgHandPoint = new ImageIcon(getClass().getClassLoader().getResource("resources/media/handpoint.gif")).getImage();
+  Image imgMovePoint = new ImageIcon(getClass().getClassLoader().getResource("resources/media/movepoint.gif")).getImage();
+
   public String savePath;
 
   /**
@@ -1379,7 +1385,7 @@ public class TimelinePanel extends JPanel
 
       // hovering over a marker
       if (markerHover != -1 && timeline.isEditable()) {
-        frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+        frmTimeline.setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
         tip = UIUtilities.removeTags(((Marker)timeline.getMarker(markerHover)).getAnnotation());
         if (tip.length() == 0) {
           this.setToolTipText(null);
@@ -1392,7 +1398,7 @@ public class TimelinePanel extends JPanel
       // hovering over a bubble
       else if (bubHover != -1) {
         if (System.getProperty("os.name").startsWith("Mac OS")) {
-          frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandPoint, new Point(8, 8), "Cursor"));
+          frmTimeline.setCursor(kit.createCustomCursor(imgHandPoint, new Point(8, 8), "Cursor"));
           tip = UIUtilities.removeTags(((Bubble)timeline.getBubble(bubHover)).getAnnotation());
           if (tip.length() == 0) {
             this.setToolTipText(null);
@@ -1405,7 +1411,7 @@ public class TimelinePanel extends JPanel
             this.setToolTipText(tip);
           }
         } else {
-          frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandPoint, new Point(8, 8), "Cursor"));
+          frmTimeline.setCursor(kit.createCustomCursor(imgHandPoint, new Point(8, 8), "Cursor"));
           tip = UIUtilities.removeTags(((Bubble)timeline.getBubble(bubHover)).getAnnotation());
           if (tip.length() == 0) {
             this.setToolTipText(null);
@@ -1418,7 +1424,7 @@ public class TimelinePanel extends JPanel
 
       // hovering over the resizer
       else if (timeline.isResizable() && timeline.isEditable() && timeline.getResizer().contains(p) && !resizingLine) {
-        frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+        frmTimeline.setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
       }
 
       // hovering over the description icon
@@ -1428,7 +1434,7 @@ public class TimelinePanel extends JPanel
           timeline.drawDescriptionIcon((Graphics2D)this.getGraphics(), 1);
           refreshTimeline();
         }
-        frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandPoint, new Point(8, 8), "Cursor"));
+        frmTimeline.setCursor(kit.createCustomCursor(imgHandPoint, new Point(8, 8), "Cursor"));
         this.setToolTipText("Click to view timeline description");
       }
 
@@ -1897,7 +1903,7 @@ public class TimelinePanel extends JPanel
       // they clicked on the resizer
       if (timeline.getResizer().contains(e.getPoint())) {
         if (timeline.isResizable() && timeline.isEditable()) {
-          frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandClosed, new Point(8, 8), "Cursor"));
+          frmTimeline.setCursor(kit.createCustomCursor(imgHandClosed, new Point(8, 8), "Cursor"));
           oldTimelineLength = timeline.getLineLength();
           resizingLine = true;
           timeline.timelineZoomed = false;
@@ -2185,19 +2191,19 @@ public class TimelinePanel extends JPanel
               new UndoableDragMarker(mNum, dragMarkerStartOffset, newOffset, this)));
           updateUndoMenu();
         }
-        frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+        frmTimeline.setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
        }
 
       // a marker drag began but never "happened"
       else if (timeline.isMarkerDragging()) {
         timeline.setMarkerDragging(false);
-        frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+        frmTimeline.setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
        }
 
       // they resized the timeline
       else if (resizingLine) {
         // re-blows the bubbles one last time
-        frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandOpen, new Point(8, 8), "Cursor"));
+        frmTimeline.setCursor(kit.createCustomCursor(imgHandOpen, new Point(8, 8), "Cursor"));
         timeline.freshZoom = true;
         doResize(e.getX() - timeline.getLineStart());
         resizingLine = false;
@@ -2260,7 +2266,7 @@ public class TimelinePanel extends JPanel
     }
     // if the user is dragging the resizer, resize the line
     else if (isLineResizing()) {
-      frmTimeline.setCursor(kit.createCustomCursor(UIUtilities.imgHandClosed, new Point(8, 8), "Cursor"));
+      frmTimeline.setCursor(kit.createCustomCursor(imgHandClosed, new Point(8, 8), "Cursor"));
       int newLength = e.getX() - timeline.getLineStart();
       if (newLength > 0) {
         resizeTimeline(newLength);

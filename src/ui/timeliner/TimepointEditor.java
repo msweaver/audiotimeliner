@@ -8,6 +8,7 @@ import javax.swing.event.*;
 import java.util.*;
 import util.logging.*;
 import ui.common.*;
+import resources.media.*;
 //import org.apache.log4j.Logger;
 
 /**
@@ -52,8 +53,10 @@ public class TimepointEditor extends JDialog {
   protected JPanel pnlOverlap = new JPanel();
 
   // icons
-  final  ImageIcon icoLeft = UIUtilities.icoLeftSmall;
-  final  ImageIcon icoRight = UIUtilities.icoRightSmall;
+  final ImageIcon icoLeft = new ImageIcon(getClass().getClassLoader().getResource("resources/media/moveleftSmall.gif"));
+  final ImageIcon icoRight = new ImageIcon(getClass().getClassLoader().getResource("resources/media/moverightSmall.gif"));
+  //final  ImageIcon icoLeft = UIUtilities.icoLeftSmall;
+  //final  ImageIcon icoRight = UIUtilities.icoRightSmall;
 
   // buttons
   protected JButton btnRight = new JButton();

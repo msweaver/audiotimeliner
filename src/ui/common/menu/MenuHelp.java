@@ -5,6 +5,7 @@ import java.awt.event.*;
 
 import util.logging.*;
 import ui.common.*;
+import resources.common.*;
 
 /**
  * The Help menu 
@@ -18,6 +19,7 @@ public class MenuHelp extends JMenu {
 
     java.awt.Font helpFont;
     protected UILogger uilogger;
+    ImageIcon icoTimeliner = new ImageIcon(getClass().getClassLoader().getResource("resources/common/timeliner.gif"));
 
     public MenuHelp() {
         menuiHelpAbout.addActionListener(new java.awt.event.ActionListener() {
@@ -49,7 +51,7 @@ public class MenuHelp extends JMenu {
           JOptionPane.showMessageDialog(this.getParent().getParent(), new Object[] {"Audio Timeliner" + "\n" +
                                              "Version 3.0" + "\n" +
                                              "Copyright 2022" + "\n" + "Brent Yorgason" + "\n" + "Brigham Young University"},
-                                             "About Audio Timeliner", JOptionPane.INFORMATION_MESSAGE, UIUtilities.icoTimeliner);
+                                             "About Audio Timeliner", JOptionPane.INFORMATION_MESSAGE, icoTimeliner);
         } catch (Exception except) {
             JOptionPane.showMessageDialog(this.getParent().getParent(),
                     "Unable to open about box -- possible version conflict.\n" + except,

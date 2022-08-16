@@ -7,7 +7,12 @@ import javax.swing.event.*;
 import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.InputStream;
 import java.io.StringWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 
 import com.borland.jbcl.layout.*;
 import java.awt.LayoutManager;
@@ -16,6 +21,7 @@ import ui.common.*;
 import util.logging.*;
 //import org.apache.log4j.Logger;
 import javax.swing.text.html.*;
+import resources.media.*;
 
 /**
  * Timeline Control Panel
@@ -86,11 +92,25 @@ public class TimelineControlPanel extends JPanel {
   protected ImageIcon sMute;
 
   // icons
-  final static ImageIcon icoEdit = UIUtilities.icoEdit;
-  final static ImageIcon icoAdd = UIUtilities.icoAdd;
-  final static ImageIcon icoAddMarker = UIUtilities.icoAddMarker;
-  final static ImageIcon icoBigger = UIUtilities.icoBigger;
-  final static ImageIcon icoSmaller = UIUtilities.icoSmaller;
+//  final static ImageIcon icoEdit = UIUtilities.icoEdit;
+//  final static ImageIcon icoAdd = UIUtilities.icoAdd;
+//  final static ImageIcon icoAddMarker = UIUtilities.icoAddMarker;
+//  final static ImageIcon icoBigger = UIUtilities.icoBigger;
+//  final static ImageIcon icoSmaller = UIUtilities.icoSmaller;
+  final ImageIcon icoEdit = new ImageIcon(getClass().getClassLoader().getResource("resources/media/editbubble.gif"));
+  final ImageIcon icoAdd = new ImageIcon(getClass().getClassLoader().getResource("resources/media/addtimepoint.gif"));
+  final ImageIcon icoAddMarker = new ImageIcon(getClass().getClassLoader().getResource("resources/media/addmarker.GIF"));
+  final ImageIcon icoBigger = new ImageIcon(getClass().getClassLoader().getResource("resources/media/bigger.gif"));
+  final ImageIcon icoSmaller = new ImageIcon(getClass().getClassLoader().getResource("resources/media/smaller.gif"));
+  final ImageIcon play = new ImageIcon(getClass().getClassLoader().getResource("resources/media/playPL.gif"));
+  final ImageIcon stop = new ImageIcon(getClass().getClassLoader().getResource("resources/media/stopPL.gif"));
+  final ImageIcon pause = new ImageIcon(getClass().getClassLoader().getResource("resources/media/pausePL.gif"));
+  final ImageIcon prev = new ImageIcon(getClass().getClassLoader().getResource("resources/media/prevPL.gif"));
+  final ImageIcon next = new ImageIcon(getClass().getClassLoader().getResource("resources/media/nextPL.gif"));
+  final ImageIcon ff = new ImageIcon(getClass().getClassLoader().getResource("resources/media/fastforwardPL.gif"));
+  final ImageIcon rw = new ImageIcon(getClass().getClassLoader().getResource("resources/media/rewindPL.gif"));
+  final ImageIcon speaker = new ImageIcon(getClass().getClassLoader().getResource("resources/media/speaker.gif"));
+  final ImageIcon mute = new ImageIcon(getClass().getClassLoader().getResource("resources/media/speaker-mute.gif"));
 
   // layout elements
   private JPanel pnlStatus = new JPanel();
@@ -201,32 +221,41 @@ public class TimelineControlPanel extends JPanel {
     }
 
     // button scaling
-	  Image playBtn = UIUtilities.icoPlay.getImage(); 
-	  Image scaledPlay = playBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoPlay.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoPlay.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  //Image playBtn = UIUtilities.icoPlay.getImage(); 
+      Image playBtn = play.getImage();
+	  Image scaledPlay = playBtn.getScaledInstance(UIUtilities.scalePixels(play.getIconHeight()), UIUtilities.scalePixels(play.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
 	  sPlay = new ImageIcon(scaledPlay);
-	  Image stopBtn = UIUtilities.icoStop.getImage(); 
-	  Image scaledStop = stopBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoStop.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoStop.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  //Image stopBtn = UIUtilities.icoStop.getImage(); 
+	  Image stopBtn = stop.getImage();
+	  Image scaledStop = stopBtn.getScaledInstance(UIUtilities.scalePixels(stop.getIconHeight()), UIUtilities.scalePixels(stop.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
 	  sStop = new ImageIcon(scaledStop);
-	  Image pauseBtn = UIUtilities.icoPause.getImage(); 
-	  Image scaledPause = pauseBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoPause.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoPause.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  //Image pauseBtn = UIUtilities.icoPause.getImage(); 
+	  Image pauseBtn = pause.getImage();
+	  Image scaledPause = pauseBtn.getScaledInstance(UIUtilities.scalePixels(pause.getIconHeight()), UIUtilities.scalePixels(pause.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
 	  sPause = new ImageIcon(scaledPause);
-	  Image prevBtn = UIUtilities.icoPrev.getImage(); 
-	  Image scaledPrev = prevBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoPrev.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoPrev.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  //Image prevBtn = UIUtilities.icoPrev.getImage(); 
+	  Image prevBtn = prev.getImage();
+	  Image scaledPrev = prevBtn.getScaledInstance(UIUtilities.scalePixels(prev.getIconHeight()), UIUtilities.scalePixels(prev.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
 	  sPrev = new ImageIcon(scaledPrev);
-	  Image nextBtn = UIUtilities.icoNext.getImage(); 
-	  Image scaledNext = nextBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoNext.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoNext.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  //Image nextBtn = UIUtilities.icoNext.getImage(); 
+	  Image nextBtn = next.getImage();
+	  Image scaledNext = nextBtn.getScaledInstance(UIUtilities.scalePixels(next.getIconHeight()), UIUtilities.scalePixels(next.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
 	  sNext = new ImageIcon(scaledNext);
-	  Image rwBtn = UIUtilities.icoRW.getImage(); 
-	  Image scaledRW = rwBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoRW.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoRW.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  //Image rwBtn = UIUtilities.icoRW.getImage(); 
+	  Image rwBtn = rw.getImage();
+	  Image scaledRW = rwBtn.getScaledInstance(UIUtilities.scalePixels(rw.getIconHeight()), UIUtilities.scalePixels(rw.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
 	  sRW = new ImageIcon(scaledRW);
-	  Image ffBtn = UIUtilities.icoFF.getImage(); 
-	  Image scaledFF = ffBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoFF.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoFF.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  //Image ffBtn = UIUtilities.icoFF.getImage(); 
+	  Image ffBtn = ff.getImage();
+	  Image scaledFF = ffBtn.getScaledInstance(UIUtilities.scalePixels(ff.getIconHeight()), UIUtilities.scalePixels(ff.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
 	  sFF = new ImageIcon(scaledFF);
-	  Image speakerBtn = UIUtilities.icoSpeaker.getImage(); 
-	  Image scaledSpeaker = speakerBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoSpeaker.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoSpeaker.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  //Image speakerBtn = UIUtilities.icoSpeaker.getImage(); 
+	  Image speakerBtn = speaker.getImage();
+	  Image scaledSpeaker = speakerBtn.getScaledInstance(UIUtilities.scalePixels(speaker.getIconHeight()), UIUtilities.scalePixels(speaker.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
 	  sSpeaker = new ImageIcon(scaledSpeaker);
-	  Image muteBtn = UIUtilities.icoSpeakerMute.getImage(); 
-	  Image scaledMute = muteBtn.getScaledInstance(UIUtilities.scalePixels(UIUtilities.icoSpeakerMute.getIconHeight()), UIUtilities.scalePixels(UIUtilities.icoSpeakerMute.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
+	  //Image muteBtn = UIUtilities.icoSpeakerMute.getImage(); 
+	  Image muteBtn = mute.getImage();
+	  Image scaledMute = muteBtn.getScaledInstance(UIUtilities.scalePixels(mute.getIconHeight()), UIUtilities.scalePixels(mute.getIconWidth()),  java.awt.Image.SCALE_SMOOTH);
 	  sMute= new ImageIcon(scaledMute);
 
 	  
@@ -1383,10 +1412,22 @@ public class TimelineControlPanel extends JPanel {
       String description = pnlTimeline.getTimeline().getDescription();
       if (description.length() > 0) {
         // create information icon and description
-        String imageString = UIUtilities.infoString;
-        int infoSize = UIUtilities.scalePixels(20);
-        //ImageIcon image = UIUtilities.icoInfoImage;
-        tpAnnotations.setText("<html><head></head><body>"
+      	String fileSeparator = File.separator;
+    	String input = "";
+      	if (System.getProperty("os.name").startsWith("Mac OS")) {
+          	 input = "resources" + fileSeparator + "media" + fileSeparator + "info.gif";
+    	} else {
+    		input = "resources/media/info.gif";
+    	}
+      	InputStream infofile = getClass().getClassLoader().getResourceAsStream(input);
+      	Path tempinfo = Files.createTempFile("TempInfo", ".gif");
+      	tempinfo.toFile().deleteOnExit();
+      	Files.copy(infofile, tempinfo, StandardCopyOption.REPLACE_EXISTING);
+      	File myFile = new File(tempinfo.toFile().getPath());
+        //int infoSize = UIUtilities.scalePixels(20);
+    	  int infoSize = 20;
+        String imageString = tempinfo.toFile().getPath();
+         tpAnnotations.setText("<html><head></head><body>"
                               + "<DIV STYLE='font-size : " + annotationFontSize + "pt; "
                               + "font-family : " + unicodeFont + "'>"
                               + "<img width = '" + infoSize + "' height = '" + infoSize + "' valign=top src = 'file:" + imageString + "'> &nbsp;"
@@ -1450,11 +1491,11 @@ public class TimelineControlPanel extends JPanel {
     }
 
     try {
-      //clearAnnotationPane();
+      clearAnnotationPane();
       //tpAnnotations.setEditorKit(hek);      //tpAnnotations.setEditorKit(sek);
       //tpAnnotations.setEditorKit(hek);
       //tpAnnotations.setContentType("text/plain");
-      //tpAnnotations.setVisible(false);
+      tpAnnotations.setVisible(false);
       doc = (StyledDocument)tpAnnotations.getDocument(); 
 
       if (doc!=null) {
@@ -1546,7 +1587,7 @@ public class TimelineControlPanel extends JPanel {
 	   	  }
       }
       
-     // tpAnnotations.setVisible(true);
+      tpAnnotations.setVisible(true);
       
     } catch (BadLocationException ble) {
       //System.err.println("Error displaying annotation");

@@ -16,8 +16,18 @@ import ui.timeliner.TimelineXMLAdapter;
 import util.AppEnv;
 import util.logging.LogUtil;
 import util.SwingDPI;
+import java.io.File;
+
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 
 import javax.swing.JOptionPane;
+import conf.client.*;
+import conf.*;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
 
 import org.apache.log4j.Logger;
 
@@ -64,7 +74,21 @@ public class Timeliner extends Application {
 
 	    // make sure log4j is initialized
 	    if (System.getProperty("log4j.configuration")==null) {
-	        PropertyConfigurator.configure(DEFAULT_LOG4J_CONF);
+	        String fileSeparator = File.separator;
+	        String input = "";
+        	if (System.getProperty("os.name").startsWith("Mac OS")) {
+        	 	 input = "conf" + fileSeparator + "client" + fileSeparator + "timeliner_console.lcf";
+        	} else {
+	   	    	 input = "conf/client/timeliner_console.lcf";
+        	}
+	    	InputStream logstream = getClass().getClassLoader().getResourceAsStream(input);
+	    	Path templog = Files.createTempFile("temp", ".lcf");
+	    	templog.toFile().deleteOnExit();
+	    	Files.copy(logstream, templog, StandardCopyOption.REPLACE_EXISTING);
+	    	File logfile = new File(templog.toFile().getPath());
+	    	String log = logfile.getPath();
+	    	//String logfile = getClass().getResource("/conf/client/timeliner_console.lcf").toString();
+	        PropertyConfigurator.configure(log); //DEFAULT_LOG4J_CONF); //logfile
 	    }
 	    LogUtil.beginSession(Integer.valueOf((int)(Math.random()*100))); // pick a random session number
 	    

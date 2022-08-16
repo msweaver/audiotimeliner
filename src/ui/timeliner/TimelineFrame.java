@@ -1,16 +1,22 @@
 package ui.timeliner;
 
 import javax.swing.*;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+
 import java.awt.*;
 import java.util.*;
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.nio.file.Files;
 import java.awt.event.*;
 
 import util.*;
 import util.logging.*;
 import ui.common.*;
 import java.beans.*;
-//import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
 
 //import javafx.scene.control.SplitPane;
 
@@ -34,7 +40,7 @@ public class TimelineFrame extends BasicWindow  {
   private TimelineMenuBar menubTimeline;
   JMenuItem menuiTimelineHelp = new JMenuItem();
   protected TimelineWizard wizard;
-  //private static Logger log = Logger.getLogger(TimelineControlPanel.class);
+  private static Logger log = Logger.getLogger(TimelineControlPanel.class);
 
   // variables
   private int height;
@@ -92,6 +98,7 @@ public class TimelineFrame extends BasicWindow  {
     // display frame
     addPanes();
     this.setVisible(true);
+
   }
 
   /**
@@ -266,6 +273,11 @@ public class TimelineFrame extends BasicWindow  {
     menubTimeline.setSaveEnabled(true);
     menubTimeline.setTimelineMenuEnabled(true);
     //this.setTitle(tLocalPlayer.filename.toString());
+    WindowManager.toFront(this);
+  }
+  
+  public void bringToFront() {
+	  WindowManager.toFront(this);
   }
 
   /**
@@ -538,7 +550,21 @@ public class TimelineFrame extends BasicWindow  {
                  "Timeline Help Page Initiated");
     if (Desktop.isDesktopSupported()) {
         try {
-            File myFile = new File(AppEnv.getAppDir()+ "resources/Audio Timeliner Help.pdf");
+        	String fileSeparator = File.separator;
+        	String input = "";
+        	if (System.getProperty("os.name").startsWith("Mac OS")) {
+        		input = "resources" + fileSeparator + "Audio Timeliner Help.pdf";
+        	} else {
+        		input = "resources/Audio Timeliner Help.pdf";
+        	}
+        	InputStream helpfile = getClass().getClassLoader().getResourceAsStream(input);
+        	
+        	Path temphelp = Files.createTempFile("Audio Timeliner Help", ".pdf");
+        	temphelp.toFile().deleteOnExit();
+        	Files.copy(helpfile,  temphelp, StandardCopyOption.REPLACE_EXISTING);
+        	File myFile = new File(temphelp.toFile().getPath());
+        	//log.debug(myFile.getPath());
+            //File myFile = new File(AppEnv.getAppDir()+ "resources/Audio Timeliner Help.pdf");
             Desktop.getDesktop().open(myFile);
         } catch (IOException ex) {
             // no application registered for PDFs

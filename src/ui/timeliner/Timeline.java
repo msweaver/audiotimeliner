@@ -15,6 +15,7 @@ import java.awt.geom.*;
 //import java.io.File;
 
 import ui.common.*;
+import resources.media.*;
 
 /**
  * Timeline class
@@ -54,9 +55,12 @@ public class Timeline extends JPanel {
   private static Logger log = Logger.getLogger(TimelineControlPanel.class);
 
   // description icon
-  protected Image imgDescription = UIUtilities.imgDescription;
-  protected Image imgDescriptionHover = UIUtilities.imgDescriptionHover;
-  protected Image imgDescriptionOutline = UIUtilities.imgDescriptionOutline;
+  final ImageIcon descr = new ImageIcon(getClass().getClassLoader().getResource("resources/media/info.gif"));
+  final ImageIcon hover = new ImageIcon(getClass().getClassLoader().getResource("resources/media/info_hover.gif"));
+  final ImageIcon outline = new ImageIcon(getClass().getClassLoader().getResource("resources/media/info_outline.gif"));
+  protected Image imgDescription = descr.getImage();
+  protected Image imgDescriptionHover = hover.getImage();
+  protected Image imgDescriptionOutline = outline.getImage();
   protected Rectangle descriptionRect = new Rectangle(0,0,0,0);
   protected int currDescriptionState = 0;
 

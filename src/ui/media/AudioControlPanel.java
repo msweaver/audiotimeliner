@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import ui.common.*;
+import resources.media.*;
 
 /**
  * A panel with the six basic playback controls built in.
@@ -44,7 +45,7 @@ public class AudioControlPanel extends JPanel {
         //btnPlay.setIcon(UIUtilities.icoPlay);
         btnStop.setMinimumSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
         btnStop.setPreferredSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
-        btnStop.setIcon(UIUtilities.icoStop);
+        //btnStop.setIcon(stop);//UIUtilities.icoStop);
         btnRW.setMinimumSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
         btnRW.setPreferredSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));
         btnFF.setMinimumSize(new Dimension(UIUtilities.scalePixels(22), UIUtilities.scalePixels(23)));

@@ -8,10 +8,17 @@ import javax.xml.transform.dom.*;
 import javax.xml.transform.stream.*;
 import java.util.*;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.awt.*;
 import javax.swing.*;
 import ui.common.*;
 import util.AppEnv;
+import resources.*;
+import data.*;
+import data.timeline.*;
 
 /**
  * TimelineXMLAdapter
@@ -22,11 +29,13 @@ public class TimelineXMLAdapter {
   DocumentBuilder builder = null;
 
   // files
-  final static String TIMELINE_XSL_FILENAME = AppEnv.getAppDir()+ "data/timeline/xml2html.xsl";
+//  String xsl = new String(getClass().getClassLoader().getSystemResourceAsStream("data/timeline/xml2html.xsl"));
+  final static String TIMELINE_XSL_FILENAME = "data/timeline/xml2html.xsl";
   java.io.File tempFile;
   java.io.File newPath;
   String selectedPath;
   String currOpenPath;
+  String fn = "";
   private static Logger log = Logger.getLogger(TimelineUtilities.class);
 
   // external
@@ -67,6 +76,7 @@ public class TimelineXMLAdapter {
     g2d = g;
     Document doc = builder.parse(new File(filename));
     this.currOpenPath = filename;
+    fn = new File(filename).getName();
     Timeline t = importTimeline(doc.getDocumentElement(), filename);
     if (t!= null && !filename.endsWith(".~~~")) {
       t.currFilename = filename;
@@ -87,12 +97,16 @@ public class TimelineXMLAdapter {
 
     Document doc = builder.parse(new File(filename));
     this.currOpenPath = filename;
+    fn = new File(filename).getName();
     Timeline t = importTimeline(doc.getDocumentElement(), filename);
     if (t != null && !isExcerpt && !filename.endsWith(".~~~")) {
       t.currFilename = filename;
     }
     else if (t != null) {
       t.getPanel().getMenuBar().menuiRevertToSaved.setEnabled(false);
+    }
+    if (isExcerpt) {
+    	t.getPanel().getFrame().bringToFront();
     }
   }
 
@@ -144,7 +158,21 @@ public class TimelineXMLAdapter {
     addTimelineAnnotation(doc, username);
     addGif(doc, gifName);
     TransformerFactory factory = TransformerFactory.newInstance();
-    Source xslSource = new StreamSource(TIMELINE_XSL_FILENAME);
+    //Source xslSource = new StreamSource(TIMELINE_XSL_FILENAME);
+    String fileSeparator = File.separator;
+	String input = "";
+	if (System.getProperty("os.name").startsWith("Mac OS")) {
+		 input = "data" + fileSeparator + "timeline" + fileSeparator + "xml2html.xsl";
+	} else {
+		 input = "data/timeline/xml2html.xsl";
+	}
+	InputStream xslstream = timeline.getPanel().getClass().getClassLoader().getResourceAsStream(input);
+	Path tempxsl = Files.createTempFile("temp", ".xsl");
+	tempxsl.toFile().deleteOnExit();
+	Files.copy(xslstream, tempxsl, StandardCopyOption.REPLACE_EXISTING);
+	File xslfile = new File(tempxsl.toFile().getPath());
+    //InputStream xslfile = getClass().getResourceAsStream("xml2html.xsl");
+    Source xslSource = new StreamSource(xslfile);
     Transformer trans = factory.newTransformer(xslSource);
     trans.setOutputProperty(OutputKeys.INDENT, "yes"); // turn on pretty-printing
     trans.setParameter("fontString", UIUtilities.fontHTML);
@@ -533,7 +561,8 @@ public class TimelineXMLAdapter {
         	File currFile = new File(currOpenPath);
         	//log.debug(currOpenPath);
         	//log.debug(currFile.getParent());
-        	String altPath = currFile.getParent() + "\\" + mediaFile.getName();
+        	String fileSeparator = File.separator;
+        	String altPath = currFile.getParent() + fileSeparator + mediaFile.getName();
         	File alternatePath = new File(altPath);
         	//log.debug(altPath); 
         	if (alternatePath.exists()) {
@@ -621,7 +650,7 @@ public class TimelineXMLAdapter {
     pnlTimeline.getFrame().getControlPanel().setShowMarkerTimes(showMarkerTimes);
 
     // set timeline frame title and pass the timeline to the timeline panel
-    pnlTimeline.getFrame().setTitle(timelineTitle);
+    pnlTimeline.getFrame().setTitle(timelineTitle); // + " (" + fn + ")");
     pnlTimeline.setTimeline(timeline);
 
     // initially show the timeline description

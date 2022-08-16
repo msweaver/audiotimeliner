@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import com.borland.jbcl.layout.*;
 import ui.common.*;
+import resources.media.*;
 
 /**
  * Timeline Resizer
@@ -28,7 +29,8 @@ public class TimelineResizer {
 
   // other variables
   protected JLabel lblResizer;
-  final static ImageIcon icoResizer = UIUtilities.icoResizer;
+  final ImageIcon icoResizer = new ImageIcon(getClass().getClassLoader().getResource("resources/media/resizer.gif"));
+  //final static ImageIcon icoResizer = UIUtilities.icoResizer;
 
   /**
    * constructor

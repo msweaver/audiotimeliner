@@ -15,6 +15,8 @@ import ui.media.*;
 import ui.common.*;
 import javax.swing.text.html.*;
 import java.io.*;
+import resources.media.*;
+import resources.annotation.*;
 
 //import org.apache.log4j.Logger;
 
@@ -36,6 +38,19 @@ public class TimelineBubbleEditor extends JDialog {
   //private Logger log = Logger.getLogger(TimelineBubbleEditor.class);
   protected UILogger uilogger;
   protected Style normalStyle;
+  ImageIcon icoBold = new ImageIcon(getClass().getClassLoader().getResource("resources/annotation/BOLD_1.GIF"));
+  ImageIcon icoUnderline = new ImageIcon(getClass().getClassLoader().getResource("resources/annotation/UNDERLINE_1.GIF"));
+  ImageIcon icoItalic = new ImageIcon(getClass().getClassLoader().getResource("resources/annotation/ITALIC_1.GIF"));
+  ImageIcon icoRed = new ImageIcon(getClass().getClassLoader().getResource("resources/annotation/lineColorRed.GIF"));
+  ImageIcon icoGreen = new ImageIcon(getClass().getClassLoader().getResource("resources/annotation/lineColorGreen2.gif"));
+  ImageIcon icoBlue = new ImageIcon(getClass().getClassLoader().getResource("resources/annotation/lineColorBlue.GIF"));
+  ImageIcon icoBlack = new ImageIcon(getClass().getClassLoader().getResource("resources/annotation/lineColorBlack.GIF"));
+  ImageIcon icoYellow = new ImageIcon(getClass().getClassLoader().getResource("resources/annotation/lineColorYellow.GIF"));
+  ImageIcon icoOrange = new ImageIcon(getClass().getClassLoader().getResource("resources/annotation/lineColorOrange.GIF"));
+  ImageIcon icoGray = new ImageIcon(getClass().getClassLoader().getResource("resources/annotation/lineColorGray.GIF"));
+  ImageIcon icoPink = new ImageIcon(getClass().getClassLoader().getResource("resources/annotation/lineColorPink.gif"));
+  ImageIcon icoCyan = new ImageIcon(getClass().getClassLoader().getResource("resources/annotation/lineColorCyan.gif"));
+  ImageIcon icoMagenta = new ImageIcon(getClass().getClassLoader().getResource("resources/annotation/lineColorMagenta.gif"));
 
   // vectors for storing temporary values
   protected Vector<Integer> editedBubbles = new Vector<>();
@@ -64,7 +79,6 @@ public class TimelineBubbleEditor extends JDialog {
   protected JLabel lblDown = new JLabel("Down");
   protected JLabel lblLeft = new JLabel("Left");
   protected JLabel lblRight = new JLabel("Right");
-  protected JLabel lblDivider = new JLabel(icoDivider);
 
   // text fields and panes
   protected JTextField fldBubbleLabel = new JTextField();
@@ -83,11 +97,17 @@ public class TimelineBubbleEditor extends JDialog {
 	int annotationFontSize = UIUtilities.convertFontSize(18);
 
   // icons
-  final static ImageIcon icoUp = UIUtilities.icoUpSmall;
-  final static ImageIcon icoDown = UIUtilities.icoDownSmall;
-  final static ImageIcon icoLeft = UIUtilities.icoLeftSmall;
-  final static ImageIcon icoRight = UIUtilities.icoRightSmall;
-  final static ImageIcon icoDivider = UIUtilities.icoMediaDivider;
+  //final static ImageIcon icoUp = UIUtilities.icoUpSmall;
+  //final static ImageIcon icoDown = UIUtilities.icoDownSmall;
+  //final static ImageIcon icoLeft = UIUtilities.icoLeftSmall;
+  //final static ImageIcon icoRight = UIUtilities.icoRightSmall;
+  //final static ImageIcon icoDivider = UIUtilities.icoMediaDivider;
+  final ImageIcon icoUp = new ImageIcon(getClass().getClassLoader().getResource("resources/media/moveupSmall.gif"));
+  final ImageIcon icoDown = new ImageIcon(getClass().getClassLoader().getResource("resources/media/movedownSmall.gif"));
+  final ImageIcon icoLeft = new ImageIcon(getClass().getClassLoader().getResource("resources/media/moveleftSmall.gif"));
+  final ImageIcon icoRight = new ImageIcon(getClass().getClassLoader().getResource("resources/media/moverightSmall.gif"));
+  final ImageIcon icoDivider = new ImageIcon(getClass().getClassLoader().getResource("resources/media/divider.gif"));
+  protected JLabel lblDivider = new JLabel(icoDivider);
 
   // check box
   protected JCheckBox chkLoop = new JCheckBox("Repeat", false);
@@ -638,17 +658,17 @@ public class TimelineBubbleEditor extends JDialog {
       Action action = new StyledEditorKit.BoldAction();
       action.putValue(Action.NAME, "Bold");
       menu.add(action);
-      menu.getItem(0).setIcon(UIUtilities.icoBold);
+      menu.getItem(0).setIcon(icoBold);
 
       action = new StyledEditorKit.ItalicAction();
       action.putValue(Action.NAME, "Italic");
       menu.add(action);
-      menu.getItem(1).setIcon(UIUtilities.icoItalic);
+      menu.getItem(1).setIcon(icoItalic);
 
       action = new StyledEditorKit.UnderlineAction();
       action.putValue(Action.NAME, "Underline");
       menu.add(action);
-      menu.getItem(2).setIcon(UIUtilities.icoUnderline);
+      menu.getItem(2).setIcon(icoUnderline);
 
       menu.addSeparator();
       
@@ -693,34 +713,34 @@ public class TimelineBubbleEditor extends JDialog {
       JMenu menu = new JMenu("Color");
 
       menu.add(new StyledEditorKit.ForegroundAction("Red", Color.red));
-      menu.getItem(0).setIcon(UIUtilities.icoRed);
+      menu.getItem(0).setIcon(icoRed);
       
       menu.add(new StyledEditorKit.ForegroundAction("Green", Color.green));
-      menu.getItem(1).setIcon(UIUtilities.icoGreen);
+      menu.getItem(1).setIcon(icoGreen);
       
       menu.add(new StyledEditorKit.ForegroundAction("Blue", Color.blue));
-      menu.getItem(2).setIcon(UIUtilities.icoBlue);
+      menu.getItem(2).setIcon(icoBlue);
       
       menu.add(new StyledEditorKit.ForegroundAction("Yellow", Color.yellow));
-      menu.getItem(3).setIcon(UIUtilities.icoYellow);
+      menu.getItem(3).setIcon(icoYellow);
 
        menu.add(new StyledEditorKit.ForegroundAction("Orange", Color.orange));
-       menu.getItem(4).setIcon(UIUtilities.icoOrange);
+       menu.getItem(4).setIcon(icoOrange);
 
        menu.add(new StyledEditorKit.ForegroundAction("Pink", Color.pink));
-       menu.getItem(5).setIcon(UIUtilities.icoPink);
+       menu.getItem(5).setIcon(icoPink);
 
        menu.add(new StyledEditorKit.ForegroundAction("Cyan", Color.cyan));
-       menu.getItem(6).setIcon(UIUtilities.icoCyan);
+       menu.getItem(6).setIcon(icoCyan);
 
        menu.add(new StyledEditorKit.ForegroundAction("Magenta", Color.magenta));
-       menu.getItem(7).setIcon(UIUtilities.icoMagenta);
+       menu.getItem(7).setIcon(icoMagenta);
 
        menu.add(new StyledEditorKit.ForegroundAction("Gray", Color.darkGray));
-       menu.getItem(8).setIcon(UIUtilities.icoGray);
+       menu.getItem(8).setIcon(icoGray);
 
      menu.add(new StyledEditorKit.ForegroundAction("Black", Color.black));
-       menu.getItem(9).setIcon(UIUtilities.icoBlack);
+       menu.getItem(9).setIcon(icoBlack);
 
       return menu;
   }

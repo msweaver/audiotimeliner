@@ -40,62 +40,62 @@ public class UIUtilities {
     static public final Font fontSansSerifMac = new Font("SansSerif", 0, convertFontSize(12));     //mac generic sans serif text
 
     //------------------------- ICONS -----------------------------//
-    final public static ImageIcon icoPlay = new ImageIcon(AppEnv.getAppDir()+ "resources/media/playPL.gif");
-    final public static ImageIcon icoPause = new ImageIcon(AppEnv.getAppDir()+ "resources/media/pausePL.gif");
-    final public static ImageIcon icoStop = new ImageIcon(AppEnv.getAppDir()+ "resources/media/stopPL.gif");
-    final public static ImageIcon icoPrev = new ImageIcon(AppEnv.getAppDir()+ "resources/media/prevPL.gif");
-    final public static ImageIcon icoNext = new ImageIcon(AppEnv.getAppDir()+"resources/media/nextPL.gif");
-    final public static ImageIcon icoRW = new ImageIcon(AppEnv.getAppDir()+"resources/media/rewindPL.gif");
-    final public static ImageIcon icoFF = new ImageIcon(AppEnv.getAppDir()+"resources/media/fastforwardPL.gif");
-    final public static ImageIcon icoSpeaker = new ImageIcon(AppEnv.getAppDir()+ "resources/media/speaker.gif");
-    final public static ImageIcon icoSpeakerMute = new ImageIcon(AppEnv.getAppDir()+ "resources/media/speaker-mute.gif");
+    //final public static ImageIcon icoPlay = new ImageIcon(AppEnv.getAppDir()+ "resources/media/playPL.gif");
+    //final public static ImageIcon icoPause = new ImageIcon(AppEnv.getAppDir()+ "resources/media/pausePL.gif");
+    //final public static ImageIcon icoStop = new ImageIcon(AppEnv.getAppDir()+ "resources/media/stopPL.gif");
+    //final public static ImageIcon icoPrev = new ImageIcon(AppEnv.getAppDir()+ "resources/media/prevPL.gif");
+    //final public static ImageIcon icoNext = new ImageIcon(AppEnv.getAppDir()+"resources/media/nextPL.gif");
+    //final public static ImageIcon icoRW = new ImageIcon(AppEnv.getAppDir()+"resources/media/rewindPL.gif");
+    //final public static ImageIcon icoFF = new ImageIcon(AppEnv.getAppDir()+"resources/media/fastforwardPL.gif");
+    //final public static ImageIcon icoSpeaker = new ImageIcon(AppEnv.getAppDir()+ "resources/media/speaker.gif");
+    //final public static ImageIcon icoSpeakerMute = new ImageIcon(AppEnv.getAppDir()+ "resources/media/speaker-mute.gif");
     // up & down arrow icons
-    final public static ImageIcon icoDivider = new ImageIcon(AppEnv.getAppDir()+"resources/admin/divider.gif");
-    final public static ImageIcon icoLogo = new ImageIcon(AppEnv.getAppDir()+"resources/common/logo-large.gif");
+    //final public static ImageIcon icoDivider = new ImageIcon(AppEnv.getAppDir()+"resources/admin/divider.gif");
+    //final public static ImageIcon icoLogo = new ImageIcon(AppEnv.getAppDir()+"resources/common/logo-large.gif");
     ///////////////////////WINDOW ICONS/////////////////////////
     final public static ImageIcon icoWindow = new ImageIcon(AppEnv.getAppDir()+"resources/common/v2generic.gif");
     final public static ImageIcon icoTimeliner = new ImageIcon(AppEnv.getAppDir()+"resources/common/timeliner.gif");
 
     // menu icons
-    final public static ImageIcon icoBold = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/BOLD_1.gif");
-    final public static ImageIcon icoItalic = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/ITALIC_1.gif");
-    final public static ImageIcon icoUnderline = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/UNDERLINE_1.gif");
-    final public static ImageIcon icoRed = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorRed.gif");
-    final public static ImageIcon icoGreen = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorGreen2.gif");
-    final public static ImageIcon icoBlue = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorBlue.gif");
-    final public static ImageIcon icoBlack = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorBlack.gif");
-    final public static ImageIcon icoYellow = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorYellow.gif");
-    final public static ImageIcon icoOrange = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorOrange.gif");
-    final public static ImageIcon icoGray = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorGray.gif");
-    final public static ImageIcon icoPink = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorPink.gif");
-    final public static ImageIcon icoCyan = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorCyan.gif");
-    final public static ImageIcon icoMagenta = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorMagenta.gif");
-    final public static Image imgOverlap = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+ "resources/media/over.gif");
+    //final public static ImageIcon icoBold = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/BOLD_1.gif");
+    //final public static ImageIcon icoItalic = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/ITALIC_1.gif");
+    //final public static ImageIcon icoUnderline = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/UNDERLINE_1.gif");
+    //final public static ImageIcon icoRed = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorRed.gif");
+    //final public static ImageIcon icoGreen = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorGreen2.gif");
+    //final public static ImageIcon icoBlue = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorBlue.gif");
+    //final public static ImageIcon icoBlack = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorBlack.gif");
+    //final public static ImageIcon icoYellow = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorYellow.gif");
+    //final public static ImageIcon icoOrange = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorOrange.gif");
+    //final public static ImageIcon icoGray = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorGray.gif");
+    //final public static ImageIcon icoPink = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorPink.gif");
+    //final public static ImageIcon icoCyan = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorCyan.gif");
+    //final public static ImageIcon icoMagenta = new ImageIcon(AppEnv.getAppDir()+ "resources/annotation/lineColorMagenta.gif");
+    //final public static Image imgOverlap = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+ "resources/media/over.gif");
 
     // timeliner icons
-    final public static ImageIcon icoLeftSmall = new ImageIcon(AppEnv.getAppDir()+"resources/media/moveleftSmall.gif");
-    final public static ImageIcon icoRightSmall = new ImageIcon(AppEnv.getAppDir()+"resources/media/moverightSmall.gif");
-    final public static ImageIcon icoUpSmall = new ImageIcon(AppEnv.getAppDir()+"resources/media/moveupSmall.gif");
-    final public static ImageIcon icoDownSmall = new ImageIcon(AppEnv.getAppDir()+"resources/media/movedownSmall.gif");
-    final public static ImageIcon icoMediaDivider = new ImageIcon(AppEnv.getAppDir()+"resources/media/divider.gif");
-    final public static ImageIcon icoEdit = new ImageIcon(AppEnv.getAppDir()+"resources/media/editbubble.gif");
-    final public static ImageIcon icoAdd = new ImageIcon(AppEnv.getAppDir()+"resources/media/addtimepoint.gif");
-    final public static ImageIcon icoAddMarker = new ImageIcon(AppEnv.getAppDir()+"resources/media/addmarker.gif");
-    final public static ImageIcon icoBigger = new ImageIcon(AppEnv.getAppDir()+"resources/media/bigger.gif");
-    final public static ImageIcon icoSmaller = new ImageIcon(AppEnv.getAppDir()+"resources/media/smaller.gif");
-    final public static ImageIcon icoInfoImage = new ImageIcon(AppEnv.getAppDir()+"resources/media/info.gif");
-    final public static ImageIcon icoResizer = new ImageIcon(AppEnv.getAppDir()+"resources/media/resizer.gif");
+    //final public static ImageIcon icoLeftSmall = new ImageIcon(AppEnv.getAppDir()+"resources/media/moveleftSmall.gif");
+    //final public static ImageIcon icoRightSmall = new ImageIcon(AppEnv.getAppDir()+"resources/media/moverightSmall.gif");
+    //final public static ImageIcon icoUpSmall = new ImageIcon(AppEnv.getAppDir()+"resources/media/moveupSmall.gif");
+    //final public static ImageIcon icoDownSmall = new ImageIcon(AppEnv.getAppDir()+"resources/media/movedownSmall.gif");
+    //final public static ImageIcon icoMediaDivider = new ImageIcon(AppEnv.getAppDir()+"resources/media/divider.gif");
+    //final public static ImageIcon icoEdit = new ImageIcon(AppEnv.getAppDir()+"resources/media/editbubble.gif");
+    //final public static ImageIcon icoAdd = new ImageIcon(AppEnv.getAppDir()+"resources/media/addtimepoint.gif");
+    //final public static ImageIcon icoAddMarker = new ImageIcon(AppEnv.getAppDir()+"resources/media/addmarker.gif");
+    //final public static ImageIcon icoBigger = new ImageIcon(AppEnv.getAppDir()+"resources/media/bigger.gif");
+    //final public static ImageIcon icoSmaller = new ImageIcon(AppEnv.getAppDir()+"resources/media/smaller.gif");
+    //final public static ImageIcon icoInfoImage = new ImageIcon(AppEnv.getAppDir()+"resources/media/info.gif");
+    //final public static ImageIcon icoResizer = new ImageIcon(AppEnv.getAppDir()+"resources/media/resizer.gif");
 
     final public static String infoString = AppEnv.getAppDir()+"resources/media/info.gif";
-    final public static Image imgDescription = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/info.gif");
-    final public static Image imgDescriptionHover = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/info_hover.gif");
-    final public static Image imgDescriptionOutline = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/info_outline.gif");
+    //final public static Image imgDescription = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/info.gif");
+    //final public static Image imgDescriptionHover = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/info_hover.gif");
+    //final public static Image imgDescriptionOutline = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/info_outline.gif");
 
     // timeline cursors
-    final public static Image imgMovePoint = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/movepoint.gif");
-    final public static Image imgHandPoint = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/handpoint.gif");
-    final public static Image imgHandOpen = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/handopen.gif");
-    final public static Image imgHandClosed = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/handclosed.gif");
+    //final public static Image imgMovePoint = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/movepoint.gif");
+    //final public static Image imgHandPoint = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/handpoint.gif");
+    //final public static Image imgHandOpen = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/handopen.gif");
+    //final public static Image imgHandClosed = Toolkit.getDefaultToolkit().getImage(AppEnv.getAppDir()+"resources/media/handclosed.gif");
 
     //the following string gets passed to panes that are rendering HTML
     static public final String fontHTML = "body { font-family : Arial Unicode MS, Lucida Sans Unicode, Lucida Grande; }";

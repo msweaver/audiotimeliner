@@ -18,6 +18,8 @@ public class VolumePanel extends JPanel {
     public JSlider slideVolume = new JSlider();
     VariationsWindowsSliderUI volumeSliderUI;
     VariationsMacSliderUI volumeSliderMacUI;
+    final ImageIcon speaker = new ImageIcon(getClass().getClassLoader().getResource("resources/media/speaker.gif"));
+    final ImageIcon mute = new ImageIcon(getClass().getClassLoader().getResource("resources/media/speaker-mute.gif"));
 
     public VolumePanel() {
         if (System.getProperty("os.name").startsWith("Mac OS")) {
@@ -47,7 +49,7 @@ public class VolumePanel extends JPanel {
         btnMute.setPreferredSize(new Dimension(22, 23));
         btnMute.setToolTipText("Mute");
         btnMute.setMargin(new Insets(0, 0, 0, 0));
-        btnMute.setIcon(UIUtilities.icoSpeaker);
+        btnMute.setIcon(speaker);
         btnMute.addFocusListener(new java.awt.event.FocusAdapter() {
                 public void focusGained(FocusEvent e) {
                     UIUtilities.doButtonBorderSwitch(e, btnMute, true);
