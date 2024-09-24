@@ -8,17 +8,15 @@
 	</classpathentry>
 	<classpathentry kind="src" path="conf"/>
 	<classpathentry kind="src" path="data"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="lib/log4j-1.2.3.jar"/>
-	<classpathentry kind="lib" path="lib/jbcl.jar"/>
-	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/jl1.0.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/javafx-sdk-18.0.2/lib/javafx.base.jar"/>
 	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/javafx-sdk-18.0.2/lib/javafx.graphics.jar"/>
 	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/javafx-sdk-18.0.2/lib/javafx.media.jar"/>
 	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/AudioTimelinerResources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/jbcl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/jl1.0.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/commons-io-2.17.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/byorg/Documents/GitHub/AudioTimeliner/lib/commons-lang-master.zip"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
